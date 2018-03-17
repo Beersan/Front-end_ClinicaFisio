@@ -9,6 +9,7 @@ import { ListPage } from '../pages/list/list';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { CadastrarEstagiarioPage } from '../pages/cadastrar-estagiario/cadastrar-estagiario';
+import { CadastrarEstagiarioProvider } from '../providers/cadastrar-estagiario/cadastrar-estagiario';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { CadastrarEstagiarioPage } from '../pages/cadastrar-estagiario/cadastrar
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    CadastrarEstagiarioProvider
   ]
 })
 export class AppModule {}
