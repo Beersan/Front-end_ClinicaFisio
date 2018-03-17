@@ -10,12 +10,16 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { PreCadastroPageModule } from '../pages/pre-cadastro/pre-cadastro.module';
 import { ReservarSalaPageModule } from '../pages/reservar-sala/reservar-sala.module';
+import { CadastrarEspecialidadePage } from '../pages/cadastrar-especialidade/cadastrar-especialidade';
+import { CadastrarEstagiarioPage } from '../pages/cadastrar-estagiario/cadastrar-estagiario';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    CadastrarEstagiarioPage,
+    CadastrarEspecialidadePage
   ],
   imports: [
     BrowserModule,
@@ -27,7 +31,9 @@ import { ReservarSalaPageModule } from '../pages/reservar-sala/reservar-sala.mod
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    CadastrarEstagiarioPage,
+    CadastrarEspecialidadePage
   ],
   providers: [
     StatusBar,
