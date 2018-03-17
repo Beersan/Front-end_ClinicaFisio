@@ -13,6 +13,10 @@ import { ReservarSalaPageModule } from '../pages/reservar-sala/reservar-sala.mod
 import { CadastrarEspecialidadePage } from '../pages/cadastrar-especialidade/cadastrar-especialidade';
 import { CadastrarEstagiarioPage } from '../pages/cadastrar-estagiario/cadastrar-estagiario';
 import { CadastrarProfessorPage } from '../pages/cadastrar-professor/cadastrar-professor';
+import { CadastrarGrupoPage } from '../pages/cadastrar-grupo/cadastrar-grupo';
+import { RelatarProblemasPage } from '../pages/relatar-problemas/relatar-problemas';
+import { SortearPacienteGrupoPage } from '../pages/sortear-paciente-grupo/sortear-paciente-grupo';
+import { CadastrarGrupoEstagiariosPage } from '../pages/cadastrar-grupo-estagiarios/cadastrar-grupo-estagiarios';
 
 @NgModule({
   declarations: [
@@ -21,7 +25,11 @@ import { CadastrarProfessorPage } from '../pages/cadastrar-professor/cadastrar-p
     ListPage,
     CadastrarEstagiarioPage,
     CadastrarEspecialidadePage,
-    CadastrarProfessorPage
+    CadastrarProfessorPage,
+    CadastrarGrupoPage,
+    RelatarProblemasPage,
+    SortearPacienteGrupoPage,
+    CadastrarGrupoEstagiariosPage
   ],
   imports: [
     BrowserModule,
@@ -36,7 +44,11 @@ import { CadastrarProfessorPage } from '../pages/cadastrar-professor/cadastrar-p
     ListPage,
     CadastrarEstagiarioPage,
     CadastrarEspecialidadePage,
-    CadastrarProfessorPage
+    CadastrarProfessorPage,
+    CadastrarGrupoPage,
+    RelatarProblemasPage,
+    SortearPacienteGrupoPage,
+    CadastrarGrupoEstagiariosPage
   ],
   providers: [
     StatusBar,

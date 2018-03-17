@@ -10,6 +10,10 @@ import { CadastrarEspecialidadePage } from '../pages/cadastrar-especialidade/cad
 import { PreCadastroPage } from '../pages/pre-cadastro/pre-cadastro';
 import { ReservarSalaPage } from '../pages/reservar-sala/reservar-sala';
 import { CadastrarProfessorPage } from '../pages/cadastrar-professor/cadastrar-professor';
+import { CadastrarGrupoPage } from '../pages/cadastrar-grupo/cadastrar-grupo';
+import { SortearPacienteGrupoPage } from '../pages/sortear-paciente-grupo/sortear-paciente-grupo';
+import { RelatarProblemasPage } from '../pages/relatar-problemas/relatar-problemas';
+import { CadastrarGrupoEstagiariosPage } from '../pages/cadastrar-grupo-estagiarios/cadastrar-grupo-estagiarios';
 
 @Component({
   templateUrl: 'app.html'
@@ -32,7 +36,12 @@ export class MyApp {
       { title: 'Cadastrar Especialidade', component: CadastrarEspecialidadePage},      
       { title: 'Cadastrar Professsor', component: CadastrarProfessorPage},            
       { title: 'Pré Cadastro', component: PreCadastroPage},
-      { title: 'Reservar Sala', component: ReservarSalaPage}
+      { title: 'Reservar Sala', component: ReservarSalaPage},
+      { title: 'Cadastrar Grupo', component: CadastrarGrupoPage},
+      { title: 'Sortear Paciente Grupo', component: SortearPacienteGrupoPage},
+      { title: 'Relatar Problemas', component: RelatarProblemasPage},
+      { title: 'Cadastrar Grupo Estagiários', component: CadastrarGrupoEstagiariosPage}     
+           
     ];
 
   }
