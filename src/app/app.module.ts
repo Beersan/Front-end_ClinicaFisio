@@ -12,6 +12,9 @@ import { PreCadastroPageModule } from '../pages/pre-cadastro/pre-cadastro.module
 import { ReservarSalaPageModule } from '../pages/reservar-sala/reservar-sala.module';
 import { CadastrarEspecialidadePage } from '../pages/cadastrar-especialidade/cadastrar-especialidade';
 import { CadastrarEstagiarioPage } from '../pages/cadastrar-estagiario/cadastrar-estagiario';
+import { CadastrarEstagiarioProvider } from '../providers/cadastrar-estagiario/cadastrar-estagiario';
+import { FinalizarPreCadastroPageModule } from '../pages/finalizar-pre-cadastro/finalizar-pre-cadastro.module';
+import { FinalizarPreCadastroPage } from '../pages/finalizar-pre-cadastro/finalizar-pre-cadastro';
 import { CadastrarProfessorPage } from '../pages/cadastrar-professor/cadastrar-professor';
 import { CadastrarGrupoPage } from '../pages/cadastrar-grupo/cadastrar-grupo';
 import { RelatarProblemasPage } from '../pages/relatar-problemas/relatar-problemas';
@@ -35,7 +38,8 @@ import { CadastrarGrupoEstagiariosPage } from '../pages/cadastrar-grupo-estagiar
     BrowserModule,
     IonicModule.forRoot(MyApp),
     PreCadastroPageModule,
-    ReservarSalaPageModule
+    ReservarSalaPageModule,
+    FinalizarPreCadastroPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -48,12 +52,15 @@ import { CadastrarGrupoEstagiariosPage } from '../pages/cadastrar-grupo-estagiar
     CadastrarGrupoPage,
     RelatarProblemasPage,
     SortearPacienteGrupoPage,
-    CadastrarGrupoEstagiariosPage
+    CadastrarGrupoEstagiariosPage,
+    FinalizarPreCadastroPage,
+    CadastrarProfessorPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    CadastrarEstagiarioProvider
   ]
 })
 export class AppModule {}
