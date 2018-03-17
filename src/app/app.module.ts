@@ -8,28 +8,26 @@ import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { CadastrarEstagiarioPage } from '../pages/cadastrar-estagiario/cadastrar-estagiario';
-import { CadastrarEspecialidadePage } from '../pages/cadastrar-especialidade/cadastrar-especialidade';
+import { PreCadastroPageModule } from '../pages/pre-cadastro/pre-cadastro.module';
+import { ReservarSalaPageModule } from '../pages/reservar-sala/reservar-sala.module';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage,
-    CadastrarEstagiarioPage,
-    CadastrarEspecialidadePage
+    ListPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    PreCadastroPageModule,
+    ReservarSalaPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage,
-    CadastrarEstagiarioPage,
-    CadastrarEspecialidadePage
+    ListPage
   ],
   providers: [
     StatusBar,

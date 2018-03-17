@@ -1,0 +1,115 @@
+<!--
+  Generated template for the PreCadastroPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Pré Cadastro</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-row>
+    <ion-item>
+      <ion-label color="primary" floating>Nome Completo</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+    <ion-col width-50>
+      <ion-item>
+        <ion-label color="primary" floating>Nº RG</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col width-50>
+      <ion-item>
+        <ion-label color="primary" floating>Nº CPF</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col width-50>
+      <ion-item>
+        <ion-label color="primary" floating>Data de Nascimento</ion-label>
+        <!--ion-input></ion-input-->
+        <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="myDate"></ion-datetime>
+      </ion-item>
+    </ion-col>
+    <ion-col width-50>
+      <ion-item class="rendaFamiliar">
+        <ion-label color="primary" floating>Renda Familiar</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col width-75>
+      <ion-item>
+        <ion-label color="primary" floating>Endereço</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col width-25>
+      <ion-item>
+        <ion-label color="primary" floating>Número</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col width-50>
+      <ion-item>
+        <ion-label color="primary" floating>Bairro</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col width-50>
+      <ion-item>
+        <ion-label color="primary" floating>Cidade</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col width-50>
+      <ion-item>
+        <ion-label color="primary" floating>Contato 1</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col width-50>
+      <ion-item>
+        <ion-label color="primary" floating>Contato 2</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col width-50>
+      <ion-item>
+        <ion-label color="primary" floating>Encaminhamento Médico</ion-label>
+        <ion-select [(ngModel)]="encaminhamento">
+          <ion-option value="s">Sim</ion-option>
+          <ion-option value="n">Não</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-col>
+    <ion-col width-50>
+      <ion-item>
+        <ion-label color="primary" floating>Área de Especialidade</ion-label>
+        <ion-select [(ngModel)]="especialidade">
+          <ion-option value="area1">Área 1</ion-option>
+          <ion-option value="area2">Área 2</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <button ion-button color="danger">Cancelar</button>
+  <button ion-button color="secondary">Confirmar</button>
+
+</ion-content>
