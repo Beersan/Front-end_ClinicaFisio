@@ -8,8 +8,11 @@ import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { CadastrarEstagiarioPage } from '../pages/cadastrar-estagiario/cadastrar-estagiario';
+import { PreCadastroPageModule } from '../pages/pre-cadastro/pre-cadastro.module';
+import { ReservarSalaPageModule } from '../pages/reservar-sala/reservar-sala.module';
 import { CadastrarEspecialidadePage } from '../pages/cadastrar-especialidade/cadastrar-especialidade';
+import { CadastrarEstagiarioPage } from '../pages/cadastrar-estagiario/cadastrar-estagiario';
+import { CadastrarProfessorPage } from '../pages/cadastrar-professor/cadastrar-professor';
 
 @NgModule({
   declarations: [
@@ -17,11 +20,14 @@ import { CadastrarEspecialidadePage } from '../pages/cadastrar-especialidade/cad
     HomePage,
     ListPage,
     CadastrarEstagiarioPage,
-    CadastrarEspecialidadePage
+    CadastrarEspecialidadePage,
+    CadastrarProfessorPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    PreCadastroPageModule,
+    ReservarSalaPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -29,7 +35,8 @@ import { CadastrarEspecialidadePage } from '../pages/cadastrar-especialidade/cad
     HomePage,
     ListPage,
     CadastrarEstagiarioPage,
-    CadastrarEspecialidadePage
+    CadastrarEspecialidadePage,
+    CadastrarProfessorPage
   ],
   providers: [
     StatusBar,
