@@ -12,6 +12,8 @@ import { PreCadastroPageModule } from '../pages/pre-cadastro/pre-cadastro.module
 import { ReservarSalaPageModule } from '../pages/reservar-sala/reservar-sala.module';
 import { CadastrarEspecialidadePage } from '../pages/cadastrar-especialidade/cadastrar-especialidade';
 import { CadastrarEstagiarioPage } from '../pages/cadastrar-estagiario/cadastrar-estagiario';
+import { FinalizarPreCadastroPageModule } from '../pages/finalizar-pre-cadastro/finalizar-pre-cadastro.module';
+import { FinalizarPreCadastroPage } from '../pages/finalizar-pre-cadastro/finalizar-pre-cadastro';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { CadastrarEstagiarioPage } from '../pages/cadastrar-estagiario/cadastrar
     BrowserModule,
     IonicModule.forRoot(MyApp),
     PreCadastroPageModule,
-    ReservarSalaPageModule
+    ReservarSalaPageModule,
+    FinalizarPreCadastroPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -33,7 +36,8 @@ import { CadastrarEstagiarioPage } from '../pages/cadastrar-estagiario/cadastrar
     HomePage,
     ListPage,
     CadastrarEstagiarioPage,
-    CadastrarEspecialidadePage
+    CadastrarEspecialidadePage,
+    FinalizarPreCadastroPage
   ],
   providers: [
     StatusBar,
