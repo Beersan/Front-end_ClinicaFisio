@@ -14,6 +14,7 @@ import { CadastrarEspecialidadePage } from '../pages/cadastrar-especialidade/cad
 import { CadastrarEstagiarioPage } from '../pages/cadastrar-estagiario/cadastrar-estagiario';
 import { FinalizarPreCadastroPageModule } from '../pages/finalizar-pre-cadastro/finalizar-pre-cadastro.module';
 import { FinalizarPreCadastroPage } from '../pages/finalizar-pre-cadastro/finalizar-pre-cadastro';
+import { CadastrarProfessorPage } from '../pages/cadastrar-professor/cadastrar-professor';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FinalizarPreCadastroPage } from '../pages/finalizar-pre-cadastro/finali
     HomePage,
     ListPage,
     CadastrarEstagiarioPage,
-    CadastrarEspecialidadePage
+    CadastrarEspecialidadePage,
+    CadastrarProfessorPage
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,8 @@ import { FinalizarPreCadastroPage } from '../pages/finalizar-pre-cadastro/finali
     ListPage,
     CadastrarEstagiarioPage,
     CadastrarEspecialidadePage,
-    FinalizarPreCadastroPage
+    FinalizarPreCadastroPage,
+    CadastrarProfessorPage
   ],
   providers: [
     StatusBar,

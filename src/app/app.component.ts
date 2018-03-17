@@ -10,6 +10,7 @@ import { CadastrarEspecialidadePage } from '../pages/cadastrar-especialidade/cad
 import { PreCadastroPage } from '../pages/pre-cadastro/pre-cadastro';
 import { ReservarSalaPage } from '../pages/reservar-sala/reservar-sala';
 import { FinalizarPreCadastroPage } from '../pages/finalizar-pre-cadastro/finalizar-pre-cadastro';
+import { CadastrarProfessorPage } from '../pages/cadastrar-professor/cadastrar-professor';
 
 @Component({
   templateUrl: 'app.html'
@@ -29,7 +30,8 @@ export class MyApp {
       { title: 'Home', component: HomePage },
       { title: 'List', component: ListPage },
       { title: 'Cadastrar Estagiário', component: CadastrarEstagiarioPage},
-      { title: 'Cadastrar Especialidade', component: CadastrarEspecialidadePage},
+      { title: 'Cadastrar Especialidade', component: CadastrarEspecialidadePage},      
+      { title: 'Cadastrar Professsor', component: CadastrarProfessorPage},            
       { title: 'Pré Cadastro', component: PreCadastroPage},
       { title: 'Reservar Sala', component: ReservarSalaPage},
       { title: 'Finalizar Pré Cadastro', component: FinalizarPreCadastroPage}  
