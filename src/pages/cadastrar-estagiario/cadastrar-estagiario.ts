@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CadastrarEstagiarioProvider} from './../../providers/cadastrar-estagiario/cadastrar-estagiario';
+import {NgForm} from '@angular/forms';
 
 /**
  * Generated class for the CadastrarEstagiarioPage page.
@@ -23,4 +24,9 @@ export class CadastrarEstagiarioPage {
     console.log('ionViewDidLoad CadastrarEstagiarioPage');
   }
 
+  onSubmit(form: NgForm){
+    //campos
+    
+    console.log("qualquer coisa");
+  }
 }
