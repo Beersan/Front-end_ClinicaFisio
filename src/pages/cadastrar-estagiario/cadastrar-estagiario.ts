@@ -37,7 +37,7 @@ export class CadastrarEstagiarioPage {
   cadastrarEstagiario(){
     //campos
     this.provider.create({
-        nomeEstagiario: this.nomeEstagiario,
+        nomeEstagiario: this.nomeEstagiario, 
         numeroMatricula: this.numeroMatricula,
         telefone: this.telefone,
         email: this.email

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Estagiario } from '../../models/model.cadastrar-estagiario';
 
 /*
   Generated class for the CadastrarEstagiarioProvider provider.
@@ -14,9 +15,9 @@ export class CadastrarEstagiarioProvider {
     console.log('Hello CadastrarEstagiarioProvider Provider');
   }
 
-  create(provider: CadastrarEstagiarioProvider) {
+  create(estagiario: Estagiario) {
     //console.log(this.nomeEstagiario + " " + this.numeroMatricula + " " + this.telefone + " " + this.email);
-    console.log(provider);
+    console.log(estagiario);
     //return this.itemsCollection.add(post);
   }
 
