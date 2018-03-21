@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CadastrarEstagiarioProvider} from './../../providers/cadastrar-estagiario/cadastrar-estagiario';
-import {NgForm} from '@angular/forms';
+import { NgForm, FormsModule } from '@angular/forms';
+import { Estagiario } from './../../models/model.cadastrar-estagiario';
 
 /**
  * Generated class for the CadastrarEstagiarioPage page.
@@ -17,16 +18,31 @@ import {NgForm} from '@angular/forms';
 })
 export class CadastrarEstagiarioPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, provider: CadastrarEstagiarioProvider) {
+  estagiario: Estagiario;
+  nomeEstagiario: string;
+  numeroMatricula: string;
+  telefone: string;
+  email: string;
+
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              private provider: CadastrarEstagiarioProvider) {
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CadastrarEstagiarioPage');
   }
 
-  onSubmit(form: NgForm){
+  cadastrarEstagiario(){
     //campos
-    
-    console.log("qualquer coisa");
+    this.provider.create({
+        nomeEstagiario: this.nomeEstagiario,
+        numeroMatricula: this.numeroMatricula,
+        telefone: this.telefone,
+        email: this.email
+
+    });
+    console.log(this.nomeEstagiario + " " + this.numeroMatricula + " " + this.telefone + " " + this.email);
   }
 }
