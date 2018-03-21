@@ -14,9 +14,9 @@ export class CadastrarEstagiarioProvider {
     console.log('Hello CadastrarEstagiarioProvider Provider');
   }
 
-  create(post: Post) {
+  create(provider: CadastrarEstagiarioProvider) {
     //console.log(this.nomeEstagiario + " " + this.numeroMatricula + " " + this.telefone + " " + this.email);
-    console.log(post);
+    console.log(provider);
     //return this.itemsCollection.add(post);
   }
 

@@ -43,6 +43,6 @@ export class CadastrarEstagiarioPage {
         email: this.email
 
     });
-    console.log(this.nomeEstagiario + " " + this.numeroMatricula + " " + this.telefone + " " + this.email);
+    //console.log(this.nomeEstagiario + " " + this.numeroMatricula + " " + this.telefone + " " + this.email);
   }
 }
