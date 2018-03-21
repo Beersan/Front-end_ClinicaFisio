@@ -19,21 +19,21 @@
         <ion-col>
           <ion-item>
               <ion-label floating>Nome Completo</ion-label>
-              <ion-input type="text" [(ngModel)]="nomeEstagiario"></ion-input>
+              <ion-input type="text" name="nomeEstagiario" [(ngModel)]="nomeEstagiario"></ion-input>
             </ion-item>
           </ion-col>
         </ion-row>
-        <!--ion-row>
+        <ion-row>
             <ion-col>
               <ion-item>
                   <ion-label floating>Matricula</ion-label>
-                  <ion-input type="text" [(ngModel)]="numeroMatricula"></ion-input>
+                  <ion-input type="text" name="numeroMatricula" [(ngModel)]="numeroMatricula"></ion-input>
               </ion-item>
             </ion-col>
           <ion-col>
               <ion-item>
                   <ion-label floating>Telefone</ion-label>
-                  <ion-input type="text" [(ngModel)]="telefone"></ion-input>
+                  <ion-input type="text" name="telefone" [(ngModel)]="telefone"></ion-input>
               </ion-item>
           </ion-col>
         </ion-row>
@@ -41,10 +41,10 @@
             <ion-col>
               <ion-item>
                   <ion-label floating>Email</ion-label>
-                  <ion-input type="text" [(ngModel)]="email"></ion-input>
+                  <ion-input type="text" name="email" [(ngModel)]="email"></ion-input>
               </ion-item>
             </ion-col>
-        </ion-row-->
+        </ion-row>
     </ion-grid>
     <button ion-button color="danger" justify-content: center>Cancelar</button>
     <button ion-button color="secondary" justify-content: center>Confirmar</button>
