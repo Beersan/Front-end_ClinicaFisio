@@ -4,6 +4,8 @@ import { CadastrarEstagiarioProvider} from './../../providers/cadastrar-estagiar
 import { NgForm, FormsModule } from '@angular/forms';
 import { Estagiario } from './../../models/model.cadastrar-estagiario';
 
+
+
 /**
  * Generated class for the CadastrarEstagiarioPage page.
  *
@@ -43,6 +45,10 @@ export class CadastrarEstagiarioPage {
         email: this.email
 
     });
+
+
     //console.log(this.nomeEstagiario + " " + this.numeroMatricula + " " + this.telefone + " " + this.email);
   }
+
+
 }
