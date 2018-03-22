@@ -23,6 +23,7 @@ import { CadastrarGrupoPage } from '../pages/cadastrar-grupo/cadastrar-grupo';
 import { RelatarProblemasPage } from '../pages/relatar-problemas/relatar-problemas';
 import { SortearPacienteGrupoPage } from '../pages/sortear-paciente-grupo/sortear-paciente-grupo';
 import { CadastrarGrupoEstagiariosPage } from '../pages/cadastrar-grupo-estagiarios/cadastrar-grupo-estagiarios';
+import { ListarEstagiarioPage } from '../pages/listar-estagiario/listar-estagiario';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { CadastrarGrupoEstagiariosPage } from '../pages/cadastrar-grupo-estagiar
     HomePage,
     ListPage,
     CadastrarEstagiarioPage,
+    ListarEstagiarioPage,
     CadastrarEspecialidadePage,
     CadastrarProfessorPage,
     CadastrarGrupoPage,
@@ -51,6 +53,7 @@ import { CadastrarGrupoEstagiariosPage } from '../pages/cadastrar-grupo-estagiar
     HomePage,
     ListPage,
     CadastrarEstagiarioPage,
+    ListarEstagiarioPage,
     CadastrarEspecialidadePage,
     CadastrarProfessorPage,
     CadastrarGrupoPage,
