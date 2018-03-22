@@ -17,10 +17,10 @@ export class CadastrarEstagiarioProvider {
   }
 
   create(estagiario: Estagiario) {
-    const data = JSON.stringify(estagiario);
+    //const data = JSON.stringify(estagiario);
     console.log(estagiario);
 
-    this.http.post('http://localhost:3000/estagiario', data).subscribe(response => {
+    this.http.post('http://localhost:3000/estagiario', estagiario).subscribe(response => {
       console.log('POST Response:', response);
     });
  
