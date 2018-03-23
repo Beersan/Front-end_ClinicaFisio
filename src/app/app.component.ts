@@ -16,6 +16,7 @@ import { CadastrarGrupoPage } from '../pages/cadastrar-grupo/cadastrar-grupo';
 import { SortearPacienteGrupoPage } from '../pages/sortear-paciente-grupo/sortear-paciente-grupo';
 import { RelatarProblemasPage } from '../pages/relatar-problemas/relatar-problemas';
 import { CadastrarGrupoEstagiariosPage } from '../pages/cadastrar-grupo-estagiarios/cadastrar-grupo-estagiarios';
+import { ListarEstagiarioPage } from '../pages/listar-estagiario/listar-estagiario';
 
 @Component({
   templateUrl: 'app.html'
@@ -35,6 +36,7 @@ export class MyApp {
       { title: 'Home', component: HomePage },
       { title: 'List', component: ListPage },
       { title: 'Cadastrar Estagiário', component: CadastrarEstagiarioPage},
+      { title: 'Listar Estagiário', component: ListarEstagiarioPage},    
       { title: 'Cadastrar Especialidade', component: CadastrarEspecialidadePage},
       { title: 'Cadastrar Professsor', component: CadastrarProfessorPage},
       { title: 'Pré Cadastro', component: PreCadastroPage},
@@ -42,7 +44,8 @@ export class MyApp {
       { title: 'Cadastrar Grupo', component: CadastrarGrupoPage},
       { title: 'Sortear Paciente Grupo', component: SortearPacienteGrupoPage},
       { title: 'Relatar Problemas', component: RelatarProblemasPage},
-      { title: 'Cadastrar Grupo Estagiários', component: CadastrarGrupoEstagiariosPage}     
+      { title: 'Cadastrar Grupo Estagiários', component: CadastrarGrupoEstagiariosPage}
+
            
     ];
 
