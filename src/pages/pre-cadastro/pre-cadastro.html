@@ -16,18 +16,18 @@
 <ion-content padding>
   <ion-row>
     <ion-item>
-      <ion-label color="primary" floating>Nome Completo</ion-label>
+      <ion-label color="primary" name="none" [(ngModel)]="nome" floating>Nome Completo</ion-label>
       <ion-input></ion-input>
     </ion-item>
     <ion-col width-50>
       <ion-item>
-        <ion-label color="primary" floating>Nº RG</ion-label>
+        <ion-label color="primary" name="documento" [(ngModel)]="documento" floating>Nº RG</ion-label>
         <ion-input></ion-input>
       </ion-item>
     </ion-col>
     <ion-col width-50>
       <ion-item>
-        <ion-label color="primary" floating>Nº CPF</ion-label>
+        <ion-label color="primary" name="CPF" [(ngModel)]="CPF" floating>Nº CPF</ion-label>
         <ion-input></ion-input>
       </ion-item>
     </ion-col>
@@ -37,12 +37,12 @@
       <ion-item>
         <ion-label color="primary" floating>Data de Nascimento</ion-label>
         <!--ion-input></ion-input-->
-        <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="myDate"></ion-datetime>
+        <ion-datetime displayFormat="DD/MM/YYYY" name="myDate" [(ngModel)]="myDate"></ion-datetime>
       </ion-item>
     </ion-col>
     <ion-col width-50>
       <ion-item class="rendaFamiliar">
-        <ion-label color="primary" floating>Renda Familiar</ion-label>
+        <ion-label color="primary" name="rendaFamiliar" [(ngModel)]="rendaFamiliar" floating>Renda Familiar</ion-label>
         <ion-input></ion-input>
       </ion-item>
     </ion-col>
@@ -50,13 +50,13 @@
   <ion-row>
     <ion-col width-75>
       <ion-item>
-        <ion-label color="primary" floating>Endereço</ion-label>
+        <ion-label color="primary" name="endereco" [(ngModel)]="endereco" floating>Endereço</ion-label>
         <ion-input></ion-input>
       </ion-item>
     </ion-col>
     <ion-col width-25>
       <ion-item>
-        <ion-label color="primary" floating>Número</ion-label>
+        <ion-label color="primary" name="numero" [(ngModel)]="numero" floating>Número</ion-label>
         <ion-input></ion-input>
       </ion-item>
     </ion-col>
@@ -64,27 +64,13 @@
   <ion-row>
     <ion-col width-50>
       <ion-item>
-        <ion-label color="primary" floating>Bairro</ion-label>
+        <ion-label color="primary" name="bairro" [(ngModel)]="bairro" floating>Bairro</ion-label>
         <ion-input></ion-input>
       </ion-item>
     </ion-col>
     <ion-col width-50>
       <ion-item>
-        <ion-label color="primary" floating>Cidade</ion-label>
-        <ion-input></ion-input>
-      </ion-item>
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col width-50>
-      <ion-item>
-        <ion-label color="primary" floating>Contato 1</ion-label>
-        <ion-input></ion-input>
-      </ion-item>
-    </ion-col>
-    <ion-col width-50>
-      <ion-item>
-        <ion-label color="primary" floating>Contato 2</ion-label>
+        <ion-label color="primary" name="cidade" [(ngModel)]="cidade" floating>Cidade</ion-label>
         <ion-input></ion-input>
       </ion-item>
     </ion-col>
@@ -92,7 +78,21 @@
   <ion-row>
     <ion-col width-50>
       <ion-item>
-        <ion-label color="primary" floating>Encaminhamento Médico</ion-label>
+        <ion-label color="primary" name="contatoUm" [(ngModel)]="contatoUm" floating>Contato 1</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col width-50>
+      <ion-item>
+        <ion-label color="primary" name="contatoDois" [(ngModel)]="contatoDois" floating>Contato 2</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col width-50>
+      <ion-item>
+        <ion-label color="primary" name="contatoDois" [(ngModel)]="contatoDois" floating>Encaminhamento Médico</ion-label>
         <ion-select [(ngModel)]="encaminhamento">
           <ion-option value="s">Sim</ion-option>
           <ion-option value="n">Não</ion-option>
