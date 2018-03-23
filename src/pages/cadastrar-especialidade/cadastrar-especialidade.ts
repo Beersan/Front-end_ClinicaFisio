@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { CadastrarEspecialidadeProvider} from './../../providers/cadastrar-especialidade/cadastrar-especialidade';
+import { NgForm, FormsModule } from '@angular/forms';
+import { Especialidade } from './../../models/model.cadastrar-especialidade';
 
 /**
  * Generated class for the CadastrarEspecialidadePage page.
@@ -15,11 +18,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class CadastrarEspecialidadePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  especialidade: Especialidade;
+  descricaoEspecialidade: string;
+
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public provider: CadastrarEspecialidadeProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CadastrarEspecialidadePage');
   }
 
+  CadastrarEspecialidade(){
+    //campos
+    this.provider.create({
+        descricaoEspecialidade: this.descricaoEspecialidade
+    });
+    console.log(this.descricaoEspecialidade);
+  }
 }
