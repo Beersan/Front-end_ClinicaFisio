@@ -31,11 +31,21 @@ export class CadastrarEspecialidadePage {
     console.log('ionViewDidLoad CadastrarEspecialidadePage');
   }
 
-  CadastrarEspecialidade(){
+  cadastrarEspecialidade(){
     //campos
     this.provider.create({
         descricaoEspecialidade: this.descricaoEspecialidade
     });
     //console.log(this.descricaoEspecialidade);
+    //this.showAlert();
   }
+
+  /*showAlert() {
+    let alert = this.alertCtrl.create({
+      title: 'Sucesso!',
+      subTitle: 'Especialidade cadastrada'
+    });
+    alert.present();
+    this.navCtrl.pop();
+  }*/
 }
