@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Especialidade } from '../../models/model.cadastrar-especialidade';
+import { Especialidade } from '../../models/model.especialidade';
 import { Http } from '@angular/http';
 
 /*
