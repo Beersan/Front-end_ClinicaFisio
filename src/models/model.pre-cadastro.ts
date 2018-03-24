@@ -1,6 +1,6 @@
 export interface PreCadastro {
-    nome: String,
-    documento: String,
+    nomePaciente: String
+    registroGeral: String,
     CPF: String,
     dataNascimento: Date,
     rendaFamiliar: DoubleRange,
@@ -9,7 +9,8 @@ export interface PreCadastro {
     bairro: String,
     cidade: String,
     telefoneUm: String,
-    telefoneDois: String,
-    encaminhamento: File,
-    especialidade: String
+    telefoneDois: String
+    // ,
+    // encaminhamento: File,
+    // especialidade: String
 }

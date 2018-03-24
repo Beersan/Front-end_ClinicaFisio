@@ -13,7 +13,7 @@ export class PreCadastroProvider {
   create(preCadastro: PreCadastro) {
     console.log(preCadastro);
 
-    // this.http.post('http://localhost:3000/estagiario', preCadastro).subscribe(response => {
+    // this.http.post('http://localhost:3000/preCadastro', preCadastro).subscribe(response => {
     //   console.log('POST Response:', response);
     // });
  
