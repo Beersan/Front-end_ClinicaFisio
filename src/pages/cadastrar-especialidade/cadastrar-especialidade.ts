@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CadastrarEspecialidadeProvider} from './../../providers/cadastrar-especialidade/cadastrar-especialidade';
 import { NgForm, FormsModule } from '@angular/forms';
-import { Especialidade } from './../../models/model.cadastrar-especialidade';
+import { Especialidade } from '../../models/model.especialidade';
 
 /**
  * Generated class for the CadastrarEspecialidadePage page.
