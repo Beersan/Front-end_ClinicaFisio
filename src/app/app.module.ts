@@ -12,7 +12,7 @@ import { PreCadastroPageModule } from '../pages/pre-cadastro/pre-cadastro.module
 import { ReservarSalaPageModule } from '../pages/reservar-sala/reservar-sala.module';
 import { CadastrarEspecialidadePage } from '../pages/cadastrar-especialidade/cadastrar-especialidade';
 import { CadastrarEstagiarioPage } from '../pages/cadastrar-estagiario/cadastrar-estagiario';
-import { CadastrarEstagiarioProvider } from '../providers/cadastrar-estagiario/cadastrar-estagiario';
+import { CadastrarEstagiarioProvider } from '../providers/estagiario/estagiario';
 import { FinalizarPreCadastroPageModule } from '../pages/finalizar-pre-cadastro/finalizar-pre-cadastro.module';
 import { FinalizarPreCadastroPage } from '../pages/finalizar-pre-cadastro/finalizar-pre-cadastro';
 import { CadastrarProfessorPage } from '../pages/cadastrar-professor/cadastrar-professor';
