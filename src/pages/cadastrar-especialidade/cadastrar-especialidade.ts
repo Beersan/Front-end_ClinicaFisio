@@ -36,6 +36,6 @@ export class CadastrarEspecialidadePage {
     this.provider.create({
         descricaoEspecialidade: this.descricaoEspecialidade
     });
-    console.log(this.descricaoEspecialidade);
+    //console.log(this.descricaoEspecialidade);
   }
 }
