@@ -9,8 +9,7 @@ export interface PreCadastro {
     bairro: String,
     cidade: String,
     telefoneUm: String,
-    telefoneDois: String
-    // ,
-    // encaminhamento: File,
+    telefoneDois: String,
+    encaminhamento: String
     // especialidade: String
 }

@@ -1,9 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-import { HttpClient } from '@angular/common/http';
-import { HttpClientModule } from '@angular/common/http';
-
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -23,8 +20,6 @@ import { CadastrarGrupoPage } from '../pages/cadastrar-grupo/cadastrar-grupo';
 import { RelatarProblemasPage } from '../pages/relatar-problemas/relatar-problemas';
 import { SortearPacienteGrupoPage } from '../pages/sortear-paciente-grupo/sortear-paciente-grupo';
 import { CadastrarGrupoEstagiariosPage } from '../pages/cadastrar-grupo-estagiarios/cadastrar-grupo-estagiarios';
-import { ListarEstagiarioPage } from '../pages/listar-estagiario/listar-estagiario';
-import { CadastrarEspecialidadeProvider } from '../providers/cadastrar-especialidade/cadastrar-especialidade';
 
 @NgModule({
   declarations: [
@@ -32,7 +27,6 @@ import { CadastrarEspecialidadeProvider } from '../providers/cadastrar-especiali
     HomePage,
     ListPage,
     CadastrarEstagiarioPage,
-    ListarEstagiarioPage,
     CadastrarEspecialidadePage,
     CadastrarProfessorPage,
     CadastrarGrupoPage,
@@ -45,8 +39,8 @@ import { CadastrarEspecialidadeProvider } from '../providers/cadastrar-especiali
     IonicModule.forRoot(MyApp),
     PreCadastroPageModule,
     ReservarSalaPageModule,
-    FinalizarPreCadastroPageModule,
-    HttpClientModule
+    FinalizarPreCadastroPageModule
+    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -54,7 +48,6 @@ import { CadastrarEspecialidadeProvider } from '../providers/cadastrar-especiali
     HomePage,
     ListPage,
     CadastrarEstagiarioPage,
-    ListarEstagiarioPage,
     CadastrarEspecialidadePage,
     CadastrarProfessorPage,
     CadastrarGrupoPage,
@@ -68,8 +61,7 @@ import { CadastrarEspecialidadeProvider } from '../providers/cadastrar-especiali
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    CadastrarEstagiarioProvider,
-    CadastrarEspecialidadeProvider
+    CadastrarEstagiarioProvider
   ]
 })
 export class AppModule {}

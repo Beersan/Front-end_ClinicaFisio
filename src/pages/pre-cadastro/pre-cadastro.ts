@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { PreCadastroProvider} from './../../providers/pre-cadastro/pre-cadastro';
+//import { PreCadastroProvider} from './../../providers/pre-cadastro/pre-cadastro';
 import { NgForm, FormsModule } from '@angular/forms';
 import { PreCadastro } from '../../models/model.pre-cadastro';
 
@@ -28,14 +28,14 @@ export class PreCadastroPage {
   cidade: String;
   telefoneUm: String;
   telefoneDois: String;
-  encaminhamento: File;
+  encaminhamento: String; //faio
   especialidade: String;
-  preCadastro: PreCadastro;
+  // preCadastro: PreCadastro;
 
   constructor(
     public navCtrl: NavController,
-    public navParams: NavParams,
-    private provider: PreCadastroProvider
+    public navParams: NavParams
+    //**private provider: PreCadastroProvider*/
   ) {}
 
   ionViewDidLoad() {
@@ -43,20 +43,20 @@ export class PreCadastroPage {
   }
 
   incluirPreCadastro(){
-    this.provider.create({
-      nomePaciente: this.nomePaciente,
-      registroGeral: this.registroGeral,
-      CPF:this.CPF,
-      dataNascimento: this.dataNascimento,
-      rendaFamiliar: this.rendaFamiliar,
-      endereco: this.endereco,
-      numero: this.numero,
-      bairro: this.bairro,
-      cidade: this.cidade,
-      telefoneUm: this.telefoneUm,
-      telefoneDois: this.telefoneDois
-      //encaminhamento: File,
-      //especialidade: String
-    });
-  }
+  //   this.provider.create({
+  //     nomePaciente: this.nomePaciente,
+  //     registroGeral: this.registroGeral,
+  //     CPF:this.CPF,
+  //     dataNascimento: this.dataNascimento,
+  //     rendaFamiliar: this.rendaFamiliar,
+  //     endereco: this.endereco,
+  //     numero: this.numero,
+  //     bairro: this.bairro,
+  //     cidade: this.cidade,
+  //     telefoneUm: this.telefoneUm,
+  //     telefoneDois: this.telefoneDois
+  //     //encaminhamento: File,
+  //     //especialidade: String
+  //   });
+   }
 }
