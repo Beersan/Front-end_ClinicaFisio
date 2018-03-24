@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { CadastrarEstagiarioProvider} from './../../providers/cadastrar-estagiario/cadastrar-estagiario';
+import { CadastrarEstagiarioProvider} from './../../providers/estagiario/estagiario';
 import { NgForm, FormsModule } from '@angular/forms';
 import { Estagiario } from './../../models/model.cadastrar-estagiario';
+import { AlertController } from 'ionic-angular';
 
 
 
@@ -28,7 +29,8 @@ export class CadastrarEstagiarioPage {
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              private provider: CadastrarEstagiarioProvider) {
+              private provider: CadastrarEstagiarioProvider,
+              public alertCtrl: AlertController) {
 
   }
 
@@ -43,12 +45,16 @@ export class CadastrarEstagiarioPage {
         numeroMatricula: this.numeroMatricula,
         telefone: this.telefone,
         email: this.email
-
     });
-
-
-    //console.log(this.nomeEstagiario + " " + this.numeroMatricula + " " + this.telefone + " " + this.email);
+    this.showAlert();
   }
 
-
+  showAlert() {
+    let alert = this.alertCtrl.create({
+      title: 'Sucesso!',
+      subTitle: 'Estagiário cadastrado'      
+    });
+    alert.present();
+    this.navCtrl.pop();    
+  } 
 }

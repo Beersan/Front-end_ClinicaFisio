@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { CadastrarEstagiarioPage } from '../cadastrar-estagiario/cadastrar-estagiario';
+import { CadastrarEstagiarioProvider } from '../../providers/estagiario/estagiario';
 
 /**
  * Generated class for the ListarEstagiarioPage page.
@@ -15,11 +17,20 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ListarEstagiarioPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private provider: CadastrarEstagiarioProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ListarEstagiarioPage');
+    this.listarEstagiario();
   }
-
+  incluir(){
+    this.navCtrl.push(CadastrarEstagiarioPage, {
+      rootNavCtrl: this.navCtrl
+    });
+  }
+  
+  listarEstagiario(){
+    console.log('Teste listarEstagiario');
+    this.provider.retornarEstagiario();
+  }
 }
