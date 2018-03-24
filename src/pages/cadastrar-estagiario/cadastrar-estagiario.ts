@@ -5,8 +5,6 @@ import { NgForm, FormsModule } from '@angular/forms';
 import { Estagiario } from './../../models/model.cadastrar-estagiario';
 import { AlertController } from 'ionic-angular';
 
-
-
 /**
  * Generated class for the CadastrarEstagiarioPage page.
  *
@@ -45,16 +43,16 @@ export class CadastrarEstagiarioPage {
         numeroMatricula: this.numeroMatricula,
         telefone: this.telefone,
         email: this.email
-    });
+    });    
     this.showAlert();
   }
 
   showAlert() {
     let alert = this.alertCtrl.create({
       title: 'Sucesso!',
-      subTitle: 'Estagi√°rio cadastrado'      
+      subTitle: 'Estagi·rio cadastrado'      
     });
     alert.present();
-    this.navCtrl.pop();    
-  } 
+    this.navCtrl.pop();
+  }
 }

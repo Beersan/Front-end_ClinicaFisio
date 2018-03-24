@@ -17,12 +17,16 @@ import { CadastrarEstagiarioProvider } from '../../providers/estagiario/estagiar
 })
 export class ListarEstagiarioPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private provider: CadastrarEstagiarioProvider) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    private provider: CadastrarEstagiarioProvider) {
   }
 
   ionViewDidLoad() {
     this.listarEstagiario();
   }
+  
   incluir(){
     this.navCtrl.push(CadastrarEstagiarioPage, {
       rootNavCtrl: this.navCtrl
