@@ -10,7 +10,7 @@ import { CadastrarEstagiarioProvider } from '../../providers/estagiario/estagiar
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+//@IonicPage()
 @Component({
   selector: 'page-listar-estagiario',
   templateUrl: 'listar-estagiario.html',

@@ -50,7 +50,7 @@ export class CadastrarEstagiarioPage {
   showAlert() {
     let alert = this.alertCtrl.create({
       title: 'Sucesso!',
-      subTitle: 'Estagiário cadastrado'      
+      subTitle: 'Estagiario cadastrado'      
     });
     alert.present();
     this.navCtrl.pop();

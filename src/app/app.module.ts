@@ -20,6 +20,9 @@ import { CadastrarGrupoPage } from '../pages/cadastrar-grupo/cadastrar-grupo';
 import { RelatarProblemasPage } from '../pages/relatar-problemas/relatar-problemas';
 import { SortearPacienteGrupoPage } from '../pages/sortear-paciente-grupo/sortear-paciente-grupo';
 import { CadastrarGrupoEstagiariosPage } from '../pages/cadastrar-grupo-estagiarios/cadastrar-grupo-estagiarios';
+import { ListarEstagiarioPage } from '../pages/listar-estagiario/listar-estagiario';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -32,14 +35,16 @@ import { CadastrarGrupoEstagiariosPage } from '../pages/cadastrar-grupo-estagiar
     CadastrarGrupoPage,
     RelatarProblemasPage,
     SortearPacienteGrupoPage,
-    CadastrarGrupoEstagiariosPage
+    CadastrarGrupoEstagiariosPage,
+    ListarEstagiarioPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     PreCadastroPageModule,
     ReservarSalaPageModule,
-    FinalizarPreCadastroPageModule
+    FinalizarPreCadastroPageModule,
+    HttpClientModule
     
   ],
   bootstrap: [IonicApp],
@@ -55,7 +60,7 @@ import { CadastrarGrupoEstagiariosPage } from '../pages/cadastrar-grupo-estagiar
     SortearPacienteGrupoPage,
     CadastrarGrupoEstagiariosPage,
     FinalizarPreCadastroPage,
-    CadastrarProfessorPage
+    ListarEstagiarioPage
   ],
   providers: [
     StatusBar,

@@ -18,10 +18,10 @@ export class CadastrarEspecialidadeProvider {
 
   create(especialidade: Especialidade) {
     //const data = JSON.stringify(especialidade);
-    console.log(especialidade);
+    //console.log(especialidade);
 
-    this.http.post('http://localhost:3000/especialidade', especialidade).subscribe(response => {
-      console.log('POST Response:', response);
+    this.http.post('http://localhost:3000/especialidade/cadastrar', especialidade).subscribe(response => {
+      //console.log(especialidade);
     });
 
     /*this.http.get('http://localhost:8100/cadastrarEspecialidade' + this.name).subscribe(response => {
