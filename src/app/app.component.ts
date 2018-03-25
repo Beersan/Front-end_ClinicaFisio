@@ -44,7 +44,8 @@ export class MyApp {
       { title: 'Cadastrar Grupo', component: CadastrarGrupoPage},
       { title: 'Sortear Paciente Grupo', component: SortearPacienteGrupoPage},
       { title: 'Relatar Problemas', component: RelatarProblemasPage},
-      { title: 'Cadastrar Grupo Estagiários', component: CadastrarGrupoEstagiariosPage}
+      { title: 'Cadastrar Grupo Estagiários', component: CadastrarGrupoEstagiariosPage},
+      { title: 'Finalizar Pré Cadastro', component: FinalizarPreCadastroPage}
 
            
     ];

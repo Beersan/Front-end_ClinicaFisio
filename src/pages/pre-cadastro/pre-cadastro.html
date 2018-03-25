@@ -82,13 +82,13 @@
     <ion-col width-50>
       <ion-item>
         <ion-label color="primary" name="telefoneUm" floating>Telefone 1</ion-label>
-        <ion-input></ion-input>
+        <ion-input type="text" name="telefoneUm" [brmasker]="{mask:'(00)00000-0000', len:14}"></ion-input> >
       </ion-item>
     </ion-col>
     <ion-col width-50>
       <ion-item>
         <ion-label color="primary" name="telefoneDois" floating>Telefone 2</ion-label>
-        <ion-input></ion-input>
+        <ion-input type="text" name="telefoneDois" [brmasker]="{mask:'(00)00000-0000', len:14}"></ion-input> >
       </ion-item>
     </ion-col>
   </ion-row>
@@ -102,7 +102,7 @@
         </ion-select>
       </ion-item>
     </ion-col>
-    <!-- <ion-col width-50>
+    <ion-col width-50>
       <ion-item>
         <ion-label color="primary" floating>Área de Especialidade</ion-label>
         <ion-select name= "especialidade" [(ngModel)]="especialidade">
@@ -110,7 +110,7 @@
           <ion-option value="area2">Área 2</ion-option>
         </ion-select>
       </ion-item>
-    </ion-col> -->
+    </ion-col>
   </ion-row>
   <button ion-button color="danger">Cancelar</button>
   <button ion-button color="secondary">Confirmar</button>

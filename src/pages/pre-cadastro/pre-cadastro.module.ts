@@ -3,6 +3,7 @@ import { IonicPageModule } from 'ionic-angular';
 import { PreCadastroPage } from './pre-cadastro';
 import { BrMaskerModule } from 'brmasker-ionic-3';
 
+
 @NgModule({
   declarations: [
     PreCadastroPage,
