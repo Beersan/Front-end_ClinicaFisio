@@ -11,6 +11,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { PreCadastroPageModule } from '../pages/pre-cadastro/pre-cadastro.module';
 import { ReservarSalaPageModule } from '../pages/reservar-sala/reservar-sala.module';
 import { CadastrarEspecialidadePage } from '../pages/cadastrar-especialidade/cadastrar-especialidade';
+import { CadastrarEspecialidadeProvider } from '../providers/especialidade/especialidade';
 import { CadastrarEstagiarioPage } from '../pages/cadastrar-estagiario/cadastrar-estagiario';
 import { CadastrarEstagiarioProvider } from '../providers/estagiario/estagiario';
 import { FinalizarPreCadastroPageModule } from '../pages/finalizar-pre-cadastro/finalizar-pre-cadastro.module';
@@ -22,6 +23,7 @@ import { SortearPacienteGrupoPage } from '../pages/sortear-paciente-grupo/sortea
 import { CadastrarGrupoEstagiariosPage } from '../pages/cadastrar-grupo-estagiarios/cadastrar-grupo-estagiarios';
 import { ListarEstagiarioPage } from '../pages/listar-estagiario/listar-estagiario';
 import { HttpClientModule } from '@angular/common/http';
+
 
 
 @NgModule({
@@ -45,7 +47,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReservarSalaPageModule,
     FinalizarPreCadastroPageModule,
     HttpClientModule
-    
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -66,7 +68,8 @@ import { HttpClientModule } from '@angular/common/http';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    CadastrarEstagiarioProvider
+    CadastrarEstagiarioProvider,
+    CadastrarEspecialidadeProvider
   ]
 })
 export class AppModule {}
