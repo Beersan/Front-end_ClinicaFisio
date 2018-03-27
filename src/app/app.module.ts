@@ -22,6 +22,7 @@ import { SortearPacienteGrupoPage } from '../pages/sortear-paciente-grupo/sortea
 import { CadastrarGrupoEstagiariosPage } from '../pages/cadastrar-grupo-estagiarios/cadastrar-grupo-estagiarios';
 import { ListarEstagiarioPage } from '../pages/listar-estagiario/listar-estagiario';
 import { HttpClientModule } from '@angular/common/http';
+import { BrMaskerModule } from 'brmasker-ionic-3';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { HttpClientModule } from '@angular/common/http';
     PreCadastroPageModule,
     ReservarSalaPageModule,
     FinalizarPreCadastroPageModule,
-    HttpClientModule
+    HttpClientModule,
+    BrMaskerModule
     
   ],
   bootstrap: [IonicApp],
