@@ -1,7 +1,13 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Especialidade } from '../../models/model.especialidade';
+import { Injectable, Component, ViewChild } from '@angular/core';
+import { Especialidade } from '../../models/model.cadastrar-especialidade';
 import { Http } from '@angular/http';
+import { AlertController } from 'ionic-angular';
+import { Nav, Platform } from 'ionic-angular';
+import { HttpClientModule } from '@angular/common/http'; import { HttpModule } from '@angular/http'
+
+
+import { HomePage } from '../../pages/home/home';
 
 /*
   Generated class for the CadastrarEspecialidadeProvider provider.
