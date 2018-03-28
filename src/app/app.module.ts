@@ -24,6 +24,7 @@ import { CadastrarGrupoEstagiariosPage } from '../pages/cadastrar-grupo-estagiar
 import { ListarEstagiarioPage } from '../pages/listar-estagiario/listar-estagiario';
 import { HttpClientModule } from '@angular/common/http';
 import { BrMaskerModule } from 'brmasker-ionic-3';
+import { ProblemaProvider } from '../providers/problema/problema';
 
 
 
@@ -71,7 +72,8 @@ import { BrMaskerModule } from 'brmasker-ionic-3';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     CadastrarEstagiarioProvider,
-    CadastrarEspecialidadeProvider
+    CadastrarEspecialidadeProvider,
+    ProblemaProvider
   ]
 })
 export class AppModule {}
