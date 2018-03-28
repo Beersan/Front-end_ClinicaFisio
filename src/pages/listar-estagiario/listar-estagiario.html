@@ -13,7 +13,7 @@
     <ion-title>Listar Estágiario</ion-title>
   </ion-navbar>
 
-</ion-header>
+</ion-header>m
 
 
 <ion-content padding>
@@ -27,9 +27,6 @@
     <ion-grid>
         <ion-row>
           <ion-col>
-              <ion-icon ios="ios-checkbox" md="md-checkbox"></ion-icon>
-          </ion-col>
-          <ion-col>
             Nome
           </ion-col>
           <ion-col>
@@ -39,11 +36,34 @@
             Telefone
           </ion-col>
           <ion-col>
+            Email
+          </ion-col>
+          <ion-col>
               <ion-icon ios="ios-create" md="md-create"></ion-icon>
           </ion-col>
           <ion-col>
               <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
           </ion-col>
         </ion-row>
-      </ion-grid>
+        <ion-row *ngFor="let job of estagiarios">
+            <ion-col >
+                <h2>{{job.nomeestagiario}}</h2>
+            </ion-col>
+            <ion-col>
+                <h2>{{job.matriculaestagiario}}</h2>
+            </ion-col>
+            <ion-col>
+                <h2>{{job.telefoneestagiario}}</h2>
+            </ion-col>
+            <ion-col>
+                <h2>{{job.emailestagiario}}</h2>
+            </ion-col>
+            <ion-col>
+                <ion-icon ios="ios-create" md="md-create"></ion-icon>
+            </ion-col>
+            <ion-col>
+                <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>

@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CadastrarEstagiarioPage } from '../cadastrar-estagiario/cadastrar-estagiario';
 import { CadastrarEstagiarioProvider } from '../../providers/estagiario/estagiario';
+import { Estagiario } from './../../models/model.cadastrar-estagiario';
+
+
 
 /**
  * Generated class for the ListarEstagiarioPage page.
@@ -16,6 +19,9 @@ import { CadastrarEstagiarioProvider } from '../../providers/estagiario/estagiar
   templateUrl: 'listar-estagiario.html',
 })
 export class ListarEstagiarioPage {
+
+  estagiarios: any;
+  
 
   constructor(
     public navCtrl: NavController, 
@@ -35,6 +41,13 @@ export class ListarEstagiarioPage {
   
   listarEstagiario(){
     console.log('Teste listarEstagiario');
-    this.provider.retornarEstagiario();
+    this.provider.retornarEstagiario().then(
+      data => {
+        this.estagiarios = data;
+        console.log(data);
+      }
+    )
+    .catch(error => alert(error));
+
   }
 }
