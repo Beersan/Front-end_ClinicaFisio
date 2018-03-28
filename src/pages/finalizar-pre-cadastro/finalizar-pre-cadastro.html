@@ -20,12 +20,12 @@
   <ion-row>
     <ion-item>
       <ion-label color="primary" floating>Nome Completo</ion-label>
-      <ion-input></ion-input>
+      <ion-input name="nomePaciente" [(ngModel)]="nomePaciente" type="text"></ion-input>
     </ion-item>
     <ion-col width-50>
       <ion-item>
         <ion-label color="primary" floating>Nº RG</ion-label>
-        <ion-input></ion-input>
+        <ion-input name="registroGeral" [(ngModel)]="registroGeral" type="text"></ion-input>
       </ion-item>
     </ion-col>
     <ion-col width-50>
@@ -45,7 +45,7 @@
     <ion-col width-50>
       <ion-item class="rendaFamiliar">
         <ion-label color="primary" name="rendaFamiliar" floating>Renda Familiar</ion-label>
-        <ion-input></ion-input>
+        <ion-input name="rendaFamiliar" [(ngModel)]="rendaFamiliar" type="text"></ion-input>
       </ion-item>
     </ion-col>
   </ion-row>
@@ -53,13 +53,13 @@
     <ion-col width-75>
       <ion-item>
         <ion-label color="primary" name="endereco" floating>Endereço</ion-label>
-        <ion-input></ion-input>
+        <ion-input name="endereco" [(ngModel)]="endereco" type="text"></ion-input>
       </ion-item>
     </ion-col>
     <ion-col width-25>
       <ion-item>
         <ion-label color="primary" name="numero" floating>Número</ion-label>
-        <ion-input></ion-input>
+        <ion-input name="numero" [(ngModel)]="numero" type="text"></ion-input>
       </ion-item>
     </ion-col>
   </ion-row>
@@ -67,13 +67,13 @@
     <ion-col width-50>
       <ion-item>
         <ion-label color="primary" name="bairro" floating>Bairro</ion-label>
-        <ion-input></ion-input>
+        <ion-input name="bairro" [(ngModel)]="bairro" type="text"></ion-input>
       </ion-item>
     </ion-col>
     <ion-col width-50>
       <ion-item>
         <ion-label color="primary" name="cidade" floating>Cidade</ion-label>
-        <ion-input></ion-input>
+        <ion-input name="cidade" [(ngModel)]="cidade" type="text"></ion-input>
       </ion-item>
     </ion-col>
   </ion-row>
