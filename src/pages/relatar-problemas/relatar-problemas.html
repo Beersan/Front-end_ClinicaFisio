@@ -17,10 +17,12 @@
 
 
 <ion-content padding>
+  <form (ngSubmit)="relatarProblema()" #f="ngForm">
     <ion-item>
         <ion-label color="primary" floating>Descrição Detalhada</ion-label>
-        <ion-input type="text"></ion-input>
-    </ion-item>  
+        <ion-input name="descricaoProblema" [(ngModel)]="descricaoProblema" type="text"></ion-input>
+    </ion-item>
     <button ion-button color="danger" menuToggle="left">Cancelar</button>
-    <button ion-button color="secondary">Confirmar</button>      
+    <button ion-button color="secondary">Confirmar</button>
+  </form>
 </ion-content>

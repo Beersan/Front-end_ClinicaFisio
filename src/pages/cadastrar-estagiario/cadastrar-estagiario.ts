@@ -4,6 +4,7 @@ import { CadastrarEstagiarioProvider} from './../../providers/estagiario/estagia
 import { NgForm, FormsModule } from '@angular/forms';
 import { Estagiario } from './../../models/model.cadastrar-estagiario';
 import { AlertController } from 'ionic-angular';
+import { HttpClient } from '@angular/common/http';
 
 /**
  * Generated class for the CadastrarEstagiarioPage page.
@@ -25,9 +26,11 @@ export class CadastrarEstagiarioPage {
   telefone: string;
   email: string;
 
+
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private provider: CadastrarEstagiarioProvider,
+              private http: HttpClient,
               public alertCtrl: AlertController) {
 
   }
@@ -47,6 +50,7 @@ export class CadastrarEstagiarioPage {
     this.showAlert();
   }
 
+  
   showAlert() {
     let alert = this.alertCtrl.create({
       title: 'Sucesso!',

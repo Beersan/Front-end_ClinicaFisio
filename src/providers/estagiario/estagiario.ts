@@ -4,7 +4,8 @@ import { Estagiario } from '../../models/model.cadastrar-estagiario';
 import { Http } from '@angular/http';
 import { AlertController } from 'ionic-angular';
 import { Nav, Platform } from 'ionic-angular';
-
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/toPromise';
 
 import { HomePage } from '../../pages/home/home';
 
@@ -18,6 +19,13 @@ import { HomePage } from '../../pages/home/home';
 @Injectable()
 export class CadastrarEstagiarioProvider {
 
+  emailestagiario: any;
+  telefoneestagiario: any;
+  matriculaestagiario: any;
+  nomeestagiario: any;
+  push(arg0: any): any {
+    throw new Error("Method not implemented.");
+  }
   @ViewChild(Nav) nav: Nav;
   constructor(private http: HttpClient, public alertCtrl: AlertController) {
     
@@ -31,9 +39,10 @@ export class CadastrarEstagiarioProvider {
   }
 
   retornarEstagiario(){
-    return this.http.get('http://localhost:3000/estagiario/listar').subscribe(response => {
+    /*return this.http.get('http://localhost:3000/estagiario/listar').subscribe(response => {
       console.log('GET Response:', response);
-    });
-
+    });*/
+    
+    return this.http.get('http://localhost:3000/estagiario/listar').toPromise();
   }
 }
