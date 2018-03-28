@@ -1,3 +1,3 @@
-export interface relatarProblemas{
-    descricaoProblemas: string,
+export interface RelatarProblemas{
+    descricaoProblema: string
 }

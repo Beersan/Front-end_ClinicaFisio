@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { RelatarProblemasProvider} from './../../providers/problema/problema';
+import { NgForm, FormsModule } from '@angular/forms';
+import { RelatarProblemas } from './../../models/model.relatar-problemas';
+import { AlertController } from 'ionic-angular';
 
 /**
  * Generated class for the RelatarProblemasPage page.
@@ -15,11 +19,34 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class RelatarProblemasPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  problema: RelatarProblemas;
+  descricaoProblema: string;
+
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public provider: RelatarProblemasProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RelatarProblemasPage');
   }
 
+  relatarProblema(){
+    //campos
+    this.provider.create({
+        descricaoProblema: this.descricaoProblema
+    });
+    //console.log(this.descricaoEspecialidade);
+    //this.showAlert();
+  }
+
+  /*showAlert() {
+    let alert = this.alertCtrl.create({
+      title: 'Sucesso!',
+      subTitle: 'Especialidade cadastrada'
+    });
+    alert.present();
+    this.navCtrl.pop();
+  }*/
 }
