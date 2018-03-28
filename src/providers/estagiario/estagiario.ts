@@ -33,6 +33,8 @@ export class CadastrarEstagiarioProvider {
 
   create(estagiario: Estagiario) {
     
+    //return this.http.post('http://localhost:3000/estagiario/cadastrar', estagiario).toPromise();
+
     return this.http.post('http://localhost:3000/estagiario/cadastrar', estagiario).subscribe(response => {
     });
 

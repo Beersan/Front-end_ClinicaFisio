@@ -5,6 +5,7 @@ import { NgForm, FormsModule } from '@angular/forms';
 import { Estagiario } from './../../models/model.cadastrar-estagiario';
 import { AlertController } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
+import { ListarEstagiarioPage } from '../listar-estagiario/listar-estagiario';
 
 /**
  * Generated class for the CadastrarEstagiarioPage page.

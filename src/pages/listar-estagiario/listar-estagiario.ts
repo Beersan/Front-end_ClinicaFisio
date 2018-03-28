@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CadastrarEstagiarioPage } from '../cadastrar-estagiario/cadastrar-estagiario';
 import { CadastrarEstagiarioProvider } from '../../providers/estagiario/estagiario';
 import { Estagiario } from './../../models/model.cadastrar-estagiario';
+import { updateDate } from 'ionic-angular/util/datetime-util';
 
 
 

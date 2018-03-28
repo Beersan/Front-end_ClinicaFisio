@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CadastrarEspecialidadeProvider} from './../../providers/especialidade/especialidade';
 import { NgForm, FormsModule } from '@angular/forms';
-import { Especialidade } from './../../models/model.cadastrar-especialidade';
 import { AlertController } from 'ionic-angular';
+import { Especialidade } from '../../models/model.cadastrar-especialidade';
 
 /**
  * Generated class for the CadastrarEspecialidadePage page.
@@ -19,6 +19,7 @@ import { AlertController } from 'ionic-angular';
 })
 export class CadastrarEspecialidadePage {
 
+  alertCtrl: any;
   especialidade: Especialidade;
   descricaoEspecialidade: string;
 
@@ -38,15 +39,15 @@ export class CadastrarEspecialidadePage {
         descricaoEspecialidade: this.descricaoEspecialidade
     });
     //console.log(this.descricaoEspecialidade);
-    //this.showAlert();
+    this.showAlert();
   }
 
-  /*showAlert() {
+  showAlert() {
     let alert = this.alertCtrl.create({
       title: 'Sucesso!',
       subTitle: 'Especialidade cadastrada'
     });
     alert.present();
     this.navCtrl.pop();
-  }*/
+  }
 }
