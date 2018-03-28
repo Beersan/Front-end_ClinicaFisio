@@ -36,7 +36,7 @@
         <ion-col>
           <ion-item>
             <ion-label color="primary" floating>Telefone</ion-label>
-            <ion-input type="text" name="telefone" [brmasker]="{mask:'(00)00000-0000', len:14}"></ion-input> >
+            <ion-input type="text" name="telefone" [(ngModel)]="telefone" [brmasker]="{mask:'(00)00000-0000', len:14}"></ion-input> >
           </ion-item>
         </ion-col>
       </ion-row>
