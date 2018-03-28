@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, Component, ViewChild } from '@angular/core';
-import { RelatarProblemas } from '../../models/model.relatar-problemas';
+import { RelatarProblema } from '../../models/model.relatar-problema';
 import { Http } from '@angular/http';
 import { AlertController } from 'ionic-angular';
 import { Nav, Platform } from 'ionic-angular';
@@ -16,13 +16,13 @@ import { HomePage } from '../../pages/home/home';
   and Angular DI.
 */
 @Injectable()
-export class ProblemaProvider {
+export class RelatarProblemaProvider {
 
   constructor(public http: HttpClient) {
     console.log('Hello ProblemaProvider Provider');
   }
 
-  create(problema: RelatarProblemas {
+  create(problema: RelatarProblema) {
     //const data = JSON.stringify(especialidade);
     //console.log(especialidade);
 

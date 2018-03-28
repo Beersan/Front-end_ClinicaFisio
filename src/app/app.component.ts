@@ -14,7 +14,7 @@ import { FinalizarPreCadastroPage } from '../pages/finalizar-pre-cadastro/finali
 import { CadastrarProfessorPage } from '../pages/cadastrar-professor/cadastrar-professor';
 import { CadastrarGrupoPage } from '../pages/cadastrar-grupo/cadastrar-grupo';
 import { SortearPacienteGrupoPage } from '../pages/sortear-paciente-grupo/sortear-paciente-grupo';
-import { RelatarProblemasPage } from '../pages/relatar-problemas/relatar-problemas';
+import { RelatarProblemaPage } from '../pages/relatar-problema/relatar-problema';
 import { CadastrarGrupoEstagiariosPage } from '../pages/cadastrar-grupo-estagiarios/cadastrar-grupo-estagiarios';
 import { ListarEstagiarioPage } from '../pages/listar-estagiario/listar-estagiario';
 
@@ -36,18 +36,18 @@ export class MyApp {
       { title: 'Home', component: HomePage },
       { title: 'List', component: ListPage },
       { title: 'Cadastrar Estagiário', component: CadastrarEstagiarioPage},
-      { title: 'Listar Estagiário', component: ListarEstagiarioPage},    
+      { title: 'Listar Estagiário', component: ListarEstagiarioPage},
       { title: 'Cadastrar Especialidade', component: CadastrarEspecialidadePage},
       { title: 'Cadastrar Professsor', component: CadastrarProfessorPage},
       { title: 'Pré Cadastro', component: PreCadastroPage},
       { title: 'Reservar Sala', component: ReservarSalaPage},
       { title: 'Cadastrar Grupo', component: CadastrarGrupoPage},
       { title: 'Sortear Paciente Grupo', component: SortearPacienteGrupoPage},
-      { title: 'Relatar Problemas', component: RelatarProblemasPage},
+      { title: 'Relatar Problema', component: RelatarProblemaPage},
       { title: 'Cadastrar Grupo Estagiários', component: CadastrarGrupoEstagiariosPage},
       { title: 'Finalizar Pré Cadastro', component: FinalizarPreCadastroPage}
 
-           
+
     ];
 
   }
@@ -69,5 +69,5 @@ export class MyApp {
       rootNavCtrl: this.nav
     });
   }
-  
+
 }

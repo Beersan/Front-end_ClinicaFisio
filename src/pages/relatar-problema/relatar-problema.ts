@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { RelatarProblemasProvider} from './../../providers/problema/problema';
+import { RelatarProblemaProvider} from './../../providers/problema/problema';
 import { NgForm, FormsModule } from '@angular/forms';
-import { RelatarProblemas } from './../../models/model.relatar-problemas';
+import { RelatarProblema } from './../../models/model.relatar-problema';
 import { AlertController } from 'ionic-angular';
 
 /**
- * Generated class for the RelatarProblemasPage page.
+ * Generated class for the RelatarProblemaPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -14,22 +14,22 @@ import { AlertController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-relatar-problemas',
-  templateUrl: 'relatar-problemas.html',
+  selector: 'page-relatar-problema',
+  templateUrl: 'relatar-problema.html',
 })
-export class RelatarProblemasPage {
+export class RelatarProblemaPage {
 
-  problema: RelatarProblemas;
+  problema: RelatarProblema;
   descricaoProblema: string;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public provider: RelatarProblemasProvider) {
+    public provider: RelatarProblemaProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad RelatarProblemasPage');
+    console.log('ionViewDidLoad RelatarProblemaPage');
   }
 
   relatarProblema(){

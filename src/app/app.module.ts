@@ -18,13 +18,13 @@ import { FinalizarPreCadastroPageModule } from '../pages/finalizar-pre-cadastro/
 import { FinalizarPreCadastroPage } from '../pages/finalizar-pre-cadastro/finalizar-pre-cadastro';
 import { CadastrarProfessorPage } from '../pages/cadastrar-professor/cadastrar-professor';
 import { CadastrarGrupoPage } from '../pages/cadastrar-grupo/cadastrar-grupo';
-import { RelatarProblemasPage } from '../pages/relatar-problemas/relatar-problemas';
+import { RelatarProblemaPage } from '../pages/relatar-problema/relatar-problema';
 import { SortearPacienteGrupoPage } from '../pages/sortear-paciente-grupo/sortear-paciente-grupo';
 import { CadastrarGrupoEstagiariosPage } from '../pages/cadastrar-grupo-estagiarios/cadastrar-grupo-estagiarios';
 import { ListarEstagiarioPage } from '../pages/listar-estagiario/listar-estagiario';
 import { HttpClientModule } from '@angular/common/http';
 import { BrMaskerModule } from 'brmasker-ionic-3';
-import { ProblemaProvider } from '../providers/problema/problema';
+import { RelatarProblemaProvider } from '../providers/problema/problema';
 
 
 
@@ -37,7 +37,7 @@ import { ProblemaProvider } from '../providers/problema/problema';
     CadastrarEspecialidadePage,
     CadastrarProfessorPage,
     CadastrarGrupoPage,
-    RelatarProblemasPage,
+    RelatarProblemaPage,
     SortearPacienteGrupoPage,
     CadastrarGrupoEstagiariosPage,
     ListarEstagiarioPage
@@ -49,7 +49,7 @@ import { ProblemaProvider } from '../providers/problema/problema';
     ReservarSalaPageModule,
     FinalizarPreCadastroPageModule,
     HttpClientModule,
-    BrMaskerModule 
+    BrMaskerModule
 
   ],
   bootstrap: [IonicApp],
@@ -61,7 +61,7 @@ import { ProblemaProvider } from '../providers/problema/problema';
     CadastrarEspecialidadePage,
     CadastrarProfessorPage,
     CadastrarGrupoPage,
-    RelatarProblemasPage,
+    RelatarProblemaPage,
     SortearPacienteGrupoPage,
     CadastrarGrupoEstagiariosPage,
     FinalizarPreCadastroPage,
@@ -73,7 +73,7 @@ import { ProblemaProvider } from '../providers/problema/problema';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     CadastrarEstagiarioProvider,
     CadastrarEspecialidadeProvider,
-    ProblemaProvider
+    RelatarProblemaProvider
   ]
 })
 export class AppModule {}
