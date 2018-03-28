@@ -12,6 +12,6 @@ import { BrMaskerModule } from 'brmasker-ionic-3';
     IonicPageModule.forChild(PreCadastroPage),
     BrMaskerModule
   ],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class PreCadastroPageModule {}
