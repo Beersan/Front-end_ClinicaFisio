@@ -7,55 +7,55 @@ import { AlertController } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 import { ListarEstagiarioPage } from '../listar-estagiario/listar-estagiario';
 
-/**
- * Generated class for the CadastrarEstagiarioPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-cadastrar-estagiario',
   templateUrl: 'cadastrar-estagiario.html',
 })
-export class CadastrarEstagiarioPage {
 
-  estagiario: Estagiario;
+export class CadastrarEstagiarioPage {
+  estagiarios: any[];
   nomeEstagiario: string;
   numeroMatricula: string;
   telefone: string;
   email: string;
+  estagiario: Estagiario;
 
-
-  constructor(public navCtrl: NavController,
-              public navParams: NavParams,
-              private provider: CadastrarEstagiarioProvider,
-              private http: HttpClient,
-              public alertCtrl: AlertController) {
-
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CadastrarEstagiarioPage');
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private provider: CadastrarEstagiarioProvider,
+    private http: HttpClient,
+    public alertCtrl: AlertController
+  ) {
+    if (this.navParams.data.estagiario) {      
+      this.estagiarios = this.navParams.data.estagiario;
+      console.log(this.estagiarios);
+      this.nomeEstagiario = "teste";
+      //#Editar Estagiario 
+      // Gabriel - 28/03 23h
+      // Não alterar página e dependências
+      // ps: NAO CONSIGO ACESSAR ESSE LIXO DE JSON NO TS, PQP. att
+    }
   }
 
   cadastrarEstagiario(){
-    //campos
     this.provider.create({
         nomeEstagiario: this.nomeEstagiario, 
         numeroMatricula: this.numeroMatricula,
         telefone: this.telefone,
         email: this.email
-    });    
-    this.showAlert();
+    }).then((result) => {
+      console.log(result);
+      this.showAlert();    
+    });        
   }
-
   
   showAlert() {
     let alert = this.alertCtrl.create({
       title: 'Sucesso!',
-      subTitle: 'Estagiario cadastrado'      
+      subTitle: 'Estagiário cadastrado.',
+      buttons: ['Ok']
     });
     alert.present();
     this.navCtrl.pop();

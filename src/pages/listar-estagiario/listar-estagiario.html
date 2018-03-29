@@ -24,46 +24,26 @@
     (ionCancel)="onCancel($event)">
   </ion-searchbar>
   <button ion-button float-right (click)="incluir()">Adicionar</button>
-    <ion-grid>
-        <ion-row>
-          <ion-col>
-            Nome
+  <ion-grid>
+      <ion-row>
+        <ion-col><h6>Nome</h6></ion-col>
+        <ion-col><h6>Matrícula</h6></ion-col>
+        <ion-col><h6>Telefone</h6></ion-col>
+        <ion-col><h6>Email</h6></ion-col>
+        <ion-col></ion-col>
+        <ion-col></ion-col>
+      </ion-row>
+      <ion-row *ngFor="let job of estagiarios">
+          <ion-col>{{job.nomeestagiario}}</ion-col>
+          <ion-col>{{job.matriculaestagiario}}</ion-col>
+          <ion-col>{{job.telefoneestagiario}}</ion-col>
+          <ion-col>{{job.emailestagiario}}</ion-col>
+          <ion-col class="iconeDireita">
+            <ion-icon ios="ios-create" md="md-create" title="Editar" (click)="editar(job)"></ion-icon>
           </ion-col>
-          <ion-col>
-            Matrícula
+          <ion-col class="iconeEsquerda">
+            <ion-icon ios="ios-trash" md="md-trash" title="Excluir" (click)="excluir(job.idestagiario)"></ion-icon>
           </ion-col>
-          <ion-col>
-            Telefone
-          </ion-col>
-          <ion-col>
-            Email
-          </ion-col>
-          <ion-col>
-              <ion-icon ios="ios-create" md="md-create"></ion-icon>
-          </ion-col>
-          <ion-col>
-              <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
-          </ion-col>
-        </ion-row>
-        <ion-row *ngFor="let job of estagiarios">
-            <ion-col >
-                <h2>{{job.nomeestagiario}}</h2>
-            </ion-col>
-            <ion-col>
-                <h2>{{job.matriculaestagiario}}</h2>
-            </ion-col>
-            <ion-col>
-                <h2>{{job.telefoneestagiario}}</h2>
-            </ion-col>
-            <ion-col>
-                <h2>{{job.emailestagiario}}</h2>
-            </ion-col>
-            <ion-col>
-                <ion-icon ios="ios-create" md="md-create"></ion-icon>
-            </ion-col>
-            <ion-col>
-                <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
-            </ion-col>
-        </ion-row>
-    </ion-grid>
+      </ion-row>
+  </ion-grid>
 </ion-content>
