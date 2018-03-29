@@ -27,9 +27,20 @@ export class CadastrarEstagiarioProvider {
   ) {}
 
   create(estagiario: Estagiario) {
-    return new Promise((resolve, reject) => {
+    console.log(estagiario.idEstagiario);
+    /*return new Promise((resolve, reject) => {
       this.http.post('http://localhost:3000/estagiario/cadastrar', estagiario).subscribe(response => {
         resolve(response);
+      });
+    });*/
+    var rota = "cadastrar";
+    if (estagiario.idEstagiario != ""){
+      rota = "editar";
+    }
+    return new Promise((resolve, reject) => {
+      this.http.post('http://localhost:3000/estagiario/' + rota, estagiario).subscribe(response => {
+        resolve(response);
+        console.log(rota);
       });
     });
   }

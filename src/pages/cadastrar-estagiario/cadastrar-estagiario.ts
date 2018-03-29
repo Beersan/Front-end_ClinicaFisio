@@ -20,6 +20,7 @@ export class CadastrarEstagiarioPage {
   telefone: string;
   email: string;
   estagiario: Estagiario;
+  idEstagiario = "";
 
   constructor(
     public navCtrl: NavController,
@@ -31,12 +32,22 @@ export class CadastrarEstagiarioPage {
     if (this.navParams.data.estagiario) {      
       this.estagiarios = this.navParams.data.estagiario;
       console.log(this.estagiarios);
-      this.nomeEstagiario = "teste";
+      var text = JSON.stringify(this.estagiarios);
+      var obj = JSON.parse(text);
+      this.nomeEstagiario = obj.nomeestagiario;
+      this.numeroMatricula = obj.matriculaestagiario;
+      this.email = obj.emailestagiario;
+      this.telefone = obj.telefoneestagiario;
+      this.idEstagiario = obj.idestagiario;
+      
+
       //#Editar Estagiario 
-      // Gabriel - 28/03 23h
+      // Gabriel - 28/03 23h - Thais 29/03 13h 
       // Não alterar página e dependências
-      // ps: NAO CONSIGO ACESSAR ESSE LIXO DE JSON NO TS, PQP. att
+      // ps: NAO CONSIGO ACESSAR ESSE LIXO DE JSON NO TS, PQP. att 
+      //res: EU CONSIGO att Thaís ;) 
     }
+    
   }
 
   cadastrarEstagiario(){
@@ -44,7 +55,8 @@ export class CadastrarEstagiarioPage {
         nomeEstagiario: this.nomeEstagiario, 
         numeroMatricula: this.numeroMatricula,
         telefone: this.telefone,
-        email: this.email
+        email: this.email,
+        idEstagiario: this.idEstagiario
     }).then((result) => {
       console.log(result);
       this.showAlert();    
