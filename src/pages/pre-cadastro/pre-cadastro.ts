@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-//import { PreCadastroProvider} from './../../providers/pre-cadastro/pre-cadastro';
 import { NgForm, FormsModule } from '@angular/forms';
 import { PreCadastro } from '../../models/model.pre-cadastro';
+import { PreCadastroProvider } from '../../providers/pre-cadastro/pre-cadastro';
 
 /**
  * Generated class for the PreCadastroPage page.
@@ -29,34 +29,42 @@ export class PreCadastroPage {
   telefoneUm: String;
   telefoneDois: String;
   encaminhamento: String; //faio
-  especialidade: String;
   // preCadastro: PreCadastro;
+  especialidades: any;
 
   constructor(
     public navCtrl: NavController,
-    public navParams: NavParams
-    //**private provider: PreCadastroProvider*/
-  ) {}
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad PreCadastroPage');
+    public navParams: NavParams,
+    private provider: PreCadastroProvider
+  ) {
+    this.listarEspecialidade();
   }
 
   incluirPreCadastro(){
-  //   this.provider.create({
-  //     nomePaciente: this.nomePaciente,
-  //     registroGeral: this.registroGeral,
-  //     CPF:this.CPF,
-  //     dataNascimento: this.dataNascimento,
-  //     rendaFamiliar: this.rendaFamiliar,
-  //     endereco: this.endereco,
-  //     numero: this.numero,
-  //     bairro: this.bairro,
-  //     cidade: this.cidade,
-  //     telefoneUm: this.telefoneUm,
-  //     telefoneDois: this.telefoneDois
-  //     //encaminhamento: File,
-  //     //especialidade: String
-  //   });
-   }
+     this.provider.create({
+      nomePaciente: this.nomePaciente,
+      registroGeral: this.registroGeral,
+      CPF:this.CPF,
+      dataNascimento: this.dataNascimento,
+      rendaFamiliar: this.rendaFamiliar,
+      endereco: this.endereco,
+      numero: this.numero,
+      bairro: this.bairro,
+      cidade: this.cidade,
+      telefoneUm: this.telefoneUm,
+      telefoneDois: this.telefoneDois,
+      encaminhamento: this.encaminhamento
+      //especialidade: String
+    });
+  }
+
+  listarEspecialidade(){
+    this.provider.retornarEspecialidade().then(
+      data => {
+        this.especialidades = data;
+      }
+    )
+    .catch(error => alert(error));
+  }
+  
 }

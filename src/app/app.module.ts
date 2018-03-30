@@ -26,6 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrMaskerModule } from 'brmasker-ionic-3';
 import { RelatarProblemaProvider } from '../providers/problema/problema';
 import { GrupoProvider } from '../providers/grupo/grupo';
+import { PreCadastroProvider } from '../providers/pre-cadastro/pre-cadastro';
 
 
 
@@ -75,7 +76,8 @@ import { GrupoProvider } from '../providers/grupo/grupo';
     CadastrarEstagiarioProvider,
     CadastrarEspecialidadeProvider,
     RelatarProblemaProvider,
-    GrupoProvider
+    GrupoProvider,
+    PreCadastroProvider
   ]
 })
 export class AppModule {}

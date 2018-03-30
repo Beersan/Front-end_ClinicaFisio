@@ -78,7 +78,7 @@ export class CadastrarEstagiarioPage {
       buttons: ['Ok']
     });
     alert.present();
-    //this.navCtrl.pop();
+    this.navCtrl.pop();
   }
 
   cancelar(){
