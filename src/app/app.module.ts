@@ -25,6 +25,7 @@ import { ListarEstagiarioPage } from '../pages/listar-estagiario/listar-estagiar
 import { HttpClientModule } from '@angular/common/http';
 import { BrMaskerModule } from 'brmasker-ionic-3';
 import { RelatarProblemaProvider } from '../providers/problema/problema';
+import { GrupoProvider } from '../providers/grupo/grupo';
 
 
 
@@ -73,7 +74,8 @@ import { RelatarProblemaProvider } from '../providers/problema/problema';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     CadastrarEstagiarioProvider,
     CadastrarEspecialidadeProvider,
-    RelatarProblemaProvider
+    RelatarProblemaProvider,
+    GrupoProvider
   ]
 })
 export class AppModule {}
