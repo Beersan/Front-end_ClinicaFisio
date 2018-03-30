@@ -17,7 +17,7 @@
 
 
 <ion-content padding>
-  <form (ngSubmit)="incluirPreCadastro()" #f="ngForm">
+  <form (ngSubmit)="incluirPreCadastro()">
   <ion-row>
     <ion-item>
       <ion-label color="primary" name="nomePaciente" floating>Nome Completo</ion-label>
@@ -106,8 +106,7 @@
       <ion-item>
         <ion-label color="primary" floating>Área de Especialidade</ion-label>
         <ion-select name= "especialidade" [(ngModel)]="especialidade">
-          <ion-option value="area1">Área 1</ion-option>
-          <ion-option value="area2">Área 2</ion-option>
+          <ion-option *ngFor="let especialidade of especialidades" value="{{ especialidade.codigoespecialidade }}">{{ especialidade.descricaoespecialidade }}</ion-option>
         </ion-select>
       </ion-item>
     </ion-col>

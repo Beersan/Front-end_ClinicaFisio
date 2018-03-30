@@ -1,25 +1,21 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { AlertController } from 'ionic-angular';
 import { PreCadastro } from '../../models/model.pre-cadastro';
-import { Http } from '@angular/http';
 
 @Injectable()
 export class PreCadastroProvider {
 
-  constructor(private http: HttpClient) {
-    console.log('Hello PreCadastroProvider Provider');
+  constructor(
+    public http: HttpClient,
+    public alertCtrl: AlertController
+  ) {}
+
+  create(preCadastro: PreCadastro){
+    console.log("gravar")
   }
 
-  create(preCadastro: PreCadastro) {
-    console.log(preCadastro);
-
-    // this.http.post('http://localhost:3000/preCadastro', preCadastro).subscribe(response => {
-    //   console.log('POST Response:', response);
-    // });
- 
-    /*this.http.get('http://localhost:8100/cadastrarEstagiario' + this.name).subscribe(response => {
-      console.log('GET Response:', response);
-    });*/
-  
+  retornarEspecialidade(){    
+    return this.http.get('http://localhost:3000/preCadastro/listarEspecialidade').toPromise();
   }
 }
