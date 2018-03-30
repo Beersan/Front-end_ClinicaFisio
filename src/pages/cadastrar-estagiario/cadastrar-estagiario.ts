@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CadastrarEstagiarioProvider} from './../../providers/estagiario/estagiario';
-import { NgForm, FormsModule } from '@angular/forms';
+import { NgForm, FormsModule, Validators, FormBuilder} from '@angular/forms';
 import { Estagiario } from './../../models/model.cadastrar-estagiario';
 import { AlertController } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
-import { ListarEstagiarioPage } from '../listar-estagiario/listar-estagiario';
+//import { ListarEstagiarioPage } from '../listar-estagiario/listar-estagiario';
+import { HomePage } from '../home/home';
 
 @IonicPage()
 @Component({
@@ -14,6 +15,7 @@ import { ListarEstagiarioPage } from '../listar-estagiario/listar-estagiario';
 })
 
 export class CadastrarEstagiarioPage {
+  cadastroEstagiario: any = {};
   estagiarios: any[];
   nomeEstagiario: string;
   numeroMatricula: string;
@@ -27,7 +29,8 @@ export class CadastrarEstagiarioPage {
     public navParams: NavParams,
     private provider: CadastrarEstagiarioProvider,
     private http: HttpClient,
-    public alertCtrl: AlertController
+    public alertCtrl: AlertController,
+    public formBuilder: FormBuilder
   ) {
     if (this.navParams.data.estagiario) {      
       this.estagiarios = this.navParams.data.estagiario;
@@ -47,7 +50,12 @@ export class CadastrarEstagiarioPage {
       // ps: NAO CONSIGO ACESSAR ESSE LIXO DE JSON NO TS, PQP. att 
       //res: EU CONSIGO att Thaís ;) 
     }
-    
+    this.cadastroEstagiario = formBuilder.group ({
+      nome:['', Validators.required],
+      matricula:['', Validators.required],
+      telefone:['', Validators.compose([Validators.required])],
+      email:['', Validators.compose([Validators.email, Validators.required])]
+    })  
   }
 
   cadastrarEstagiario(){
@@ -63,13 +71,19 @@ export class CadastrarEstagiarioPage {
     });        
   }
   
-  showAlert() {
+  showAlert(){
     let alert = this.alertCtrl.create({
       title: 'Sucesso!',
       subTitle: 'Estagiário cadastrado.',
       buttons: ['Ok']
     });
     alert.present();
-    this.navCtrl.pop();
+    //this.navCtrl.pop();
+  }
+
+  cancelar(){
+    this.navCtrl.push(HomePage, {
+      rootNavCtrl: this.navCtrl
+    });
   }
 }
