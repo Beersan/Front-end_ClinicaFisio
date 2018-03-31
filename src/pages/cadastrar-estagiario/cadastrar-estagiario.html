@@ -48,7 +48,7 @@
         </ion-col>
       </ion-row>
     </ion-grid>
-    <button (click)="cancelar()" ion-button color="danger">Cancelar</button>
-    <button [disabled]="!cadastroEstagiario.valid" (click)="showAlert()" ion-button color="secondary">Confirmar</button>
+    <button type="button" (click)="cancelar()" ion-button color="danger">Cancelar</button>
+    <button type="submit" [disabled]="!cadastroEstagiario.valid" (click)="showAlert()" ion-button color="secondary">Confirmar</button>
   </form>
 </ion-content>
