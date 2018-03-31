@@ -25,6 +25,7 @@ export class RelatarProblemaPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
+    public alertCtrl: AlertController,
     public provider: RelatarProblemaProvider) {
   }
 
@@ -37,16 +38,16 @@ export class RelatarProblemaPage {
     this.provider.create({
         descricaoProblema: this.descricaoProblema
     });
-    //console.log(this.descricaoEspecialidade);
-    //this.showAlert();
+    //console.log(this.descricaoProblema)
+    this.showAlert();
   }
 
-  /*showAlert() {
+  showAlert() {
     let alert = this.alertCtrl.create({
       title: 'Sucesso!',
-      subTitle: 'Especialidade cadastrada'
+      subTitle: 'Reclamação enviada'
     });
     alert.present();
     this.navCtrl.pop();
-  }*/
+  }
 }
