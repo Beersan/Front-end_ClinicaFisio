@@ -28,6 +28,7 @@ import { BrMaskerModule } from 'brmasker-ionic-3';
 import { RelatarProblemaProvider } from '../providers/problema/problema';
 import { GrupoProvider } from '../providers/grupo/grupo';
 import { PreCadastroProvider } from '../providers/pre-cadastro/pre-cadastro';
+import { ListarProfessoresPage } from '../pages/listar-professores/listar-professores';
 
 
 
@@ -44,7 +45,8 @@ import { PreCadastroProvider } from '../providers/pre-cadastro/pre-cadastro';
     SortearPacienteGrupoPage,
     CadastrarGrupoEstagiariosPage,
     ListarEstagiarioPage,
-    ListarPacientesPage
+    ListarPacientesPage,
+    ListarProfessoresPage
     
   ],
   imports: [
@@ -71,7 +73,8 @@ import { PreCadastroProvider } from '../providers/pre-cadastro/pre-cadastro';
     CadastrarGrupoEstagiariosPage,
     FinalizarPreCadastroPage,
     ListarEstagiarioPage,
-    ListarPacientesPage
+    ListarPacientesPage,
+    ListarProfessoresPage
   ],
   providers: [
     StatusBar,
