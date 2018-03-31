@@ -19,13 +19,14 @@ import { Especialidade } from '../../models/model.cadastrar-especialidade';
 })
 export class CadastrarEspecialidadePage {
 
-  alertCtrl: any;
+  //alertCtrl: any;
   especialidade: Especialidade;
   descricaoEspecialidade: string;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
+    public alertCtrl: AlertController,
     public provider: CadastrarEspecialidadeProvider) {
   }
 

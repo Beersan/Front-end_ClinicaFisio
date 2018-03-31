@@ -10,4 +10,4 @@ import { RelatarProblemaPage } from './relatar-problema';
     IonicPageModule.forChild(RelatarProblemaPage),
   ],
 })
-export class RelatarProblemasPageModule {}
+export class RelatarProblemaPageModule {}
