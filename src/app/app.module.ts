@@ -22,6 +22,7 @@ import { RelatarProblemaPage } from '../pages/relatar-problema/relatar-problema'
 import { SortearPacienteGrupoPage } from '../pages/sortear-paciente-grupo/sortear-paciente-grupo';
 import { CadastrarGrupoEstagiariosPage } from '../pages/cadastrar-grupo-estagiarios/cadastrar-grupo-estagiarios';
 import { ListarEstagiarioPage } from '../pages/listar-estagiario/listar-estagiario';
+import { ListarPacientesPage } from '../pages/listar-pacientes/listar-pacientes';
 import { HttpClientModule } from '@angular/common/http';
 import { BrMaskerModule } from 'brmasker-ionic-3';
 import { RelatarProblemaProvider } from '../providers/problema/problema';
@@ -42,7 +43,9 @@ import { PreCadastroProvider } from '../providers/pre-cadastro/pre-cadastro';
     RelatarProblemaPage,
     SortearPacienteGrupoPage,
     CadastrarGrupoEstagiariosPage,
-    ListarEstagiarioPage
+    ListarEstagiarioPage,
+    ListarPacientesPage
+    
   ],
   imports: [
     BrowserModule,
@@ -67,7 +70,8 @@ import { PreCadastroProvider } from '../providers/pre-cadastro/pre-cadastro';
     SortearPacienteGrupoPage,
     CadastrarGrupoEstagiariosPage,
     FinalizarPreCadastroPage,
-    ListarEstagiarioPage
+    ListarEstagiarioPage,
+    ListarPacientesPage
   ],
   providers: [
     StatusBar,

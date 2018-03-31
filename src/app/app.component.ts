@@ -17,7 +17,7 @@ import { SortearPacienteGrupoPage } from '../pages/sortear-paciente-grupo/sortea
 import { RelatarProblemaPage } from '../pages/relatar-problema/relatar-problema';
 import { CadastrarGrupoEstagiariosPage } from '../pages/cadastrar-grupo-estagiarios/cadastrar-grupo-estagiarios';
 import { ListarEstagiarioPage } from '../pages/listar-estagiario/listar-estagiario';
-
+import{ListarPacientesPage} from '../pages/listar-pacientes/listar-pacientes';
 @Component({
   templateUrl: 'app.html'
 })
@@ -37,6 +37,7 @@ export class MyApp {
       { title: 'List', component: ListPage },
       { title: 'Cadastrar Estagiário', component: CadastrarEstagiarioPage},
       { title: 'Listar Estagiário', component: ListarEstagiarioPage},
+      { title: 'Listar Pacientes', component: ListarPacientesPage},
       { title: 'Cadastrar Especialidade', component: CadastrarEspecialidadePage},
       { title: 'Cadastrar Professsor', component: CadastrarProfessorPage},
       { title: 'Pré Cadastro', component: PreCadastroPage},
