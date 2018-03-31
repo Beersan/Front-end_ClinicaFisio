@@ -22,12 +22,14 @@ import { RelatarProblemaPage } from '../pages/relatar-problema/relatar-problema'
 import { SortearPacienteGrupoPage } from '../pages/sortear-paciente-grupo/sortear-paciente-grupo';
 import { CadastrarGrupoEstagiariosPage } from '../pages/cadastrar-grupo-estagiarios/cadastrar-grupo-estagiarios';
 import { ListarEstagiarioPage } from '../pages/listar-estagiario/listar-estagiario';
+import { ListarPacientesPage } from '../pages/listar-pacientes/listar-pacientes';
 import { HttpClientModule } from '@angular/common/http';
 import { BrMaskerModule } from 'brmasker-ionic-3';
 import { RelatarProblemaProvider } from '../providers/problema/problema';
 import { GrupoProvider } from '../providers/grupo/grupo';
 import { PreCadastroProvider } from '../providers/pre-cadastro/pre-cadastro';
 import { ListarGrupoPage } from '../pages/listar-grupo/listar-grupo';
+import { ListarProfessoresPage } from '../pages/listar-professores/listar-professores';
 
 
 
@@ -43,7 +45,9 @@ import { ListarGrupoPage } from '../pages/listar-grupo/listar-grupo';
     RelatarProblemaPage,
     SortearPacienteGrupoPage,
     CadastrarGrupoEstagiariosPage,
+    ListarPacientesPage,
     ListarEstagiarioPage,
+    ListarProfessoresPage,
     ListarGrupoPage
   ],
   imports: [
@@ -70,6 +74,8 @@ import { ListarGrupoPage } from '../pages/listar-grupo/listar-grupo';
     CadastrarGrupoEstagiariosPage,
     FinalizarPreCadastroPage,
     ListarEstagiarioPage,
+    ListarPacientesPage,
+    ListarProfessoresPage,
     ListarGrupoPage
   ],
   providers: [
