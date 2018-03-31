@@ -17,6 +17,7 @@ import { SortearPacienteGrupoPage } from '../pages/sortear-paciente-grupo/sortea
 import { RelatarProblemaPage } from '../pages/relatar-problema/relatar-problema';
 import { CadastrarGrupoEstagiariosPage } from '../pages/cadastrar-grupo-estagiarios/cadastrar-grupo-estagiarios';
 import { ListarEstagiarioPage } from '../pages/listar-estagiario/listar-estagiario';
+import { ListarGrupoPage } from '../pages/listar-grupo/listar-grupo';
 
 @Component({
   templateUrl: 'app.html'
@@ -45,7 +46,9 @@ export class MyApp {
       { title: 'Sortear Paciente Grupo', component: SortearPacienteGrupoPage},
       { title: 'Relatar Problema', component: RelatarProblemaPage},
       { title: 'Cadastrar Grupo Estagiários', component: CadastrarGrupoEstagiariosPage},
-      { title: 'Finalizar Pré Cadastro', component: FinalizarPreCadastroPage}
+      { title: 'Finalizar Pré Cadastro', component: FinalizarPreCadastroPage},
+      { title: 'Listar Grupo', component: ListarGrupoPage}
+      
 
 
     ];

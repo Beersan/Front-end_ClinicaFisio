@@ -27,6 +27,7 @@ import { BrMaskerModule } from 'brmasker-ionic-3';
 import { RelatarProblemaProvider } from '../providers/problema/problema';
 import { GrupoProvider } from '../providers/grupo/grupo';
 import { PreCadastroProvider } from '../providers/pre-cadastro/pre-cadastro';
+import { ListarGrupoPage } from '../pages/listar-grupo/listar-grupo';
 
 
 
@@ -42,7 +43,8 @@ import { PreCadastroProvider } from '../providers/pre-cadastro/pre-cadastro';
     RelatarProblemaPage,
     SortearPacienteGrupoPage,
     CadastrarGrupoEstagiariosPage,
-    ListarEstagiarioPage
+    ListarEstagiarioPage,
+    ListarGrupoPage
   ],
   imports: [
     BrowserModule,
@@ -67,7 +69,8 @@ import { PreCadastroProvider } from '../providers/pre-cadastro/pre-cadastro';
     SortearPacienteGrupoPage,
     CadastrarGrupoEstagiariosPage,
     FinalizarPreCadastroPage,
-    ListarEstagiarioPage
+    ListarEstagiarioPage,
+    ListarGrupoPage
   ],
   providers: [
     StatusBar,

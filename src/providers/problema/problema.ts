@@ -23,18 +23,18 @@ export class RelatarProblemaProvider {
   }
 
   create(problema: RelatarProblema) {
-    //const data = JSON.stringify(problema);
-    //console.log(problema);
+    const data = JSON.stringify(problema);
+    console.log(problema);
 
     this.http.post('http://localhost:3000/problema/relatarProblema', problema).subscribe(response => {
-      //console.log(problema);
+      console.log(problema);
     });
 
-    /*this.http.get('http://localhost:8100/cadastrarEspecialidade' + this.name).subscribe(response => {
+    this.http.get('http://localhost:8100/cadastrarEspecialidade' + this.name).subscribe(response => {
       console.log('GET Response:', response);
-    });*/
+    });
 
 
-    //console.log(this.descricaoEspecialidade);
+    console.log(this.descricaoEspecialidade);
   }
 }
