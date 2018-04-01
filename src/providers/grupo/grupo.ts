@@ -29,4 +29,8 @@ export class GrupoProvider {
     });
   }
 
+  retornarGrupo(){    
+    return this.http.get('http://localhost:3000/grupo/listar').toPromise();
+  }
+
 }

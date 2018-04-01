@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { GrupoProvider } from '../../providers/grupo/grupo';
 import { CadastrarGrupoPage } from '../cadastrar-grupo/cadastrar-grupo';
 
 /**
@@ -16,16 +17,30 @@ import { CadastrarGrupoPage } from '../cadastrar-grupo/cadastrar-grupo';
 })
 export class ListarGrupoPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  grupos: any;
+
+  constructor(public navCtrl: NavController, 
+              private provider:GrupoProvider, 
+              public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ListarGrupoPage');
+  ionViewWillEnter(){
+    this.listarGrupo();
   }
 
   incluir(){
     this.navCtrl.push(CadastrarGrupoPage, {
       rootNavCtrl: this.navCtrl
     });
+  }
+
+  listarGrupo(){
+    this.provider.retornarGrupo().then(
+      data => {
+        this.grupos = data;
+        console.log(this.grupos);
+      }
+    )
+    .catch(error => alert(error));
   }
 }

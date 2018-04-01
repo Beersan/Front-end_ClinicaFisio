@@ -26,14 +26,15 @@
       <ion-row>
         <ion-col><h6>Descrição</h6></ion-col>
       </ion-row>
-      <ion-row>
-        <ion-col col-10></ion-col>  
-          <ion-col class="iconeDireita">
-            <ion-icon ios="ios-create" md="md-create" title="Editar"></ion-icon>
-          </ion-col>
-          <ion-col class="iconeEsquerda">
-            <ion-icon ios="ios-trash" md="md-trash" title="Excluir"></ion-icon>
-          </ion-col>
+
+      <ion-row *ngFor="let grupo of grupos">
+        <ion-col>{{grupo.descricaogrupo}}</ion-col>  
+        <ion-col class="iconeDireita">
+            <ion-icon ios="ios-create" md="md-create" title="Editar" (click)="editar(grupo)"></ion-icon>
+        </ion-col>
+        <ion-col class="iconeEsquerda">
+            <ion-icon ios="ios-trash" md="md-trash" title="Excluir" (click)="excluir(grupo.idgrupo)"></ion-icon>
+        </ion-col>
       </ion-row>
   </ion-grid>
 </ion-content>

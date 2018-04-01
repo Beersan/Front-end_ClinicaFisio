@@ -31,11 +31,12 @@ export class CadastrarGrupoPage {
               private http: HttpClient,
               public alertCtrl: AlertController,
               private provider: GrupoProvider, 
-              private formBuilder:FormBuilder) {
+              private formBuilder:FormBuilder
+            ) {
                 this.cadastroGrupo = formBuilder.group ({
                   descricao:['', Validators.required]
                 })
-  } 
+            } 
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CadastrarGrupoPage');
@@ -46,16 +47,13 @@ export class CadastrarGrupoPage {
     this.provider.create({
         descricao: this.descricao,
         idGrupo: this.idGrupo
+    }).then((result) =>{
+      console.log(result);
+      this.showAlert();
     });
-    console.log(this.descricao);
-    this.showAlert();
   }
 
-  /*incluir(){
-    this.navCtrl.push(CadastrarGrupoPage, {
-      rootNavCtrl: this.navCtrl
-    });
-  }*/
+ 
 
   showAlert() {
     let alert = this.alertCtrl.create({
