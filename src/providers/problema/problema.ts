@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, Component, ViewChild } from '@angular/core';
-import { RelatarProblema } from '../../models/model.relatarProblemas';
 import { Http } from '@angular/http';
 import { AlertController } from 'ionic-angular';
 import { Nav, Platform } from 'ionic-angular';
@@ -8,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http'; import { HttpModule } f
 
 
 import { HomePage } from '../../pages/home/home';
+import { RelatarProblema } from '../../models/model.relatar-problemas';
 
 /*
   Generated class for the ProblemaProvider provider.
@@ -30,11 +30,11 @@ export class RelatarProblemaProvider {
       console.log(problema);
     });
 
-    this.http.get('http://localhost:8100/cadastrarEspecialidade' + this.name).subscribe(response => {
+    /*this.http.get('http://localhost:8100/cadastrarEspecialidade' + this.name).subscribe(response => {
       console.log('GET Response:', response);
-    });
+    });*/ // eu comentei pq estava com erro 
 
 
-    console.log(this.descricaoEspecialidade);
+    //console.log(this.descricaoEspecialidade);
   }
 }
