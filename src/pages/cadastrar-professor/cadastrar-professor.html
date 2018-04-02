@@ -18,57 +18,59 @@
 
 <ion-content padding>
   <ion-grid>
-    <ion-row>
-      <ion-col>
-        <ion-item>
-          <ion-label color="primary" floating>Nome Completo</ion-label>
-          <ion-input type="text"name="nomeProfessor" [(ngModel)]="nomeProfessor"></ion-input>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-item>
-          <ion-label color="primary" floating>Matricula</ion-label>
-          <ion-input type="text"name="matriculaProfessor" [(ngModel)]="matriculaProfessor"></ion-input>
-        </ion-item>
-      </ion-col>
-      <ion-col>
-        <ion-item>
-          <ion-label color="primary" floating>CREFITO</ion-label>
-          <ion-input type="text"name="crefitoProfessor" [(ngModel)]="crefitoProfessor"></ion-input>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-item>
-          <ion-label color="primary" floating>Email</ion-label>
-          <ion-input type="email"name="emailProfessor" [(ngModel)]="emailProfessor"></ion-input>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-item>
-          <ion-label color="primary" name="telefone" floating>Telefone</ion-label>
-          <ion-input type="text" name="telefone" [brmasker]="{mask:'(00)00000-0000', len:14}"></ion-input> >
-        </ion-item>
-        <ion-item>
-          <ion-label color="primary" floating>Área de Especialidade</ion-label>
-          <ion-select [(ngModel)]="especialidade">
-            <ion-option value="Dermatofuncional">Dermatofuncional</ion-option>
-            <ion-option value="Ortopediatraumatologia">Ortopedia/Traumatologia</ion-option>
-            <ion-option value="Multidisciplinar">Multidisciplinar</ion-option>
-            <ion-option value="FisioterapiaAquatica">Fisioterapia Aquática</ion-option>
-            <ion-option value="Neurologia">Neurologia</ion-option>
-            <ion-option value="ESF">ESF</ion-option>
-            <ion-option value="Cardiorrespiratoria">Cardiorrespiratória</ion-option>
-          </ion-select>
-        </ion-item>
-      </ion-col>
-    </ion-row>
+    <form (ngSubmit)="cadastrarProfessor()" #f="ngForm">
+      <ion-row>
+         <ion-col>
+           <ion-item>
+             <ion-label color="primary" floating>Nome Completo</ion-label>
+             <ion-input type="text" name="nomeProfessor" [(ngModel)]="nomeProfessor"></ion-input>
+           </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label color="primary" floating>Matricula</ion-label>
+              <ion-input type="text" name="matriculaProfessor" [(ngModel)]="matriculaProfessor"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item>
+              <ion-label color="primary" floating>CREFITO</ion-label>
+              <ion-input type="text" name="crefitoProfessor" [(ngModel)]="crefitoProfessor"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label color="primary" floating>Email</ion-label>
+              <ion-input type="email" name="emailProfessor" [(ngModel)]="emailProfessor"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label color="primary" name="telefone" floating>Telefone</ion-label>
+              <ion-input type="text" name="telefone" [brmasker]="{mask:'(00)00000-0000', len:14}"></ion-input> >
+            </ion-item>
+            <ion-item>
+              <ion-label color="primary" floating>Área de Especialidade</ion-label>
+              <ion-select [(ngModel)]="especialidade" name ="especialidade">
+                <ion-option value="Dermatofuncional">Dermatofuncional</ion-option>
+                <ion-option value="Ortopediatraumatologia">Ortopedia/Traumatologia</ion-option>
+                <ion-option value="Multidisciplinar">Multidisciplinar</ion-option>
+                <ion-option value="FisioterapiaAquatica">Fisioterapia Aquática</ion-option>
+                <ion-option value="Neurologia">Neurologia</ion-option>
+                <ion-option value="ESF">ESF</ion-option>
+                <ion-option value="Cardiorrespiratoria">Cardiorrespiratória</ion-option>
+              </ion-select>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      <button ion-button color="danger" menuToggle="left">Cancelar</button>
+      <button ion-button color="secondary">Confirmar</button>
+    </form>
   </ion-grid>
-  <button ion-button color="danger" menuToggle="left">Cancelar</button>
-  <button ion-button color="secondary">Confirmar</button>
 </ion-content>
