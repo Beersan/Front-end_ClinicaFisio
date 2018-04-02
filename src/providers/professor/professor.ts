@@ -14,4 +14,11 @@ export class ProfessorProvider {
     console.log('Hello ProfessorProvider Provider');
   }
 
+  // Gabriel - 02/08 9h
+  // faz o create aqui...
+
+  gravarProfessor(professor: Professor){
+
+  }
+
 }

@@ -4,7 +4,7 @@ import { NgForm, FormsModule } from '@angular/forms';
 import { AlertController } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 //import { ListarProfessorPage } from '../listar-professor/listar-professor';
-import { CadastrarProfessorProvider} from './../../providers/professor/professor';
+import { ProfessorProvider} from './../../providers/professor/professor';
 import { Professor } from '../../models/model.cadastrar-professor';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
@@ -32,7 +32,7 @@ export class CadastrarProfessorPage {
   constructor(
   	public navCtrl: NavController,
     public navParams: NavParams,
-    public provider: CadastrarProfessorProvider,
+    public provider: ProfessorProvider,
     private http: HttpClient,
     public alertCtrl: AlertController
     ){
@@ -50,7 +50,7 @@ export class CadastrarProfessorPage {
   }
 }
   cadastrarProfessor(){
-  	this.provider.create({
+  	this.provider.gravarProfessor({
   		nomeProfessor: this.nomeProfessor,
   		matriculaProfessor: this.matriculaProfessor,
   		crefitoProfessor: this.crefitoProfessor,
@@ -58,10 +58,12 @@ export class CadastrarProfessorPage {
   		telefoneProfessor: this.telefoneProfessor,
   		especialidadeProfessor: this.especialidadeProfessor,
   		idProfessor: this.idProfessor
-  	}).then((result) => {
-      console.log(result);
-      this.showAlert();    
-    });   
+    });
+    // THEN PRECISA DE PROMISE NA FUNCAO DE REQUEST (gravarProfessor)
+    // .then((result) => {
+    //   console.log(result);
+    //   this.showAlert();    
+    // });   
   }
 
   showAlert() {
