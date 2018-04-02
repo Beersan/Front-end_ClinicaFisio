@@ -1,0 +1,40 @@
+<!--
+  Generated template for the ListarGrupoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Listar Grupo</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding>
+  <ion-searchbar
+    [(ngModel)]="myInput"
+    [showCancelButton]="shouldShowCancel"
+    (ionInput)="onInput($event)"
+    (ionCancel)="onCancel($event)">
+  </ion-searchbar>
+  <button ion-button float-right (click)="incluir()">Adicionar</button>
+  <ion-grid >
+      <ion-row>
+        <ion-col><h6>Descrição</h6></ion-col>
+      </ion-row>
+
+      <ion-row *ngFor="let grupo of grupos">
+        <ion-col>{{grupo.descricaogrupo}}</ion-col>  
+        <ion-col class="iconeDireita">
+            <ion-icon ios="ios-create" md="md-create" title="Editar" (click)="editar(grupo)"></ion-icon>
+        </ion-col>
+        <ion-col class="iconeEsquerda">
+            <ion-icon ios="ios-trash" md="md-trash" title="Excluir" (click)="excluir(grupo.idgrupo)"></ion-icon>
+        </ion-col>
+      </ion-row>
+  </ion-grid>
+</ion-content>

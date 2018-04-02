@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, Component, ViewChild } from '@angular/core';
-// import { RelatarProblema } from '../../models/model.relatarProblemas';
 import { Http } from '@angular/http';
 import { AlertController } from 'ionic-angular';
 import { Nav, Platform } from 'ionic-angular';
@@ -24,16 +23,16 @@ export class RelatarProblemaProvider {
   }
 
   create(problema: RelatarProblema) {
-    //const data = JSON.stringify(problema);
-    //console.log(problema);
+    const data = JSON.stringify(problema);
+    console.log(problema);
 
     this.http.post('http://localhost:3000/problema/relatarProblema', problema).subscribe(response => {
-      //console.log(problema);
+      console.log(problema);
     });
 
     /*this.http.get('http://localhost:8100/cadastrarEspecialidade' + this.name).subscribe(response => {
       console.log('GET Response:', response);
-    });*/
+    });*/ // eu comentei pq estava com erro 
 
 
     //console.log(this.descricaoEspecialidade);

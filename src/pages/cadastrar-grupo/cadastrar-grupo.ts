@@ -3,8 +3,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CadastrarGrupo } from '../../models/model.cadastrar-grupo';
 import { GrupoProvider } from './../../providers/grupo/grupo';
 import { HttpClient } from '@angular/common/http';
-import { NgForm, FormsModule } from '@angular/forms';
+import { NgForm, FormsModule, FormBuilder, Validators} from '@angular/forms';
 import { AlertController } from 'ionic-angular';
+import { HomePage } from '../home/home';
 
 /**
  * Generated class for the CadastrarGrupoPage page.
@@ -20,6 +21,7 @@ import { AlertController } from 'ionic-angular';
 })
 export class CadastrarGrupoPage {
 
+  cadastroGrupo: any= {};
   grupo: CadastrarGrupo;
   descricao: string;
   idGrupo = "";
@@ -28,29 +30,32 @@ export class CadastrarGrupoPage {
               public navParams: NavParams,
               private http: HttpClient,
               public alertCtrl: AlertController,
-              private provider: GrupoProvider) {
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CadastrarGrupoPage');
-  }
+              private provider: GrupoProvider, 
+              private formBuilder:FormBuilder
+            ) {
+              if (this.navParams.data.grupo) {      
+                this.grupo = this.navParams.data.grupo;
+                console.log(this.grupo);
+                var text = JSON.stringify(this.grupo);
+                var obj = JSON.parse(text);
+                this.descricao = obj.descricaogrupo;
+                this.idGrupo = obj.idgrupo;
+              }
+              this.cadastroGrupo = formBuilder.group ({
+                descricao:['', Validators.required]
+              })
+            } 
 
   cadastrarGrupo(){
     //campos
     this.provider.create({
         descricao: this.descricao,
         idGrupo: this.idGrupo
+    }).then((result) =>{
+      console.log(result);
+      this.showAlert();
     });
-    console.log(this.descricao);
-    this.showAlert();
   }
-
-  /*incluir(){
-    this.navCtrl.push(CadastrarGrupoPage, {
-      rootNavCtrl: this.navCtrl
-    });
-  }*/
-
 
   showAlert() {
     let alert = this.alertCtrl.create({
@@ -59,7 +64,10 @@ export class CadastrarGrupoPage {
       buttons: ['Ok']
     });
     alert.present();
-    //this.navCtrl.pop();
+    this.navCtrl.pop();
   }
 
+  cancelar(){
+    this.navCtrl.pop();
+  }
 }

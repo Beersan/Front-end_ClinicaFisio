@@ -38,7 +38,7 @@ export class RelatarProblemaPage {
     this.provider.create({
         descricaoProblema: this.descricaoProblema
     });
-    //console.log(this.descricaoProblema)
+    console.log(this.descricaoProblema)
     this.showAlert();
   }
 

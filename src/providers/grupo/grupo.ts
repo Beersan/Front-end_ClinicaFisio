@@ -20,11 +20,27 @@ export class GrupoProvider {
   }
 
   create(grupo: CadastrarGrupo) {
+    var rota = "cadastrar";
+    if (grupo.idGrupo != ""){
+      rota = "editar";
+    }
     return new Promise((resolve, reject) => {
-      this.http.post('http://localhost:3000/grupo/cadastrar', grupo).subscribe(response => {
+      this.http.post('http://localhost:3000/grupo/' + rota, grupo).subscribe(response => {
         resolve(response);
         console.log(grupo);
 
+      });
+    });
+  }
+
+  retornarGrupo(){    
+    return this.http.get('http://localhost:3000/grupo/listar').toPromise();
+  }
+
+  excluirEstagiario(idGrupo){
+    return new Promise((resolve, reject) => {
+      this.http.post('http://localhost:3000/grupo/excluir', idGrupo).subscribe(response => {
+        resolve(response);
       });
     });
   }
