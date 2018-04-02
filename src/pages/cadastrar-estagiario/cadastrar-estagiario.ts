@@ -82,8 +82,6 @@ export class CadastrarEstagiarioPage {
   }
 
   cancelar(){
-    this.navCtrl.push(HomePage, {
-      rootNavCtrl: this.navCtrl
-    });
+    this.navCtrl.pop();
   }
 }

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CadastrarEspecialidadePage } from '../cadastrar-especialidade/cadastrar-especialidade';
 import { CadastrarEspecialidadeProvider } from '../../providers/especialidade/especialidade';
-import { Estagiario } from './../../models/model.cadastrar-especialidade';
+import { Especialidade } from './../../models/model.cadastrar-especialidade';
 import { updateDate } from 'ionic-angular/util/datetime-util';
 import { AlertController } from 'ionic-angular';
 
