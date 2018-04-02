@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { GrupoProvider } from '../../providers/grupo/grupo';
 import { CadastrarGrupoPage } from '../cadastrar-grupo/cadastrar-grupo';
+import { CadastrarGrupo } from '../../models/model.cadastrar-grupo';
 
 /**
  * Generated class for the ListarGrupoPage page.
@@ -21,6 +22,7 @@ export class ListarGrupoPage {
 
   constructor(public navCtrl: NavController, 
               private provider:GrupoProvider, 
+              private alertCtrl: AlertController,
               public navParams: NavParams) {
   }
 
@@ -42,5 +44,46 @@ export class ListarGrupoPage {
       }
     )
     .catch(error => alert(error));
+  }
+
+  excluir(idGrupo){    
+    let alert = this.alertCtrl.create({
+      title: 'Excluir!',
+      message: 'Deseja excluir esse grupo?',
+      buttons: [
+        {
+          text: 'Não',
+          role: 'cancel'
+        },
+        {
+          text: 'Excluir',
+          handler: () => {
+            this.provider.excluirEstagiario({
+              idGrupo: idGrupo
+            }).then((result) => {
+              this.listarGrupo();    
+              this.showAlert();
+            }); 
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
+
+  showAlert() {
+    let alert = this.alertCtrl.create({
+      title: 'Sucesso!',
+      subTitle: 'Grupo excluído.',
+      buttons: ['Ok']
+    });
+    alert.present();
+  }
+
+  editar(grupo: CadastrarGrupo){
+    this.navCtrl.push(CadastrarGrupoPage, {
+      rootNavCtrl: this.navCtrl,
+      grupo: grupo
+    });
   }
 }

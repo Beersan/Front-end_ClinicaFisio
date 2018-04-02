@@ -33,14 +33,18 @@ export class CadastrarGrupoPage {
               private provider: GrupoProvider, 
               private formBuilder:FormBuilder
             ) {
-                this.cadastroGrupo = formBuilder.group ({
-                  descricao:['', Validators.required]
-                })
+              if (this.navParams.data.grupo) {      
+                this.grupo = this.navParams.data.grupo;
+                console.log(this.grupo);
+                var text = JSON.stringify(this.grupo);
+                var obj = JSON.parse(text);
+                this.descricao = obj.descricaogrupo;
+                this.idGrupo = obj.idgrupo;
+              }
+              this.cadastroGrupo = formBuilder.group ({
+                descricao:['', Validators.required]
+              })
             } 
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CadastrarGrupoPage');
-  }
 
   cadastrarGrupo(){
     //campos
@@ -53,8 +57,6 @@ export class CadastrarGrupoPage {
     });
   }
 
- 
-
   showAlert() {
     let alert = this.alertCtrl.create({
       title: 'Sucesso!',
@@ -66,8 +68,6 @@ export class CadastrarGrupoPage {
   }
 
   cancelar(){
-    this.navCtrl.push(HomePage, {
-      rootNavCtrl: this.navCtrl
-    });
+    this.navCtrl.pop();
   }
 }
