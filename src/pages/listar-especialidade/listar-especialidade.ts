@@ -1,48 +1,48 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { CadastrarEstagiarioPage } from '../cadastrar-estagiario/cadastrar-estagiario';
-import { CadastrarEstagiarioProvider } from '../../providers/estagiario/estagiario';
-import { Estagiario } from './../../models/model.cadastrar-estagiario';
+import { CadastrarEspecialidadePage } from '../cadastrar-especialidade/cadastrar-especialidade';
+import { CadastrarEspecialidadeProvider } from '../../providers/especialidade/especialidade';
+import { Estagiario } from './../../models/model.cadastrar-especialidade';
 import { updateDate } from 'ionic-angular/util/datetime-util';
 import { AlertController } from 'ionic-angular';
 
 //@IonicPage()
 @Component({
-  selector: 'page-listar-estagiario',
-  templateUrl: 'listar-estagiario.html',
+  selector: 'page-listar-especialidade',
+  templateUrl: 'listar-especialidade.html',
 })
 
-export class ListarEstagiarioPage {
-  estagiarios: any;
+export class ListarEspecialidadePage {
+  especialidades: any;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private provider: CadastrarEstagiarioProvider,
+    private provider: CadastrarEspecialidadeProvider,
     private alertCtrl: AlertController
   ) {}
 
   ionViewWillEnter(){
-    this.listarEstagiario();
+    this.listarEspecialidade();
   }
 
   incluir(){
-    this.navCtrl.push(CadastrarEstagiarioPage, {
+    this.navCtrl.push(CadastrarEspecialidadePage, {
       rootNavCtrl: this.navCtrl
     });
   }
 
-  editar(estagiario: Estagiario){
-    this.navCtrl.push(CadastrarEstagiarioPage, {
+  editar(especialidade: Especialidade){
+    this.navCtrl.push(CadastrarEspecialidadePage, {
       rootNavCtrl: this.navCtrl,
-      estagiario: estagiario
+      especialidade: especialidade
     });
   }
 
-  excluir(idEstagiario){
+  excluir(codigoEspecialidade){
     let alert = this.alertCtrl.create({
       title: 'Excluir!',
-      message: 'Deseja excluir esse estagiário?',
+      message: 'Deseja excluir esta especialidade?',
       buttons: [
         {
           text: 'Não',
@@ -51,10 +51,10 @@ export class ListarEstagiarioPage {
         {
           text: 'Excluir',
           handler: () => {
-            this.provider.excluirEstagiario({
-              idEstagiario: idEstagiario
+            this.provider.excluirEspecialidade({
+              codigoEspecialidade: codigoEspecialidade
             }).then((result) => {
-              this.listarEstagiario();
+              this.listarEspecialidade();
               this.showAlert();
             });
           }
@@ -64,10 +64,10 @@ export class ListarEstagiarioPage {
     alert.present();
   }
 
-  listarEstagiario(){
-    this.provider.retornarEstagiario().then(
+  listarEspecialidade(){
+    this.provider.retornarEspecialidade().then(
       data => {
-        this.estagiarios = data;
+        this.especialidades = data;
         console.log(data);
       }
     )
@@ -77,7 +77,7 @@ export class ListarEstagiarioPage {
   showAlert() {
     let alert = this.alertCtrl.create({
       title: 'Sucesso!',
-      subTitle: 'Estagiário excluído.',
+      subTitle: 'Especialidade excluída.',
       buttons: ['Ok']
     });
     alert.present();
