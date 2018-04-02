@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { RelatarProblemaProvider} from './../../providers/problema/problema';
 import { NgForm, FormsModule } from '@angular/forms';
 import { AlertController } from 'ionic-angular';
-import { RelatarProblema } from '../../models/model.relatar-problemas';
+import { RelatarProblema } from './../../models/model.relatar-problemas';
 
 /**
  * Generated class for the RelatarProblemaPage page.

@@ -11,5 +11,5 @@ export interface PreCadastro {
     telefoneUm: String,
     telefoneDois: String,
     encaminhamento: String
-    // especialidade: String
+    especialidade: any
 }

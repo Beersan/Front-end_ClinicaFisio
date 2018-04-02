@@ -11,11 +11,22 @@ export class PreCadastroProvider {
     public alertCtrl: AlertController
   ) {}
 
-  create(preCadastro: PreCadastro){
-    console.log("gravar")
+  gravar(preCadastro: PreCadastro){
+    console.log(preCadastro);
+    return new Promise((resolve, reject) => {
+      this.http.post('http://localhost:3000/preCadastro/gravar', preCadastro).subscribe(response => {
+        resolve(response);
+      });
+    });
   }
 
   retornarEspecialidade(){    
     return this.http.get('http://localhost:3000/preCadastro/listarEspecialidade').toPromise();
   }
+
+  retornarPacientes(){
+    console.log("retornarPacientes");
+  }
+
+
 }

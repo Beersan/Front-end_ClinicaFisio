@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the ListarPacientesPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { PreCadastroProvider } from '../../providers/pre-cadastro/pre-cadastro';
 
 @IonicPage()
 @Component({
@@ -14,12 +8,26 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'listar-pacientes.html',
 })
 export class ListarPacientesPage {
+  pacientes: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+      public navCtrl: NavController, 
+      public navParams: NavParams,
+      private provider: PreCadastroProvider
+  ) {}
+
+  ionViewWillEnter(){
+    this.listarPaciantes();
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ListarPacientesPage');
+  listarPaciantes(){
+    // this.provider.retornarPacientes().then(
+    //   data => {
+    //     this.pacientes = data;
+    //     console.log(data);
+    //   }
+    // )
+    // .catch(error => alert(error));
   }
 
 }

@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { NgForm, FormsModule } from '@angular/forms';
 import { PreCadastro } from '../../models/model.pre-cadastro';
 import { PreCadastroProvider } from '../../providers/pre-cadastro/pre-cadastro';
+import { AlertController } from 'ionic-angular';
 
 /**
  * Generated class for the PreCadastroPage page.
@@ -28,23 +29,24 @@ export class PreCadastroPage {
   cidade: String;
   telefoneUm: String;
   telefoneDois: String;
-  encaminhamento: String; //faio
-  // preCadastro: PreCadastro;
+  encaminhamento: String; //File depois - Aguardar front - Gabriel 31/03 13h
   especialidades: any;
+  especialidade: any;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private provider: PreCadastroProvider
+    private provider: PreCadastroProvider,
+    private alertCtrl: AlertController
   ) {
     this.listarEspecialidade();
   }
 
-  incluirPreCadastro(){
-     this.provider.create({
+  incluirPreCadastro(){    
+    this.provider.gravar({
       nomePaciente: this.nomePaciente,
       registroGeral: this.registroGeral,
-      CPF:this.CPF,
+      CPF: this.CPF,
       dataNascimento: this.dataNascimento,
       rendaFamiliar: this.rendaFamiliar,
       endereco: this.endereco,
@@ -53,9 +55,11 @@ export class PreCadastroPage {
       cidade: this.cidade,
       telefoneUm: this.telefoneUm,
       telefoneDois: this.telefoneDois,
-      encaminhamento: this.encaminhamento
-      //especialidade: String
-    });
+      encaminhamento: this.encaminhamento,
+      especialidade: this.especialidade
+    }).then((result) => {
+      this.showAlert();    
+    });  
   }
 
   listarEspecialidade(){
@@ -67,4 +71,17 @@ export class PreCadastroPage {
     .catch(error => alert(error));
   }
   
+  showAlert(){
+    let alert = this.alertCtrl.create({
+      title: 'Sucesso!',
+      subTitle: 'Pré cadastro realizado.',
+      buttons: ['Ok']
+    });
+    alert.present();
+    this.navCtrl.pop();
+  }
+
+  cancelar(){
+    this.navCtrl.pop();
+  }
 }

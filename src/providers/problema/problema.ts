@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, Component, ViewChild } from '@angular/core';
-import { RelatarProblema } from '../../models/model.relatarProblemas';
+// import { RelatarProblema } from '../../models/model.relatarProblemas';
 import { Http } from '@angular/http';
 import { AlertController } from 'ionic-angular';
 import { Nav, Platform } from 'ionic-angular';
@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http'; import { HttpModule } f
 
 
 import { HomePage } from '../../pages/home/home';
+import { RelatarProblema } from '../../models/model.relatar-problemas';
 
 /*
   Generated class for the ProblemaProvider provider.
