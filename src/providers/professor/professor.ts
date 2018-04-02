@@ -1,0 +1,17 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+
+/*
+  Generated class for the ProfessorProvider provider.
+
+  See https://angular.io/guide/dependency-injection for more info on providers
+  and Angular DI.
+*/
+@Injectable()
+export class ProfessorProvider {
+
+  constructor(public http: HttpClient) {
+    console.log('Hello ProfessorProvider Provider');
+  }
+
+}
