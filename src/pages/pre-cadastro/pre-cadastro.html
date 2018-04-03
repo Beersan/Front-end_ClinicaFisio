@@ -20,18 +20,18 @@
   <form (ngSubmit)="incluirPreCadastro()">
     <ion-row>
       <ion-item>
-        <ion-label color="primary" name="nomePaciente" floating>Nome Completo</ion-label>
+        <ion-label name="nomePaciente" floating>Nome Completo</ion-label>
         <ion-input name="nomePaciente" [(ngModel)]="nomePaciente" type="text"></ion-input>
       </ion-item>
       <ion-col width-50>
         <ion-item>
-          <ion-label color="primary" name="registroGeral" floating>Nº RG</ion-label>
+          <ion-label name="registroGeral" floating>Nº RG</ion-label>
           <ion-input name="registroGeral" [(ngModel)]="registroGeral" type="text"></ion-input>
         </ion-item>
       </ion-col>
       <ion-col width-50>
         <ion-item>
-          <ion-label color="primary" floating>Nº CPF</ion-label>
+          <ion-label floating>Nº CPF</ion-label>
           <ion-input type="text" name="CPF"  [(ngModel)]="CPF" [brmasker]="{mask:'000.000.000-00', len:14}"></ion-input> >
         </ion-item>
       </ion-col>
@@ -39,13 +39,13 @@
     <ion-row>
       <ion-col width-50>
         <ion-item>
-          <ion-label color="primary" floating>Data de Nascimento</ion-label>
+          <ion-label floating>Data de Nascimento</ion-label>
           <ion-datetime displayFormat="DD/MM/YYYY" name="dataNascimento" [(ngModel)]="dataNascimento"></ion-datetime>
         </ion-item>
       </ion-col>
       <ion-col width-50>
         <ion-item class="rendaFamiliar">
-          <ion-label color="primary" name="rendaFamiliar" floating>Renda Familiar</ion-label>
+          <ion-label name="rendaFamiliar" floating>Renda Familiar</ion-label>
           <ion-input name="rendaFamiliar" [(ngModel)]="rendaFamiliar" type="text"></ion-input>
         </ion-item>
       </ion-col>
@@ -53,13 +53,13 @@
     <ion-row>
       <ion-col width-75>
         <ion-item>
-          <ion-label color="primary" name="endereco" floating>Endereço</ion-label>
+          <ion-label name="endereco" floating>Endereço</ion-label>
           <ion-input name="endereco" [(ngModel)]="endereco" type="text"></ion-input>
         </ion-item>
       </ion-col>
       <ion-col width-25>
         <ion-item>
-          <ion-label color="primary" name="numero" floating>Número</ion-label>
+          <ion-label name="numero" floating>Número</ion-label>
           <ion-input name="numero" [(ngModel)]="numero" type="text"></ion-input>
         </ion-item>
       </ion-col>
@@ -67,13 +67,13 @@
     <ion-row>
       <ion-col width-50>
         <ion-item>
-          <ion-label color="primary" name="bairro" floating>Bairro</ion-label>
+          <ion-label name="bairro" floating>Bairro</ion-label>
           <ion-input name="bairro" [(ngModel)]="bairro" type="text"></ion-input>
         </ion-item>
       </ion-col>
       <ion-col width-50>
         <ion-item>
-          <ion-label color="primary" name="cidade" floating>Cidade</ion-label>
+          <ion-label name="cidade" floating>Cidade</ion-label>
           <ion-input name="cidade" [(ngModel)]="cidade" type="text"></ion-input>
         </ion-item>
       </ion-col>
@@ -81,13 +81,13 @@
     <ion-row>
       <ion-col width-50>
         <ion-item>
-          <ion-label color="primary" name="telefoneUm" floating>Telefone 1</ion-label>
+          <ion-label name="telefoneUm" floating>Telefone 1</ion-label>
           <ion-input type="text" name="telefoneUm" [(ngModel)]="telefoneUm" [brmasker]="{mask:'(00)00000-0000', len:14}"></ion-input> >
         </ion-item>
       </ion-col>
       <ion-col width-50>
         <ion-item>
-          <ion-label color="primary" name="telefoneDois" floating>Telefone 2</ion-label>
+          <ion-label name="telefoneDois" floating>Telefone 2</ion-label>
           <ion-input type="text" name="telefoneDois" [(ngModel)]="telefoneDois" [brmasker]="{mask:'(00)00000-0000', len:14}"></ion-input> >
         </ion-item>
       </ion-col>
@@ -95,7 +95,7 @@
     <ion-row>
       <ion-col width-50>
         <ion-item>
-          <ion-label color="primary" floating>Encaminhamento Médico</ion-label>
+          <ion-label floating>Encaminhamento Médico</ion-label>
           <ion-select name="encaminhamento"  [(ngModel)]="encaminhamento">
             <ion-option value="S">Sim</ion-option>
             <ion-option value="N">Não</ion-option>
@@ -104,7 +104,7 @@
       </ion-col>
       <ion-col width-50>
         <ion-item>
-          <ion-label color="primary" floating>Área de Especialidade</ion-label>
+          <ion-label floating>Área de Especialidade</ion-label>
           <ion-select name= "especialidade" [(ngModel)]="especialidade">
             <ion-option *ngFor="let especialidade of especialidades" value="{{ especialidade.codigoespecialidade }}">{{ especialidade.descricaoespecialidade }}</ion-option>
           </ion-select>
