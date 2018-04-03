@@ -31,6 +31,7 @@ import { PreCadastroProvider } from '../providers/pre-cadastro/pre-cadastro';
 import { ListarGrupoPage } from '../pages/listar-grupo/listar-grupo';
 import { ListarProfessoresPage } from '../pages/listar-professores/listar-professores';
 import { ListarEspecialidadePage } from '../pages/listar-especialidade/listar-especialidade';
+import { ListarGrupoEstagiariosPage } from '../pages/listar-grupo-estagiarios/listar-grupo-estagiarios';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { ListarEspecialidadePage } from '../pages/listar-especialidade/listar-es
     ListarEstagiarioPage,
     ListarProfessoresPage,
     ListarGrupoPage,
-    ListarEspecialidadePage
+    ListarEspecialidadePage,
+    ListarGrupoEstagiariosPage
   ],
   imports: [
     BrowserModule,
@@ -78,7 +80,8 @@ import { ListarEspecialidadePage } from '../pages/listar-especialidade/listar-es
     ListarPacientesPage,
     ListarProfessoresPage,
     ListarGrupoPage,
-    ListarEspecialidadePage
+    ListarEspecialidadePage,
+    ListarGrupoEstagiariosPage
   ],
   providers: [
     StatusBar,

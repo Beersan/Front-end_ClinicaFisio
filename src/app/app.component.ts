@@ -21,6 +21,7 @@ import { ListarGrupoPage } from '../pages/listar-grupo/listar-grupo';
 import { ListarPacientesPage } from '../pages/listar-pacientes/listar-pacientes';
 import { ListarProfessoresPage } from '../pages/listar-professores/listar-professores';
 import { ListarEspecialidadePage } from '../pages/listar-especialidade/listar-especialidade';
+import { ListarGrupoEstagiariosPage } from '../pages/listar-grupo-estagiarios/listar-grupo-estagiarios';
 
 @Component({
   templateUrl: 'app.html'
@@ -44,6 +45,7 @@ export class MyApp {
       { title: 'Lista de pacientes', component: ListarPacientesPage},
       { title: 'Listar Especialidade', component: ListarEspecialidadePage},
       { title: 'Listar Professores', component: ListarProfessoresPage},
+      { title: 'Listar Grupo de Estagiários', component: ListarGrupoEstagiariosPage},      
       { title: 'Cadastrar Especialidade', component: CadastrarEspecialidadePage},
       { title: 'Cadastrar Professsor', component: CadastrarProfessorPage},
       { title: 'Reservar Sala', component: ReservarSalaPage},
