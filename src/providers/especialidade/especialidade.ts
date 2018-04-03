@@ -35,15 +35,15 @@ export class CadastrarEspecialidadeProvider {
   }*/
 
   create(especialidade: Especialidade) {
-    var rota = "cadastrar";
-    if (especialidade.codigoEspecialidade != ""){
-      rota = "editar";
-    }
-    return new Promise((resolve, reject) => {
-      this.http.post('http://localhost:3000/especialidade/' + rota, especialidade).subscribe(response => {
-        resolve(response);
-      });
-    });
+    // var rota = "cadastrar";
+    // if (especialidade.descricaoEspecialidade != ""){ // Gabriel - adiciona codigo no seu model, deixei descricao por que ta dando pau no sistema
+    //   rota = "editar";
+    // }
+    // return new Promise((resolve, reject) => {
+    //   this.http.post('http://localhost:3000/especialidade/' + rota, especialidade).subscribe(response => {
+    //     resolve(response);
+    //   });
+    // });
   }
 
   retornarEspecialidade(){

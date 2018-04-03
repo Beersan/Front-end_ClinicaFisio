@@ -1,57 +1,39 @@
-<!--
-  Generated template for the ListarPacientesPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
-
-  
+<ion-header>  
   <ion-navbar>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Listar Pacientes</ion-title>
   </ion-navbar>
-
 </ion-header>
-
-
 <ion-content padding>
-    <ion-searchbar
+  <ion-searchbar
     [(ngModel)]="myInput"
     [showCancelButton]="shouldShowCancel"
     (ionInput)="onInput($event)"
     (ionCancel)="onCancel($event)">
   </ion-searchbar>
-  <button ion-button float-right (click)="incluir()">Adicionar</button>
+  <button ion-button float-right (click)="incluir()">Pré Cadastro</button>
   <ion-grid>
       <ion-row>
         <ion-col><h6>Nome </h6></ion-col>
         <ion-col><h6>Data de Nascimento</h6></ion-col>
-        <ion-col><h6>Endereço</h6></ion-col>
-        <ion-col><h6>Cidade</h6></ion-col>
+        <ion-col><h6>CPF</h6></ion-col>
         <ion-col><h6>Telefone</h6></ion-col>
-        <ion-col><h6>Encaminhamento Médico</h6></ion-col>
-        <ion-col><h6>Área de Especialidade</h6></ion-col>
-        <ion-col></ion-col>
+        <ion-col><h6>Especialidade</h6></ion-col>
         <ion-col></ion-col>
       </ion-row>
-      <ion-row *ngFor="let job of estagiarios">
-          <ion-col>{{job.nomePaciente}}</ion-col>
-          <ion-col>{{job.dataNascimentoPaciente}}</ion-col>
-          <ion-col>{{job.enderecoPaciente}}</ion-col>
-          <ion-col>{{job.cidadePaciente}}</ion-col>
-          <ion-col>{{job.telefonePaciente}}</ion-col>
-          <ion-col>{{job.encaminhamentoPaciente}}</ion-col>
-          <ion-col>{{job.areaEspecialidadePaciente}}</ion-col>
+      <ion-row *ngFor="let paciente of pacientes">
+          <ion-col>{{paciente.nomepaciente}}</ion-col>
+          <ion-col>{{paciente.datanascpaciente}}</ion-col>
+          <ion-col>{{paciente.cpfpaciente}}</ion-col>          
+          <ion-col>{{paciente.contato1paciente}}</ion-col>          
+          <ion-col>{{paciente.descricaoespecialidade}}</ion-col>
           <ion-col class="iconeDireita">
-            <ion-icon ios="ios-create" md="md-create" title="Editar" (click)="editar(job)"></ion-icon>
-          </ion-col>
-          <ion-col class="iconeEsquerda">
-            <ion-icon ios="ios-trash" md="md-trash" title="Excluir" (click)="excluir(job.idestagiario)"></ion-icon>
+            <ion-icon name="eye"></ion-icon>
+            <ion-icon ios="ios-create" md="md-create" title="Finalizar Cadstro" (click)="editar(paciente)"></ion-icon>          
+            <ion-icon ios="ios-trash" md="md-trash" title="Excluir" (click)="excluir()"></ion-icon>          
           </ion-col>
       </ion-row>
   </ion-grid>
-
 </ion-content>

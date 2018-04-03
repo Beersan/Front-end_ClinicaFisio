@@ -25,8 +25,6 @@ export class PreCadastroProvider {
   }
 
   retornarPacientes(){
-    console.log("retornarPacientes");
+    return this.http.get('http://localhost:3000/preCadastro/listarPacientes').toPromise();
   }
-
-
 }

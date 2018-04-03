@@ -36,20 +36,18 @@ export class MyApp {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
-    this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage },
-      { title: 'Cadastrar Estagiário', component: CadastrarEstagiarioPage},
-      { title: 'Listar Estagiário', component: ListarEstagiarioPage},
+    this.pages = [      
+      // { title: 'Cadastrar Estagiário', component: CadastrarEstagiarioPage},
+      { title: 'Estagiário', component: ListarEstagiarioPage},
+      { title: 'Grupo', component: ListarGrupoPage},
+      { title: 'Pré-Cadastro', component: PreCadastroPage},
+      { title: 'Lista de pacientes', component: ListarPacientesPage},
       { title: 'Listar Especialidade', component: ListarEspecialidadePage},
-      { title: 'Listar Pacientes', component: ListarPacientesPage},
       { title: 'Listar Professores', component: ListarProfessoresPage},
-      { title: 'Listar Grupo', component: ListarGrupoPage},
       { title: 'Cadastrar Especialidade', component: CadastrarEspecialidadePage},
       { title: 'Cadastrar Professsor', component: CadastrarProfessorPage},
-      { title: 'Pré Cadastro', component: PreCadastroPage},
       { title: 'Reservar Sala', component: ReservarSalaPage},
-      { title: 'Cadastrar Grupo', component: CadastrarGrupoPage},
+      // { title: 'Cadastrar Grupo', component: CadastrarGrupoPage},
       { title: 'Sortear Paciente Grupo', component: SortearPacienteGrupoPage},
       { title: 'Relatar Problema', component: RelatarProblemaPage},
       { title: 'Cadastrar Grupo Estagiários', component: CadastrarGrupoEstagiariosPage},

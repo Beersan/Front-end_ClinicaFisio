@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { PreCadastroProvider } from '../../providers/pre-cadastro/pre-cadastro';
+import { PreCadastroPage } from '../pre-cadastro/pre-cadastro';
 
 @IonicPage()
 @Component({
@@ -15,19 +16,25 @@ export class ListarPacientesPage {
       public navParams: NavParams,
       private provider: PreCadastroProvider
   ) {}
-
+  
   ionViewWillEnter(){
     this.listarPaciantes();
   }
 
+  incluir(){
+    this.navCtrl.push(PreCadastroPage, {
+      rootNavCtrl: this.navCtrl
+    });
+  }
+
   listarPaciantes(){
-    // this.provider.retornarPacientes().then(
-    //   data => {
-    //     this.pacientes = data;
-    //     console.log(data);
-    //   }
-    // )
-    // .catch(error => alert(error));
+    this.provider.retornarPacientes().then(
+      data => {
+        this.pacientes = data;
+        console.log(data);
+      }
+    )
+    .catch(error => alert(error));
   }
 
 }
