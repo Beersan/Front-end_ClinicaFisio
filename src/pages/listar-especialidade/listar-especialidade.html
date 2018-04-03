@@ -30,13 +30,11 @@
         <ion-col></ion-col>
         <ion-col></ion-col>
       </ion-row>
-      <ion-row *ngFor="let job of especialidades">
-          <ion-col>{{job.descricaoespecialidade}}</ion-col>
+      <ion-row *ngFor="let especialidade of especialidades">
+          <ion-col>{{especialidade.descricaoespecialidade}}</ion-col>
           <ion-col class="iconeDireita">
-            <ion-icon ios="ios-create" md="md-create" title="Editar" (click)="editar(job)"></ion-icon>
-          </ion-col>
-          <ion-col class="iconeEsquerda">
-            <ion-icon ios="ios-trash" md="md-trash" title="Excluir" (click)="excluir(job.codigoespecialidade)"></ion-icon>
+            <ion-icon ios="ios-create" md="md-create" title="Editar" (click)="editar(especialidade)"></ion-icon>
+            <ion-icon ios="ios-trash" md="md-trash" title="Excluir" (click)="excluir(especialidade.codigoespecialidade)"></ion-icon>
           </ion-col>
       </ion-row>
   </ion-grid>
