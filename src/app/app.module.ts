@@ -32,6 +32,7 @@ import { ListarGrupoPage } from '../pages/listar-grupo/listar-grupo';
 import { ListarProfessoresPage } from '../pages/listar-professores/listar-professores';
 import { ListarEspecialidadePage } from '../pages/listar-especialidade/listar-especialidade';
 import { ListarGrupoEstagiariosPage } from '../pages/listar-grupo-estagiarios/listar-grupo-estagiarios';
+import { GrupoEstagiarioProvider } from '../providers/grupo-estagiario/grupo-estagiario';
 
 
 @NgModule({
@@ -91,7 +92,8 @@ import { ListarGrupoEstagiariosPage } from '../pages/listar-grupo-estagiarios/li
     CadastrarEspecialidadeProvider,
     RelatarProblemaProvider,
     GrupoProvider,
-    PreCadastroProvider
+    PreCadastroProvider,
+    GrupoEstagiarioProvider
   ]
 })
 export class AppModule {}

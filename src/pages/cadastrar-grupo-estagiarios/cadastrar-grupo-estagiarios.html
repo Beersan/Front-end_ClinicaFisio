@@ -17,28 +17,20 @@
 
 
 <ion-content padding>
-  <ion-row>
-    <ion-item>
-      <ion-label floating>Selecione o Grupo:</ion-label>
-      <ion-select name="grupoEstagiario" [(ngModel)]="grupoEstagiario">
-        <ion-option value= "A">Grupo A</ion-option>
-        <ion-option value= "B">Grupo B</ion-option>
-        <ion-option value= "C">Grupo C</ion-option>
-      </ion-select>
-    </ion-item>
-    <ion-item>
-      <ion-label>josefina</ion-label>
-      <ion-checkbox [(ngModel)]="josefina"></ion-checkbox>
-    </ion-item>
-    <ion-item>
-      <ion-label>joaquina</ion-label>
-      <ion-checkbox [(ngModel)]="joaquina"></ion-checkbox>
-    </ion-item>
-    <ion-item>
-      <ion-label>marroquina</ion-label>
-      <ion-checkbox [(ngModel)]="marroquina"></ion-checkbox>
-    </ion-item>
-  </ion-row>
-  <button ion-button color="danger" menuToggle="left">Cancelar</button>
-  <button ion-button color="secondary">Confirmar</button>
+    <ion-row>
+      <ion-item>
+        <ion-label floating>Selecione o Grupo:</ion-label>
+        <ion-select name="grupo" [(ngModel)]="grupo">
+          <ion-option *ngFor="let grupo of grupos" value="{{ grupo.idgrupo }}">{{ grupo.descricaogrupo }}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item *ngFor="let estagiario of estagiarios" >
+        <ion-label>{{ estagiario.nomeestagiario }}</ion-label>
+        <ion-checkbox name="idEstagiario" [(ngModel)]="idEstagiario" ></ion-checkbox>
+      </ion-item>
+    </ion-row>
+    <button ion-button color="danger" menuToggle="left">Cancelar</button>
+    <button ion-button color="secondary">Confirmar</button>
 </ion-content>
+
+<!--ng-value="{{ estagiario.idestagiario }}"-->

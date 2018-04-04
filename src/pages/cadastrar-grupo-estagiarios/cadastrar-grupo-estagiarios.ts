@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { GrupoEstagiarioProvider } from '../../providers/grupo-estagiario/grupo-estagiario';
 
 /**
  * Generated class for the CadastrarGrupoEstagiariosPage page.
@@ -15,11 +16,41 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class CadastrarGrupoEstagiariosPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  grupos: any;
+  estagiarios: any;
+
+  constructor(public navCtrl: NavController, 
+              private provider: GrupoEstagiarioProvider,
+              public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CadastrarGrupoEstagiariosPage');
+    this.listarGrupo();
+    this.listarEstagiario();
   }
 
+  cadastrarGrupoEstagiario(){
+
+  }
+
+  listarGrupo(){
+    this.provider.retornarGrupo().then(
+      data => {
+        this.grupos = data;
+        console.log(this.grupos);
+      }
+    )
+    .catch(error => alert(error));
+  }
+
+  listarEstagiario(){
+    this.provider.retornarEstagiario().then(
+      data => {
+        this.estagiarios = data;
+        console.log(data);
+      }
+    )
+    .catch(error => alert(error));
+  }
 }
