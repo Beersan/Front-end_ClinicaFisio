@@ -40,7 +40,8 @@ export class CadastrarEspecialidadePage {
   cadastrarEspecialidade(){
     //campos
     this.provider.create({
-        descricaoEspecialidade: this.descricaoEspecialidade
+        descricaoEspecialidade: this.descricaoEspecialidade,
+        //codigoEspecialidade: this.codigoEspecialidade
     });
     //console.log(this.descricaoEspecialidade);
     this.showAlert();

@@ -30,20 +30,16 @@ export class CadastrarEspecialidadeProvider {
     public alertCtrl: AlertController
   ) {}
 
-  /*constructor(public http: HttpClient) {
-    console.log('Hello CadastrarEspecialidadeProvider Provider');
-  }*/
-
   create(especialidade: Especialidade) {
-    // var rota = "cadastrar";
-    // if (especialidade.descricaoEspecialidade != ""){ // Gabriel - adiciona codigo no seu model, deixei descricao por que ta dando pau no sistema
-    //   rota = "editar";
-    // }
-    // return new Promise((resolve, reject) => {
-    //   this.http.post('http://localhost:3000/especialidade/' + rota, especialidade).subscribe(response => {
-    //     resolve(response);
-    //   });
-    // });
+    var rota = "cadastrar";
+    if (especialidade.codigoEspecialidade != ""){
+      rota = "editar";
+    }
+    return new Promise((resolve, reject) => {
+      this.http.post('http://localhost:3000/especialidade/' + rota, especialidade).subscribe(response => {
+        resolve(response);
+      });
+    });
   }
 
   retornarEspecialidade(){
@@ -54,6 +50,7 @@ export class CadastrarEspecialidadeProvider {
   excluirEspecialidade(codigoEspecialidade){
     return new Promise((resolve, reject) => {
       this.http.post('http://localhost:3000/especialidade/excluir', codigoEspecialidade).subscribe(response => {
+        //console.log(codigoEspecialidade + "Esse cara");
         resolve(response);
       });
     });
