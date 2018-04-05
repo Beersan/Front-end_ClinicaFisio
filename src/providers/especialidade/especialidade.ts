@@ -4,17 +4,10 @@ import { Especialidade } from '../../models/model.cadastrar-especialidade';
 import { Http } from '@angular/http';
 import { AlertController } from 'ionic-angular';
 import { Nav, Platform } from 'ionic-angular';
-import { HttpClientModule } from '@angular/common/http'; import { HttpModule } from '@angular/http'
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 import { HomePage } from '../../pages/home/home';
 
-/*
-  Generated class for the CadastrarEspecialidadeProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class CadastrarEspecialidadeProvider {
 
@@ -26,11 +19,12 @@ export class CadastrarEspecialidadeProvider {
 
   @ViewChild(Nav) nav: Nav;
   constructor(
-    private http: HttpClient,
+    private http: HttpClient, 
     public alertCtrl: AlertController
   ) {}
 
   create(especialidade: Especialidade) {
+    console.log(especialidade);
     var rota = "cadastrar";
     if (especialidade.codigoEspecialidade != ""){
       rota = "editar";
@@ -43,7 +37,6 @@ export class CadastrarEspecialidadeProvider {
   }
 
   retornarEspecialidade(){
-    console.log('Depois eu vejo, sem tempo')
     return this.http.get('http://localhost:3000/especialidade/listar').toPromise();
   }
 

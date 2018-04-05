@@ -33,6 +33,7 @@ export class ListarEspecialidadePage {
   }
 
   editar(especialidade: Especialidade){
+    console.log(especialidade);
     this.navCtrl.push(CadastrarEspecialidadePage, {
       rootNavCtrl: this.navCtrl,
       especialidade: especialidade

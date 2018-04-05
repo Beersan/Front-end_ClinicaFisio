@@ -17,10 +17,10 @@
 
 
 <ion-content padding>
-  <form (ngSubmit)="cadastrarEspecialidade()" #f="ngForm">
+  <form [formGroup]= "cadastroEspecialidade" (ngSubmit)="cadastrarEspecialidade()" #f="ngForm">
     <ion-item>
         <ion-label floating>Descrição</ion-label>
-        <ion-input name="descricaoEspecialidade" [(ngModel)]="descricaoEspecialidade" type="text"></ion-input>
+        <ion-input name="descricaoEspecialidade" [(ngModel)]="descricaoEspecialidade" formControlName="descricaoEspecialidade"></ion-input>
     </ion-item>
     <button ion-button color="danger" menuToggle="left">Cancelar</button>
     <button ion-button color="secondary">Confirmar</button>

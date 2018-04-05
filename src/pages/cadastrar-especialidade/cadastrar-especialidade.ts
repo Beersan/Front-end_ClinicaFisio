@@ -21,30 +21,42 @@ import { HomePage } from '../home/home';
 })
 export class CadastrarEspecialidadePage {
 
-  especialidade: Especialidade;
+  cadastroEspecialidade: any = {};
+  especialidades: any[];
   descricaoEspecialidade: string;
-  //teste
+  especialidade: Especialidade;
   codigoEspecialidade: "";
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public alertCtrl: AlertController,
-    public provider: CadastrarEspecialidadeProvider) {
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CadastrarEspecialidadePage');
+    private http: HttpClient,
+    public formBuilder: FormBuilder,
+    public provider: CadastrarEspecialidadeProvider
+  ) {
+    if (this.navParams.data.especialidade) {      
+      this.especialidades = this.navParams.data.especialidade;
+      console.log(this.especialidades);
+      var text = JSON.stringify(this.especialidades);
+      var obj = JSON.parse(text);
+      this.descricaoEspecialidade = obj.descricaoEspecialidade;
+      this.codigoEspecialidade = obj.codigoEspecialidade;
+    }
+    this.cadastroEspecialidade = formBuilder.group ({
+      descricaoEspecialidade:['', Validators.required]
+    })
   }
 
   cadastrarEspecialidade(){
     //campos
     this.provider.create({
         descricaoEspecialidade: this.descricaoEspecialidade,
-        //codigoEspecialidade: this.codigoEspecialidade
+        codigoEspecialidade: this.codigoEspecialidade
+    }).then((result) => {
+      console.log(result);
+      this.showAlert();    
     });
-    //console.log(this.descricaoEspecialidade);
-    this.showAlert();
   }
 
   showAlert() {
@@ -57,8 +69,6 @@ export class CadastrarEspecialidadePage {
   }
 
   cancelar(){
-    this.navCtrl.push(HomePage, {
-      rootNavCtrl: this.navCtrl
-    });
+    this.navCtrl.pop();
   }
 }
