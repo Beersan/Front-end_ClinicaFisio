@@ -15,14 +15,15 @@ import { GrupoEstagiarioProvider } from '../../providers/grupo-estagiario/grupo-
   templateUrl: 'cadastrar-grupo-estagiarios.html',
 })
 export class CadastrarGrupoEstagiariosPage {
-
+  grupo: any;
   grupos: any;
   estagiarios: any;
+  checkItems = { };
 
   constructor(public navCtrl: NavController, 
               private provider: GrupoEstagiarioProvider,
               public navParams: NavParams) {
-  }
+  }  
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CadastrarGrupoEstagiariosPage');
@@ -31,7 +32,15 @@ export class CadastrarGrupoEstagiariosPage {
   }
 
   cadastrarGrupoEstagiario(){
-
+    console.log(this.grupo);
+    
+    var codigos = [];    
+    for (let linha of this.estagiarios){
+      if (linha.checked == true){
+        codigos.push(linha.idestagiario);
+      }     
+    }
+    console.log(codigos);     
   }
 
   listarGrupo(){
@@ -53,4 +62,6 @@ export class CadastrarGrupoEstagiariosPage {
     )
     .catch(error => alert(error));
   }
+
+  
 }

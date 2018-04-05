@@ -24,13 +24,12 @@
           <ion-option *ngFor="let grupo of grupos" value="{{ grupo.idgrupo }}">{{ grupo.descricaogrupo }}</ion-option>
         </ion-select>
       </ion-item>
+      <br />
       <ion-item *ngFor="let estagiario of estagiarios" >
         <ion-label>{{ estagiario.nomeestagiario }}</ion-label>
-        <ion-checkbox name="idEstagiario" [(ngModel)]="idEstagiario" ></ion-checkbox>
+        <ion-checkbox name="idEstagiario" [(ngModel)]="estagiario.checked" ></ion-checkbox>
       </ion-item>
     </ion-row>
     <button ion-button color="danger" menuToggle="left">Cancelar</button>
-    <button ion-button color="secondary">Confirmar</button>
+    <button ion-button color="secondary" (click)="cadastrarGrupoEstagiario()">Confirmar</button>
 </ion-content>
-
-<!--ng-value="{{ estagiario.idestagiario }}"-->
