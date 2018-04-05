@@ -12,6 +12,7 @@ import { HomePage } from '../../pages/home/home';
 export class CadastrarEspecialidadeProvider {
 
   descricaoespecialidade: any;
+  //codigoespecialidade: any;
 
   push(arg0: any): any {
     throw new Error("Method not implemented.");
@@ -24,8 +25,10 @@ export class CadastrarEspecialidadeProvider {
   ) {}
 
   create(especialidade: Especialidade) {
-    console.log(especialidade);
     var rota = "cadastrar";
+    //testes pau no cod espec
+    //console.log(especialidade.codigoEspecialidade);
+    //console.log(especialidade.descricaoEspecialidade);
     if (especialidade.codigoEspecialidade != ""){
       rota = "editar";
     }

@@ -7,13 +7,6 @@ import { Especialidade } from '../../models/model.cadastrar-especialidade';
 import { HttpClient } from '@angular/common/http';
 import { HomePage } from '../home/home';
 
-/**
- * Generated class for the CadastrarEspecialidadePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-cadastrar-especialidade',
@@ -35,13 +28,15 @@ export class CadastrarEspecialidadePage {
     public formBuilder: FormBuilder,
     public provider: CadastrarEspecialidadeProvider
   ) {
-    if (this.navParams.data.especialidade) {      
+    if (this.navParams.data.especialidade) { 
+      //teste  
+      //console.log("funica demonho");   
       this.especialidades = this.navParams.data.especialidade;
       console.log(this.especialidades);
       var text = JSON.stringify(this.especialidades);
       var obj = JSON.parse(text);
-      this.descricaoEspecialidade = obj.descricaoEspecialidade;
-      this.codigoEspecialidade = obj.codigoEspecialidade;
+      this.descricaoEspecialidade = obj.descricaoespecialidade;
+      this.codigoEspecialidade = obj.codigoespecialidade;
     }
     this.cadastroEspecialidade = formBuilder.group ({
       descricaoEspecialidade:['', Validators.required]
@@ -49,7 +44,11 @@ export class CadastrarEspecialidadePage {
   }
 
   cadastrarEspecialidade(){
-    //campos
+    //campos deu pau no cod para cadastrar undefined em vez de null
+    console.log("funica demonho 2");
+    console.log(this.descricaoEspecialidade);
+    console.log(this.codigoEspecialidade);
+
     this.provider.create({
         descricaoEspecialidade: this.descricaoEspecialidade,
         codigoEspecialidade: this.codigoEspecialidade
