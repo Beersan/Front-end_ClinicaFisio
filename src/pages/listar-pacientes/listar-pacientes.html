@@ -16,23 +16,22 @@
   <button ion-button float-right (click)="incluir()">Pré Cadastro</button>
   <ion-grid>
       <ion-row>
-        <ion-col><h6>Nome </h6></ion-col>
+        <ion-col><h6>Nome</h6></ion-col>
         <ion-col><h6>Data de Nascimento</h6></ion-col>
-        <ion-col><h6>CPF</h6></ion-col>
         <ion-col><h6>Telefone</h6></ion-col>
         <ion-col><h6>Especialidade</h6></ion-col>
+        <ion-col><h6>Renda</h6></ion-col>
         <ion-col></ion-col>
       </ion-row>
       <ion-row *ngFor="let paciente of pacientes">
           <ion-col>{{paciente.nomepaciente}}</ion-col>
           <ion-col>{{paciente.datanascpaciente}}</ion-col>
-          <ion-col>{{paciente.cpfpaciente}}</ion-col>          
           <ion-col>{{paciente.contato1paciente}}</ion-col>          
           <ion-col>{{paciente.descricaoespecialidade}}</ion-col>
+          <ion-col>{{paciente.rendapaciente}}</ion-col>          
           <ion-col class="iconeDireita">
-            <ion-icon name="eye"></ion-icon>
             <ion-icon ios="ios-create" md="md-create" title="Finalizar Cadstro" (click)="editar(paciente)"></ion-icon>          
-            <ion-icon ios="ios-trash" md="md-trash" title="Excluir" (click)="excluir()"></ion-icon>          
+            <ion-icon ios="ios-trash" md="md-trash" title="Excluir" (click)="excluir(paciente.idpaciente)"></ion-icon>          
           </ion-col>
       </ion-row>
   </ion-grid>

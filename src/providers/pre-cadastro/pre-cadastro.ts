@@ -27,4 +27,12 @@ export class PreCadastroProvider {
   retornarPacientes(){
     return this.http.get('http://localhost:3000/preCadastro/listarPacientes').toPromise();
   }
+
+  excluirPaciente(idPaciente){
+    return new Promise((resolve, reject) => {
+      this.http.post('http://localhost:3000/preCadastro/excluir', idPaciente).subscribe(response => {
+        resolve(response);
+      });
+    });
+  }
 }
