@@ -12,7 +12,6 @@ import { HomePage } from '../../pages/home/home';
 export class CadastrarEspecialidadeProvider {
 
   descricaoespecialidade: any;
-  //codigoespecialidade: any;
 
   push(arg0: any): any {
     throw new Error("Method not implemented.");
@@ -51,20 +50,4 @@ export class CadastrarEspecialidadeProvider {
       });
     });
   }
-
-  /*create(especialidade: Especialidade) {
-    //const data = JSON.stringify(especialidade);
-    //console.log(especialidade);
-
-    this.http.post('http://localhost:3000/especialidade/cadastrar', especialidade).subscribe(response => {
-      //console.log(especialidade);
-    });
-
-    /*this.http.get('http://localhost:8100/cadastrarEspecialidade' + this.name).subscribe(response => {
-      console.log('GET Response:', response);
-    });
-
-
-    //console.log(this.descricaoEspecialidade);
-  }*/
 }
