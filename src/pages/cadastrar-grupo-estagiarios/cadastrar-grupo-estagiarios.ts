@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { GrupoEstagiarioProvider } from '../../providers/grupo-estagiario/grupo-estagiario';
 
 /**
@@ -19,9 +19,11 @@ export class CadastrarGrupoEstagiariosPage {
   grupos: any;
   estagiarios: any;
   checkItems = { };
+  codigos = []; 
 
   constructor(public navCtrl: NavController, 
               private provider: GrupoEstagiarioProvider,
+              public alertCtrl: AlertController,
               public navParams: NavParams) {
   }  
 
@@ -34,13 +36,20 @@ export class CadastrarGrupoEstagiariosPage {
   cadastrarGrupoEstagiario(){
     console.log(this.grupo);
     
-    var codigos = [];    
+       
     for (let linha of this.estagiarios){
       if (linha.checked == true){
-        codigos.push(linha.idestagiario);
+        this.codigos.push(linha.idestagiario);
       }     
     }
-    console.log(codigos);     
+    console.log(this.codigos);    
+    this.provider.create({
+      grupo: this.grupo,
+      codigos: this.codigos
+    }).then((result) =>{
+      console.log(result);
+      this.showAlert();
+    });
   }
 
   listarGrupo(){
@@ -61,6 +70,20 @@ export class CadastrarGrupoEstagiariosPage {
       }
     )
     .catch(error => alert(error));
+  }
+
+  showAlert(){
+    let alert = this.alertCtrl.create({
+      title: 'Sucesso!',
+      subTitle: 'Grupo de estagiarios cadastrado com sucesso.',
+      buttons: ['Ok']
+    });
+    alert.present();
+    this.navCtrl.pop();
+  }
+
+  cancelar(){
+    this.navCtrl.pop();
   }
 
   
