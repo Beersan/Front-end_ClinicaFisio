@@ -22,6 +22,7 @@ import { ListarPacientesPage } from '../pages/listar-pacientes/listar-pacientes'
 import { ListarProfessoresPage } from '../pages/listar-professores/listar-professores';
 import { ListarEspecialidadePage } from '../pages/listar-especialidade/listar-especialidade';
 import { ListarGrupoEstagiariosPage } from '../pages/listar-grupo-estagiarios/listar-grupo-estagiarios';
+import { FilaDeEsperaPage } from '../pages/fila-de-espera/fila-de-espera';
 
 @Component({
   templateUrl: 'app.html'
@@ -46,14 +47,16 @@ export class MyApp {
       { title: 'Listar Especialidade', component: ListarEspecialidadePage},
       { title: 'Listar Professores', component: ListarProfessoresPage},
       { title: 'Listar Grupo de Estagiários', component: ListarGrupoEstagiariosPage},      
-      { title: 'Cadastrar Especialidade', component: CadastrarEspecialidadePage},
+      // { title: 'Cadastrar Especialidade', component: CadastrarEspecialidadePage},
       { title: 'Cadastrar Professsor', component: CadastrarProfessorPage},
       { title: 'Reservar Sala', component: ReservarSalaPage},
       // { title: 'Cadastrar Grupo', component: CadastrarGrupoPage},
       { title: 'Sortear Paciente Grupo', component: SortearPacienteGrupoPage},
       { title: 'Relatar Problema', component: RelatarProblemaPage},
       { title: 'Cadastrar Grupo Estagiários', component: CadastrarGrupoEstagiariosPage},
-      { title: 'Finalizar Pré Cadastro', component: FinalizarPreCadastroPage}
+      { title: 'Finalizar Pré Cadastro', component: FinalizarPreCadastroPage},
+      { title: 'Fila de Espera', component: FilaDeEsperaPage}
+      
     ];
 
   }

@@ -83,5 +83,7 @@ export class ListarEspecialidadePage {
     alert.present();
   }
 
-
+  cancelar(){
+    this.navCtrl.pop();
+  }
 }

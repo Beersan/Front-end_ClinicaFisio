@@ -26,7 +26,12 @@ export class GrupoEstagiarioProvider {
     return this.http.get('http://localhost:3000/grupoestagiario/listarestagiario').toPromise();
   }
 
+  retornarGrupoEstagiario(){
+    return this.http.get('http://localhost:3000/grupoestagiario/listargrupoestagiario').toPromise();
+  }
+
   create(codigos) {
+    
     return new Promise((resolve, reject) => {
       this.http.post('http://localhost:3000/grupoestagiario/cadastrar', codigos).subscribe(response => {
         resolve(response);
@@ -34,4 +39,13 @@ export class GrupoEstagiarioProvider {
     });
   }
 
+  excluirGrupoEstagiario(idgrupo){
+    return new Promise((resolve, reject) => {
+      this.http.post('http://localhost:3000/grupoestagiario/excluir', idgrupo).subscribe(response => {
+        resolve(response);
+      });
+    });
+  }
+
+  
 }

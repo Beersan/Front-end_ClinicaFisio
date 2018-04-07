@@ -9,12 +9,6 @@ import { HttpClientModule } from '@angular/common/http'; import { HttpModule } f
 import { HomePage } from '../../pages/home/home';
 import { RelatarProblema } from '../../models/model.relatar-problemas';
 
-/*
-  Generated class for the ProblemaProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class RelatarProblemaProvider {
 
@@ -29,12 +23,5 @@ export class RelatarProblemaProvider {
     this.http.post('http://localhost:3000/problema/relatarProblema', problema).subscribe(response => {
       console.log(problema);
     });
-
-    /*this.http.get('http://localhost:8100/cadastrarEspecialidade' + this.name).subscribe(response => {
-      console.log('GET Response:', response);
-    });*/ // eu comentei pq estava com erro 
-
-
-    //console.log(this.descricaoEspecialidade);
   }
 }
