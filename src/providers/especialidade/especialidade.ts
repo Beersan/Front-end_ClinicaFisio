@@ -25,9 +25,6 @@ export class CadastrarEspecialidadeProvider {
 
   create(especialidade: Especialidade) {
     var rota = "cadastrar";
-    //testes pau no cod espec
-    //console.log(especialidade.codigoEspecialidade);
-    //console.log(especialidade.descricaoEspecialidade);
     if (especialidade.codigoEspecialidade != ""){
       rota = "editar";
     }
@@ -45,7 +42,6 @@ export class CadastrarEspecialidadeProvider {
   excluirEspecialidade(codigoEspecialidade){
     return new Promise((resolve, reject) => {
       this.http.post('http://localhost:3000/especialidade/excluir', codigoEspecialidade).subscribe(response => {
-        //console.log(codigoEspecialidade + "Esse cara");
         resolve(response);
       });
     });

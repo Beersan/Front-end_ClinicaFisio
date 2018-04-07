@@ -18,7 +18,7 @@ export class CadastrarEspecialidadePage {
   especialidades: any[];
   descricaoEspecialidade: string;
   especialidade: Especialidade;
-  codigoEspecialidade: "";
+  codigoEspecialidade = "";
 
   constructor(
     public navCtrl: NavController,
@@ -29,8 +29,6 @@ export class CadastrarEspecialidadePage {
     public provider: CadastrarEspecialidadeProvider
   ) {
     if (this.navParams.data.especialidade) { 
-      //teste  
-      console.log("funica demonho");   
       this.especialidades = this.navParams.data.especialidade;
       console.log(this.especialidades);
       var text = JSON.stringify(this.especialidades);
@@ -41,16 +39,9 @@ export class CadastrarEspecialidadePage {
     this.cadastroEspecialidade = formBuilder.group ({
       descricaoEspecialidade:['', Validators.required]
     })
-    console.log("funica demonho 3 "); 
-    console.log(this.codigoEspecialidade);
   }
   
   cadastrarEspecialidade(){
-    //campos deu pau no cod para cadastrar undefined em vez de null
-    console.log("funica demonho 2");
-    console.log(this.descricaoEspecialidade);
-    console.log(this.codigoEspecialidade);
-
     this.provider.create({
         descricaoEspecialidade: this.descricaoEspecialidade,
         codigoEspecialidade: this.codigoEspecialidade
