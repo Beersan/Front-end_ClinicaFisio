@@ -20,12 +20,24 @@ export class CadastrarGrupoEstagiariosPage {
   estagiarios: any;
   checkItems = { };
   codigos = []; 
+  idEstagiario = "";
+  idGrupo = "";
+  grupoEditar: any;
 
   constructor(public navCtrl: NavController, 
               private provider: GrupoEstagiarioProvider,
               public alertCtrl: AlertController,
-              public navParams: NavParams) {
-  }  
+              public navParams: NavParams){
+  
+    if (this.navParams.data.descricaogrupo) {      
+      this.grupoEditar = this.navParams.data.descricaogrupo;
+      console.log(this.grupoEditar);
+      var text = JSON.stringify(this.grupoEditar);
+      var obj = JSON.parse(text);
+      this.idEstagiario = obj.idestagiario;
+    } 
+    
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CadastrarGrupoEstagiariosPage');

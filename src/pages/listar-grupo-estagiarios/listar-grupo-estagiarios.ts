@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { CadastrarGrupoEstagiariosPage } from '../cadastrar-grupo-estagiarios/cadastrar-grupo-estagiarios';
+import { GrupoEstagiarioProvider } from '../../providers/grupo-estagiario/grupo-estagiario';
 
 /**
  * Generated class for the ListarGrupoEstagiariosPage page.
@@ -16,11 +17,16 @@ import { CadastrarGrupoEstagiariosPage } from '../cadastrar-grupo-estagiarios/ca
 })
 export class ListarGrupoEstagiariosPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  gruposEstagiarios: any;
+
+  constructor(public navCtrl: NavController, 
+              private provider: GrupoEstagiarioProvider,
+              private alertCtrl: AlertController,
+              public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ListarGrupoEstagiariosPage');
+  ionViewWillEnter(){
+    this.listarGrupoEstagiario();
   }
   
   incluir(){
@@ -29,4 +35,54 @@ export class ListarGrupoEstagiariosPage {
     });
   }  
 
+  listarGrupoEstagiario(){
+    this.provider.retornarGrupoEstagiario().then(
+      data => {
+        this.gruposEstagiarios = data;
+        console.log(data);
+      }
+    )
+    .catch(error => alert(error));
+  }
+
+  editar(grupo){
+    this.navCtrl.push(CadastrarGrupoEstagiariosPage, {
+      rootNavCtrl: this.navCtrl,
+      grupo: grupo
+    });
+  }
+
+  excluir(idgrupo){
+    let alert = this.alertCtrl.create({
+      title: 'Excluir!',
+      message: 'Deseja excluir esse grupo de estagiário?',
+      buttons: [
+        {
+          text: 'Não',
+          role: 'cancel'
+        },
+        {
+          text: 'Excluir',
+          handler: () => {
+            this.provider.excluirGrupoEstagiario({
+              idgrupo: idgrupo
+            }).then((result) => {
+              this.listarGrupoEstagiario();
+              this.showAlert();
+            });
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
+
+  showAlert() {
+    let alert = this.alertCtrl.create({
+      title: 'Sucesso!',
+      subTitle: 'Grupo de estagiário excluído.',
+      buttons: ['Ok']
+    });
+    alert.present();
+  }
 }

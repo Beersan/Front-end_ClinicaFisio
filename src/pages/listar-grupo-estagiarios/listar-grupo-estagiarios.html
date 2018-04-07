@@ -23,11 +23,16 @@
   <button ion-button float-right (click)="incluir()">Adicionar</button>
   <ion-grid >
       <ion-row>
-        <ion-col><h6>Grupos</h6></ion-col>
-        <ion-col><h6>Estagiários</h6></ion-col>
+          <ion-col><h6>Grupos</h6></ion-col>
+          <ion-col><h6>Estagiários</h6></ion-col>
+          <ion-col><h6></h6></ion-col>
+      </ion-row>
+      <ion-row *ngFor="let grupo of gruposEstagiarios">
+        <ion-col>{{ grupo.descricaogrupo }}</ion-col>
+        <ion-col>{{ grupo.nomes }}</ion-col>
         <ion-col class="iconeDireita">
-            <ion-icon ios="ios-create" md="md-create" title="Editar"></ion-icon>
-            <ion-icon ios="ios-trash" md="md-trash" title="Excluir"></ion-icon>
+            <ion-icon ios="ios-create" md="md-create" title="Editar" (click)="editar(grupo)"></ion-icon>
+            <ion-icon ios="ios-trash" md="md-trash" title="Excluir" (click)="excluir(grupo.idgrupo)"></ion-icon>
         </ion-col>
       </ion-row>
   </ion-grid>
