@@ -46,7 +46,7 @@ export class MyApp {
       { title: 'Listar Especialidade', component: ListarEspecialidadePage},
       { title: 'Listar Professores', component: ListarProfessoresPage},
       { title: 'Listar Grupo de Estagiários', component: ListarGrupoEstagiariosPage},      
-      { title: 'Cadastrar Especialidade', component: CadastrarEspecialidadePage},
+      // { title: 'Cadastrar Especialidade', component: CadastrarEspecialidadePage},
       { title: 'Cadastrar Professsor', component: CadastrarProfessorPage},
       { title: 'Reservar Sala', component: ReservarSalaPage},
       // { title: 'Cadastrar Grupo', component: CadastrarGrupoPage},
