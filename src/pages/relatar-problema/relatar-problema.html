@@ -22,7 +22,7 @@
         <ion-label floating>Descrição Detalhada</ion-label>
         <ion-input name="descricaoProblema" [(ngModel)]="descricaoProblema" type="text"></ion-input>
     </ion-item>
-    <button ion-button color="danger" menuToggle="left">Cancelar</button>
-    <button ion-button color="secondary">Confirmar</button>
+    <button type="button" (click)="cancelar()" ion-button color="danger" menuToggle="left">Cancelar</button>
+    <button type="submit" ion-button color="secondary">Confirmar</button>
   </form>
 </ion-content>
