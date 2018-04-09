@@ -27,8 +27,6 @@ export class GrupoProvider {
     return new Promise((resolve, reject) => {
       this.http.post('http://localhost:3000/grupo/' + rota, grupo).subscribe(response => {
         resolve(response);
-        console.log(grupo);
-
       });
     });
   }

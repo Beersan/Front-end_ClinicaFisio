@@ -33,6 +33,7 @@ import { ListarProfessoresPage } from '../pages/listar-professores/listar-profes
 import { ListarEspecialidadePage } from '../pages/listar-especialidade/listar-especialidade';
 import { ListarGrupoEstagiariosPage } from '../pages/listar-grupo-estagiarios/listar-grupo-estagiarios';
 import { GrupoEstagiarioProvider } from '../providers/grupo-estagiario/grupo-estagiario';
+import { FilaDeEsperaPageModule } from '../pages/fila-de-espera/fila-de-espera.module';
 
 
 @NgModule({
@@ -61,7 +62,8 @@ import { GrupoEstagiarioProvider } from '../providers/grupo-estagiario/grupo-est
     ReservarSalaPageModule,
     FinalizarPreCadastroPageModule,
     HttpClientModule,
-    BrMaskerModule
+    BrMaskerModule,
+    FilaDeEsperaPageModule
 
   ],
   bootstrap: [IonicApp],

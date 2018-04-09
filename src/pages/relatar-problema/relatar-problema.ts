@@ -29,10 +29,6 @@ export class RelatarProblemaPage {
     public provider: RelatarProblemaProvider) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad RelatarProblemaPage');
-  }
-
   relatarProblema(){
     //campos
     this.provider.create({
@@ -48,6 +44,10 @@ export class RelatarProblemaPage {
       subTitle: 'Reclamação enviada'
     });
     alert.present();
+    this.navCtrl.pop();
+  }
+
+  cancelar(){
     this.navCtrl.pop();
   }
 }

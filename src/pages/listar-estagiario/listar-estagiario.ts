@@ -26,6 +26,33 @@ export class ListarEstagiarioPage {
     this.listarEstagiario();
   }
 
+
+  filtrarItens(searchbar) {
+    // Reset items back to all of the items
+    this.listarEstagiario();
+  
+    // set q to the value of the searchbar
+    var q = searchbar.srcElement.value;
+  
+  
+    // if the value is an empty string don't filter the items
+    if (!q) {
+      return;
+    }
+  
+    this.estagiarios = this.estagiarios.filter((v) => {
+      if(v.nomeestagiario && q) {
+        if (v.nomeestagiario.toLowerCase().indexOf(q.toLowerCase()) > -1) {
+          return true;
+        }
+          return false;
+      }
+    });
+  
+    console.log(q, this.estagiarios.length);
+  
+  }
+
   incluir(){
     this.navCtrl.push(CadastrarEstagiarioPage, {
       rootNavCtrl: this.navCtrl
