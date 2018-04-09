@@ -2,8 +2,6 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { SearchPipe } from '../pipes/search/search';
-
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { CadastrarEstagiarioPage } from '../pages/cadastrar-estagiario/cadastrar-estagiario';
@@ -71,8 +69,7 @@ export class MyApp {
   }
   declarations: [
     MyApp,
-    HomePage,
-    SearchPipe
+    HomePage
      ]
   openPage(page) {
     // Reset the content nav to have just this page
