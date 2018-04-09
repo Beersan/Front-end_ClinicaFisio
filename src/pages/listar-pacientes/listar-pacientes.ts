@@ -21,7 +21,7 @@ export class ListarPacientesPage {
   ) {}
   
   ionViewWillEnter(){
-    this.listarPaciantes();
+    this.listarPacientes();
   }
 
   incluir(){
@@ -30,7 +30,7 @@ export class ListarPacientesPage {
     });
   }
 
-  listarPaciantes(){
+  listarPacientes(){
     this.provider.retornarPacientes().then(
       data => {
         this.pacientes = data;
@@ -40,28 +40,10 @@ export class ListarPacientesPage {
     .catch(error => alert(error));
   }
 
-  visualizar(array) {
-    // console.log(array);    
-    // let actionSheet = this.actionSheetCtrl.create({
-    //   title: 'Visualizar',
-    //   buttons: [
-    //     {
-    //       text: 'Destructive'
-    //     },{
-    //       text: 'Archive'
-    //     },{
-    //       text: 'Fechar',
-    //       role: 'cancel'
-    //     }
-    //   ]
-    // });
-    // actionSheet.present();
-  }
-
   excluir(idPaciente){
     let alert = this.alertCtrl.create({
       title: 'Excluir!',
-      message: 'Deseja excluir esse paciente?',
+      message: 'Deseja excluir este paciente?',
       buttons: [
         {
           text: 'Não',
@@ -73,7 +55,7 @@ export class ListarPacientesPage {
             this.provider.excluirPaciente({
               idPaciente: idPaciente
             }).then((result) => {
-              this.listarPaciantes();
+              this.listarPacientes();
               this.showAlert();
             });
           }
