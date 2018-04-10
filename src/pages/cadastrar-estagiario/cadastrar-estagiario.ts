@@ -42,13 +42,6 @@ export class CadastrarEstagiarioPage {
       this.email = obj.emailestagiario;
       this.telefone = obj.telefoneestagiario;
       this.idEstagiario = obj.idestagiario;
-      
-
-      //#Editar Estagiario 
-      // Gabriel - 28/03 23h - Thais 29/03 13h 
-      // Não alterar página e dependências
-      // ps: NAO CONSIGO ACESSAR ESSE LIXO DE JSON NO TS, PQP. att 
-      //res: EU CONSIGO att Thaís ;) 
     }
     this.cadastroEstagiario = formBuilder.group ({
       nome:['', Validators.required],
@@ -74,7 +67,7 @@ export class CadastrarEstagiarioPage {
   showAlert(){
     let alert = this.alertCtrl.create({
       title: 'Sucesso!',
-      subTitle: 'Estagiário cadastrado.',
+      subTitle: 'Estagiário gravado.',
       buttons: ['Ok']
     });
     alert.present();
