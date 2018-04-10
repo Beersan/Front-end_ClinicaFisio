@@ -35,26 +35,25 @@ export class MyApp {
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
-    // used for an example of ngFor and navigation
+    // manter comentado, poderá ser usado para testes futuramente. - Gabriel 09/04 23h
     this.pages = [      
       // { title: 'Cadastrar Estagiário', component: CadastrarEstagiarioPage},
       { title: 'Estagiário', component: ListarEstagiarioPage},
       { title: 'Grupo', component: ListarGrupoPage},
+      { title: 'Grupo de estagiários', component: ListarGrupoEstagiariosPage},      
       { title: 'Pré-Cadastro', component: PreCadastroPage},
       { title: 'Lista de pacientes', component: ListarPacientesPage},
       { title: 'Listar Especialidade', component: ListarEspecialidadePage},
       { title: 'Listar Professores', component: ListarProfessoresPage},
-      { title: 'Listar Grupo de Estagiários', component: ListarGrupoEstagiariosPage},      
       // { title: 'Cadastrar Especialidade', component: CadastrarEspecialidadePage},
       { title: 'Cadastrar Professsor', component: CadastrarProfessorPage},
       { title: 'Reservar Sala', component: ReservarSalaPage},
       // { title: 'Cadastrar Grupo', component: CadastrarGrupoPage},
       { title: 'Sortear Paciente Grupo', component: SortearPacienteGrupoPage},
       { title: 'Relatar Problema', component: RelatarProblemaPage},
-      { title: 'Cadastrar Grupo Estagiários', component: CadastrarGrupoEstagiariosPage},
+      //{ title: 'Cadastrar Grupo Estagiários', component: CadastrarGrupoEstagiariosPage},
       { title: 'Finalizar Pré Cadastro', component: FinalizarPreCadastroPage},
-      { title: 'Fila de Espera', component: FilaDeEsperaPage}
-      
+      { title: 'Fila de Espera', component: FilaDeEsperaPage}      
     ];
 
   }

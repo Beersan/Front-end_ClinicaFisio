@@ -42,15 +42,15 @@ export class ListarPacientesPage {
 
   excluir(idPaciente){
     let alert = this.alertCtrl.create({
-      title: 'Excluir!',
-      message: 'Deseja excluir este paciente?',
+      title: 'Reprovar!',
+      message: 'Deseja reprovar este paciente?',
       buttons: [
         {
           text: 'Não',
           role: 'cancel'
         },
         {
-          text: 'Excluir',
+          text: 'Reprovar',
           handler: () => {
             this.provider.excluirPaciente({
               idPaciente: idPaciente
@@ -66,7 +66,23 @@ export class ListarPacientesPage {
   }
 
   editar(){
-
+    let alert = this.alertCtrl.create({
+      title: 'Aprovar paciente!',
+      message: 'Deseja revisar as informações e aprovar este paciente?',
+      buttons: [
+        {
+          text: 'Não',
+          role: 'cancel'
+        },
+        {
+          text: 'Sim',
+          handler: () => {
+            
+          }
+        }
+      ]
+    });
+    alert.present();
   }
 
   showAlert() {

@@ -1,21 +1,11 @@
-<!--
-  Generated template for the CadastrarGrupoEstagiariosPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
   <ion-navbar>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Cadastrar Grupo Estagiários</ion-title>
+    <ion-title>Cadastrar grupo de estagiários</ion-title>
   </ion-navbar>
-
 </ion-header>
-
-
 <ion-content padding>
     <ion-row>
       <ion-item>
@@ -30,6 +20,6 @@
         <ion-checkbox name="idEstagiario" [(ngModel)]="estagiario.checked" ></ion-checkbox>
       </ion-item>
     </ion-row>
-    <button ion-button color="danger" menuToggle="left">Cancelar</button>
+    <button ion-button color="danger" (click)="cancelar()">Cancelar</button>
     <button ion-button color="secondary" (click)="cadastrarGrupoEstagiario()">Confirmar</button>
 </ion-content>

@@ -2,13 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { GrupoEstagiarioProvider } from '../../providers/grupo-estagiario/grupo-estagiario';
 
-/**
- * Generated class for the CadastrarGrupoEstagiariosPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-cadastrar-grupo-estagiarios',
@@ -20,42 +13,37 @@ export class CadastrarGrupoEstagiariosPage {
   estagiarios: any;
   checkItems = { };
   codigos = []; 
-  idEstagiario = "";
   idGrupoEditar: any;
 
-  constructor(public navCtrl: NavController, 
-              private provider: GrupoEstagiarioProvider,
-              public alertCtrl: AlertController,
-              public navParams: NavParams){
-    if (this.navParams.data.grupo.idgrupo) {      
+  constructor(
+    public navCtrl: NavController, 
+    private provider: GrupoEstagiarioProvider,
+    public alertCtrl: AlertController,
+    public navParams: NavParams
+  ){    
+    if (this.navParams.data.grupo) {    
       this.grupos = [{idgrupo: this.navParams.data.grupo.idgrupo, descricaogrupo: this.navParams.data.grupo.descricaogrupo}];
       this.grupo = this.grupos[0].idgrupo;
       this.idGrupoEditar = this.navParams.data.grupo.idgrupo;
       this.listarEstagiarioEditar(this.idGrupoEditar);
-    } 
+    }
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CadastrarGrupoEstagiariosPage');
     this.listarGrupo();
     this.listarEstagiario();
   }
 
-  cadastrarGrupoEstagiario(){
-    console.log(this.grupo);
-    
-       
+  cadastrarGrupoEstagiario(){ 
     for (let linha of this.estagiarios){
-      if (linha.checked == true){
+      if (linha.checked != "false" && linha.checked != false){ // verei uma melhor forma quando puder. Bj
         this.codigos.push(linha.idestagiario);
       }     
-    }
-    console.log(this.codigos);    
+    }  
     this.provider.create({
       grupo: this.grupo,
       codigos: this.codigos
     }).then((result) =>{
-      console.log(result);
       this.showAlert();
     });
   }
@@ -65,7 +53,6 @@ export class CadastrarGrupoEstagiariosPage {
       this.provider.retornarGrupo().then(
         data => {
             this.grupos = data;
-            console.log(this.grupos);
           }
         )
         .catch(error => alert(error));
@@ -73,23 +60,22 @@ export class CadastrarGrupoEstagiariosPage {
   }
 
   listarEstagiario(){
-    // if(this.estagiarioEditar == null){
-    //   this.provider.retornarEstagiario().then(
-    //     data => {
-    //        this.estagiarios = data;
-    //        console.log(data);
-    //     }
-    //   )
-    //   .catch(error => alert(error));
-    // }
+    if(this.idGrupoEditar == null){
+      this.provider.retornarEstagiario().then(
+        data => {
+           this.estagiarios = data;
+        }
+      )
+      .catch(error => alert(error));
+    }
   }
 
   listarEstagiarioEditar(idGrupo){
-    console.log(idGrupo);
-    this.provider.retornarEstagiarioEditar(idGrupo).then(
+    this.provider.retornarEstagiarioEditar({
+      idGrupo: idGrupo
+    }).then(
       data => {
         this.estagiarios = data;
-        console.log(data);
       }
     )
     .catch(error => alert(error));
@@ -107,7 +93,5 @@ export class CadastrarGrupoEstagiariosPage {
 
   cancelar(){
     this.navCtrl.pop();
-  }
-
-  
+  }  
 }
