@@ -14,7 +14,7 @@ import { AlertController } from 'ionic-angular';
 
 export class ListarEstagiarioPage {
   estagiarios: any;
-
+  estagiariosSemFiltro: any;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -29,7 +29,7 @@ export class ListarEstagiarioPage {
 
   filtrarItens(searchbar) {
     // Reset items back to all of the items
-    this.listarEstagiario();
+    this.estagiarios= this.estagiariosSemFiltro;
   
     // set q to the value of the searchbar
     var q = searchbar.srcElement.value;
@@ -95,6 +95,7 @@ export class ListarEstagiarioPage {
     this.provider.retornarEstagiario().then(
       data => {
         this.estagiarios = data;
+        this.estagiariosSemFiltro = this.estagiarios;
         console.log(data);
       }
     )
