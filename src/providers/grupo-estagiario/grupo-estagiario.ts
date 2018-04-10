@@ -47,5 +47,15 @@ export class GrupoEstagiarioProvider {
     });
   }
 
+  retornarEstagiarioEditar(idGrupo){
+    // console.log(idGrupo);
+    return new Promise((resolve, reject) => {
+      this.http.post('http://localhost:3000/grupoestagiario/listarestagiarioseditar', idGrupo).subscribe(response => {
+        console.log(response);
+        resolve(response);
+      });
+    });
+  }
+
   
 }

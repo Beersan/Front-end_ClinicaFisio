@@ -21,22 +21,18 @@ export class CadastrarGrupoEstagiariosPage {
   checkItems = { };
   codigos = []; 
   idEstagiario = "";
-  idGrupo = "";
-  grupoEditar: any;
+  idGrupoEditar: any;
 
   constructor(public navCtrl: NavController, 
               private provider: GrupoEstagiarioProvider,
               public alertCtrl: AlertController,
               public navParams: NavParams){
-  
-    if (this.navParams.data.descricaogrupo) {      
-      this.grupoEditar = this.navParams.data.descricaogrupo;
-      console.log(this.grupoEditar);
-      var text = JSON.stringify(this.grupoEditar);
-      var obj = JSON.parse(text);
-      this.idEstagiario = obj.idestagiario;
+    if (this.navParams.data.grupo.idgrupo) {      
+      this.grupos = [{idgrupo: this.navParams.data.grupo.idgrupo, descricaogrupo: this.navParams.data.grupo.descricaogrupo}];
+      this.grupo = this.grupos[0].idgrupo;
+      this.idGrupoEditar = this.navParams.data.grupo.idgrupo;
+      this.listarEstagiarioEditar(this.idGrupoEditar);
     } 
-    
   }
 
   ionViewDidLoad() {
@@ -65,17 +61,32 @@ export class CadastrarGrupoEstagiariosPage {
   }
 
   listarGrupo(){
-    this.provider.retornarGrupo().then(
-      data => {
-        this.grupos = data;
-        console.log(this.grupos);
-      }
-    )
-    .catch(error => alert(error));
+    if(this.grupos == null){
+      this.provider.retornarGrupo().then(
+        data => {
+            this.grupos = data;
+            console.log(this.grupos);
+          }
+        )
+        .catch(error => alert(error));
+    } 
   }
 
   listarEstagiario(){
-    this.provider.retornarEstagiario().then(
+    // if(this.estagiarioEditar == null){
+    //   this.provider.retornarEstagiario().then(
+    //     data => {
+    //        this.estagiarios = data;
+    //        console.log(data);
+    //     }
+    //   )
+    //   .catch(error => alert(error));
+    // }
+  }
+
+  listarEstagiarioEditar(idGrupo){
+    console.log(idGrupo);
+    this.provider.retornarEstagiarioEditar(idGrupo).then(
       data => {
         this.estagiarios = data;
         console.log(data);
