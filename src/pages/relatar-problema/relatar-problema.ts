@@ -41,7 +41,8 @@ export class RelatarProblemaPage {
   showAlert() {
     let alert = this.alertCtrl.create({
       title: 'Sucesso!',
-      subTitle: 'Reclamação enviada'
+      subTitle: 'Reclamação enviada.',
+      buttons: ['Ok']
     });
     alert.present();
     this.navCtrl.pop();

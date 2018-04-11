@@ -28,7 +28,7 @@ export class CadastrarEspecialidadePage {
     public formBuilder: FormBuilder,
     public provider: CadastrarEspecialidadeProvider
   ) {
-    if (this.navParams.data.especialidade) { 
+    if (this.navParams.data.especialidade) {
       this.especialidades = this.navParams.data.especialidade;
       console.log(this.especialidades);
       var text = JSON.stringify(this.especialidades);
@@ -40,21 +40,22 @@ export class CadastrarEspecialidadePage {
       descricaoEspecialidade:['', Validators.required]
     })
   }
-  
+
   cadastrarEspecialidade(){
     this.provider.create({
         descricaoEspecialidade: this.descricaoEspecialidade,
         codigoEspecialidade: this.codigoEspecialidade
     }).then((result) => {
       console.log(result);
-      this.showAlert();    
+      this.showAlert();
     });
   }
 
   showAlert() {
     let alert = this.alertCtrl.create({
       title: 'Sucesso!',
-      subTitle: 'Especialidade cadastrada'
+      subTitle: 'Especialidade gravada.',
+      buttons: ['Ok']
     });
     alert.present();
     this.navCtrl.pop();
