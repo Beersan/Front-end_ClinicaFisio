@@ -29,7 +29,7 @@ export class ListarEstagiarioPage {
 
   filtrarItens(searchbar) {
     // Reset items back to all of the items
-    this.estagiarios= this.estagiariosSemFiltro;
+    this.estagiarios = this.estagiariosSemFiltro;
   
     // set q to the value of the searchbar
     var q = searchbar.srcElement.value;
