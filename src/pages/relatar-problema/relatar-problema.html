@@ -1,4 +1,4 @@
-<ion-header>
+<!--><ion-header>
 
   <ion-navbar>
     <button ion-button menuToggle>
@@ -19,4 +19,39 @@
     <button type="button" (click)="cancelar()" ion-button color="danger" menuToggle="left">Cancelar</button>
     <button type="submit" ion-button color="secondary">Confirmar</button>
   </form>
-</ion-content>
+</ion-content>-->
+
+<ion-header>
+
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Ouvidoria</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+    <form [formGroup]= "relatoProblema" (ngSubmit)="relatarProblema()" #f="ngForm" >
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label floating>Assunto</ion-label>
+              <ion-input type="text" name="assuntoProblema" [(ngModel)]="assuntoProblema" formControlName="assunto"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label floating>Descrição Detalhada</ion-label>
+              <ion-textarea type="text" name="descricaoProblema" rows="5" [(ngModel)]="descricaoProblema" formControlName="descricao"></ion-textarea>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <button type="button" (click)="cancelar()" ion-button color="danger">Cancelar</button>
+      <button type="submit" [disabled]="!relatoProblema.valid" ion-button color="secondary">Confirmar</button>
+    </form>
+  </ion-content>
