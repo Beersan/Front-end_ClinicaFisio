@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 import { PreCadastroProvider } from '../../providers/pre-cadastro/pre-cadastro';
 import { PreCadastroPage } from '../pre-cadastro/pre-cadastro';
 import { ActionSheetController } from 'ionic-angular';
+import { ToastController } from 'ionic-angular';
+
 
 @IonicPage()
 @Component({
@@ -17,11 +19,24 @@ export class ListarPacientesPage {
       public navParams: NavParams,
       private provider: PreCadastroProvider,
       public actionSheetCtrl: ActionSheetController,
-      private alertCtrl: AlertController
+      private alertCtrl: AlertController,
+      private toastCtrl: ToastController
   ) {}
   
   ionViewWillEnter(){
     this.listarPacientes();
+  }
+
+  visualizar(paciente) {
+    var valor = JSON.parse(JSON.stringify(paciente));
+    //var obj = JSON.parse(valor);
+    console.log(valor.bairropaciente)
+    let toast = this.toastCtrl.create({
+      message: "teste",
+      duration: 3000,
+      position: 'botton'
+    }); 
+    toast.present();
   }
 
   incluir(){
