@@ -18,7 +18,7 @@ import { GrupoEstagiarioProvider } from '../../providers/grupo-estagiario/grupo-
 export class ListarGrupoEstagiariosPage {
   estagiarios: any;
   gruposEstagiarios: any;
-  estagiariosSemFiltro: any;
+  gruposEstagiariosSemFiltro: any;
   constructor(public navCtrl: NavController, 
               private provider: GrupoEstagiarioProvider,
               private alertCtrl: AlertController,
@@ -30,20 +30,22 @@ export class ListarGrupoEstagiariosPage {
   }
   
   filtrarItens(searchbar) {
-    this.estagiarios= this.estagiariosSemFiltro;
+    this.gruposEstagiarios= this.gruposEstagiariosSemFiltro;
     var q = searchbar.srcElement.value;
     if (!q) {
       return;
     }
-
-    this.estagiarios = this.estagiarios.filter((v) => {
-      if(v.nomes && q) {
-        if (v.nomes.toLowerCase().indexOf(q.toLowerCase()) > -1) {
+  console.log(this.gruposEstagiarios);
+    this.gruposEstagiarios = this.gruposEstagiarios.filter((v) => {
+      if(v.descricaogrupo && q) {
+        if (v.descricaogrupo.toLowerCase().indexOf(q.toLowerCase()) > -1) {
           return true;
         }
           return false;
       }
     });
+  
+    console.log(q, this.gruposEstagiarios.length);
   
     console.log(q, this.estagiarios.length);
   
@@ -59,7 +61,7 @@ export class ListarGrupoEstagiariosPage {
       data => {
         this.gruposEstagiarios = data;
         this.estagiarios = data;
-        this.estagiariosSemFiltro = data;
+        this.gruposEstagiariosSemFiltro = data;
         console.log(data);
       }
     )
