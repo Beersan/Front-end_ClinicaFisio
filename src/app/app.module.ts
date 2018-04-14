@@ -36,6 +36,7 @@ import { GrupoEstagiarioProvider } from '../providers/grupo-estagiario/grupo-est
 import { FilaDeEsperaPageModule } from '../pages/fila-de-espera/fila-de-espera.module';
 import { CadastroSemestrePageModule } from '../pages/cadastro-semestre/cadastro-semestre.module';
 import { ListarSemestrePageModule } from '../pages/listar-semestre/listar-semestre.module';
+import { SemestreProvider } from '../providers/semestre/semestre';
 
 
 
@@ -100,7 +101,8 @@ import { ListarSemestrePageModule } from '../pages/listar-semestre/listar-semest
     RelatarProblemaProvider,
     GrupoProvider,
     PreCadastroProvider,
-    GrupoEstagiarioProvider
+    GrupoEstagiarioProvider,
+    SemestreProvider
   ]
 })
 export class AppModule {}
