@@ -10,8 +10,9 @@ import { ActionSheetController } from 'ionic-angular';
   templateUrl: 'listar-pacientes.html',
 })
 export class ListarPacientesPage {
-  pacientes: any;
 
+  pacientes: any;
+  listarPacientesF: any;
   constructor(
       public navCtrl: NavController, 
       public navParams: NavParams,
@@ -24,6 +25,22 @@ export class ListarPacientesPage {
     this.listarPacientes();
   }
 
+  filtrarItens(searchbar) {
+    this.pacientes = this.listarPacientesF;
+    var q = searchbar.srcElement.value;
+    if (!q) {
+      return;
+    }
+    this.pacientes = this.pacientes.filter((v) => {
+      if(v.nomepaciente && q) {
+        if (v.nomepaciente.toLowerCase().indexOf(q.toLowerCase()) > -1) {
+          return true;
+        }
+          return false;
+      }
+    });
+  }
+
   incluir(){
     this.navCtrl.push(PreCadastroPage, {
       rootNavCtrl: this.navCtrl
@@ -34,7 +51,7 @@ export class ListarPacientesPage {
     this.provider.retornarPacientes().then(
       data => {
         this.pacientes = data;
-        console.log(data);
+        this.listarPacientesF = data;
       }
     )
     .catch(error => alert(error));
