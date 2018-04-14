@@ -12,11 +12,17 @@
 
 <ion-content padding>
   <form [formGroup]= "cadastroEspecialidade" (ngSubmit)="cadastrarEspecialidade()" #f="ngForm">
-    <ion-item>
-        <ion-label floating>Descrição</ion-label>
-        <ion-input name="descricaoEspecialidade" [(ngModel)]="descricaoEspecialidade" formControlName="descricaoEspecialidade"></ion-input>
-    </ion-item>
-    <button type="button" (click)="cancelar()" ion-button color="danger" menuToggle="left">Cancelar</button>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label floating>Descrição</ion-label>
+              <ion-input name="descricaoEspecialidade" [(ngModel)]="descricaoEspecialidade" formControlName="descricaoEspecialidade"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>  
+    <button type="button" (click)="cancelar()" ion-button color="danger">Cancelar</button>
     <button type="submit" [disabled]="!cadastroEspecialidade.valid" ion-button color="secondary">Confirmar</button>
   </form>
 </ion-content>

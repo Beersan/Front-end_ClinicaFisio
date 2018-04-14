@@ -14,6 +14,7 @@ import { AlertController } from 'ionic-angular';
 
 export class ListarEspecialidadePage {
   especialidades: any;
+  especialidadesSemFiltro: any;
 
   constructor(
     public navCtrl: NavController,
@@ -24,6 +25,32 @@ export class ListarEspecialidadePage {
 
   ionViewWillEnter(){
     this.listarEspecialidade();
+  }
+
+  filtrarItens(searchbar) {
+    // Reset items back to all of the items
+    this.especialidades= this.especialidadesSemFiltro;
+  
+    // set q to the value of the searchbar
+    var q = searchbar.srcElement.value;
+  
+  
+    // if the value is an empty string don't filter the items
+    if (!q) {
+      return;
+    }
+  
+    this.especialidades = this.especialidades.filter((v) => {
+      if(v.descricaoespecialidade && q) {
+        if (v.descricaoespecialidade.toLowerCase().indexOf(q.toLowerCase()) > -1) {
+          return true;
+        }
+          return false;
+      }
+    });
+  
+    console.log(q, this.especialidades.length);
+  
   }
 
   incluir(){
@@ -68,6 +95,7 @@ export class ListarEspecialidadePage {
     this.provider.retornarEspecialidade().then(
       data => {
         this.especialidades = data;
+        this.especialidadesSemFiltro = this.especialidades;
         console.log(data);
       }
     )
@@ -81,9 +109,5 @@ export class ListarEspecialidadePage {
       buttons: ['Ok']
     });
     alert.present();
-  }
-
-  cancelar(){
-    this.navCtrl.pop();
   }
 }
