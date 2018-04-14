@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 import { PreCadastroProvider } from '../../providers/pre-cadastro/pre-cadastro';
 import { PreCadastroPage } from '../pre-cadastro/pre-cadastro';
 import { ActionSheetController } from 'ionic-angular';
+import { ToastController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -10,18 +11,48 @@ import { ActionSheetController } from 'ionic-angular';
   templateUrl: 'listar-pacientes.html',
 })
 export class ListarPacientesPage {
-  pacientes: any;
 
+  pacientes: any;
+  listarPacientesF: any;
   constructor(
       public navCtrl: NavController, 
       public navParams: NavParams,
       private provider: PreCadastroProvider,
       public actionSheetCtrl: ActionSheetController,
-      private alertCtrl: AlertController
+      private alertCtrl: AlertController,
+      private toastCtrl: ToastController
   ) {}
   
   ionViewWillEnter(){
     this.listarPacientes();
+  }
+
+  visualizar(paciente) {
+    var valor = JSON.parse(JSON.stringify(paciente));
+    //console.log(valor.bairropaciente)
+    
+    let toast = this.toastCtrl.create({
+      message: "teste",
+      duration: 3000,
+      position: 'botton'
+    }); 
+    toast.present();
+  }
+
+  filtrarItens(searchbar) {
+    this.pacientes = this.listarPacientesF;
+    var q = searchbar.srcElement.value;
+    if (!q) {
+      return;
+    }
+    this.pacientes = this.pacientes.filter((v) => {
+      if(v.nomepaciente && q) {
+        if (v.nomepaciente.toLowerCase().indexOf(q.toLowerCase()) > -1) {
+          return true;
+        }
+          return false;
+      }
+    });
   }
 
   incluir(){
@@ -34,7 +65,7 @@ export class ListarPacientesPage {
     this.provider.retornarPacientes().then(
       data => {
         this.pacientes = data;
-        console.log(data);
+        this.listarPacientesF = data;
       }
     )
     .catch(error => alert(error));

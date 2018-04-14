@@ -4,11 +4,11 @@ import { NgForm, FormsModule } from '@angular/forms';
 import { AlertController } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 //import { ListarProfessorPage } from '../listar-professor/listar-professor';
-import { ProfessorProvider} from './../../providers/professor/professor';
 import { Professor } from '../../models/model.cadastrar-professor';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { provideModuleLoader } from 'ionic-angular/util/module-loader';
+//import { ProfessorProvider } from '../../providers/professor/professor';
 
 @IonicPage()
 @Component({
@@ -32,7 +32,7 @@ export class CadastrarProfessorPage {
   constructor(
   	public navCtrl: NavController,
     public navParams: NavParams,
-    public provider: ProfessorProvider,
+    //public provider: ProfessorProvider,
     private http: HttpClient,
     public alertCtrl: AlertController
     ){
@@ -50,15 +50,15 @@ export class CadastrarProfessorPage {
   }
 }
   cadastrarProfessor(){
-  	this.provider.gravarProfessor({
-  		nomeProfessor: this.nomeProfessor,
-  		matriculaProfessor: this.matriculaProfessor,
-  		crefitoProfessor: this.crefitoProfessor,
-  		emailProfessor: this.emailProfessor,
-  		telefoneProfessor: this.telefoneProfessor,
-  		especialidadeProfessor: this.especialidadeProfessor,
-  		idProfessor: this.idProfessor
-    });
+  	// this.provider.gravarProfessor({
+  	// 	nomeProfessor: this.nomeProfessor,
+  	// 	matriculaProfessor: this.matriculaProfessor,
+  	// 	crefitoProfessor: this.crefitoProfessor,
+  	// 	emailProfessor: this.emailProfessor,
+  	// 	telefoneProfessor: this.telefoneProfessor,
+  	// 	especialidadeProfessor: this.especialidadeProfessor,
+  	// 	idProfessor: this.idProfessor
+    // });
     // THEN PRECISA DE PROMISE NA FUNCAO DE REQUEST (gravarProfessor)
     // .then((result) => {
     //   console.log(result);

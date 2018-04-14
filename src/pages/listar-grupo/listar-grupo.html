@@ -7,12 +7,7 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-  <ion-searchbar
-    [(ngModel)]="myInput"
-    [showCancelButton]="shouldShowCancel"
-    (ionInput)="onInput($event)"
-    (ionCancel)="onCancel($event)">
-  </ion-searchbar>
+    <ion-searchbar (ionInput)="filtrarItens($event)"></ion-searchbar>
   <button ion-button float-right (click)="incluir()">Adicionar</button>
   <ion-grid >
       <ion-row>

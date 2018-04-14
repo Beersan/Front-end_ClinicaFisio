@@ -23,6 +23,8 @@ import { ListarGrupoEstagiariosPage } from '../pages/listar-grupo-estagiarios/li
 import { FilaDeEsperaPage } from '../pages/fila-de-espera/fila-de-espera';
 import firebase from 'firebase';
 import { FIREBASE_CONFIG } from './app.firebase.config';
+import { CadastroSemestrePage } from '../pages/cadastro-semestre/cadastro-semestre';
+import { ListarSemestrePage } from '../pages/listar-semestre/listar-semestre';
 
 @Component({
   templateUrl: 'app.html'
@@ -55,7 +57,9 @@ export class MyApp {
       { title: 'Ouvidoria', component: RelatarProblemaPage},
       //{ title: 'Cadastrar Grupo Estagiários', component: CadastrarGrupoEstagiariosPage},
       { title: 'Finalizar Pré Cadastro', component: FinalizarPreCadastroPage},
-      { title: 'Fila de Espera', component: FilaDeEsperaPage}
+      { title: 'Fila de Espera', component: FilaDeEsperaPage},
+      { title: 'Cadastrar Semestre', component: CadastroSemestrePage},
+      { title: 'Lista de Semestres', component: ListarSemestrePage}
     ];
     firebase.initializeApp(FIREBASE_CONFIG);
   }

@@ -7,12 +7,7 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-  <ion-searchbar
-    [(ngModel)]="myInput"
-    [showCancelButton]="shouldShowCancel"
-    (ionInput)="onInput($event)"
-    (ionCancel)="onCancel($event)">
-  </ion-searchbar>
+    <ion-searchbar (ionInput)="filtrarItens($event)"></ion-searchbar>
   <button ion-button float-right (click)="incluir()">Pré Cadastro</button>
   <ion-grid>
       <ion-row>
@@ -30,7 +25,7 @@
           <ion-col>{{paciente.descricaoespecialidade}}</ion-col>
           <ion-col>{{paciente.rendapaciente}}</ion-col>          
           <ion-col class="iconeDireita">              
-            <ion-icon md="md-eye"></ion-icon>          
+            <ion-icon md="md-eye" (click)="visualizar(paciente)"></ion-icon>          
             <ion-icon md="md-checkmark" title="Aprovar paciente" (click)="editar(paciente)"></ion-icon>          
             <ion-icon md="md-close" title="Reprovar paciente" (click)="excluir(paciente.idpaciente)"></ion-icon>          
           </ion-col>

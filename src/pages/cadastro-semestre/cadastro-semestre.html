@@ -1,0 +1,41 @@
+<!--
+  Generated template for the CadastroSemestrePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Cadastrar Semestre</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form (ngSubmit)="cadastrarSemestre()" #f="ngForm" >
+    <ion-row>
+      <ion-item>
+        <ion-label name="nomeSemestre" floating>Nome Semestre</ion-label>
+        <ion-input name="nomeSemestre" [(ngModel)]="nomeSemestre" type="text"></ion-input>
+      </ion-item>
+    </ion-row>
+    <ion-row>
+      <ion-col width-50>
+        <ion-item>
+          <ion-label floating>Inicio do Semestre</ion-label>
+          <ion-datetime displayFormat="DD/MM/YYYY" name="dataInicioSemestre" [(ngModel)]="dataInicioSemestre"></ion-datetime>
+        </ion-item>
+      </ion-col>
+      <ion-col width-50>
+        <ion-item>
+          <ion-label floating>Fim do Semestre</ion-label>
+          <ion-datetime displayFormat="DD/MM/YYYY" name="dataFimSemestre" [(ngModel)]="dataFimSemestre" ></ion-datetime>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <button type="button" ion-button color="danger" (click)="cancelar()">Cancelar</button>
+    <button type="submit" ion-button color="secondary">Confirmar</button>
+  </form>
+</ion-content>

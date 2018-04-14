@@ -16,9 +16,9 @@ import { GrupoEstagiarioProvider } from '../../providers/grupo-estagiario/grupo-
   templateUrl: 'listar-grupo-estagiarios.html',
 })
 export class ListarGrupoEstagiariosPage {
-
+  estagiarios: any;
   gruposEstagiarios: any;
-
+  gruposEstagiariosSemFiltro: any;
   constructor(public navCtrl: NavController, 
               private provider: GrupoEstagiarioProvider,
               private alertCtrl: AlertController,
@@ -29,6 +29,27 @@ export class ListarGrupoEstagiariosPage {
     this.listarGrupoEstagiario();
   }
   
+  filtrarItens(searchbar) {
+    this.gruposEstagiarios= this.gruposEstagiariosSemFiltro;
+    var q = searchbar.srcElement.value;
+    if (!q) {
+      return;
+    }
+  console.log(this.gruposEstagiarios);
+    this.gruposEstagiarios = this.gruposEstagiarios.filter((v) => {
+      if(v.descricaogrupo && q) {
+        if (v.descricaogrupo.toLowerCase().indexOf(q.toLowerCase()) > -1) {
+          return true;
+        }
+          return false;
+      }
+    });
+  
+    console.log(q, this.gruposEstagiarios.length);
+  
+    console.log(q, this.estagiarios.length);
+  
+  }
   incluir(){
     this.navCtrl.push(CadastrarGrupoEstagiariosPage, {
       rootNavCtrl: this.navCtrl
@@ -39,12 +60,14 @@ export class ListarGrupoEstagiariosPage {
     this.provider.retornarGrupoEstagiario().then(
       data => {
         this.gruposEstagiarios = data;
+        this.estagiarios = data;
+        this.gruposEstagiariosSemFiltro = data;
         console.log(data);
       }
     )
     .catch(error => alert(error));
   }
-
+  
   editar(grupo){
     this.navCtrl.push(CadastrarGrupoEstagiariosPage, {
       rootNavCtrl: this.navCtrl,

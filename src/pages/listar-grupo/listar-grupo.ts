@@ -19,6 +19,7 @@ import { CadastrarGrupo } from '../../models/model.cadastrar-grupo';
 export class ListarGrupoPage {
 
   grupos: any;
+  gruposSemFiltro: any;
 
   constructor(public navCtrl: NavController, 
               private provider:GrupoProvider, 
@@ -30,6 +31,25 @@ export class ListarGrupoPage {
     this.listarGrupo();
   }
 
+  filtrarItens(searchbar) {
+    this.grupos= this.gruposSemFiltro;
+    var q = searchbar.srcElement.value;
+    if (!q) {
+      return;
+    }
+  console.log(this.grupos);
+    this.grupos = this.grupos.filter((v) => {
+      if(v.descricaogrupo && q) {
+        if (v.descricaogrupo.toLowerCase().indexOf(q.toLowerCase()) > -1) {
+          return true;
+        }
+          return false;
+      }
+    });
+  
+    console.log(q, this.grupos.length);
+  
+  }
   incluir(){
     this.navCtrl.push(CadastrarGrupoPage, {
       rootNavCtrl: this.navCtrl
@@ -40,6 +60,7 @@ export class ListarGrupoPage {
     this.provider.retornarGrupo().then(
       data => {
         this.grupos = data;
+        this.gruposSemFiltro = data;
         console.log(this.grupos);
       }
     )

@@ -34,6 +34,11 @@ import { ListarGrupoEstagiariosPage } from '../pages/listar-grupo-estagiarios/li
 import { GrupoEstagiarioProvider } from '../providers/grupo-estagiario/grupo-estagiario';
 import { FilaDeEsperaPageModule } from '../pages/fila-de-espera/fila-de-espera.module';
 import { ArquivosProvider } from '../providers/arquivos/arquivos';
+import { CadastroSemestrePageModule } from '../pages/cadastro-semestre/cadastro-semestre.module';
+import { ListarSemestrePageModule } from '../pages/listar-semestre/listar-semestre.module';
+import { SemestreProvider } from '../providers/semestre/semestre';
+
+
 
 
 @NgModule({
@@ -64,6 +69,8 @@ import { ArquivosProvider } from '../providers/arquivos/arquivos';
     HttpClientModule,
     BrMaskerModule,
     FilaDeEsperaPageModule,
+    CadastroSemestrePageModule,
+    ListarSemestrePageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -95,7 +102,8 @@ import { ArquivosProvider } from '../providers/arquivos/arquivos';
     GrupoProvider,
     PreCadastroProvider,
     GrupoEstagiarioProvider,
-    ArquivosProvider
+    ArquivosProvider,
+    SemestreProvider
   ]
 })
 export class AppModule {}
