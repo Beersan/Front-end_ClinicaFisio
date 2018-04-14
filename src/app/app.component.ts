@@ -21,6 +21,8 @@ import { ListarProfessoresPage } from '../pages/listar-professores/listar-profes
 import { ListarEspecialidadePage } from '../pages/listar-especialidade/listar-especialidade';
 import { ListarGrupoEstagiariosPage } from '../pages/listar-grupo-estagiarios/listar-grupo-estagiarios';
 import { FilaDeEsperaPage } from '../pages/fila-de-espera/fila-de-espera';
+import firebase from 'firebase';
+import { FIREBASE_CONFIG } from './app.firebase.config';
 
 @Component({
   templateUrl: 'app.html'
@@ -55,7 +57,7 @@ export class MyApp {
       { title: 'Finalizar Pré Cadastro', component: FinalizarPreCadastroPage},
       { title: 'Fila de Espera', component: FilaDeEsperaPage}
     ];
-
+    firebase.initializeApp(FIREBASE_CONFIG);
   }
 
   initializeApp() {
