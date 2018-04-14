@@ -21,6 +21,8 @@ import { ListarProfessoresPage } from '../pages/listar-professores/listar-profes
 import { ListarEspecialidadePage } from '../pages/listar-especialidade/listar-especialidade';
 import { ListarGrupoEstagiariosPage } from '../pages/listar-grupo-estagiarios/listar-grupo-estagiarios';
 import { FilaDeEsperaPage } from '../pages/fila-de-espera/fila-de-espera';
+import { CadastroSemestrePage } from '../pages/cadastro-semestre/cadastro-semestre';
+import { ListarSemestrePage } from '../pages/listar-semestre/listar-semestre';
 
 @Component({
   templateUrl: 'app.html'
@@ -53,7 +55,9 @@ export class MyApp {
       { title: 'Ouvidoria', component: RelatarProblemaPage},
       //{ title: 'Cadastrar Grupo Estagiários', component: CadastrarGrupoEstagiariosPage},
       { title: 'Finalizar Pré Cadastro', component: FinalizarPreCadastroPage},
-      { title: 'Fila de Espera', component: FilaDeEsperaPage}
+      { title: 'Fila de Espera', component: FilaDeEsperaPage},
+      { title: 'Cadastrar Semestre', component: CadastroSemestrePage},
+      { title: 'Lista de Semestres', component: ListarSemestrePage}
     ];
 
   }
