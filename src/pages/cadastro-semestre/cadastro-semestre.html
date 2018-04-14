@@ -14,26 +14,28 @@
 
 
 <ion-content padding>
-  <ion-row>
-    <ion-item>
-      <ion-label name="nomeSemestre" floating>Nome Semestre</ion-label>
-      <ion-input name="nomeSemestre" [(ngModel)]="nomeSemestre" type="text"></ion-input>
-    </ion-item>
-  </ion-row>
-  <ion-row>
-    <ion-col width-50>
+  <form (ngSubmit)="cadastrarSemestre()" #f="ngForm" >
+    <ion-row>
       <ion-item>
-        <ion-label floating>Inicio do Semestre</ion-label>
-        <ion-datetime displayFormat="DD/MM/YYYY" name="dataInicioSemestre" [(ngModel)]="dataInicioSemestre"></ion-datetime>
+        <ion-label name="nomeSemestre" floating>Nome Semestre</ion-label>
+        <ion-input name="nomeSemestre" [(ngModel)]="nomeSemestre" type="text"></ion-input>
       </ion-item>
-    </ion-col>
-    <ion-col width-50>
-      <ion-item>
-        <ion-label floating>Fim do Semestre</ion-label>
-        <ion-datetime displayFormat="DD/MM/YYYY" name="dataFimSemestre" [(ngModel)]="dataFimSemestre"></ion-datetime>
-      </ion-item>
-    </ion-col>
-  </ion-row>
-  <button type="button" ion-button color="danger" (click)="cancelar()">Cancelar</button>
-  <button type="submit" ion-button color="secondary">Confirmar</button>
+    </ion-row>
+    <ion-row>
+      <ion-col width-50>
+        <ion-item>
+          <ion-label floating>Inicio do Semestre</ion-label>
+          <ion-datetime displayFormat="DD/MM/YYYY" name="dataInicioSemestre" [(ngModel)]="dataInicioSemestre"></ion-datetime>
+        </ion-item>
+      </ion-col>
+      <ion-col width-50>
+        <ion-item>
+          <ion-label floating>Fim do Semestre</ion-label>
+          <ion-datetime displayFormat="DD/MM/YYYY" name="dataFimSemestre" [(ngModel)]="dataFimSemestre"></ion-datetime>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <button type="button" ion-button color="danger" (click)="cancelar()">Cancelar</button>
+    <button type="submit" ion-button color="secondary">Confirmar</button>
+  </form>
 </ion-content>
