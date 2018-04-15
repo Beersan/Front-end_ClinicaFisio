@@ -27,8 +27,8 @@
     </ion-row>
     <ion-row *ngFor="let semestre of semestres">
         <ion-col>{{semestre.nomesemestre}}</ion-col>
-        <ion-col>{{semestre.datainiciosemestre}}</ion-col>
-        <ion-col>{{semestre.datafimsemestre}}</ion-col>
+        <ion-col>{{semestre.datainiciosemestre | date: 'dd/MM/yyyy'}}</ion-col>
+        <ion-col>{{semestre.datafimsemestre | date: 'dd/MM/yyyy'}}</ion-col>
         <ion-col class="iconeDireita">
             <ion-icon ios="ios-create" md="md-create" title="Editar" (click)="editar(semestre)"></ion-icon>          
             <ion-icon ios="ios-trash" md="md-trash" title="Excluir" (click)="excluir(semestre.idsemestre)"></ion-icon>

@@ -20,7 +20,7 @@
       </ion-row>
       <ion-row *ngFor="let paciente of pacientes">
           <ion-col>{{paciente.nomepaciente}}</ion-col>
-          <ion-col>{{paciente.datanascpaciente}}</ion-col>
+          <ion-col>{{paciente.datanascpaciente | date: 'dd/MM/yyyy'}}</ion-col>
           <ion-col>{{paciente.contato1paciente}}</ion-col>          
           <ion-col>{{paciente.descricaoespecialidade}}</ion-col>
           <ion-col>{{paciente.rendapaciente}}</ion-col>          
