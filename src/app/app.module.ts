@@ -5,7 +5,6 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
-
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { PreCadastroPageModule } from '../pages/pre-cadastro/pre-cadastro.module';
@@ -34,6 +33,7 @@ import { ListarEspecialidadePage } from '../pages/listar-especialidade/listar-es
 import { ListarGrupoEstagiariosPage } from '../pages/listar-grupo-estagiarios/listar-grupo-estagiarios';
 import { GrupoEstagiarioProvider } from '../providers/grupo-estagiario/grupo-estagiario';
 import { FilaDeEsperaPageModule } from '../pages/fila-de-espera/fila-de-espera.module';
+import { ArquivosProvider } from '../providers/arquivos/arquivos';
 import { CadastroSemestrePageModule } from '../pages/cadastro-semestre/cadastro-semestre.module';
 import { ListarSemestrePageModule } from '../pages/listar-semestre/listar-semestre.module';
 import { SemestreProvider } from '../providers/semestre/semestre';
@@ -102,6 +102,7 @@ import { SemestreProvider } from '../providers/semestre/semestre';
     GrupoProvider,
     PreCadastroProvider,
     GrupoEstagiarioProvider,
+    ArquivosProvider,
     SemestreProvider
   ]
 })

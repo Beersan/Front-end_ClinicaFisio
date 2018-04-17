@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the ListarSemestrePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { CadastroSemestrePage } from '../cadastro-semestre/cadastro-semestre';
+import { SemestreProvider } from '../../providers/semestre/semestre';
+import { Semestre } from '../../models/model.semestre';
 
 @IonicPage()
 @Component({
@@ -15,11 +11,73 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ListarSemestrePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  semestres: any;
+
+  constructor(
+    public navCtrl: NavController, 
+    private provider: SemestreProvider,
+    private alertCtrl: AlertController,
+    public navParams: NavParams
+  ) {}
+
+  ionViewWillEnter(){
+    this.listarSemestre();
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ListarSemestrePage');
+  incluir(){
+    this.navCtrl.push(CadastroSemestrePage, {
+      rootNavCtrl: this.navCtrl
+    });
+  }
+
+  editar(semestre: Semestre){
+    this.navCtrl.push(CadastroSemestrePage, {
+      rootNavCtrl: this.navCtrl,
+      semestre: semestre
+    });
+  }  
+
+  listarSemestre(){
+    this.provider.retornarEstagiario().then(
+      data => {
+        this.semestres = data;
+      }
+    )
+    .catch(error => alert(error));
+  }
+
+  excluir(idSemestre){
+    let alert = this.alertCtrl.create({
+      title: 'Excluir!',
+      message: 'Deseja excluir esse semestre?',
+      buttons: [
+        {
+          text: 'Não',
+          role: 'cancel'
+        },
+        {
+          text: 'Excluir',
+          handler: () => {
+            this.provider.excluirEstagiario({
+              idSemestre: idSemestre
+            }).then((result) => {
+              this.listarSemestre();
+              this.showAlert();
+            });
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
+
+  showAlert() {
+    let alert = this.alertCtrl.create({
+      title: 'Sucesso!',
+      subTitle: 'Semestre excluído.',
+      buttons: ['Ok']
+    });
+    alert.present();
   }
 
 }
