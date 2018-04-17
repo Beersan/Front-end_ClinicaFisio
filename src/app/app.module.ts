@@ -37,8 +37,7 @@ import { FilaDeEsperaPageModule } from '../pages/fila-de-espera/fila-de-espera.m
 import { CadastroSemestrePageModule } from '../pages/cadastro-semestre/cadastro-semestre.module';
 import { ListarSemestrePageModule } from '../pages/listar-semestre/listar-semestre.module';
 import { SemestreProvider } from '../providers/semestre/semestre';
-
-
+import { CadastrarHorarioProfessorPageModule } from '../pages/cadastrar-horario-professor/cadastrar-horario-professor.module';
 
 
 @NgModule({
@@ -70,7 +69,8 @@ import { SemestreProvider } from '../providers/semestre/semestre';
     BrMaskerModule,
     FilaDeEsperaPageModule,
     CadastroSemestrePageModule,
-    ListarSemestrePageModule
+    ListarSemestrePageModule,
+    CadastrarHorarioProfessorPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
