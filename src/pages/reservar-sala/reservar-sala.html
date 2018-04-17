@@ -45,7 +45,7 @@
         </ion-item>
       </ion-col>
     </ion-row>
-    <button ion-button color="danger" menuToggle="left">Cancelar</button>
-    <button ion-button color="secondary">Confirmar</button>
+    <button type="button" (click)="cancelar()" ion-button color="danger">Cancelar</button>
+    <button type="submit" [disabled]="!reservaForm.valid" ion-button color="secondary">Confirmar</button>
   </form>
 </ion-content>

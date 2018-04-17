@@ -30,21 +30,20 @@ export class ReservaSalaProvider {
     if (reserva.idReserva != ""){
       rota = "editar";
     }
-    console.log(reserva);
     return new Promise((resolve, reject) => {
-      this.http.post('http://localhost:3000/reservarSala/' + rota, reserva).subscribe(response => {
+      this.http.post('http://localhost:3000/reservaSala/' + rota, reserva).subscribe(response => {
         resolve(response);
       });
     });
   }
 
   retornarReservaSala(){    
-    return this.http.get('http://localhost:3000/reservarSala/listar').toPromise();
+    return this.http.get('http://localhost:3000/reservaSala/listar').toPromise();
   }
 
   excluirReservaSala(idReserva){
     return new Promise((resolve, reject) => {
-      this.http.post('http://localhost:3000/reservarSala/excluir', idReserva).subscribe(response => {
+      this.http.post('http://localhost:3000/reservaSala/excluir', idReserva).subscribe(response => {
         resolve(response);
       });
     });
