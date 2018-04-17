@@ -38,7 +38,7 @@ import { CadastroSemestrePageModule } from '../pages/cadastro-semestre/cadastro-
 import { ListarSemestrePageModule } from '../pages/listar-semestre/listar-semestre.module';
 import { SemestreProvider } from '../providers/semestre/semestre';
 import { ReservaSalaProvider} from '../providers/reserva-sala/reserva-sala';
-
+import { ListarReservasPage } from '../pages/listar-reserva-salas/listar-reserva-salas';
 
 
 
@@ -59,7 +59,8 @@ import { ReservaSalaProvider} from '../providers/reserva-sala/reserva-sala';
     ListarProfessoresPage,
     ListarGrupoPage,
     ListarEspecialidadePage,
-    ListarGrupoEstagiariosPage
+    ListarGrupoEstagiariosPage,
+    ListarReservasPage
   ],
   imports: [
     BrowserModule,
@@ -91,7 +92,8 @@ import { ReservaSalaProvider} from '../providers/reserva-sala/reserva-sala';
     ListarProfessoresPage,
     ListarGrupoPage,
     ListarEspecialidadePage,
-    ListarGrupoEstagiariosPage
+    ListarGrupoEstagiariosPage,
+    ListarReservasPage
   ],
   providers: [
     StatusBar,
