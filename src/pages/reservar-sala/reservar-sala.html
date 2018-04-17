@@ -17,25 +17,35 @@
 
 
 <ion-content padding>
-  <ion-row>
-    <ion-col width-50>
-      <ion-item>
-        <ion-label floating>Selecione a Sala</ion-label>
-        <ion-select name="selecionarSala"[(ngModel)]="reservarSala">
-          <ion-option value="fisioterapia">Fisioterapia</ion-option>
-          <ion-option value="estetica">Estética</ion-option>
-        </ion-select>
-      </ion-item>
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col width-50>
-      <ion-item>
-        <ion-label floating>Selecione a data</ion-label>
-        <ion-datetime displayFormat="MM/DD/YYYY" name="myDate" [(ngModel)]="myDate"></ion-datetime>
-      </ion-item>
-    </ion-col>
-  </ion-row>
-  <button ion-button color="danger" menuToggle="left">Cancelar</button>
-  <button ion-button color="secondary">Confirmar</button>
+  <form [formGroup]= "reservaForm" (ngSubmit)="reservarSala()" #f="ngForm" >
+    <ion-row>
+      <ion-col>
+        <ion-item>
+            <ion-label floating>Solicitante</ion-label>
+            <ion-input type="text" name="solicitante" [(ngModel)]="solicitante" formControlName="solicitante"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    <ion-row>
+      <ion-col width-50>
+        <ion-item>
+          <ion-label floating>Selecione a Sala</ion-label>
+          <ion-select name="salaReserva"[(ngModel)]="salaReserva" formControlName="salaReserva">
+            <ion-option value="fisioterapia">Fisioterapia</ion-option>
+            <ion-option value="estetica">Estética</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col width-50>
+        <ion-item>
+            <ion-label floating>Selecione a data</ion-label>
+            <ion-datetime name="dataReserva" displayFormat="DD/MM/YYYY" [(ngModel)]="dataReserva" formControlName="dataReserva"></ion-datetime>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <button ion-button color="danger" menuToggle="left">Cancelar</button>
+    <button ion-button color="secondary">Confirmar</button>
+  </form>
 </ion-content>

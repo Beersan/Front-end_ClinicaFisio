@@ -37,6 +37,7 @@ import { ArquivosProvider } from '../providers/arquivos/arquivos';
 import { CadastroSemestrePageModule } from '../pages/cadastro-semestre/cadastro-semestre.module';
 import { ListarSemestrePageModule } from '../pages/listar-semestre/listar-semestre.module';
 import { SemestreProvider } from '../providers/semestre/semestre';
+import { ReservaSalaProvider} from '../providers/reserva-sala/reserva-sala';
 
 
 
@@ -103,7 +104,8 @@ import { SemestreProvider } from '../providers/semestre/semestre';
     PreCadastroProvider,
     GrupoEstagiarioProvider,
     ArquivosProvider,
-    SemestreProvider
+    SemestreProvider,
+    ReservaSalaProvider
   ]
 })
 export class AppModule {}
