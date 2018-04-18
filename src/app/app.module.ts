@@ -37,10 +37,14 @@ import { ArquivosProvider } from '../providers/arquivos/arquivos';
 import { CadastroSemestrePageModule } from '../pages/cadastro-semestre/cadastro-semestre.module';
 import { ListarSemestrePageModule } from '../pages/listar-semestre/listar-semestre.module';
 import { SemestreProvider } from '../providers/semestre/semestre';
+<<<<<<< HEAD
+import { CadastrarHorarioProfessorPageModule } from '../pages/cadastrar-horario-professor/cadastrar-horario-professor.module';
+=======
 import { ReservaSalaProvider} from '../providers/reserva-sala/reserva-sala';
 import { ListarReservasPage } from '../pages/listar-reserva-salas/listar-reserva-salas';
 import { ListarReservasPageModule } from '../pages/listar-reserva-salas/listar-reserva-salas.module';
 
+>>>>>>> 578281e9fbcbcd66133d444d330bffcfb0848c90
 
 
 @NgModule({
@@ -74,7 +78,11 @@ import { ListarReservasPageModule } from '../pages/listar-reserva-salas/listar-r
     FilaDeEsperaPageModule,
     CadastroSemestrePageModule,
     ListarSemestrePageModule,
+<<<<<<< HEAD
     //ListarReservasPageModule
+=======
+    CadastrarHorarioProfessorPageModule
+>>>>>>> 59ee4b5ff1c9070d26f639d70f3acc2a32f2ab89
   ],
   bootstrap: [IonicApp],
   entryComponents: [

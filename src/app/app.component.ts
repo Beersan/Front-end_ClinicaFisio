@@ -25,6 +25,7 @@ import firebase from 'firebase';
 import { FIREBASE_CONFIG } from './app.firebase.config';
 import { CadastroSemestrePage } from '../pages/cadastro-semestre/cadastro-semestre';
 import { ListarSemestrePage } from '../pages/listar-semestre/listar-semestre';
+import { CadastrarHorarioProfessorPage } from '../pages/cadastrar-horario-professor/cadastrar-horario-professor';
 import { ListarReservasPage } from '../pages/listar-reserva-salas/listar-reserva-salas';
 
 @Component({
@@ -61,7 +62,8 @@ export class MyApp {
       { title: 'Finalizar Pré Cadastro', component: FinalizarPreCadastroPage},
       { title: 'Fila de Espera', component: FilaDeEsperaPage},
       { title: 'Cadastrar Semestre', component: CadastroSemestrePage},
-      { title: 'Lista de Semestres', component: ListarSemestrePage}
+      { title: 'Lista de Semestres', component: ListarSemestrePage},
+      { title: 'Cadastrar Horário de Professores', component: CadastrarHorarioProfessorPage}
     ];
     firebase.initializeApp(FIREBASE_CONFIG);
   }
