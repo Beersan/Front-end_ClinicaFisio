@@ -1,5 +1,6 @@
 export interface ReservarSala {
-   // selecionarSala : String;
-    selecionarDia : Date;
-  //  selecionarProfessorResponsavel : String;
+    idReserva: any,
+    solicitante: string,
+    salaReserva: string,
+    dataReserva: Date;
 }

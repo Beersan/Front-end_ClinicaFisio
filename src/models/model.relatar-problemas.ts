@@ -1,5 +1,5 @@
 export interface RelatarProblema{
-    //idProblema: any,
-    //assuntoProblema: string,
+    idProblema: any,
+    assuntoProblema: string,
     descricaoProblema: string
 }
