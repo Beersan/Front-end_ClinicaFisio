@@ -37,8 +37,13 @@ import { ArquivosProvider } from '../providers/arquivos/arquivos';
 import { CadastroSemestrePageModule } from '../pages/cadastro-semestre/cadastro-semestre.module';
 import { ListarSemestrePageModule } from '../pages/listar-semestre/listar-semestre.module';
 import { SemestreProvider } from '../providers/semestre/semestre';
+<<<<<<< HEAD
+import { CadastrarHorarioProfessorPageModule } from '../pages/cadastrar-horario-professor/cadastrar-horario-professor.module';
+=======
+import { ReservaSalaProvider} from '../providers/reserva-sala/reserva-sala';
+import { ListarReservasPage } from '../pages/listar-reserva-salas/listar-reserva-salas';
 
-
+>>>>>>> 578281e9fbcbcd66133d444d330bffcfb0848c90
 
 
 @NgModule({
@@ -58,7 +63,8 @@ import { SemestreProvider } from '../providers/semestre/semestre';
     ListarProfessoresPage,
     ListarGrupoPage,
     ListarEspecialidadePage,
-    ListarGrupoEstagiariosPage
+    ListarGrupoEstagiariosPage,
+    ListarReservasPage
   ],
   imports: [
     BrowserModule,
@@ -70,7 +76,8 @@ import { SemestreProvider } from '../providers/semestre/semestre';
     BrMaskerModule,
     FilaDeEsperaPageModule,
     CadastroSemestrePageModule,
-    ListarSemestrePageModule
+    ListarSemestrePageModule,
+    CadastrarHorarioProfessorPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -90,7 +97,8 @@ import { SemestreProvider } from '../providers/semestre/semestre';
     ListarProfessoresPage,
     ListarGrupoPage,
     ListarEspecialidadePage,
-    ListarGrupoEstagiariosPage
+    ListarGrupoEstagiariosPage,
+    ListarReservasPage
   ],
   providers: [
     StatusBar,
@@ -103,7 +111,8 @@ import { SemestreProvider } from '../providers/semestre/semestre';
     PreCadastroProvider,
     GrupoEstagiarioProvider,
     ArquivosProvider,
-    SemestreProvider
+    SemestreProvider,
+    ReservaSalaProvider
   ]
 })
 export class AppModule {}
