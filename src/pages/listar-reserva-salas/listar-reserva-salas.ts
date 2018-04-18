@@ -8,13 +8,15 @@ import { AlertController } from 'ionic-angular';
 
 //@IonicPage()
 @Component({
-  selector: 'page-listar-reserva-sala',
-  templateUrl: 'listar-reserva.html',
+  selector: 'page-listar-reserva-salas',
+  templateUrl: 'listar-reserva-salas.html',
 })
 
 export class ListarReservasPage {
+
   reservas: any;
   reservasSemFiltro: any;
+
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,

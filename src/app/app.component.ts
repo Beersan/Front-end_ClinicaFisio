@@ -26,6 +26,7 @@ import { FIREBASE_CONFIG } from './app.firebase.config';
 import { CadastroSemestrePage } from '../pages/cadastro-semestre/cadastro-semestre';
 import { ListarSemestrePage } from '../pages/listar-semestre/listar-semestre';
 import { CadastrarHorarioProfessorPage } from '../pages/cadastrar-horario-professor/cadastrar-horario-professor';
+import { ListarReservasPage } from '../pages/listar-reserva-salas/listar-reserva-salas';
 
 @Component({
   templateUrl: 'app.html'
@@ -52,7 +53,8 @@ export class MyApp {
       { title: 'Listar Professores', component: ListarProfessoresPage},
       // { title: 'Cadastrar Especialidade', component: CadastrarEspecialidadePage},
       { title: 'Cadastrar Professsor', component: CadastrarProfessorPage},
-      { title: 'Reservar Sala', component: ReservarSalaPage},
+      // { title: 'Reservar Sala', component: ReservarSalaPage},
+      { title: 'Lista de Reservas de Sala', component: ListarReservasPage},
       // { title: 'Cadastrar Grupo', component: CadastrarGrupoPage},
       { title: 'Sortear Paciente Grupo', component: SortearPacienteGrupoPage},
       { title: 'Ouvidoria', component: RelatarProblemaPage},

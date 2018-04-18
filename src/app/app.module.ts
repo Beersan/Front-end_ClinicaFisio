@@ -41,7 +41,7 @@ import { SemestreProvider } from '../providers/semestre/semestre';
 import { CadastrarHorarioProfessorPageModule } from '../pages/cadastrar-horario-professor/cadastrar-horario-professor.module';
 =======
 import { ReservaSalaProvider} from '../providers/reserva-sala/reserva-sala';
-
+import { ListarReservasPage } from '../pages/listar-reserva-salas/listar-reserva-salas';
 
 >>>>>>> 578281e9fbcbcd66133d444d330bffcfb0848c90
 
@@ -63,7 +63,8 @@ import { ReservaSalaProvider} from '../providers/reserva-sala/reserva-sala';
     ListarProfessoresPage,
     ListarGrupoPage,
     ListarEspecialidadePage,
-    ListarGrupoEstagiariosPage
+    ListarGrupoEstagiariosPage,
+    ListarReservasPage
   ],
   imports: [
     BrowserModule,
@@ -96,7 +97,8 @@ import { ReservaSalaProvider} from '../providers/reserva-sala/reserva-sala';
     ListarProfessoresPage,
     ListarGrupoPage,
     ListarEspecialidadePage,
-    ListarGrupoEstagiariosPage
+    ListarGrupoEstagiariosPage,
+    ListarReservasPage
   ],
   providers: [
     StatusBar,
