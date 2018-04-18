@@ -39,6 +39,7 @@ import { ListarSemestrePageModule } from '../pages/listar-semestre/listar-semest
 import { SemestreProvider } from '../providers/semestre/semestre';
 import { ReservaSalaProvider} from '../providers/reserva-sala/reserva-sala';
 import { ListarReservasPage } from '../pages/listar-reserva-salas/listar-reserva-salas';
+import { ListarReservasPageModule } from '../pages/listar-reserva-salas/listar-reserva-salas.module';
 
 
 
@@ -72,7 +73,8 @@ import { ListarReservasPage } from '../pages/listar-reserva-salas/listar-reserva
     BrMaskerModule,
     FilaDeEsperaPageModule,
     CadastroSemestrePageModule,
-    ListarSemestrePageModule
+    ListarSemestrePageModule,
+    //ListarReservasPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
