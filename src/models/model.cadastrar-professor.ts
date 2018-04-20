@@ -5,5 +5,6 @@ export interface Professor{
     crefitoProfessor: string,
     emailProfessor: string,
     telefoneProfessor: string,
-    especialidadeProfessor: string
+    especialidadeProfessor: any,
+    codigoEspecialidade: any
 }
