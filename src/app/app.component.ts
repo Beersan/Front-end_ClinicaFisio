@@ -44,11 +44,13 @@ export class MyApp {
     // manter comentado, poderá ser usado para testes futuramente. - Gabriel 09/04 23h
     this.pages = [
       // { title: 'Cadastrar Estagiário', component: CadastrarEstagiarioPage},
+      { title: 'Semestre', component: ListarSemestrePage},
       { title: 'Estagiário', component: ListarEstagiarioPage},
       { title: 'Grupo', component: ListarGrupoPage},
       { title: 'Grupo de estagiários', component: ListarGrupoEstagiariosPage},
-      { title: 'Pré-Cadastro', component: PreCadastroPage},
+      { title: 'Pré-cadastro', component: PreCadastroPage},
       { title: 'Lista de pacientes', component: ListarPacientesPage},
+      { title: 'Fila de Espera', component: FilaDeEsperaPage},
       { title: 'Especialidade', component: ListarEspecialidadePage},
       { title: 'Listar Professores', component: ListarProfessoresPage},
       // { title: 'Cadastrar Especialidade', component: CadastrarEspecialidadePage},
@@ -56,13 +58,11 @@ export class MyApp {
       // { title: 'Reservar Sala', component: ReservarSalaPage},
       { title: 'Lista de Reservas de Sala', component: ListarReservasPage},
       // { title: 'Cadastrar Grupo', component: CadastrarGrupoPage},
-      { title: 'Sortear Paciente Grupo', component: SortearPacienteGrupoPage},
+      //{ title: 'Sortear Paciente Grupo', component: SortearPacienteGrupoPage},
       { title: 'Ouvidoria', component: RelatarProblemaPage},
       //{ title: 'Cadastrar Grupo Estagiários', component: CadastrarGrupoEstagiariosPage},
-      { title: 'Finalizar Pré Cadastro', component: FinalizarPreCadastroPage},
-      { title: 'Fila de Espera', component: FilaDeEsperaPage},
-      { title: 'Cadastrar Semestre', component: CadastroSemestrePage},
-      { title: 'Lista de Semestres', component: ListarSemestrePage},
+      //{ title: 'Finalizar Pré Cadastro', component: FinalizarPreCadastroPage},
+      //{ title: 'Cadastrar Semestre', component: CadastroSemestrePage},
       { title: 'Cadastrar Horário de Professores', component: CadastrarHorarioProfessorPage}
     ];
     firebase.initializeApp(FIREBASE_CONFIG);

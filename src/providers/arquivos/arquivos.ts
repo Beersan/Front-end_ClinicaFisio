@@ -4,18 +4,11 @@ import 'firebase/storage';
 
 @Injectable()
 export class ArquivosProvider {
-
-  constructor() {
-    console.log('Hello ArquivosProvider Provider');
-  }
-
   upload(arquivo: any) {
-    console.log('Iniciando upload');
     let storageRef = firebase.storage().ref();      
     let uploadTask = storageRef.child(`anexos/${this.guid()}`).put(arquivo);
     return uploadTask.then(
       (snapshot) => {  
-        console.log('Upload Finalizado');
         return snapshot.downloadURL;
       }
     );       
