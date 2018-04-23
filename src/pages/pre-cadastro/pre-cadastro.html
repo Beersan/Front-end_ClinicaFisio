@@ -3,109 +3,115 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Pré-Cadastro</ion-title>
+    <ion-title>Pré-cadastro</ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-  <form (ngSubmit)="incluirPreCadastro()">
-    <ion-row>
-      <ion-item>
-        <ion-label name="nomePaciente" floating>Nome Completo</ion-label>
-        <ion-input name="nomePaciente" [(ngModel)]="nomePaciente" type="text"></ion-input>
-      </ion-item>
-      <ion-col width-50>
+  <form [formGroup]="validarPreCadastro" (ngSubmit)="incluirPreCadastro()">
+    <ion-grid>
+      <ion-row>
         <ion-item>
-          <ion-label name="registroGeral" floating>Nº RG</ion-label>
-          <ion-input name="registroGeral" [(ngModel)]="registroGeral" type="text"></ion-input>
+          <ion-label floating>Nome Completo</ion-label>
+          <ion-input name="nomePaciente" [(ngModel)]="nomePaciente" formControlName="nomePaciente" type="text" ></ion-input>
         </ion-item>
-      </ion-col>
-      <ion-col width-50>
-        <ion-item>
-          <ion-label floating>Nº CPF</ion-label>
-          <ion-input type="text" name="CPF"  [(ngModel)]="CPF" [brmasker]="{mask:'000.000.000-00', len:14}"></ion-input> >
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col width-50>
-        <ion-item>
-          <ion-label floating>Data de Nascimento</ion-label>
-          <ion-datetime displayFormat="DD/MM/YYYY" name="dataNascimento" [(ngModel)]="dataNascimento"></ion-datetime>
-        </ion-item>
-      </ion-col>
-      <ion-col width-50>
-        <ion-item class="rendaFamiliar">
-          <ion-label name="rendaFamiliar" floating>Renda Familiar</ion-label>
-          <ion-input name="rendaFamiliar" [(ngModel)]="rendaFamiliar" type="text"></ion-input>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col width-75>
-        <ion-item>
-          <ion-label name="endereco" floating>Endereço</ion-label>
-          <ion-input name="endereco" [(ngModel)]="endereco" type="text"></ion-input>
-        </ion-item>
-      </ion-col>
-      <ion-col width-25>
-        <ion-item>
-          <ion-label name="numero" floating>Número</ion-label>
-          <ion-input name="numero" [(ngModel)]="numero" type="text"></ion-input>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col width-50>
-        <ion-item>
-          <ion-label name="bairro" floating>Bairro</ion-label>
-          <ion-input name="bairro" [(ngModel)]="bairro" type="text"></ion-input>
-        </ion-item>
-      </ion-col>
-      <ion-col width-50>
-        <ion-item>
-          <ion-label name="cidade" floating>Cidade</ion-label>
-          <ion-input name="cidade" [(ngModel)]="cidade" type="text"></ion-input>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col width-50>
-        <ion-item>
-          <ion-label name="telefoneUm" floating>Telefone 1</ion-label>
-          <ion-input type="text" name="telefoneUm" [(ngModel)]="telefoneUm" [brmasker]="{mask:'(00)00000-0000', len:14}"></ion-input> >
-        </ion-item>
-      </ion-col>
-      <ion-col width-50>
-        <ion-item>
-          <ion-label name="telefoneDois" floating>Telefone 2</ion-label>
-          <ion-input type="text" name="telefoneDois" [(ngModel)]="telefoneDois" [brmasker]="{mask:'(00)00000-0000', len:14}"></ion-input> >
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col width-50>
-        <ion-item>
-          <ion-label floating>Encaminhamento Médico</ion-label>
-          <ion-select name="encaminhamento"  [(ngModel)]="encaminhamento">
-            <ion-option value="S">Sim</ion-option>
-            <ion-option value="N">Não</ion-option>
-          </ion-select>
-        </ion-item>
-      </ion-col>
-      <ion-col width-50>
-        <ion-item>
-          <ion-label floating>Área de Especialidade</ion-label>
-          <ion-select name= "especialidade" [(ngModel)]="especialidade">
-            <ion-option *ngFor="let especialidade of especialidades" value="{{ especialidade.codigoespecialidade }}">{{ especialidade.descricaoespecialidade }}</ion-option>
-          </ion-select>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    <ion-item>
-      <input type="file" id="file" (change)="detectarArquivos($event)"/>	
-      <button [disabled]="linkAnexo==''" type="button"  ion-button (click)="visualizar()">Visualizar</button>	
-		</ion-item>
-    <button type="button"  ion-button color="danger" (click)="cancelar()">Cancelar</button>
-    <button type="submit" ion-button color="secondary">Confirmar</button>
-  </form>
+        <ion-col width-50>
+          <ion-item>
+            <ion-label floating>Nº RG</ion-label>
+            <ion-input name="registroGeral" [(ngModel)]="registroGeral" formControlName="registroGeral" type="text"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col width-50>
+          <ion-item>
+            <ion-label floating>Nº CPF</ion-label>
+            <ion-input type="text" name="CPF"  [(ngModel)]="CPF" formControlName="CPF" [brmasker]="{mask:'000.000.000-00', len:14}"></ion-input> >
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col width-50>
+          <ion-item>
+            <ion-label floating>Data de Nascimento</ion-label>
+            <ion-datetime displayFormat="DD/MM/YYYY" name="dataNascimento" formControlName="dataNascimento" [(ngModel)]="dataNascimento"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col width-50>
+          <ion-item class="rendaFamiliar">
+            <ion-label floating>Renda Familiar</ion-label>
+            <ion-input name="rendaFamiliar" [(ngModel)]="rendaFamiliar" formControlName="rendaFamiliar" type="number"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col width-75>
+          <ion-item>
+            <ion-label floating>Endereço</ion-label>
+            <ion-input name="endereco" [(ngModel)]="endereco" formControlName="endereco" type="text"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col width-25>
+          <ion-item>
+            <ion-label floating>Número</ion-label>
+            <ion-input name="numero" [(ngModel)]="numero" formControlName="numero" type="number"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col width-50>
+          <ion-item>
+            <ion-label floating>Bairro</ion-label>
+            <ion-input name="bairro" [(ngModel)]="bairro" formControlName="bairro"  type="text"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col width-50>
+          <ion-item>
+            <ion-label floating>Cidade</ion-label>
+            <ion-input name="cidade" [(ngModel)]="cidade" formControlName="cidade" type="text"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col width-50>
+          <ion-item>
+            <ion-label floating>Telefone 1</ion-label>
+            <ion-input type="text" name="telefoneUm" [(ngModel)]="telefoneUm" formControlName="telefoneUm" [brmasker]="{mask:'(00)00000-0000', len:14}"></ion-input> >
+          </ion-item>
+        </ion-col>
+        <ion-col width-50>
+          <ion-item>
+            <ion-label floating>Telefone 2</ion-label>
+            <ion-input type="text" name="telefoneDois" [(ngModel)]="telefoneDois" formControlName="telefoneDois" [brmasker]="{mask:'(00)00000-0000', len:14}"></ion-input> >
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col width-100>
+          <ion-item>
+            <ion-label floating>Área de Especialidade</ion-label>
+            <ion-select name= "especialidade" formControlName="especialidade" [(ngModel)]="especialidade">
+              <ion-option *ngFor="let especialidade of especialidades" value="{{ especialidade.codigoespecialidade }}">{{ especialidade.descricaoespecialidade }}</ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col width-25>
+          <ion-item>
+            <ion-label floating>Possui encaminhamento médico?</ion-label>
+            <ion-select name="encaminhamento" formControlName="encaminhamento" [(ngModel)]="encaminhamento" (ionChange)="verificaEncaminhamento($event)">
+              <ion-option value="S">Sim</ion-option>
+              <ion-option value="N">Não</ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+        <ion-col width-75>
+          <div style="margin-top: 30px;" >
+            <input type="file" id="file" (change)="detectarArquivos($event)" [ngClass]="classeFile"/>
+            <ion-icon md="md-eye" title="visualizar" (click)="visualizar()" [ngClass]="classeIcone"></ion-icon>            
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <button type="button" ion-button color="danger" (click)="cancelar()">Cancelar</button>
+    <button type="submit" [disabled]="!validarPreCadastro.valid" ion-button color="secondary">Confirmar</button>
+  </form>  
 </ion-content>

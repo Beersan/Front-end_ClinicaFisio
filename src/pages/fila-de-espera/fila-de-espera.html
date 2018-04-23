@@ -1,21 +1,10 @@
-<!--
-  Generated template for the FilaDeEsperaPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
   <ion-navbar>
     <ion-title>Fila de Espera</ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-    <ion-searchbar
-    [(ngModel)]="myInput"
-    [showCancelButton]="shouldShowCancel"
-    (ionInput)="onInput($event)"
-    (ionCancel)="onCancel($event)">
-  </ion-searchbar>
+  <ion-searchbar (ionInput)="filtrarItens($event)"></ion-searchbar>    
   <ion-grid>
       <ion-row>
         <ion-col><h6>Nome</h6></ion-col>
@@ -27,13 +16,11 @@
       </ion-row>
       <ion-row *ngFor="let paciente of pacientes">
           <ion-col>{{paciente.nomepaciente}}</ion-col>
-          <ion-col>{{paciente.datanascpaciente}}</ion-col>
+          <ion-col>{{paciente.datanascpaciente | date: 'dd/MM/yyyy'}}</ion-col>
           <ion-col>{{paciente.contato1paciente}}</ion-col>          
           <ion-col>{{paciente.descricaoespecialidade}}</ion-col>
           <ion-col>{{paciente.rendapaciente}}</ion-col>          
-          <ion-col class="iconeDireita">
-            <ion-icon ios="ios-create" md="md-create" title="Finalizar Cadstro" (click)="editar(paciente)"></ion-icon>          
-            <ion-icon ios="ios-trash" md="md-trash" title="Excluir" (click)="excluir(paciente.idpaciente)"></ion-icon>          
+          <ion-col class="iconeDireita">               
           </ion-col>
       </ion-row>
   </ion-grid>
