@@ -4,6 +4,7 @@ import { PreCadastroProvider } from '../../providers/pre-cadastro/pre-cadastro';
 import { PreCadastroPage } from '../pre-cadastro/pre-cadastro';
 import { ActionSheetController } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
+import { FinalizarPreCadastroPage } from '../finalizar-pre-cadastro/finalizar-pre-cadastro';
 
 @IonicPage()
 @Component({
@@ -29,10 +30,15 @@ export class ListarPacientesPage {
 
   visualizar(paciente) {
     var valor = JSON.parse(JSON.stringify(paciente));
-    //console.log(valor.bairropaciente)
-    
+    var mensagem = "CPF: " + valor.cpfpaciente + "\n"
+    + "RG: " + valor.rgpaciente + "\n"
+    + "Endereço: " + valor.enderecopaciente + ", " + valor.numeropaciente +  "\n"
+    + "Bairro: " + valor.bairropaciente + "\n"
+    + "Cidade: " + valor.cidadepaciente + "\n"
+    + "Telefone 2: " + valor.telefone2 + "\n";
+
     let toast = this.toastCtrl.create({
-      message: "teste",
+      message: mensagem,
       duration: 3000,
       position: 'botton'
     }); 
@@ -96,7 +102,7 @@ export class ListarPacientesPage {
     alert.present();
   }
 
-  editar(){
+  finalizar(paciente){
     let alert = this.alertCtrl.create({
       title: 'Aprovar paciente!',
       message: 'Deseja revisar as informações e aprovar este paciente?',
@@ -108,7 +114,10 @@ export class ListarPacientesPage {
         {
           text: 'Sim',
           handler: () => {
-            
+            this.navCtrl.push(FinalizarPreCadastroPage, {
+              rootNavCtrl: this.navCtrl,
+              paciente: paciente
+            });
           }
         }
       ]
@@ -119,9 +128,21 @@ export class ListarPacientesPage {
   showAlert() {
     let alert = this.alertCtrl.create({
       title: 'Sucesso!',
-      subTitle: 'Paciente excluído.',
+      subTitle: 'Paciente reprovado.',
       buttons: ['Ok']
     });
     alert.present();
+  }
+
+  visualizarEnc(anexo) {    
+    window.open(anexo,'blank');
+  }
+  
+  classeIcone(classe: any){
+    var valor = "ocultar";
+    if (classe = "mostrar"){
+      valor = "mostrar";
+    }
+    return valor
   }
 }

@@ -40,6 +40,7 @@ import { SemestreProvider } from '../providers/semestre/semestre';
 import { CadastrarHorarioProfessorPageModule } from '../pages/cadastrar-horario-professor/cadastrar-horario-professor.module';
 import { ReservaSalaProvider} from '../providers/reserva-sala/reserva-sala';
 import { ListarReservasPage } from '../pages/listar-reserva-salas/listar-reserva-salas';
+import { ListarReservasPageModule } from '../pages/listar-reserva-salas/listar-reserva-salas.module';
 
 
 
@@ -74,6 +75,7 @@ import { ListarReservasPage } from '../pages/listar-reserva-salas/listar-reserva
     FilaDeEsperaPageModule,
     CadastroSemestrePageModule,
     ListarSemestrePageModule,
+    //ListarReservasPageModule
     CadastrarHorarioProfessorPageModule
   ],
   bootstrap: [IonicApp],

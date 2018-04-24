@@ -5,5 +5,13 @@ page-listar-pacientes {
 
     .iconeEsquerda{
         text-align: left;
+    }    
+
+    .ocultar{
+        display: none;
+    }
+
+    .mostrar{
+        display: initial;
     }
 }

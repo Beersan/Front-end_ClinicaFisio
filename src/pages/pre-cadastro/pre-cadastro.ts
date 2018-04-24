@@ -1,17 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Alert } from 'ionic-angular';
-import { NgForm, FormsModule } from '@angular/forms';
+import { IonicPage, NavController, NavParams, Alert, AlertController } from 'ionic-angular';
+import { NgForm, FormsModule, Validators, FormBuilder } from '@angular/forms';
 import { PreCadastro } from '../../models/model.pre-cadastro';
 import { PreCadastroProvider } from '../../providers/pre-cadastro/pre-cadastro';
-import { AlertController } from 'ionic-angular';
 import { ArquivosProvider } from '../../providers/arquivos/arquivos';
-
-/**
- * Generated class for the PreCadastroPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -19,6 +11,7 @@ import { ArquivosProvider } from '../../providers/arquivos/arquivos';
   templateUrl: 'pre-cadastro.html',
 })
 export class PreCadastroPage {
+  validarPreCadastro: any = {};
   nomePaciente: String;
   registroGeral: String;
   CPF: String;
@@ -30,20 +23,38 @@ export class PreCadastroPage {
   cidade: String;
   telefoneUm: String;
   telefoneDois: String;
-  encaminhamento: String; //File depois - Aguardar front - Gabriel 31/03 13h
+  encaminhamento: String;
   especialidades: any;
   especialidade: any;
   files:Array<any>;
   linkAnexo:any = "";
+  classeFile: string = 'ocultar';
+  classeIcone: string = 'ocultar';
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     private provider: PreCadastroProvider,
     private alertCtrl: AlertController,
-    private arquivos: ArquivosProvider
+    private arquivos: ArquivosProvider,
+    private formBuilder: FormBuilder
   ) {
     this.listarEspecialidade();
+    this.validarPreCadastro = formBuilder.group ({
+      nomePaciente:['', Validators.required],
+      registroGeral:['', Validators.required],      
+      CPF:['', Validators.required],
+      dataNascimento:['', Validators.required],
+      rendaFamiliar:['', Validators.required],
+      endereco:['', Validators.required],
+      numero:['', Validators.required],
+      bairro:['', Validators.required],
+      cidade:['', Validators.required],
+      telefoneUm:['', Validators.compose([Validators.required])],      
+      telefoneDois:['', ''],      
+      especialidade:['', Validators.required],
+      encaminhamento:['', Validators.required],
+    })
   }
 
   incluirPreCadastro(){    
@@ -91,12 +102,10 @@ export class PreCadastroPage {
   }
 
   detectarArquivos(event) {
-    console.log('Detectando arquivos');
     let fileList: FileList = event.target.files;
     let reader = new FileReader();
     reader.onloadend= (e) => {
       this.files = Array.from(event.target.files);
-      console.log('Arquivo Detectado');
       this.upload();
     }
     reader.readAsDataURL(fileList.item(0));   
@@ -108,8 +117,8 @@ export class PreCadastroPage {
         file
     ).then(
       data => {
-        this.linkAnexo=data;
-        console.log(data);
+        this.linkAnexo = data;                
+        this.classeIcone = 'mostrar';
       }
     );
   }
@@ -117,5 +126,13 @@ export class PreCadastroPage {
   visualizar() {
     this.linkAnexo;
     window.open(this.linkAnexo,'blank');
+  }
+
+  verificaEncaminhamento(valor: any){
+    if (valor == "S"){
+      this.classeFile = 'mostrar';
+    }else{
+      this.classeFile = 'ocultar';
+    }
   }
 }

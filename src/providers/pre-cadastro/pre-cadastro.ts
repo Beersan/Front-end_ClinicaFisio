@@ -12,7 +12,6 @@ export class PreCadastroProvider {
   ) {}
 
   gravar(preCadastro: PreCadastro){
-    console.log(preCadastro);
     return new Promise((resolve, reject) => {
       this.http.post('http://localhost:3000/preCadastro/gravar', preCadastro).subscribe(response => {
         resolve(response);
@@ -32,7 +31,19 @@ export class PreCadastroProvider {
     return new Promise((resolve, reject) => {
       this.http.post('http://localhost:3000/preCadastro/excluir', idPaciente).subscribe(response => {
         resolve(response);
+      });      
+    });
+  }
+
+  aprovarCadastro(dadosPaciente){    
+    return new Promise((resolve, reject) => {
+      this.http.post('http://localhost:3000/preCadastro/aprovarCadastro', dadosPaciente).subscribe(response => {
+        resolve(response);
       });
     });
+  }
+
+  retornarPacientesFila(){
+    return this.http.get('http://localhost:3000/preCadastro/listarPacientesFila').toPromise();
   }
 }
