@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, DateTime } from 'ionic-angular';
 import { ReservaSalaProvider} from './../../providers/reserva-sala/reserva-sala';
 import { NgForm, FormsModule, FormBuilder, Validators } from '@angular/forms';
 import { AlertController } from 'ionic-angular';
@@ -47,13 +47,29 @@ export class ReservarSalaPage {
   }
 
   reservarSala(){
-    this.provider.create({
-      solicitante: this.solicitante,
-      salaReserva: this.salaReserva,
-      dataReserva: this.dataReserva,
-      idReserva: this.idReserva
-    });
-    this.showAlert();
+    if (this.dataValida()){
+      this.provider.create({
+        solicitante: this.solicitante,
+        salaReserva: this.salaReserva,
+        dataReserva: this.dataReserva,
+        idReserva: this.idReserva
+      });
+      this.showAlert();
+    }
+  }
+
+  dataValida(){
+    var valido = true;
+    if (this.dataReserva > this.dataReserva ) {
+      valido = false;
+      let alert = this.alertCtrl.create({
+        title: 'Atenção!',
+        subTitle: 'A data da reserva não pode ser mais antiga que a atual.',
+        buttons: ['Ok']
+      });
+      alert.present();
+    }
+    return valido;
   }
 
   showAlert() {
