@@ -41,7 +41,7 @@
       <ion-col width-50>
         <ion-item>
             <ion-label floating>Selecione a data</ion-label>
-            <ion-datetime name="dataReserva" displayFormat="DD/MM/YYYY" [(ngModel)]="dataReserva" formControlName="dataReserva"></ion-datetime>
+            <ion-datetime name="dataReserva" min="today" displayFormat="DD/MM/YYYY" [(ngModel)]="dataReserva" formControlName="dataReserva"></ion-datetime>
         </ion-item>
       </ion-col>
     </ion-row>
