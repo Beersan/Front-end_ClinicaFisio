@@ -15,6 +15,10 @@ export class GrupoEstagiarioProvider {
     return this.http.get('http://localhost:3000/grupoestagiario/listarestagiario').toPromise();
   }
 
+  retornarProfessor(){
+    return this.http.get('http://localhost:3000/grupoestagiario/listarprofessor').toPromise();
+  }
+
   retornarGrupoEstagiario(){
     return this.http.get('http://localhost:3000/grupoestagiario/listargrupoestagiario').toPromise();
   }

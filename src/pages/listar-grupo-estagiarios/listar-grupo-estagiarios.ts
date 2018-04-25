@@ -50,6 +50,7 @@ export class ListarGrupoEstagiariosPage {
     console.log(q, this.estagiarios.length);
   
   }
+  
   incluir(){
     this.navCtrl.push(CadastrarGrupoEstagiariosPage, {
       rootNavCtrl: this.navCtrl

@@ -8,12 +8,16 @@ import { GrupoEstagiarioProvider } from '../../providers/grupo-estagiario/grupo-
   templateUrl: 'cadastrar-grupo-estagiarios.html',
 })
 export class CadastrarGrupoEstagiariosPage {
+
   grupo: any;
   grupos: any;
   estagiarios: any;
   checkItems = { };
   codigos = []; 
   idGrupoEditar: any;
+  idProfessorEditar: any;
+  professores: any;
+  professor: any;
 
   constructor(
     public navCtrl: NavController, 
@@ -22,9 +26,15 @@ export class CadastrarGrupoEstagiariosPage {
     public navParams: NavParams
   ){    
     if (this.navParams.data.grupo) {    
-      this.grupos = [{idgrupo: this.navParams.data.grupo.idgrupo, descricaogrupo: this.navParams.data.grupo.descricaogrupo}];
+      this.grupos = [{idgrupo: this.navParams.data.grupo.idgrupo, descricaogrupo: this.navParams.data.grupo.descricaogrupo, idprofessor: this.navParams.data.grupo.idprofessor, nomeProfessor: this.navParams.data.grupo.nomeprofessor}];
+      //this.professores = [{idprofessor: this.navParams.data.grupo.idprofessor, nomeProfessor: this.navParams.data.grupo.nomeprofessor}]
       this.grupo = this.grupos[0].idgrupo;
       this.idGrupoEditar = this.navParams.data.grupo.idgrupo;
+      //this.idProfessorEditar = this.grupos[0].idprofessor;  
+      
+      var text = JSON.stringify(this.grupos[0]);
+      var obj = JSON.parse(text);
+      this.idProfessorEditar = obj.idprofessor;    
       this.listarEstagiarioEditar(this.idGrupoEditar);
     }
   }
@@ -32,6 +42,7 @@ export class CadastrarGrupoEstagiariosPage {
   ionViewDidLoad() {
     this.listarGrupo();
     this.listarEstagiario();
+    this.listarProfessor();
   }
 
   cadastrarGrupoEstagiario(){ 
@@ -42,7 +53,8 @@ export class CadastrarGrupoEstagiariosPage {
     }  
     this.provider.create({
       grupo: this.grupo,
-      codigos: this.codigos
+      codigos: this.codigos,
+      professor: this.professor
     }).then((result) =>{
       this.showAlert();
     });
@@ -57,6 +69,19 @@ export class CadastrarGrupoEstagiariosPage {
         )
         .catch(error => alert(error));
     } 
+  }
+
+  listarProfessor(){
+      this.provider.retornarProfessor().then(
+        data => {
+          this.professores = data;
+          if(this.idProfessorEditar != null){
+            console.log(this.idProfessorEditar);
+            this.professor = this.idProfessorEditar;                  
+          }
+        }
+      )
+      .catch(error => alert(error));
   }
 
   listarEstagiario(){
