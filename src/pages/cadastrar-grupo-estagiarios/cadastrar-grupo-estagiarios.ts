@@ -30,12 +30,13 @@ export class CadastrarGrupoEstagiariosPage {
       //this.professores = [{idprofessor: this.navParams.data.grupo.idprofessor, nomeProfessor: this.navParams.data.grupo.nomeprofessor}]
       this.grupo = this.grupos[0].idgrupo;
       this.idGrupoEditar = this.navParams.data.grupo.idgrupo;
-      //this.idProfessorEditar = this.grupos[0].idprofessor;  
+      this.idProfessorEditar = this.grupos[0].idprofessor;  
       
-      var text = JSON.stringify(this.grupos[0]);
-      var obj = JSON.parse(text);
-      this.idProfessorEditar = obj.idprofessor;    
+      //var text = JSON.stringify(this.grupos[0]);
+      //var obj = JSON.parse(text);
+      //this.idProfessorEditar = obj.idprofessor;    
       this.listarEstagiarioEditar(this.idGrupoEditar);
+      
     }
   }
 
@@ -72,16 +73,15 @@ export class CadastrarGrupoEstagiariosPage {
   }
 
   listarProfessor(){
-      this.provider.retornarProfessor().then(
-        data => {
-          this.professores = data;
-          if(this.idProfessorEditar != null){
-            console.log(this.idProfessorEditar);
-            this.professor = this.idProfessorEditar;                  
-          }
+    this.provider.retornarProfessor({professor: this.idProfessorEditar}).then(
+      data => {
+        this.professores = data;
+        if(this.idProfessorEditar != null){
+          this.professor = this.idProfessorEditar;                  
         }
-      )
-      .catch(error => alert(error));
+      }
+    )
+    .catch(error => alert(error));
   }
 
   listarEstagiario(){
