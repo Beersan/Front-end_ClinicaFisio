@@ -55,19 +55,26 @@ export class ReservarSalaPage {
         salaReserva: this.salaReserva,
         dataReserva: this.dataReserva,
         idReserva: this.idReserva
-      });
-      this.showAlert();
-    } else {
-      this.showAlertDataReservada()
+      }).then((result) => {
+        this.showAlert();    
+      }); 
     }
   }
 
   dataValida(){
     var valido = true;
     for(var i = 0; i < this.dataReservas.length; i++){
-        if(moment(this.dataReserva).format("YYYY-MM-DD") == moment(this.dataReservas[i].datareserva).format("YYYY-MM-DD")){
-          valido = false;
+      if(moment(this.dataReserva).format("YYYY-MM-DD") == moment(this.dataReservas[i].datareserva).format("YYYY-MM-DD")){
+        valido = false;
       }
+    }
+    if(!valido){
+      let alert = this.alertCtrl.create({
+        title: 'Falha!',
+        subTitle: 'Data já reservada.',
+        buttons: ['Ok']
+      });
+      alert.present();
     }
     return valido;
   }
@@ -85,16 +92,6 @@ export class ReservarSalaPage {
     let alert = this.alertCtrl.create({
       title: 'Sucesso!',
       subTitle: 'Reserva gravada.',
-      buttons: ['Ok']
-    });
-    alert.present();
-    this.navCtrl.pop();
-  }
-
-  showAlertDataReservada() {
-    let alert = this.alertCtrl.create({
-      title: 'Falha!',
-      subTitle: 'Data já reservada.',
       buttons: ['Ok']
     });
     alert.present();
