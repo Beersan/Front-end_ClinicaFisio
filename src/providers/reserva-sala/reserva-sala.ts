@@ -41,6 +41,14 @@ export class ReservaSalaProvider {
     return this.http.get('http://localhost:3000/reservaSala/listar').toPromise();
   }
 
+  listarDatasReservadas(sala){
+    return new Promise((resolve, reject) => {
+    this.http.post('http://localhost:3000/reservaSala/listarDataReserva', sala).subscribe(response => {
+        resolve(response);
+      });
+    });
+  }
+
   excluirReservaSala(idReserva){
     return new Promise((resolve, reject) => {
       this.http.post('http://localhost:3000/reservaSala/excluir', idReserva).subscribe(response => {
