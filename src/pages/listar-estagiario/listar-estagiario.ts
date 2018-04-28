@@ -30,9 +30,9 @@ export class ListarEstagiarioPage {
 
 
   filtrarItens(searchbar) {
-    // Reset items back to all of the items
-    this.estagiarios = this.estagiariosSemFiltro;
   
+    this.estagiarios = this.estagiariosSemFiltro;
+
     // set q to the value of the searchbar
     var q = searchbar.srcElement.value;
   
@@ -43,8 +43,12 @@ export class ListarEstagiarioPage {
     }
   
     this.estagiarios = this.estagiarios.filter((v) => {
-      if(v.nomeestagiario && q) {
-        if (v.nomeestagiario.toLowerCase().indexOf(q.toLowerCase()) > -1) {
+      if(v.matriculaestagiario && v.nomeestagiario && q) {
+        if (
+          v.nomeestagiario.toLowerCase().indexOf(q.toLowerCase()) > -1
+          ||
+          v.matriculaestagiario.toLowerCase().indexOf(q.toLowerCase()) > -1
+        ) {
           return true;
         }
           return false;
