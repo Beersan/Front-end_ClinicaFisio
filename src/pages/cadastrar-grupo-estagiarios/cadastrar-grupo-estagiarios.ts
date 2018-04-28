@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { GrupoEstagiarioProvider } from '../../providers/grupo-estagiario/grupo-estagiario';
+import { NgForm, FormsModule,Validators, FormBuilder } from '@angular/forms';
 
 @IonicPage()
 @Component({
@@ -18,10 +19,12 @@ export class CadastrarGrupoEstagiariosPage {
   idProfessorEditar: any;
   professores: any;
   professor: any;
+  cadastroGrupoEstagiario: any;
 
   constructor(
     public navCtrl: NavController, 
     private provider: GrupoEstagiarioProvider,
+    public formBuilder: FormBuilder,
     public alertCtrl: AlertController,
     public navParams: NavParams
   ){    
@@ -37,7 +40,10 @@ export class CadastrarGrupoEstagiariosPage {
       //this.idProfessorEditar = obj.idprofessor;    
       this.listarEstagiarioEditar(this.idGrupoEditar);
       
-    }
+    } this.cadastroGrupoEstagiario = formBuilder.group ({
+      grupo:['', Validators.required],
+      professor:['', Validators.required]
+    })
   }
 
   ionViewDidLoad() {
