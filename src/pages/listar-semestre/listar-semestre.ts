@@ -12,6 +12,7 @@ import { Semestre } from '../../models/model.semestre';
 export class ListarSemestrePage {
 
   semestres: any;
+  SemestresSemFiltro: any;
 
   constructor(
     public navCtrl: NavController, 
@@ -41,6 +42,7 @@ export class ListarSemestrePage {
     this.provider.retornarEstagiario().then(
       data => {
         this.semestres = data;
+        this.SemestresSemFiltro = data;
       }
     )
     .catch(error => alert(error));
@@ -80,4 +82,20 @@ export class ListarSemestrePage {
     alert.present();
   }
 
+  filtrarItens(searchbar) {
+    this.semestres = this.SemestresSemFiltro;
+    var q = searchbar.srcElement.value;
+    if (!q) {
+      return;
+    }
+  
+    this.semestres = this.semestres.filter((v) => {
+      if(v.nomeestagiario && q) {
+        if (v.nomeestagiario.toLowerCase().indexOf(q.toLowerCase()) > -1) {
+          return true;
+        }
+          return false;
+      }
+    });  
+  }  
 }
