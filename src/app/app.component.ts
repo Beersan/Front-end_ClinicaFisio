@@ -27,6 +27,8 @@ import { CadastroSemestrePage } from '../pages/cadastro-semestre/cadastro-semest
 import { ListarSemestrePage } from '../pages/listar-semestre/listar-semestre';
 import { CadastrarHorarioProfessorPage } from '../pages/cadastrar-horario-professor/cadastrar-horario-professor';
 import { ListarReservasPage } from '../pages/listar-reserva-salas/listar-reserva-salas';
+import { IncluirExamesTermosPage } from '../pages/incluir-exames-termos/incluir-exames-termos';
+import { VincularPacienteEstagiarioPage } from '../pages/vincular-paciente-estagiario/vincular-paciente-estagiario';
 
 @Component({
   templateUrl: 'app.html'
@@ -53,7 +55,9 @@ export class MyApp {
       { title: 'Especialidade', component: ListarEspecialidadePage},
       { title: 'Professor', component: ListarProfessoresPage},
       { title: 'Ouvidoria', component: RelatarProblemaPage},
-      { title: 'Lista de Reservas de Sala', component: ListarReservasPage}
+      { title: 'Lista de Reservas de Sala', component: ListarReservasPage},
+      { title: 'Incluir Exames e Termos', component: IncluirExamesTermosPage},
+      { title: 'Vincular Paciente a estagiário', component: VincularPacienteEstagiarioPage}
       //{ title: 'Cadastrar Professsor', component: CadastrarProfessorPage},
       // { title: 'Cadastrar Especialidade', component: CadastrarEspecialidadePage},
       // { title: 'Cadastrar Estagiário', component: CadastrarEstagiarioPage},
