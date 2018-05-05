@@ -15,10 +15,23 @@
   <ion-grid>
       <ion-row>
         <ion-col><h6>Nome</h6></ion-col>
-        <ion-col><h6>Estagiário</h6></ion-col>
+        <ion-col><h6>Dia da Semana</h6></ion-col>
         <ion-col><h6>Horário</h6></ion-col>
-        <ion-col><h6>Sessões</h6></ion-col>
+        <ion-col><h6>Número de Sessões</h6></ion-col>
+        <ion-col><h6>Data do início do atendimento</h6></ion-col>
         <ion-col></ion-col>
+      </ion-row>
+
+      <ion-row *ngFor="let agenda of listaAgenda">
+        <ion-col>{{ agenda.nomepaciente }}</ion-col>
+        <ion-col>{{ agenda.descricaosemana }}</ion-col>
+        <ion-col>{{ agenda.descricaohorainicio }}</ion-col>
+        <ion-col>{{ agenda.numerosessoes }}</ion-col>
+        <ion-col>{{ agenda.datainicio | date: 'dd/MM/yyyy'}}</ion-col>
+        <ion-col class="iconeDireita">
+            <ion-icon ios="ios-create" md="md-create" title="Editar" (click)="editar(grupo)"></ion-icon>
+            <ion-icon ios="ios-trash" md="md-trash" title="Excluir" (click)="excluir(grupo.idgrupo)"></ion-icon>
+        </ion-col>
       </ion-row>
   </ion-grid>
 </ion-content>

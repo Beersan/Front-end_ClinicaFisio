@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AgendarAtendimentoPage } from '../agendar-atendimento/agendar-atendimento';
+import { AgendaProvider } from '../../providers/agenda/agenda';
 
 /**
  * Generated class for the ListarPacientesAgendadosPage page.
@@ -16,17 +17,31 @@ import { AgendarAtendimentoPage } from '../agendar-atendimento/agendar-atendimen
 })
 export class ListarPacientesAgendadosPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  listaAgenda: any;
+
+  constructor(public navCtrl: NavController, 
+              private provider: AgendaProvider,
+              public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ListarPacientesAgendadosPage');
+  ionViewWillEnter(){
+    this.listarAgenda();
   }
 
   incluir(){
     this.navCtrl.push(AgendarAtendimentoPage, {
       rootNavCtrl: this.navCtrl
     });
+  }
+
+  listarAgenda(){
+    this.provider.retornarAgenda().then(
+      data => {
+        this.listaAgenda = data;
+        console.log(data);
+      }
+    )
+    .catch(error => alert(error));
   }
 
 }

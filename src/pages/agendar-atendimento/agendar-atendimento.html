@@ -13,13 +13,14 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-  <form [formGroup]="validarAgendarAtendimento" (ngSubmit)="incluirPreCadastro()">
+  <form [formGroup]="validarAgendarAtendimento" (ngSubmit)="cadastrarAgendaPaciente()">
   <ion-grid>
     <ion-row>
       <ion-col width-100>
         <ion-item>
           <ion-label floating>Paciente</ion-label>
           <ion-select name="paciente" [(ngModel)]="paciente" formControlName="paciente" type="text">
+            <ion-option *ngFor="let paciente of pacientes" value="{{ paciente.idpaciente }}">{{ paciente.nomepaciente }}</ion-option>
           </ion-select>
         </ion-item>
       </ion-col>
@@ -29,6 +30,7 @@
         <ion-item>
           <ion-label floating>Dia</ion-label>
           <ion-select name="diaDaSemana" formControlName="diaDaSemana" [(ngModel)]="diaDaSemana">
+            <ion-option *ngFor="let dia of dias" value="{{ dia.iddiasemana }}">{{ dia.descricaosemana }}</ion-option>
           </ion-select>
         </ion-item>
       </ion-col>
@@ -36,6 +38,7 @@
         <ion-item>
           <ion-label floating>Horário</ion-label>
           <ion-select name="horario" formControlName="horario" [(ngModel)]="horario">
+            <ion-option *ngFor="let horario of horarios" value="{{ horario.idhorainicio }}">{{ horario.descricaohorainicio }}</ion-option>
           </ion-select>
         </ion-item>
       </ion-col>
