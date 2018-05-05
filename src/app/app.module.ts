@@ -44,6 +44,10 @@ import { ListarReservasPage } from '../pages/listar-reserva-salas/listar-reserva
 import { ListarReservasPageModule } from '../pages/listar-reserva-salas/listar-reserva-salas.module';
 import { IncluirExamesTermosPage } from '../pages/incluir-exames-termos/incluir-exames-termos';
 import { VincularPacienteEstagiarioPage } from '../pages/vincular-paciente-estagiario/vincular-paciente-estagiario';
+import { ListarPacientesAgendadosPageModule } from '../pages/listar-pacientes-agendados/listar-pacientes-agendados.module';
+import { AgendarAtendimentoPageModule } from '../pages/agendar-atendimento/agendar-atendimento.module';
+import { AgendaProvider } from '../providers/agenda/agenda';
+import { AgendarAtendimentoPage } from '../pages/agendar-atendimento/agendar-atendimento';
 
 // Custom components
 import { SideMenuContentComponent } from '../shared/side-menu-content/side-menu-content.component';
@@ -69,7 +73,8 @@ import { SideMenuContentComponent } from '../shared/side-menu-content/side-menu-
         ListarGrupoEstagiariosPage,
         ListarReservasPage,
         IncluirExamesTermosPage,
-        VincularPacienteEstagiarioPage
+        VincularPacienteEstagiarioPage,
+        AgendarAtendimentoPage        
     ],
     imports: [
         BrowserModule,
@@ -83,7 +88,7 @@ import { SideMenuContentComponent } from '../shared/side-menu-content/side-menu-
         CadastroSemestrePageModule,
         ListarSemestrePageModule,
         //ListarReservasPageModule
-        CadastrarHorarioProfessorPageModule
+        CadastrarHorarioProfessorPageModule,
     ],
     bootstrap: [IonicApp],
     entryComponents: [
@@ -106,7 +111,8 @@ import { SideMenuContentComponent } from '../shared/side-menu-content/side-menu-
         ListarGrupoEstagiariosPage,
         ListarReservasPage,
         IncluirExamesTermosPage,
-        VincularPacienteEstagiarioPage
+        VincularPacienteEstagiarioPage,
+        AgendarAtendimentoPage
     ],
     providers: [
         StatusBar,

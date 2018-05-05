@@ -29,6 +29,8 @@ import { CadastrarHorarioProfessorPage } from '../pages/cadastrar-horario-profes
 import { ListarReservasPage } from '../pages/listar-reserva-salas/listar-reserva-salas';
 import { IncluirExamesTermosPage } from '../pages/incluir-exames-termos/incluir-exames-termos';
 import { VincularPacienteEstagiarioPage } from '../pages/vincular-paciente-estagiario/vincular-paciente-estagiario';
+import { ListarPacientesAgendadosPage } from '../pages/listar-pacientes-agendados/listar-pacientes-agendados';
+import { AgendarAtendimentoPage } from '../pages/agendar-atendimento/agendar-atendimento';
 
 // RxJS
 import { ReplaySubject } from "rxjs/ReplaySubject";
@@ -189,6 +191,13 @@ export class MyApp {
 			iconName: 'contacts',
 			displayText: 'Fila de Espera',
 			component: FilaDeEsperaPage
+		});
+
+		//MENU AGENDAR ATENDIMENTOS
+		this.options.push({
+			displayText: 'Agendar Atendimentos',
+			iconName:'clipboard',
+			component: AgendarAtendimentoPage
 		});
 
 		//MENU RESERVA DE SALAS
