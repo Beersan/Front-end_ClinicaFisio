@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Imprimir Cronograma de Estagiários</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <form [formGroup]="imprimirCronogramaEstagiarios" (ngSubmit)="imprimirCronogramaEstagiarios()">
+    <ion-grid>
+      <ion-row>
+        <ion-item>
+          <ion-label floating>Selecione o semestre</ion-label>
+          <ion-select name= "semestre" formControlName="semestre" [(ngModel)]="semestre">
+            <ion-option *ngFor="let semestre of semestres" value="{{ semestre.idsemestre }}">{{ semestre.nomesemestre }}</ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-col width-50>
+          <ion-item>
+            <ion-label floating>Selecione o grupo</ion-label>
+            <ion-select name= "grupo" formControlName="grupo" [(ngModel)]="grupo">
+              <ion-option *ngFor="let grupo of grupos" value="{{ grupo.idgrupo }}">{{ grupo.descricaogrupo }}</ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <button type="button" ion-button color="danger" (click)="cancelar()">Cancelar</button>
+    <button type="submit" [disabled]="!validarCronogramaEstagiarios.valid" ion-button color="secondary">Confirmar</button>
+  </form>  
+</ion-content>
