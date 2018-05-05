@@ -45,6 +45,7 @@ import { ListarReservasPageModule } from '../pages/listar-reserva-salas/listar-r
 import { IncluirExamesTermosPage } from '../pages/incluir-exames-termos/incluir-exames-termos';
 import { VincularPacienteEstagiarioPage } from '../pages/vincular-paciente-estagiario/vincular-paciente-estagiario';
 import { ListarPacientesAgendadosPageModule } from '../pages/listar-pacientes-agendados/listar-pacientes-agendados.module';
+import { AgendarAtendimentoPageModule } from '../pages/agendar-atendimento/agendar-atendimento.module';
 
 @NgModule({
   declarations: [
@@ -81,7 +82,8 @@ import { ListarPacientesAgendadosPageModule } from '../pages/listar-pacientes-ag
     ListarSemestrePageModule,
     //ListarReservasPageModule
     CadastrarHorarioProfessorPageModule,
-    ListarPacientesAgendadosPageModule
+    ListarPacientesAgendadosPageModule,
+    AgendarAtendimentoPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

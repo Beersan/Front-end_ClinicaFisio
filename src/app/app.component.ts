@@ -30,6 +30,7 @@ import { ListarReservasPage } from '../pages/listar-reserva-salas/listar-reserva
 import { IncluirExamesTermosPage } from '../pages/incluir-exames-termos/incluir-exames-termos';
 import { VincularPacienteEstagiarioPage } from '../pages/vincular-paciente-estagiario/vincular-paciente-estagiario';
 import { ListarPacientesAgendadosPage } from '../pages/listar-pacientes-agendados/listar-pacientes-agendados';
+import { AgendarAtendimentoPage } from '../pages/agendar-atendimento/agendar-atendimento';
 
 @Component({
   templateUrl: 'app.html'
@@ -69,7 +70,8 @@ export class MyApp {
       //{ title: 'Finalizar Pré Cadastro', component: FinalizarPreCadastroPage},
       //{ title: 'Cadastrar Semestre', component: CadastroSemestrePage},
       //{ title: 'Cadastrar Horário de Professores', component: CadastrarHorarioProfessorPage}
-      { title: 'Lista de Pacientes Agendados', component: ListarPacientesAgendadosPage}
+      { title: 'Lista de Pacientes Agendados', component: ListarPacientesAgendadosPage},
+      { title: 'Agendar Atendimento', component: AgendarAtendimentoPage}
     ];
     firebase.initializeApp(FIREBASE_CONFIG);
   }
