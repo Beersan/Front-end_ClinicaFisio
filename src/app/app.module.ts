@@ -46,6 +46,7 @@ import { IncluirExamesTermosPage } from '../pages/incluir-exames-termos/incluir-
 import { VincularPacienteEstagiarioPage } from '../pages/vincular-paciente-estagiario/vincular-paciente-estagiario';
 import { ListarPacientesAgendadosPageModule } from '../pages/listar-pacientes-agendados/listar-pacientes-agendados.module';
 import { AgendarAtendimentoPageModule } from '../pages/agendar-atendimento/agendar-atendimento.module';
+import { AgendaProvider } from '../providers/agenda/agenda';
 
 @NgModule({
   declarations: [
@@ -121,7 +122,8 @@ import { AgendarAtendimentoPageModule } from '../pages/agendar-atendimento/agend
     ProfessorProvider,
     ArquivosProvider,
     SemestreProvider,
-    ReservaSalaProvider
+    ReservaSalaProvider,
+    AgendaProvider
   ]
 })
 export class AppModule {}
