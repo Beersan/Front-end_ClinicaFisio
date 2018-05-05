@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NgForm, FormsModule, Validators, FormBuilder } from '@angular/forms';
 
 /**
  * Generated class for the AgendarAtendimentoPage page.
@@ -15,7 +16,19 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class AgendarAtendimentoPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  validarAgendarAtendimento: any = {};
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    private formBuilder: FormBuilder) 
+  {
+    this.validarAgendarAtendimento = formBuilder.group ({
+      paciente:['', Validators.required],
+      diaDaSemana:['', Validators.required],      
+      horario:['', Validators.required],
+      numeroSessoes:['', Validators.required],
+      dataInicioAtendimento:['', Validators.required],
+    })
   }
 
   ionViewDidLoad() {

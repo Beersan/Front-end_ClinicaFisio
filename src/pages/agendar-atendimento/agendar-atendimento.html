@@ -10,6 +10,7 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding>
+  <form [formGroup]="validarAgendarAtendimento" (ngSubmit)="incluirPreCadastro()">
   <ion-grid>
     <ion-row>
       <ion-col width-100>
@@ -50,5 +51,6 @@
     </ion-row>
   </ion-grid>
   <button type="button" (click)="cancelar()" ion-button color="danger" (click)="cancelar()">Cancelar</button>
-  <button type="submit" ion-button color="secondary">Agendar</button>
+  <button type="submit" [disabled]="!validarAgendarAtendimento.valid" ion-button color="secondary">Agendar</button>
+  </form>
 </ion-content>
