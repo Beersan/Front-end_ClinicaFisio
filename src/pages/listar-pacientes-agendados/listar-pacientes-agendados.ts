@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AgendarAtendimentoPage } from '../agendar-atendimento/agendar-atendimento';
 
 /**
  * Generated class for the ListarPacientesAgendadosPage page.
@@ -20,6 +21,12 @@ export class ListarPacientesAgendadosPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ListarPacientesAgendadosPage');
+  }
+
+  incluir(){
+    this.navCtrl.push(AgendarAtendimentoPage, {
+      rootNavCtrl: this.navCtrl
+    });
   }
 
 }

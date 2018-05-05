@@ -22,4 +22,10 @@ export class AgendarAtendimentoPage {
     console.log('ionViewDidLoad AgendarAtendimentoPage');
   }
 
+  cancelar(){
+    this.navCtrl.pop();
+  }
+
+ 
+
 }
