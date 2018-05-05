@@ -29,6 +29,7 @@ import { CadastrarHorarioProfessorPage } from '../pages/cadastrar-horario-profes
 import { ListarReservasPage } from '../pages/listar-reserva-salas/listar-reserva-salas';
 import { IncluirExamesTermosPage } from '../pages/incluir-exames-termos/incluir-exames-termos';
 import { VincularPacienteEstagiarioPage } from '../pages/vincular-paciente-estagiario/vincular-paciente-estagiario';
+import { ListarPacientesAgendadosPage } from '../pages/listar-pacientes-agendados/listar-pacientes-agendados';
 
 @Component({
   templateUrl: 'app.html'
@@ -57,7 +58,7 @@ export class MyApp {
       { title: 'Ouvidoria', component: RelatarProblemaPage},
       { title: 'Lista de Reservas de Sala', component: ListarReservasPage},
       { title: 'Incluir Exames e Termos', component: IncluirExamesTermosPage},
-      { title: 'Vincular Paciente a estagiário', component: VincularPacienteEstagiarioPage}
+      { title: 'Vincular Paciente a estagiário', component: VincularPacienteEstagiarioPage},
       //{ title: 'Cadastrar Professsor', component: CadastrarProfessorPage},
       // { title: 'Cadastrar Especialidade', component: CadastrarEspecialidadePage},
       // { title: 'Cadastrar Estagiário', component: CadastrarEstagiarioPage},
@@ -68,6 +69,7 @@ export class MyApp {
       //{ title: 'Finalizar Pré Cadastro', component: FinalizarPreCadastroPage},
       //{ title: 'Cadastrar Semestre', component: CadastroSemestrePage},
       //{ title: 'Cadastrar Horário de Professores', component: CadastrarHorarioProfessorPage}
+      { title: 'Lista de Pacientes Agendados', component: ListarPacientesAgendadosPage}
     ];
     firebase.initializeApp(FIREBASE_CONFIG);
   }
