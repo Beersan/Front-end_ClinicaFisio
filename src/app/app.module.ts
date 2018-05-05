@@ -47,6 +47,8 @@ import { VincularPacienteEstagiarioPage } from '../pages/vincular-paciente-estag
 import { ListarPacientesAgendadosPageModule } from '../pages/listar-pacientes-agendados/listar-pacientes-agendados.module';
 import { AgendarAtendimentoPageModule } from '../pages/agendar-atendimento/agendar-atendimento.module';
 import { AgendaProvider } from '../providers/agenda/agenda';
+import { ImprimirCronogramaEstagiariosPage } from '../pages/imprimir-cronograma-estagiarios/imprimir-cronograma-estagiarios';
+import { ImprimirCronogramaEstagiariosPageModule } from '../pages/imprimir-cronograma-estagiarios/imprimir-cronograma-estagiarios.module';
 
 @NgModule({
   declarations: [
@@ -68,7 +70,8 @@ import { AgendaProvider } from '../providers/agenda/agenda';
     ListarGrupoEstagiariosPage,
     ListarReservasPage, 
     IncluirExamesTermosPage,
-    VincularPacienteEstagiarioPage
+    VincularPacienteEstagiarioPage,
+    ImprimirCronogramaEstagiariosPage
   ],
   imports: [
     BrowserModule,
@@ -81,10 +84,11 @@ import { AgendaProvider } from '../providers/agenda/agenda';
     FilaDeEsperaPageModule,
     CadastroSemestrePageModule,
     ListarSemestrePageModule,
-    //ListarReservasPageModule
+    //ListarReservasPageModule,
     CadastrarHorarioProfessorPageModule,
     ListarPacientesAgendadosPageModule,
-    AgendarAtendimentoPageModule
+    AgendarAtendimentoPageModule,
+    //ImprimirCronogramaEstagiariosPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -107,7 +111,8 @@ import { AgendaProvider } from '../providers/agenda/agenda';
     ListarGrupoEstagiariosPage,
     ListarReservasPage,
     IncluirExamesTermosPage,
-    VincularPacienteEstagiarioPage
+    VincularPacienteEstagiarioPage,
+    ImprimirCronogramaEstagiariosPage
   ],
   providers: [
     StatusBar,
@@ -123,7 +128,8 @@ import { AgendaProvider } from '../providers/agenda/agenda';
     ArquivosProvider,
     SemestreProvider,
     ReservaSalaProvider,
-    AgendaProvider
+    AgendaProvider,
+    //ImprimirCronogramaEstagiariosProvider
   ]
 })
 export class AppModule {}

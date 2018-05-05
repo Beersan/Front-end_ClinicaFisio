@@ -31,6 +31,7 @@ import { IncluirExamesTermosPage } from '../pages/incluir-exames-termos/incluir-
 import { VincularPacienteEstagiarioPage } from '../pages/vincular-paciente-estagiario/vincular-paciente-estagiario';
 import { ListarPacientesAgendadosPage } from '../pages/listar-pacientes-agendados/listar-pacientes-agendados';
 import { AgendarAtendimentoPage } from '../pages/agendar-atendimento/agendar-atendimento';
+import { ImprimirCronogramaEstagiariosPage } from '../pages/imprimir-cronograma-estagiarios/imprimir-cronograma-estagiarios';
 
 @Component({
   templateUrl: 'app.html'
@@ -71,7 +72,8 @@ export class MyApp {
       //{ title: 'Cadastrar Semestre', component: CadastroSemestrePage},
       //{ title: 'Cadastrar Horário de Professores', component: CadastrarHorarioProfessorPage}
       { title: 'Lista de Pacientes Agendados', component: ListarPacientesAgendadosPage},
-      { title: 'Agendar Atendimento', component: AgendarAtendimentoPage}
+      { title: 'Agendar Atendimento', component: AgendarAtendimentoPage},
+      { title: 'Imprimir Cronograma Estagiários', component: ImprimirCronogramaEstagiariosPage}
     ];
     firebase.initializeApp(FIREBASE_CONFIG);
   }
