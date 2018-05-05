@@ -38,6 +38,7 @@ export class ReservarSalaPage {
       var obj = JSON.parse(text);
       this.solicitante = obj.solicitante;
       this.salaReserva = obj.salareserva;
+      this.listarDatasReservadas();
       this.dataReserva = obj.datareserva;
       this.idReserva = obj.idreserva;
     }

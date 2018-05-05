@@ -30,7 +30,7 @@
       <ion-col width-50>
         <ion-item>
           <ion-label floating>Selecione a Sala</ion-label>
-          <ion-select name="salaReserva" (ionChange)="listarDatasReservadas(this.value)" [(ngModel)]="salaReserva" formControlName="salaReserva">
+          <ion-select name="salaReserva" (ionChange)="listarDatasReservadas()" [(ngModel)]="salaReserva" formControlName="salaReserva">
             <ion-option value="fisioterapia">Fisioterapia</ion-option>
             <ion-option value="estetica">Estética</ion-option>
           </ion-select>
