@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import { Nav, Platform, AlertController, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
@@ -30,67 +30,218 @@ import { ListarReservasPage } from '../pages/listar-reserva-salas/listar-reserva
 import { IncluirExamesTermosPage } from '../pages/incluir-exames-termos/incluir-exames-termos';
 import { VincularPacienteEstagiarioPage } from '../pages/vincular-paciente-estagiario/vincular-paciente-estagiario';
 
+// RxJS
+import { ReplaySubject } from "rxjs/ReplaySubject";
+import { ArrayObservable } from "rxjs/observable/ArrayObservable";
+
+// Side Menu Component
+import { SideMenuSettings } from './../shared/side-menu-content/models/side-menu-settings';
+import { SideMenuOption } from './../shared/side-menu-content/models/side-menu-option';
+import { SideMenuContentComponent } from './../shared/side-menu-content/side-menu-content.component';
+
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  @ViewChild(Nav) nav: Nav;
+  //@ViewChild(Nav) nav: Nav;
+  @ViewChild(Nav) navCtrl: Nav;
 
   rootPage: any = HomePage;
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
-    this.initializeApp();
+  // Get the instance to call the public methods
+	@ViewChild(SideMenuContentComponent) sideMenu: SideMenuContentComponent;
 
-    // manter comentado, poderá ser usado para testes futuramente. - Gabriel 09/04 23h
-    this.pages = [
-      { title: 'Semestre', component: ListarSemestrePage},
-      { title: 'Estagiário', component: ListarEstagiarioPage},
-      { title: 'Grupo', component: ListarGrupoPage},
-      { title: 'Grupo de estagiários', component: ListarGrupoEstagiariosPage},
-      { title: 'Pré-cadastro', component: PreCadastroPage},
-      { title: 'Lista de pacientes', component: ListarPacientesPage},
-      { title: 'Fila de Espera', component: FilaDeEsperaPage},
-      { title: 'Especialidade', component: ListarEspecialidadePage},
-      { title: 'Professor', component: ListarProfessoresPage},
-      { title: 'Ouvidoria', component: RelatarProblemaPage},
-      { title: 'Lista de Reservas de Sala', component: ListarReservasPage},
-      { title: 'Incluir Exames e Termos', component: IncluirExamesTermosPage},
-      { title: 'Vincular Paciente a estagiário', component: VincularPacienteEstagiarioPage}
-      //{ title: 'Cadastrar Professsor', component: CadastrarProfessorPage},
-      // { title: 'Cadastrar Especialidade', component: CadastrarEspecialidadePage},
-      // { title: 'Cadastrar Estagiário', component: CadastrarEstagiarioPage},
-      // { title: 'Reservar Sala', component: ReservarSalaPage},
-      // { title: 'Cadastrar Grupo', component: CadastrarGrupoPage},
-      //{ title: 'Sortear Paciente Grupo', component: SortearPacienteGrupoPage},
-      //{ title: 'Cadastrar Grupo Estagiários', component: CadastrarGrupoEstagiariosPage},
-      //{ title: 'Finalizar Pré Cadastro', component: FinalizarPreCadastroPage},
-      //{ title: 'Cadastrar Semestre', component: CadastroSemestrePage},
-      //{ title: 'Cadastrar Horário de Professores', component: CadastrarHorarioProfessorPage}
-    ];
+  // Options to show in the SideMenuContentComponent
+	public options: Array<SideMenuOption>;
+
+  // Settings for the SideMenuContentComponent
+	public sideMenuSettings: SideMenuSettings = {
+		accordionMode: true,
+		showSelectedOption: true,
+		selectedOptionClass: 'active-side-menu-option'		
+  }
+  
+  private unreadCountObservable: any = new ReplaySubject<number>(0);
+
+  constructor(public platform: Platform,
+      public statusBar: StatusBar,
+      public splashScreen: SplashScreen,
+      private alertCtrl: AlertController,
+      private menuCtrl: MenuController) {
+    this.initializeApp();
     firebase.initializeApp(FIREBASE_CONFIG);
   }
 
   initializeApp() {
     this.platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+
+      // Initialize some options
+			this.initializeOptions();
     });
-  }
-  declarations: [
-    MyApp,
-    HomePage
-     ]
-  openPage(page) {
-    // Reset the content nav to have just this page
-    // we wouldn't want the back button to show in this scenario
-    //this.nav.setRoot(page.component);
-    this.nav.push(page.component, {
-      rootNavCtrl: this.nav
-    });
+
+    // Change the value for the batch every 5 seconds
+		setInterval(() => {
+			this.unreadCountObservable.next(Math.floor(Math.random() * 10) + 1);
+    }, 5000);
+    
   }
 
+  private initializeOptions(): void {
+		this.options = new Array<SideMenuOption>();
+
+		//HOME
+		this.options.push({
+			displayText: 'Home',
+			iconName:'home',
+			component: HomePage
+		});
+		
+		// CADASTROS
+		this.options.push({
+			displayText: 'Cadastros',
+			iconName:'add-circle',
+			suboptions: [
+				{
+					iconName: 'contact',
+					displayText: 'Estagiário',
+					component: ListarEstagiarioPage
+				},
+				{
+					iconName: 'ribbon',
+					displayText: 'Especialidade',
+					component: ListarEspecialidadePage
+				},
+				{
+					iconName: 'people',
+					displayText: 'Grupo',
+					component: ListarGrupoPage
+				},
+				{
+					iconName: 'people',
+					displayText: 'Grupos de Estagiários',
+					component: ListarGrupoEstagiariosPage
+				},
+				{
+					iconName: 'time',
+					displayText: 'Horário Professor',
+					component: CadastrarHorarioProfessorPage
+				},
+				{
+					iconName: 'school',
+					displayText: 'Professor',
+					component: ListarProfessoresPage
+				},
+				{
+					iconName: 'calendar',
+					displayText: 'Semestre',
+					component: ListarSemestrePage
+				}				
+			]
+		});
+
+		//MENU E SUBMENU TRIAGEM
+		this.options.push({
+			displayText: 'Triagem',
+			iconName:'ios-list-box',
+			suboptions: [
+				{
+					iconName: 'list-box',
+					displayText: 'Lista de Pré Cadastros',
+					component: ListarPacientesPage
+				},
+				{
+					iconName: 'document',
+					displayText: 'Realizar Pré Cadastro',
+					component: PreCadastroPage
+				}
+			]
+		});
+
+		//MENU E SUB MENU PACIENTES
+		this.options.push({
+			displayText: 'Pacientes',
+			iconName:'pulse',
+			suboptions: [
+				{
+					iconName: 'list-box',
+					displayText: 'Lista de Pacientes',
+					component: ListarPacientesPage
+				},
+				{
+					iconName: 'repeat',
+					displayText: 'Sortear Paciente Grupo',
+					component: SortearPacienteGrupoPage
+				},
+				{
+					iconName: 'shuffle',
+					displayText: 'Vincular Paciente a Estagiário',
+					component: VincularPacienteEstagiarioPage
+				}
+			]
+			});
+
+		//MENU FILA DE ESPERA
+		this.options.push({
+			iconName: 'contacts',
+			displayText: 'Fila de Espera',
+			component: FilaDeEsperaPage
+		});
+
+		//MENU RESERVA DE SALAS
+		this.options.push({
+				iconName: 'book',
+				displayText: 'Reserva de Salas',
+				component: ListarReservasPage
+		});
+
+		//INCLUIR EXAMES E TERMOS - está no menu temporariamente
+		this.options.push({
+			iconName: 'attach',
+			displayText: 'Incluir Exames e Termos',
+			component: IncluirExamesTermosPage
+		});
+
+		//MENU OUVIDORIA
+		this.options.push({
+			displayText: 'Ouvidoria',
+			iconName:'alert',
+			component: RelatarProblemaPage
+		});
+	}
+
+	public onOptionSelected(option: SideMenuOption): void {
+		this.menuCtrl.close().then(() => {
+			if (option.custom && option.custom.isLogin) {
+				this.presentAlert('You\'ve clicked the login option!');
+			} else if (option.custom && option.custom.isLogout) {
+				this.presentAlert('You\'ve clicked the logout option!');
+			} else if (option.custom && option.custom.isExternalLink) {
+				let url = option.custom.externalUrl;
+				window.open(url, '_blank');
+			} else {
+				// Get the params if any
+				const params = option.custom && option.custom.param;
+
+				// Redirect to the selected page
+				this.navCtrl.setRoot(option.component, params);
+			}
+		});
+	}
+    
+  public collapseMenuOptions(): void {
+    this.sideMenu.collapseAllOptions();
+  }
+  
+  public presentAlert(message: string): void {
+    let alert = this.alertCtrl.create({
+    title: 'Information',
+    message: message,
+    buttons: ['Ok']
+  });
+    alert.present();
+  }		
 }

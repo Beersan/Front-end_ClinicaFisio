@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { ErrorHandler, NgModule } from '@angular/core';
+import { ErrorHandler, NgModule, Injector } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
@@ -45,79 +45,88 @@ import { ListarReservasPageModule } from '../pages/listar-reserva-salas/listar-r
 import { IncluirExamesTermosPage } from '../pages/incluir-exames-termos/incluir-exames-termos';
 import { VincularPacienteEstagiarioPage } from '../pages/vincular-paciente-estagiario/vincular-paciente-estagiario';
 
+// Custom components
+import { SideMenuContentComponent } from '../shared/side-menu-content/side-menu-content.component';
+
 @NgModule({
-  declarations: [
-    MyApp,
-    HomePage,
-    ListPage,
-    CadastrarEstagiarioPage,
-    CadastrarEspecialidadePage,
-    CadastrarProfessorPage,
-    CadastrarGrupoPage,
-    RelatarProblemaPage,
-    SortearPacienteGrupoPage,
-    CadastrarGrupoEstagiariosPage,
-    ListarPacientesPage,
-    ListarEstagiarioPage,
-    ListarProfessoresPage,
-    ListarGrupoPage,
-    ListarEspecialidadePage,
-    ListarGrupoEstagiariosPage,
-    ListarReservasPage, 
-    IncluirExamesTermosPage,
-    VincularPacienteEstagiarioPage
-  ],
-  imports: [
-    BrowserModule,
-    IonicModule.forRoot(MyApp),
-    PreCadastroPageModule,
-    ReservarSalaPageModule,
-    FinalizarPreCadastroPageModule,
-    HttpClientModule,
-    BrMaskerModule,
-    FilaDeEsperaPageModule,
-    CadastroSemestrePageModule,
-    ListarSemestrePageModule,
-    //ListarReservasPageModule
-    CadastrarHorarioProfessorPageModule
-  ],
-  bootstrap: [IonicApp],
-  entryComponents: [
-    MyApp,
-    HomePage,
-    ListPage,
-    CadastrarEstagiarioPage,
-    CadastrarEspecialidadePage,
-    CadastrarProfessorPage,
-    CadastrarGrupoPage,
-    RelatarProblemaPage,
-    SortearPacienteGrupoPage,
-    CadastrarGrupoEstagiariosPage,
-    FinalizarPreCadastroPage,
-    ListarEstagiarioPage,
-    ListarPacientesPage,
-    ListarProfessoresPage,
-    ListarGrupoPage,
-    ListarEspecialidadePage,
-    ListarGrupoEstagiariosPage,
-    ListarReservasPage,
-    IncluirExamesTermosPage,
-    VincularPacienteEstagiarioPage
-  ],
-  providers: [
-    StatusBar,
-    SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-    CadastrarEstagiarioProvider,
-    CadastrarEspecialidadeProvider,
-    RelatarProblemaProvider,
-    GrupoProvider,
-    PreCadastroProvider,
-    GrupoEstagiarioProvider,
-    ProfessorProvider,
-    ArquivosProvider,
-    SemestreProvider,
-    ReservaSalaProvider
-  ]
+    declarations: [
+        MyApp,
+        SideMenuContentComponent,
+        HomePage,
+        ListPage,
+        CadastrarEstagiarioPage,
+        CadastrarEspecialidadePage,
+        CadastrarProfessorPage,
+        CadastrarGrupoPage,
+        RelatarProblemaPage,
+        SortearPacienteGrupoPage,
+        CadastrarGrupoEstagiariosPage,
+        ListarPacientesPage,
+        ListarEstagiarioPage,
+        ListarProfessoresPage,
+        ListarGrupoPage,
+        ListarEspecialidadePage,
+        ListarGrupoEstagiariosPage,
+        ListarReservasPage,
+        IncluirExamesTermosPage,
+        VincularPacienteEstagiarioPage
+    ],
+    imports: [
+        BrowserModule,
+        IonicModule.forRoot(MyApp),
+        PreCadastroPageModule,
+        ReservarSalaPageModule,
+        FinalizarPreCadastroPageModule,
+        HttpClientModule,
+        BrMaskerModule,
+        FilaDeEsperaPageModule,
+        CadastroSemestrePageModule,
+        ListarSemestrePageModule,
+        //ListarReservasPageModule
+        CadastrarHorarioProfessorPageModule
+    ],
+    bootstrap: [IonicApp],
+    entryComponents: [
+        MyApp,
+        HomePage,
+        ListPage,
+        CadastrarEstagiarioPage,
+        CadastrarEspecialidadePage,
+        CadastrarProfessorPage,
+        CadastrarGrupoPage,
+        RelatarProblemaPage,
+        SortearPacienteGrupoPage,
+        CadastrarGrupoEstagiariosPage,
+        FinalizarPreCadastroPage,
+        ListarEstagiarioPage,
+        ListarPacientesPage,
+        ListarProfessoresPage,
+        ListarGrupoPage,
+        ListarEspecialidadePage,
+        ListarGrupoEstagiariosPage,
+        ListarReservasPage,
+        IncluirExamesTermosPage,
+        VincularPacienteEstagiarioPage
+    ],
+    providers: [
+        StatusBar,
+        SplashScreen,
+        { provide: ErrorHandler, useClass: IonicErrorHandler },
+        CadastrarEstagiarioProvider,
+        CadastrarEspecialidadeProvider,
+        RelatarProblemaProvider,
+        GrupoProvider,
+        PreCadastroProvider,
+        GrupoEstagiarioProvider,
+        ProfessorProvider,
+        ArquivosProvider,
+        SemestreProvider,
+        ReservaSalaProvider
+    ]
 })
-export class AppModule {}
+export class AppModule {
+    static get(arg0: any): any {
+        throw new Error("Method not implemented.");
+    }
+    static injector: typeof AppModule;
+}
