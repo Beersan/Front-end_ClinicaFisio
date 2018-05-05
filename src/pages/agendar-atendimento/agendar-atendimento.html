@@ -15,7 +15,7 @@
       <ion-col width-100>
         <ion-item>
           <ion-label floating>Paciente</ion-label>
-          <ion-select name="paciente" [(ngModel)]="paciente">
+          <ion-select name="paciente" [(ngModel)]="paciente" formControlName="paciente" type="text">
           </ion-select>
         </ion-item>
       </ion-col>
@@ -24,27 +24,27 @@
       <ion-col width-25>
         <ion-item>
           <ion-label floating>Dia</ion-label>
-          <ion-select name="diaDaSemana" [(ngModel)]="diaDaSemana">
+          <ion-select name="diaDaSemana" formControlName="diaDaSemana" [(ngModel)]="diaDaSemana">
           </ion-select>
         </ion-item>
       </ion-col>
       <ion-col width-25>
         <ion-item>
           <ion-label floating>Horário</ion-label>
-          <ion-select name="horario" [(ngModel)]="horario">
+          <ion-select name="horario" formControlName="horario" [(ngModel)]="horario">
           </ion-select>
         </ion-item>
       </ion-col>
       <ion-col width-25>
         <ion-item>
           <ion-label floating>Nº de Sessões</ion-label>
-          <ion-input name="numeroSessoes" [(ngModel)]="numeroSessoes" type="text"></ion-input>
+          <ion-input name="numeroSessoes" formControlName="numeroSessoes" [(ngModel)]="numeroSessoes" type="number"></ion-input>
         </ion-item>
       </ion-col>
       <ion-col width-25>
         <ion-item>
           <ion-label floating>Data Inicio de Atendimento</ion-label>
-          <ion-datetime displayFormat="DD/MM/YYYY" name="dataInicioAtendimento" [(ngModel)]="dataInicioAtendimento"></ion-datetime>
+          <ion-datetime displayFormat="DD/MM/YYYY" name="dataInicioAtendimento" formControlName="dataInicioAtendimento" [(ngModel)]="dataInicioAtendimento"></ion-datetime>
         </ion-item>
       </ion-col>
     </ion-row>
