@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { NgForm, FormsModule, FormBuilder, Validators} from '@angular/forms';
 import { SemestreProvider } from '../../providers/semestre/semestre';
 
 @IonicPage()
@@ -8,6 +9,7 @@ import { SemestreProvider } from '../../providers/semestre/semestre';
   templateUrl: 'cadastro-semestre.html',
 })
 export class CadastroSemestrePage {
+  cadastroSemestre: any = {};
   nomeSemestre: string;
   dataInicioSemestre: Date;
   dataFimSemestre: Date;
@@ -18,7 +20,8 @@ export class CadastroSemestrePage {
     public navCtrl: NavController, 
     private provider: SemestreProvider,
     private alertCtrl: AlertController,
-    public navParams: NavParams
+    public navParams: NavParams,
+    private formBuilder:FormBuilder
   ) {
     if (this.navParams.data.semestre) {      
       this.semestres = this.navParams.data.semestre;
@@ -29,6 +32,11 @@ export class CadastroSemestrePage {
       this.dataFimSemestre = obj.datafimsemestre;
       this.idSemestre = obj.idsemestre;
     }
+    this.cadastroSemestre = formBuilder.group ({
+      nomeSemestre:['', Validators.required],
+      dataInicioSemestre:['', Validators.required],
+      dataFimSemestre:['', Validators.required]
+    })
   }
 
   cadastrarSemestre(){

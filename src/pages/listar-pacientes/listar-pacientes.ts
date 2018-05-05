@@ -104,7 +104,7 @@ export class ListarPacientesPage {
 
   finalizar(paciente){
     let alert = this.alertCtrl.create({
-      title: 'Aprovar paciente!',
+      title: 'Aprovar!',
       message: 'Deseja revisar as informações e aprovar este paciente?',
       buttons: [
         {

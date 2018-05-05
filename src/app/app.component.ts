@@ -27,6 +27,8 @@ import { CadastroSemestrePage } from '../pages/cadastro-semestre/cadastro-semest
 import { ListarSemestrePage } from '../pages/listar-semestre/listar-semestre';
 import { CadastrarHorarioProfessorPage } from '../pages/cadastrar-horario-professor/cadastrar-horario-professor';
 import { ListarReservasPage } from '../pages/listar-reserva-salas/listar-reserva-salas';
+import { IncluirExamesTermosPage } from '../pages/incluir-exames-termos/incluir-exames-termos';
+import { VincularPacienteEstagiarioPage } from '../pages/vincular-paciente-estagiario/vincular-paciente-estagiario';
 
 @Component({
   templateUrl: 'app.html'
@@ -43,7 +45,6 @@ export class MyApp {
 
     // manter comentado, poderá ser usado para testes futuramente. - Gabriel 09/04 23h
     this.pages = [
-      // { title: 'Cadastrar Estagiário', component: CadastrarEstagiarioPage},
       { title: 'Semestre', component: ListarSemestrePage},
       { title: 'Estagiário', component: ListarEstagiarioPage},
       { title: 'Grupo', component: ListarGrupoPage},
@@ -52,18 +53,21 @@ export class MyApp {
       { title: 'Lista de pacientes', component: ListarPacientesPage},
       { title: 'Fila de Espera', component: FilaDeEsperaPage},
       { title: 'Especialidade', component: ListarEspecialidadePage},
-      { title: 'Listar Professores', component: ListarProfessoresPage},
-      // { title: 'Cadastrar Especialidade', component: CadastrarEspecialidadePage},
-      { title: 'Cadastrar Professsor', component: CadastrarProfessorPage},
-      // { title: 'Reservar Sala', component: ReservarSalaPage},
+      { title: 'Professor', component: ListarProfessoresPage},
+      { title: 'Ouvidoria', component: RelatarProblemaPage},
       { title: 'Lista de Reservas de Sala', component: ListarReservasPage},
+      { title: 'Incluir Exames e Termos', component: IncluirExamesTermosPage},
+      { title: 'Vincular Paciente a estagiário', component: VincularPacienteEstagiarioPage}
+      //{ title: 'Cadastrar Professsor', component: CadastrarProfessorPage},
+      // { title: 'Cadastrar Especialidade', component: CadastrarEspecialidadePage},
+      // { title: 'Cadastrar Estagiário', component: CadastrarEstagiarioPage},
+      // { title: 'Reservar Sala', component: ReservarSalaPage},
       // { title: 'Cadastrar Grupo', component: CadastrarGrupoPage},
       //{ title: 'Sortear Paciente Grupo', component: SortearPacienteGrupoPage},
-      { title: 'Ouvidoria', component: RelatarProblemaPage},
       //{ title: 'Cadastrar Grupo Estagiários', component: CadastrarGrupoEstagiariosPage},
       //{ title: 'Finalizar Pré Cadastro', component: FinalizarPreCadastroPage},
       //{ title: 'Cadastrar Semestre', component: CadastroSemestrePage},
-      { title: 'Cadastrar Horário de Professores', component: CadastrarHorarioProfessorPage}
+      //{ title: 'Cadastrar Horário de Professores', component: CadastrarHorarioProfessorPage}
     ];
     firebase.initializeApp(FIREBASE_CONFIG);
   }

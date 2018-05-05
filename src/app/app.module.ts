@@ -27,6 +27,7 @@ import { BrMaskerModule } from 'brmasker-ionic-3';
 import { RelatarProblemaProvider } from '../providers/problema/problema';
 import { GrupoProvider } from '../providers/grupo/grupo';
 import { PreCadastroProvider } from '../providers/pre-cadastro/pre-cadastro';
+import { ProfessorProvider } from '../providers/professor/professor';
 import { ListarGrupoPage } from '../pages/listar-grupo/listar-grupo';
 import { ListarProfessoresPage } from '../pages/listar-professores/listar-professores';
 import { ListarEspecialidadePage } from '../pages/listar-especialidade/listar-especialidade';
@@ -41,8 +42,8 @@ import { CadastrarHorarioProfessorPageModule } from '../pages/cadastrar-horario-
 import { ReservaSalaProvider} from '../providers/reserva-sala/reserva-sala';
 import { ListarReservasPage } from '../pages/listar-reserva-salas/listar-reserva-salas';
 import { ListarReservasPageModule } from '../pages/listar-reserva-salas/listar-reserva-salas.module';
-
-
+import { IncluirExamesTermosPage } from '../pages/incluir-exames-termos/incluir-exames-termos';
+import { VincularPacienteEstagiarioPage } from '../pages/vincular-paciente-estagiario/vincular-paciente-estagiario';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,9 @@ import { ListarReservasPageModule } from '../pages/listar-reserva-salas/listar-r
     ListarGrupoPage,
     ListarEspecialidadePage,
     ListarGrupoEstagiariosPage,
-    ListarReservasPage
+    ListarReservasPage, 
+    IncluirExamesTermosPage,
+    VincularPacienteEstagiarioPage
   ],
   imports: [
     BrowserModule,
@@ -97,7 +100,9 @@ import { ListarReservasPageModule } from '../pages/listar-reserva-salas/listar-r
     ListarGrupoPage,
     ListarEspecialidadePage,
     ListarGrupoEstagiariosPage,
-    ListarReservasPage
+    ListarReservasPage,
+    IncluirExamesTermosPage,
+    VincularPacienteEstagiarioPage
   ],
   providers: [
     StatusBar,
@@ -109,6 +114,7 @@ import { ListarReservasPageModule } from '../pages/listar-reserva-salas/listar-r
     GrupoProvider,
     PreCadastroProvider,
     GrupoEstagiarioProvider,
+    ProfessorProvider,
     ArquivosProvider,
     SemestreProvider,
     ReservaSalaProvider

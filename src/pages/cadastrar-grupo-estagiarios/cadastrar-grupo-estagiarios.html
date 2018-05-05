@@ -7,19 +7,27 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding>
+  <form [formGroup]= "cadastroGrupoEstagiario">
     <ion-row>
       <ion-item>
         <ion-label floating>Selecione o Grupo:</ion-label>
-        <ion-select name="grupo" [(ngModel)]="grupo">
+        <ion-select name="grupo" [(ngModel)]="grupo" formControlName="grupo">
           <ion-option *ngFor="let grupo of grupos" value="{{ grupo.idgrupo }}">{{ grupo.descricaogrupo }}</ion-option>
         </ion-select>
       </ion-item>
       <br />
       <ion-item>
         <ion-label floating>Selecione o Professor:</ion-label>
-        <ion-select name="professor" [(ngModel)]="professor">
+        <ion-select name="professor" [(ngModel)]="professor" formControlName="professor"> 
           <ion-option *ngFor="let professor of professores" value="{{ professor.idprofessor }}">{{ professor.nomeprofessor }}</ion-option>
         </ion-select>
+      </ion-item>
+    </ion-row>
+    </form>
+    <ion-row>
+      <br />
+      <ion-item>
+        <ion-label>Selecione o Estagiário:</ion-label>
       </ion-item>
       <br />
       <ion-item *ngFor="let estagiario of estagiarios" >
@@ -27,6 +35,6 @@
         <ion-checkbox name="idEstagiario" [(ngModel)]="estagiario.checked" ></ion-checkbox>
       </ion-item>
     </ion-row>
-    <button ion-button color="danger" (click)="cancelar()">Cancelar</button>
-    <button ion-button color="secondary" (click)="cadastrarGrupoEstagiario()">Confirmar</button>
+    <button type="button" ion-button color="danger" (click)="cancelar()">Cancelar</button>
+    <button type="button" ion-button color="secondary"  [disabled]="!cadastroGrupoEstagiario.valid" (click)="cadastrarGrupoEstagiario()">Confirmar</button>
 </ion-content>

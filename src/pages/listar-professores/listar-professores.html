@@ -27,7 +27,6 @@
         <ion-col><h6>E-mail</h6></ion-col>
         <ion-col><h6>Área de Especialidade</h6></ion-col>
         <ion-col></ion-col>
-        <ion-col></ion-col>
       </ion-row>
       <ion-row *ngFor="let job of professores"> 
           <ion-col>{{job.nomeprofessor}}</ion-col>
@@ -39,8 +38,6 @@
           
           <ion-col class="iconeDireita">
             <ion-icon ios="ios-create" md="md-create" title="Editar" (click)="editar(job)"></ion-icon>
-          </ion-col>
-          <ion-col class="iconeEsquerda">
             <ion-icon ios="ios-trash" md="md-trash" title="Excluir" (click)="excluirProfessor(job.idprofessor)"></ion-icon>
           </ion-col>
       </ion-row>

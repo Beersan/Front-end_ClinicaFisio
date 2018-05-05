@@ -38,7 +38,8 @@ export class CadastrarGrupoPage {
                 this.semestre = obj.idsemestre;
               }
               this.cadastroGrupo = formBuilder.group ({
-                descricao:['', Validators.required]
+                descricao:['', Validators.required],
+                descSemestre:['', Validators.required]
               })
             } 
 

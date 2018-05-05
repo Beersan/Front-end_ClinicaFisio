@@ -53,24 +53,23 @@
         <ion-col>
           <ion-item>
             <ion-label name="telefone" floating>Telefone</ion-label>
-            <ion-input type="text" name="telefone" [brmasker]="{mask:'(00)00000-0000', len:14}"></ion-input> >
+            <ion-input type="text" name="telefone"  [(ngModel)]="telefone" [brmasker]="{mask:'(00)00000-0000', len:14}"></ion-input> >
           </ion-item>
-          <ion-item>
-            <ion-label floating>Área de Especialidade</ion-label>
-            <ion-select [(ngModel)]="especialidade" name="especialidade">
-              <ion-option value="Dermatofuncional">Dermatofuncional</ion-option>
-              <ion-option value="Ortopediatraumatologia">Ortopedia/Traumatologia</ion-option>
-              <ion-option value="Multidisciplinar">Multidisciplinar</ion-option>
-              <ion-option value="FisioterapiaAquatica">Fisioterapia Aquática</ion-option>
-              <ion-option value="Neurologia">Neurologia</ion-option>
-              <ion-option value="ESF">ESF</ion-option>
-              <ion-option value="Cardiorrespiratoria">Cardiorrespiratória</ion-option>
-            </ion-select>
-          </ion-item>
+          <ion-row>
+            <ion-col width-100>
+              <ion-item>
+                <ion-label floating>Área de Especialidade</ion-label>
+                <!-- formControlName="especialidade" -->
+                <ion-select name= "especialidade" [(ngModel)]="especialidade">
+                  <ion-option *ngFor="let especialidade of especialidades" value="{{ especialidade.codigoespecialidade }}">{{ especialidade.descricaoespecialidade }}</ion-option>
+                </ion-select>
+              </ion-item>
+            </ion-col>
+          </ion-row>
         </ion-col>
       </ion-row>
-        <button ion-button color="danger" menuToggle="left">Cancelar</button>
-        <button ion-button color="secondary">Confirmar</button>
+        <button ion-button type="button" (click)="cancelar()" color="danger">Cancelar</button>
+        <button ion-button type="submit" color="secondary">Confirmar</button>
     </form>
   </ion-grid>
 </ion-content>

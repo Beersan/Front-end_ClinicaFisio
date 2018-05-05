@@ -30,7 +30,7 @@
       <ion-col width-50>
         <ion-item>
           <ion-label floating>Selecione a Sala</ion-label>
-          <ion-select name="salaReserva"[(ngModel)]="salaReserva" formControlName="salaReserva">
+          <ion-select name="salaReserva" (ionChange)="listarDatasReservadas(this.value)" [(ngModel)]="salaReserva" formControlName="salaReserva">
             <ion-option value="fisioterapia">Fisioterapia</ion-option>
             <ion-option value="estetica">Estética</ion-option>
           </ion-select>
@@ -41,7 +41,7 @@
       <ion-col width-50>
         <ion-item>
             <ion-label floating>Selecione a data</ion-label>
-            <ion-datetime name="dataReserva" min="today" displayFormat="DD/MM/YYYY" [(ngModel)]="dataReserva" formControlName="dataReserva"></ion-datetime>
+            <ion-datetime name="dataReserva" displayFormat="DD/MM/YYYY" [(ngModel)]="dataReserva" formControlName="dataReserva"></ion-datetime>
         </ion-item>
       </ion-col>
     </ion-row>

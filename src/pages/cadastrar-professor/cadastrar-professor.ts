@@ -8,7 +8,7 @@ import { Professor } from '../../models/model.cadastrar-professor';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { provideModuleLoader } from 'ionic-angular/util/module-loader';
-//import { ProfessorProvider } from '../../providers/professor/professor';
+import { ProfessorProvider } from '../../providers/professor/professor';
 
 @IonicPage()
 @Component({
@@ -18,24 +18,24 @@ import { provideModuleLoader } from 'ionic-angular/util/module-loader';
 
 export class CadastrarProfessorPage {
   //professor: any[];
+  especialidades: any;
   professor: Professor;
   nomeProfessor: string;
   matriculaProfessor: string;
   crefitoProfessor: string;
   emailProfessor: string;
-  telefoneProfessor: string;
-  especialidadeProfessor: string;
+  telefone: string;
+  especialidade: string;
   idProfessor = "";
-
-
 
   constructor(
   	public navCtrl: NavController,
     public navParams: NavParams,
-    //public provider: ProfessorProvider,
+    public provider: ProfessorProvider,
     private http: HttpClient,
     public alertCtrl: AlertController
-    ){
+  ){
+    this.listarEspecialidade();
     if (this.navParams.data.professor) {      
       this.professor = this.navParams.data.professor;
       console.log(this.professor);
@@ -45,39 +45,47 @@ export class CadastrarProfessorPage {
       this.matriculaProfessor = obj.matriculaProfessor;
       this.crefitoProfessor = obj.crefitoProfessor;
       this.emailProfessor = obj.emailProfessor;
-      this.telefoneProfessor = obj.telefoneProfessor;
-      this.especialidadeProfessor = obj.especialidadeProfessor;
+      this.telefone = obj.telefone;
+      this.especialidade = obj.especialidade;
+    }
   }
-}
+
   cadastrarProfessor(){
-  	// this.provider.gravarProfessor({
-  	// 	nomeProfessor: this.nomeProfessor,
-  	// 	matriculaProfessor: this.matriculaProfessor,
-  	// 	crefitoProfessor: this.crefitoProfessor,
-  	// 	emailProfessor: this.emailProfessor,
-  	// 	telefoneProfessor: this.telefoneProfessor,
-  	// 	especialidadeProfessor: this.especialidadeProfessor,
-  	// 	idProfessor: this.idProfessor
-    // });
-    // THEN PRECISA DE PROMISE NA FUNCAO DE REQUEST (gravarProfessor)
-    // .then((result) => {
-    //   console.log(result);
-    //   this.showAlert();    
-    // });   
+  	this.provider.gravarProfessor({
+  		nomeProfessor: this.nomeProfessor,
+  		matriculaProfessor: this.matriculaProfessor,
+  		crefitoProfessor: this.crefitoProfessor,
+  		emailProfessor: this.emailProfessor,
+  		telefone: this.telefone,
+  		especialidade: this.especialidade,
+  		idProfessor: this.idProfessor
+    })
+    .then((result) => {
+      this.showAlert();    
+    });   
+  }
+
+  listarEspecialidade(){
+    this.provider.listar().then(
+      data => {
+        this.especialidades = data;
+      }
+    )
+    .catch(error => alert(error));
   }
 
   showAlert() {
     let alert = this.alertCtrl.create({
       title: 'Sucesso!',
-      subTitle: 'Professor cadastrado.',
+      subTitle: 'Professor gravado.',
       buttons: ['Ok']
     });
     alert.present();
     this.navCtrl.pop();
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CadastrarProfessorPage');
+  cancelar(){
+    this.navCtrl.pop();
   }
 
 }

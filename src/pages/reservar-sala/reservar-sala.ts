@@ -5,6 +5,7 @@ import { NgForm, FormsModule, FormBuilder, Validators } from '@angular/forms';
 import { AlertController } from 'ionic-angular';
 import { ReservarSala } from './../../models/model.reservar-sala';
 import { HttpClient } from '@angular/common/http';
+import moment from 'moment';
 
 @IonicPage()
 @Component({
@@ -19,6 +20,7 @@ export class ReservarSalaPage {
   solicitante: string;
   salaReserva: string;
   dataReserva: Date;
+  dataReservas: any;
   idReserva = "";
 
   constructor(
@@ -53,23 +55,37 @@ export class ReservarSalaPage {
         salaReserva: this.salaReserva,
         dataReserva: this.dataReserva,
         idReserva: this.idReserva
-      });
-      this.showAlert();
+      }).then((result) => {
+        this.showAlert();    
+      }); 
     }
   }
 
   dataValida(){
     var valido = true;
-    if (this.dataReserva > this.dataReserva ) {
-      valido = false;
+    for(var i = 0; i < this.dataReservas.length; i++){
+      if(moment(this.dataReserva).format("YYYY-MM-DD") == moment(this.dataReservas[i].datareserva).format("YYYY-MM-DD")){
+        valido = false;
+      }
+    }
+    if(!valido){
       let alert = this.alertCtrl.create({
-        title: 'Atenção!',
-        subTitle: 'A data da reserva não pode ser mais antiga que a atual.',
+        title: 'Falha!',
+        subTitle: 'Data já reservada.',
         buttons: ['Ok']
       });
       alert.present();
     }
     return valido;
+  }
+  
+  listarDatasReservadas() {
+    this.provider.listarDatasReservadas({sala: this.salaReserva}).then(
+      data => {
+        this.dataReservas = data;
+      }
+    )
+    .catch(error => alert(error));
   }
 
   showAlert() {
