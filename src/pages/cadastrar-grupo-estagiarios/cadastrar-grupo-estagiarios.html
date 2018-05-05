@@ -15,6 +15,13 @@
         </ion-select>
       </ion-item>
       <br />
+      <ion-item>
+        <ion-label floating>Selecione o Professor:</ion-label>
+        <ion-select name="professor" [(ngModel)]="professor">
+          <ion-option *ngFor="let professor of professores" value="{{ professor.idprofessor }}">{{ professor.nomeprofessor }}</ion-option>
+        </ion-select>
+      </ion-item>
+      <br />
       <ion-item *ngFor="let estagiario of estagiarios" >
         <ion-label>{{ estagiario.nomeestagiario }}</ion-label>
         <ion-checkbox name="idEstagiario" [(ngModel)]="estagiario.checked" ></ion-checkbox>

@@ -15,6 +15,8 @@ import { AlertController } from 'ionic-angular';
 export class ListarEstagiarioPage {
   estagiarios: any;
   estagiariosSemFiltro: any;
+  resultado: any;
+
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -81,8 +83,14 @@ export class ListarEstagiarioPage {
             this.provider.excluirEstagiario({
               idEstagiario: idEstagiario
             }).then((result) => {
-              this.listarEstagiario();
-              this.showAlert();
+              this.resultado = result;
+              if(this.resultado.message == "ok"){
+                this.listarEstagiario();
+                this.alertConfirm();
+              } else {
+                this.alertErro();
+              }
+              
             });
           }
         }
@@ -102,10 +110,19 @@ export class ListarEstagiarioPage {
     .catch(error => alert(error));
   }
 
-  showAlert() {
+  alertConfirm() {
     let alert = this.alertCtrl.create({
       title: 'Sucesso!',
       subTitle: 'Estagiário excluído.',
+      buttons: ['Ok']
+    });
+    alert.present();
+  }
+
+  alertErro() {
+    let alert = this.alertCtrl.create({
+      title: 'Atenção!',
+      subTitle: 'Estagiario vinculado em um grupo de estagiários.',
       buttons: ['Ok']
     });
     alert.present();

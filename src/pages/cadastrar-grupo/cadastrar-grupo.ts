@@ -18,6 +18,8 @@ export class CadastrarGrupoPage {
   grupo: CadastrarGrupo;
   descricao: string;
   idGrupo = "";
+  semestre: any;
+  semestres: any;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
@@ -33,16 +35,22 @@ export class CadastrarGrupoPage {
                 var obj = JSON.parse(text);
                 this.descricao = obj.descricaogrupo;
                 this.idGrupo = obj.idgrupo;
+                this.semestre = obj.idsemestre;
               }
               this.cadastroGrupo = formBuilder.group ({
                 descricao:['', Validators.required]
               })
             } 
 
+  ionViewDidLoad() {
+    this.listarSemestre();
+  }
+
   cadastrarGrupo(){
     //campos
     this.provider.create({
         descricao: this.descricao,
+        semestre: this.semestre,
         idGrupo: this.idGrupo
     }).then((result) =>{
       console.log(result);
@@ -50,10 +58,21 @@ export class CadastrarGrupoPage {
     });
   }
 
+  listarSemestre(){
+    if(this.semestres == null){
+      this.provider.retornarSemestre().then(
+        data => {
+            this.semestres = data;
+          }
+        )
+        .catch(error => alert(error));
+    } 
+  }
+
   showAlert() {
     let alert = this.alertCtrl.create({
       title: 'Sucesso!',
-      subTitle: 'Grupo cadastrado.',
+      subTitle: 'Grupo gravado.',
       buttons: ['Ok']
     });
     alert.present();

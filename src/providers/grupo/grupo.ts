@@ -19,11 +19,12 @@ export class GrupoProvider {
     console.log('Hello GrupoProvider Provider');
   }
 
-  create(grupo: CadastrarGrupo) {
+  create(grupo) {
     var rota = "cadastrar";
     if (grupo.idGrupo != ""){
       rota = "editar";
     }
+    console.log(grupo);
     return new Promise((resolve, reject) => {
       this.http.post('http://localhost:3000/grupo/' + rota, grupo).subscribe(response => {
         resolve(response);
@@ -41,6 +42,10 @@ export class GrupoProvider {
         resolve(response);
       });
     });
+  }
+
+  retornarSemestre(){
+    return this.http.get('http://localhost:3000/grupo/listarsemestre').toPromise();
   }
 
 }

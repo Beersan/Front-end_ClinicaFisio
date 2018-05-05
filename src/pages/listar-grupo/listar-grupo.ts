@@ -20,7 +20,7 @@ export class ListarGrupoPage {
 
   grupos: any;
   gruposSemFiltro: any;
-
+  resultado: any;
   constructor(public navCtrl: NavController, 
               private provider:GrupoProvider, 
               private alertCtrl: AlertController,
@@ -82,8 +82,13 @@ export class ListarGrupoPage {
             this.provider.excluirEstagiario({
               idGrupo: idGrupo
             }).then((result) => {
-              this.listarGrupo();    
-              this.showAlert();
+              this.resultado = result;
+              if(this.resultado.message == "ok"){
+                this.listarGrupo();    
+                this.alertConfirm();
+              } else {
+                this.alertErro();
+              }
             }); 
           }
         }
@@ -92,10 +97,19 @@ export class ListarGrupoPage {
     alert.present();
   }
 
-  showAlert() {
+  alertConfirm() {
     let alert = this.alertCtrl.create({
       title: 'Sucesso!',
       subTitle: 'Grupo excluído.',
+      buttons: ['Ok']
+    });
+    alert.present();
+  }
+
+  alertErro() {
+    let alert = this.alertCtrl.create({
+      title: 'Atenção!',
+      subTitle: 'Grupo vinculado em um grupo de estagiários.',
       buttons: ['Ok']
     });
     alert.present();
