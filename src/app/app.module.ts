@@ -48,6 +48,7 @@ import { ListarPacientesAgendadosPageModule } from '../pages/listar-pacientes-ag
 import { AgendarAtendimentoPageModule } from '../pages/agendar-atendimento/agendar-atendimento.module';
 import { AgendaProvider } from '../providers/agenda/agenda';
 import { AgendarAtendimentoPage } from '../pages/agendar-atendimento/agendar-atendimento';
+import { ImprimirCronogramaEstagiariosPage } from '../pages/imprimir-cronograma-estagiarios/imprimir-cronograma-estagiarios';
 
 // Custom components
 import { SideMenuContentComponent } from '../shared/side-menu-content/side-menu-content.component';
@@ -74,7 +75,8 @@ import { SideMenuContentComponent } from '../shared/side-menu-content/side-menu-
         ListarReservasPage,
         IncluirExamesTermosPage,
         VincularPacienteEstagiarioPage,
-        AgendarAtendimentoPage        
+        AgendarAtendimentoPage,
+        ImprimirCronogramaEstagiariosPage        
     ],
     imports: [
         BrowserModule,
@@ -88,7 +90,7 @@ import { SideMenuContentComponent } from '../shared/side-menu-content/side-menu-
         CadastroSemestrePageModule,
         ListarSemestrePageModule,
         //ListarReservasPageModule
-        CadastrarHorarioProfessorPageModule,
+        CadastrarHorarioProfessorPageModule
     ],
     bootstrap: [IonicApp],
     entryComponents: [
@@ -112,7 +114,8 @@ import { SideMenuContentComponent } from '../shared/side-menu-content/side-menu-
         ListarReservasPage,
         IncluirExamesTermosPage,
         VincularPacienteEstagiarioPage,
-        AgendarAtendimentoPage
+        AgendarAtendimentoPage, 
+        ImprimirCronogramaEstagiariosPage
     ],
     providers: [
         StatusBar,
