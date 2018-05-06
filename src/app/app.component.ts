@@ -183,6 +183,11 @@ export class MyApp {
 					iconName: 'shuffle',
 					displayText: 'Vincular Paciente a Estagiário',
 					component: VincularPacienteEstagiarioPage
+				},
+				{
+					iconName: 'clipboard',
+					displayText: 'Pacientes Agendados',
+					component: ListarPacientesAgendadosPage
 				}
 			]
 			});

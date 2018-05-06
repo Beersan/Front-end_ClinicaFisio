@@ -37,6 +37,7 @@ import { FilaDeEsperaPageModule } from '../pages/fila-de-espera/fila-de-espera.m
 import { ArquivosProvider } from '../providers/arquivos/arquivos';
 import { CadastroSemestrePageModule } from '../pages/cadastro-semestre/cadastro-semestre.module';
 import { ListarSemestrePageModule } from '../pages/listar-semestre/listar-semestre.module';
+import { ListarPacientesAgendadosPage } from '../pages/listar-pacientes-agendados/listar-pacientes-agendados';
 import { SemestreProvider } from '../providers/semestre/semestre';
 import { CadastrarHorarioProfessorPageModule } from '../pages/cadastrar-horario-professor/cadastrar-horario-professor.module';
 import { ReservaSalaProvider} from '../providers/reserva-sala/reserva-sala';
@@ -49,8 +50,6 @@ import { AgendarAtendimentoPageModule } from '../pages/agendar-atendimento/agend
 import { AgendaProvider } from '../providers/agenda/agenda';
 import { AgendarAtendimentoPage } from '../pages/agendar-atendimento/agendar-atendimento';
 import { ImprimirCronogramaEstagiariosPage } from '../pages/imprimir-cronograma-estagiarios/imprimir-cronograma-estagiarios';
-
-// Custom components
 import { SideMenuContentComponent } from '../shared/side-menu-content/side-menu-content.component';
 
 @NgModule({
@@ -76,7 +75,8 @@ import { SideMenuContentComponent } from '../shared/side-menu-content/side-menu-
         IncluirExamesTermosPage,
         VincularPacienteEstagiarioPage,
         AgendarAtendimentoPage,
-        ImprimirCronogramaEstagiariosPage        
+        ImprimirCronogramaEstagiariosPage,
+        ListarPacientesAgendadosPage        
     ],
     imports: [
         BrowserModule,
@@ -115,7 +115,8 @@ import { SideMenuContentComponent } from '../shared/side-menu-content/side-menu-
         IncluirExamesTermosPage,
         VincularPacienteEstagiarioPage,
         AgendarAtendimentoPage, 
-        ImprimirCronogramaEstagiariosPage
+        ImprimirCronogramaEstagiariosPage,
+        ListarPacientesAgendadosPage
     ],
     providers: [
         StatusBar,
@@ -130,7 +131,8 @@ import { SideMenuContentComponent } from '../shared/side-menu-content/side-menu-
         ProfessorProvider,
         ArquivosProvider,
         SemestreProvider,
-        ReservaSalaProvider
+        ReservaSalaProvider,
+        AgendaProvider
     ]
 })
 export class AppModule {
