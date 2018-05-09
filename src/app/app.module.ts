@@ -51,6 +51,9 @@ import { AgendaProvider } from '../providers/agenda/agenda';
 import { AgendarAtendimentoPage } from '../pages/agendar-atendimento/agendar-atendimento';
 import { ImprimirCronogramaEstagiariosPage } from '../pages/imprimir-cronograma-estagiarios/imprimir-cronograma-estagiarios';
 import { SideMenuContentComponent } from '../shared/side-menu-content/side-menu-content.component';
+import { CadastrarHorarioProfessorPage } from '../pages/cadastrar-horario-professor/cadastrar-horario-professor';
+import { AgendaProfessorProvider } from '../providers/agenda-professor/agenda-professor';
+
 
 @NgModule({
     declarations: [
@@ -76,7 +79,8 @@ import { SideMenuContentComponent } from '../shared/side-menu-content/side-menu-
         VincularPacienteEstagiarioPage,
         AgendarAtendimentoPage,
         ImprimirCronogramaEstagiariosPage,
-        ListarPacientesAgendadosPage        
+        ListarPacientesAgendadosPage,
+        CadastrarHorarioProfessorPage,        
     ],
     imports: [
         BrowserModule,
@@ -90,7 +94,8 @@ import { SideMenuContentComponent } from '../shared/side-menu-content/side-menu-
         CadastroSemestrePageModule,
         ListarSemestrePageModule,
         //ListarReservasPageModule
-        CadastrarHorarioProfessorPageModule
+        CadastrarHorarioProfessorPageModule,
+        CadastrarHorarioProfessorPage
     ],
     bootstrap: [IonicApp],
     entryComponents: [
@@ -116,7 +121,8 @@ import { SideMenuContentComponent } from '../shared/side-menu-content/side-menu-
         VincularPacienteEstagiarioPage,
         AgendarAtendimentoPage, 
         ImprimirCronogramaEstagiariosPage,
-        ListarPacientesAgendadosPage
+        ListarPacientesAgendadosPage,
+        CadastrarHorarioProfessorPage
     ],
     providers: [
         StatusBar,
@@ -132,7 +138,8 @@ import { SideMenuContentComponent } from '../shared/side-menu-content/side-menu-
         ArquivosProvider,
         SemestreProvider,
         ReservaSalaProvider,
-        AgendaProvider
+        AgendaProvider,
+        AgendaProfessorProvider
     ]
 })
 export class AppModule {

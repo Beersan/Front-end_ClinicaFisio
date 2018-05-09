@@ -17,7 +17,7 @@ import { ProfessorProvider } from '../../providers/professor/professor';
 })
 
 export class CadastrarProfessorPage {
-  //professor: any[];
+  professores: any[];
   especialidades: any;
   professor: Professor;
   nomeProfessor: string;
@@ -26,6 +26,7 @@ export class CadastrarProfessorPage {
   emailProfessor: string;
   telefone: string;
   especialidade: string;
+  idEspecialidade: any;
   idProfessor = "";
 
   constructor(
@@ -36,17 +37,20 @@ export class CadastrarProfessorPage {
     public alertCtrl: AlertController
   ){
     this.listarEspecialidade();
+    console.log(this.especialidade);
     if (this.navParams.data.professor) {      
-      this.professor = this.navParams.data.professor;
+      this.professores = this.navParams.data.professor;
       console.log(this.professor);
-      var text = JSON.stringify(this.professor);
+      var text = JSON.stringify(this.professores);
       var obj = JSON.parse(text);
-      this.nomeProfessor = obj.nomeProfessor;
-      this.matriculaProfessor = obj.matriculaProfessor;
-      this.crefitoProfessor = obj.crefitoProfessor;
-      this.emailProfessor = obj.emailProfessor;
-      this.telefone = obj.telefone;
-      this.especialidade = obj.especialidade;
+      this.idProfessor = obj.idprofessor;
+      this.nomeProfessor = obj.nomeprofessor;
+      this.matriculaProfessor = obj.matriculaprofessor;
+      this.crefitoProfessor = obj.crefitoprofessor;
+      this.emailProfessor = obj.emailprofessor;
+      this.telefone = obj.telefoneprofessor;
+      this.especialidade = obj.descricaoespecialidade;
+      console.log(this.especialidade);
     }
   }
 

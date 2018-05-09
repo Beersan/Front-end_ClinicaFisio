@@ -21,5 +21,16 @@ export class CadastrarHorarioProfessorPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad CadastrarHorarioProfessorPage');
   }
+ 
+  listarProfessor(){
+    this.provider.retornarProfessor().then(
+      data => {
+        this.professores = data;
+        console.log(data);
+      }
+    )
+    .catch(error => alert(error));
+  }
+
 
 }

@@ -3,14 +3,7 @@ import { Injectable } from '@angular/core';
 import { Professor } from '../../models/model.cadastrar-professor';
 
 @Injectable()
-export class ProfessorProvider {
-
-  nomeprofessor: any;
-  matriculaprofessor: any;
-  crefitoprofessor: any;
-  emailprofessor: any;
-  telefoneprofessor: any;
-  especialidadeprofessor: any;
+export class AgendaProfessorProvider {
 
   constructor(public http: HttpClient) {}
   
@@ -38,7 +31,7 @@ export class ProfessorProvider {
     });
   }
 
-  listar(){    
-    return this.http.get('http://localhost:3000/professor/listarEspecialidade').toPromise();
+  listarProfessor(){    
+    return this.http.get('http://localhost:3000/agendaProfessor/listarProfessor').toPromise();
   }
 }
