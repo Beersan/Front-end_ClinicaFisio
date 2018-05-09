@@ -23,7 +23,10 @@
           <ion-col>{{paciente.contato1paciente}}</ion-col>          
           <ion-col>{{paciente.descricaoespecialidade}}</ion-col>
           <ion-col>{{paciente.rendapaciente}}</ion-col>          
-          <ion-col class="iconeDireita">               
+          <ion-col class="iconeDireita">
+            <ion-icon md="md-document" title="Incluir exames e termos" (click)="adicionarAnexos(paciente.idpaciente)"></ion-icon>          
+            <ion-icon md="md-contacts" title="Vincular estagiário" (click)="vincularEstagiario(paciente.idpaciente)"></ion-icon>
+            <!-- <ion-icon md="md-trash" title="Excluir" (click)="excluir(especialidade.codigoespecialidade)"></ion-icon> -->
           </ion-col>
       </ion-row>
   </ion-grid>

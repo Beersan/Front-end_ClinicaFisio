@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController} from 'ionic-angular';
-import { PreCadastroProvider } from '../../providers/pre-cadastro/pre-cadastro';
 import { ToastController } from 'ionic-angular';
+import { FilaEsperaProvider } from '../../providers/fila-espera/fila-espera';
+import { IncluirExamesTermosPage } from '../incluir-exames-termos/incluir-exames-termos';
+import { VincularPacienteEstagiarioPage } from '../vincular-paciente-estagiario/vincular-paciente-estagiario';
 
 @IonicPage()
 @Component({
@@ -15,7 +17,7 @@ export class FilaDeEsperaPage {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    private provider: PreCadastroProvider,
+    private provider: FilaEsperaProvider,
     private alertCtrl: AlertController,
     private toastCtrl: ToastController
   ){}
@@ -49,5 +51,19 @@ export class FilaDeEsperaPage {
       }
     )
     .catch(error => alert(error));
+  }
+
+  adicionarAnexos(idPaciente){
+    this.navCtrl.push(IncluirExamesTermosPage, {
+      rootNavCtrl: this.navCtrl,
+      idPaciente: idPaciente
+    });
+  }
+
+  vincularEstagiario(idPaciente){
+    this.navCtrl.push(VincularPacienteEstagiarioPage, {
+      rootNavCtrl: this.navCtrl,
+      idPaciente: idPaciente
+    });
   }
 }

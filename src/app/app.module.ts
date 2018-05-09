@@ -51,6 +51,7 @@ import { AgendaProvider } from '../providers/agenda/agenda';
 import { AgendarAtendimentoPage } from '../pages/agendar-atendimento/agendar-atendimento';
 import { ImprimirCronogramaEstagiariosPage } from '../pages/imprimir-cronograma-estagiarios/imprimir-cronograma-estagiarios';
 import { SideMenuContentComponent } from '../shared/side-menu-content/side-menu-content.component';
+import { FilaEsperaProvider } from '../providers/fila-espera/fila-espera';
 
 @NgModule({
     declarations: [
@@ -132,7 +133,8 @@ import { SideMenuContentComponent } from '../shared/side-menu-content/side-menu-
         ArquivosProvider,
         SemestreProvider,
         ReservaSalaProvider,
-        AgendaProvider
+        AgendaProvider,
+    FilaEsperaProvider
     ]
 })
 export class AppModule {

@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the VincularPacienteEstagiarioPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { FilaEsperaProvider } from '../../providers/fila-espera/fila-espera';
+import { NgForm, FormsModule,Validators, FormBuilder } from '@angular/forms';
 
 @IonicPage()
 @Component({
@@ -14,12 +9,26 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'vincular-paciente-estagiario.html',
 })
 export class VincularPacienteEstagiarioPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  estagiarios: any;
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    private provider: FilaEsperaProvider    
+  ) {
+    this.listarEstagiarios();
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad VincularPacienteEstagiarioPage');
+  listarEstagiarios(){
+    this.provider.retornarEstagiariosFila().then(
+      data => {
+        console.log(data);
+        this.estagiarios = data;
+      }
+    )
+    .catch(error => alert(error));
   }
-
+ 
+  cancelar(){
+    this.navCtrl.pop();
+  }
 }
