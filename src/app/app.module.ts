@@ -52,6 +52,9 @@ import { AgendarAtendimentoPage } from '../pages/agendar-atendimento/agendar-ate
 import { ImprimirCronogramaEstagiariosPage } from '../pages/imprimir-cronograma-estagiarios/imprimir-cronograma-estagiarios';
 import { SideMenuContentComponent } from '../shared/side-menu-content/side-menu-content.component';
 import { FilaEsperaProvider } from '../providers/fila-espera/fila-espera';
+import { CadastrarHorarioProfessorPage } from '../pages/cadastrar-horario-professor/cadastrar-horario-professor';
+import { AgendaProfessorProvider } from '../providers/agenda-professor/agenda-professor';
+
 
 @NgModule({
     declarations: [
@@ -77,7 +80,8 @@ import { FilaEsperaProvider } from '../providers/fila-espera/fila-espera';
         VincularPacienteEstagiarioPage,
         AgendarAtendimentoPage,
         ImprimirCronogramaEstagiariosPage,
-        ListarPacientesAgendadosPage        
+        ListarPacientesAgendadosPage,
+        CadastrarHorarioProfessorPage,        
     ],
     imports: [
         BrowserModule,
@@ -91,7 +95,8 @@ import { FilaEsperaProvider } from '../providers/fila-espera/fila-espera';
         CadastroSemestrePageModule,
         ListarSemestrePageModule,
         //ListarReservasPageModule
-        CadastrarHorarioProfessorPageModule
+        CadastrarHorarioProfessorPageModule,
+        CadastrarHorarioProfessorPage
     ],
     bootstrap: [IonicApp],
     entryComponents: [
@@ -117,7 +122,8 @@ import { FilaEsperaProvider } from '../providers/fila-espera/fila-espera';
         VincularPacienteEstagiarioPage,
         AgendarAtendimentoPage, 
         ImprimirCronogramaEstagiariosPage,
-        ListarPacientesAgendadosPage
+        ListarPacientesAgendadosPage,
+        CadastrarHorarioProfessorPage
     ],
     providers: [
         StatusBar,
@@ -134,7 +140,8 @@ import { FilaEsperaProvider } from '../providers/fila-espera/fila-espera';
         SemestreProvider,
         ReservaSalaProvider,
         AgendaProvider,
-    FilaEsperaProvider
+        FilaEsperaProvider,
+        AgendaProfessorProvider
     ]
 })
 export class AppModule {
