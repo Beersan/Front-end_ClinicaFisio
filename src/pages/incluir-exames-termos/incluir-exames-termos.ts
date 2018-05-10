@@ -30,6 +30,14 @@ export class IncluirExamesTermosPage {
     this.navCtrl.pop();
   }
 
+  gravarAnexos(){    
+    // this.provider.gravarAnexos({
+    //   linkAnexo: this.linkAnexo
+    // }).then((result) => {
+    //   this.showAlert();    
+    // });  
+  }
+
   cancelar(){
     this.navCtrl.pop();
   }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { FilaEsperaProvider } from '../../providers/fila-espera/fila-espera';
 import { NgForm, FormsModule,Validators, FormBuilder } from '@angular/forms';
 
@@ -10,12 +10,28 @@ import { NgForm, FormsModule,Validators, FormBuilder } from '@angular/forms';
 })
 export class VincularPacienteEstagiarioPage {
   estagiarios: any;
+  estagiario: any;
+  paciente: any;
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
+    private alertCtrl: AlertController,
     private provider: FilaEsperaProvider    
   ) {
-    this.listarEstagiarios();
+    this.listarEstagiarios();    
+    if (this.navParams.data.idPaciente) {      
+      this.paciente = this.navParams.data.idPaciente;
+    }
+  }
+
+  gravar(){
+    console.log(this.estagiario)
+    // this.provider.vincularPacienteEstagiario({
+    //   idpaciente: this.paciente,    
+    //   idestagiario: this.estagiario
+    // }).then((result) => {
+    //   this.showAlert();    
+    // }); 
   }
 
   listarEstagiarios(){
@@ -28,6 +44,16 @@ export class VincularPacienteEstagiarioPage {
     .catch(error => alert(error));
   }
  
+  showAlert(){
+    let alert = this.alertCtrl.create({
+      title: 'Sucesso!',
+      subTitle: 'Paciente vinculado à estagiário.',
+      buttons: ['Ok']
+    });
+    alert.present();
+    this.navCtrl.pop();
+  }
+
   cancelar(){
     this.navCtrl.pop();
   }

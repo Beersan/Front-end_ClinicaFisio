@@ -15,4 +15,16 @@ export class FilaEsperaProvider {
   retornarEstagiariosFila(){
     return this.http.get('http://localhost:3000/filaEspera/listarEstagiariosFila').toPromise();
   }
+
+  gravarAnexos(valores){
+  //   return new Promise((resolve, reject) => {
+  //     this.http.post('http://localhost:3000/filaEspera/gravarAnexos', valores).subscribe(response => {
+  //       resolve(response);
+  //     });
+  //   });
+  }
+
+  vincularPacienteEstagiario(){
+    
+  }
 }

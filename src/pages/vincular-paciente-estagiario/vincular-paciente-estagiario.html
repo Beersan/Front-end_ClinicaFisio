@@ -10,23 +10,25 @@
   <form>  
     <ion-grid>
       <ion-row>
-        <ion-col item-width="5%"></ion-col>
+        <ion-col col-auto>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</ion-col>
         <ion-col><h6>Nome</h6></ion-col>
         <ion-col><h6>Grupo</h6></ion-col>
         <ion-col><h6>Professor</h6></ion-col>
         <ion-col><h6>Especialidade</h6></ion-col>
         <ion-col><h6>Horário Professor</h6></ion-col>    
       </ion-row>
-      <ion-row *ngFor="let estagiario of estagiarios">
-        <ion-col><ion-radio name="idEstagiario"></ion-radio></ion-col>
-        <ion-col>{{estagiario.nomeestagiario}}</ion-col>
-        <ion-col>{{estagiario.descricaogrupo}}</ion-col>
-        <ion-col>{{estagiario.nomepreofessor}}</ion-col>          
-        <ion-col>{{estagiario.descricaoespecialidade}}</ion-col>
-        <ion-col></ion-col>
-      </ion-row>
+      <ion-list radio-group [(ngModel)]="estagiario" name="estagiario">
+        <ion-row *ngFor="let estagiario of estagiarios">
+          <ion-col col-auto><ion-radio value="{{estagiario.idestagiario}}"></ion-radio></ion-col>
+          <ion-col>{{estagiario.nomeestagiario}}</ion-col>
+          <ion-col>{{estagiario.descricaogrupo}}</ion-col>
+          <ion-col>{{estagiario.nomeprofessor}}</ion-col>          
+          <ion-col>{{estagiario.descricaoespecialidade}}</ion-col>
+          <ion-col></ion-col>
+        </ion-row>
+      </ion-list>
     </ion-grid>
   </form>
   <button type="button" ion-button color="danger" (click)="cancelar()">Cancelar</button>
-  <button type="button" ion-button color="secondary" (click)="cadastrarGrupoEstagiario()">Confirmar</button>
+  <button type="button" ion-button color="secondary" (click)="gravar()">Confirmar</button>
 </ion-content>

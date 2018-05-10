@@ -66,4 +66,22 @@ export class FilaDeEsperaPage {
       idPaciente: idPaciente
     });
   }
+
+  visualizar(paciente) {
+    var valor = JSON.parse(JSON.stringify(paciente));
+    var mensagem = "CPF: " + valor.cpfpaciente + "\n"
+    + "RG: " + valor.rgpaciente + "\n"
+    + "Endereço: " + valor.enderecopaciente + ", " + valor.numeropaciente +  "\n"
+    + "Bairro: " + valor.bairropaciente + "\n"
+    + "Cidade: " + valor.cidadepaciente + "\n"
+    + "Telefone 2: " + valor.telefone2 + "\n"
+    + "Renda: " + valor.rendapaciente + "\n";
+
+    let toast = this.toastCtrl.create({
+      message: mensagem,
+      duration: 3000,
+      position: 'botton'
+    }); 
+    toast.present();
+  }
 }
