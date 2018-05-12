@@ -26,12 +26,12 @@ export class VincularPacienteEstagiarioPage {
 
   gravar(){
     console.log(this.estagiario)
-    // this.provider.vincularPacienteEstagiario({
-    //   idpaciente: this.paciente,    
-    //   idestagiario: this.estagiario
-    // }).then((result) => {
-    //   this.showAlert();    
-    // }); 
+    this.provider.vincularPacienteEstagiario({
+      idpaciente: this.paciente,    
+      idestagiario: this.estagiario
+    }).then((result) => {
+      this.showAlert();
+    }); 
   }
 
   listarEstagiarios(){
@@ -47,7 +47,7 @@ export class VincularPacienteEstagiarioPage {
   showAlert(){
     let alert = this.alertCtrl.create({
       title: 'Sucesso!',
-      subTitle: 'Paciente vinculado ‡ estagi·rio.',
+      subTitle: 'Paciente vinculado √† estagi√†rio.',
       buttons: ['Ok']
     });
     alert.present();
