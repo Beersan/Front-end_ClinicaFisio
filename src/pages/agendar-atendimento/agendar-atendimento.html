@@ -19,7 +19,7 @@
       <ion-col width-100>
         <ion-item>
           <ion-label floating>Paciente</ion-label>
-          <ion-select name="paciente" [(ngModel)]="paciente" formControlName="paciente" type="text">
+          <ion-select name="paciente" [(ngModel)]="paciente" formControlName="paciente" type="text" (ionChange)="listarDia();listarHorario();">
             <ion-option *ngFor="let paciente of pacientes" value="{{ paciente.idpaciente }}">{{ paciente.nomepaciente }}</ion-option>
           </ion-select>
         </ion-item>
@@ -56,7 +56,7 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <button type="button" (click)="cancelar()" ion-button color="danger" (click)="cancelar()">Cancelar</button>
+  <button type="button" ion-button color="danger" (click)="cancelar()">Cancelar</button>
   <button type="submit" [disabled]="!validarAgendarAtendimento.valid" ion-button color="secondary">Agendar</button>
   </form>
 </ion-content>
