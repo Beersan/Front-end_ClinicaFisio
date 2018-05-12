@@ -94,17 +94,14 @@ import { AgendaProfessorProvider } from '../providers/agenda-professor/agenda-pr
         BrMaskerModule,
         FilaDeEsperaPageModule,
         CadastroSemestrePageModule,
-<<<<<<< HEAD
         ListarSemestrePageModule,
         //CadastrarHorarioProfessorPageModule
         //ListarReservasPageModule
-=======
         ListarSemestrePageModule
         //,
         //ListarReservasPageModule
         //CadastrarHorarioProfessorPageModule,
         //CadastrarHorarioProfessorPage
->>>>>>> caee65e9e696aa0b39cad8cfede0335e460337d9
     ],
     bootstrap: [IonicApp],
     entryComponents: [
