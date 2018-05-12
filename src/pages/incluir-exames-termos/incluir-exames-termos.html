@@ -20,8 +20,8 @@
       <h6>Exames</h6>
     </ion-row>
     <ion-row>
-      <input type="file" id="file_exames"/>
-      <ion-icon md="md-eye" title="visualizar"></ion-icon>
+      <input type="file" id="file" (change)="detectarArquivos($event)"/>
+      <ion-icon md="md-eye" title="visualizar" (click)="visualizar()" [ngClass]="classeIcone"></ion-icon>            
     </ion-row>
     <ion-row>
       <h6>Termo de Direito de Imagem</h6>
@@ -38,4 +38,6 @@
         <ion-icon md="md-eye" title="visualizar"></ion-icon>
       </ion-row>
   </ion-grid>
+  <button type="button" ion-button color="danger" (click)="cancelar()">Cancelar</button>
+  <button type="submit" ion-button color="secondary" (click)="gravarAnexos()">Confirmar</button>
 </ion-content>

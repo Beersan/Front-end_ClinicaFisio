@@ -21,12 +21,21 @@ export class AgendaProvider {
     return this.http.get('http://localhost:3000/agenda/listarpaciente').toPromise();
   }
 
-  retornarDia(){
-    return this.http.get('http://localhost:3000/agenda/listardia').toPromise();
+  retornarDia(paciente){
+    return new Promise((resolve, reject) => {
+      this.http.post('http://localhost:3000/agenda/listardia', paciente).subscribe(response => {
+        resolve(response);
+      });
+    });
   }
 
-  retornarHorario(){
-    return this.http.get('http://localhost:3000/agenda/listarhorario').toPromise();
+  retornarHorario(paciente){
+    return new Promise((resolve, reject) => {
+      this.http.post('http://localhost:3000/agenda/listarhorario', paciente).subscribe(response => {
+        console.log(response);
+        resolve(response);
+      });
+    });
   }
 
   create(agenda: Agenda) {

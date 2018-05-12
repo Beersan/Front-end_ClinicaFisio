@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the VincularPacienteEstagiarioPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { FilaEsperaProvider } from '../../providers/fila-espera/fila-espera';
+import { NgForm, FormsModule,Validators, FormBuilder } from '@angular/forms';
 
 @IonicPage()
 @Component({
@@ -14,12 +9,52 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'vincular-paciente-estagiario.html',
 })
 export class VincularPacienteEstagiarioPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  estagiarios: any;
+  estagiario: any;
+  paciente: any;
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    private alertCtrl: AlertController,
+    private provider: FilaEsperaProvider    
+  ) {
+    this.listarEstagiarios();    
+    if (this.navParams.data.idPaciente) {      
+      this.paciente = this.navParams.data.idPaciente;
+    }
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad VincularPacienteEstagiarioPage');
+  gravar(){
+    console.log(this.estagiario)
+    this.provider.vincularPacienteEstagiario({
+      idpaciente: this.paciente,    
+      idestagiario: this.estagiario
+    }).then((result) => {
+      this.showAlert();
+    }); 
   }
 
+  listarEstagiarios(){
+    this.provider.retornarEstagiariosFila().then(
+      data => {
+        console.log(data);
+        this.estagiarios = data;
+      }
+    )
+    .catch(error => alert(error));
+  }
+ 
+  showAlert(){
+    let alert = this.alertCtrl.create({
+      title: 'Sucesso!',
+      subTitle: 'Paciente vinculado à estagiàrio.',
+      buttons: ['Ok']
+    });
+    alert.present();
+    this.navCtrl.pop();
+  }
+
+  cancelar(){
+    this.navCtrl.pop();
+  }
 }

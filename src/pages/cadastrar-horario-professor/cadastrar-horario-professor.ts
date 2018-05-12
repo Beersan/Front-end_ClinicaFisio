@@ -38,6 +38,7 @@ export class CadastrarHorarioProfessorPage {
   }
   ionViewDidLoad() {
   }
+<<<<<<< HEAD
   listarProfessor(){
     this.provider.listarProfessor().then(
       data => {
@@ -46,6 +47,18 @@ export class CadastrarHorarioProfessorPage {
     )
     .catch(error => alert(error));
   }
+=======
+ 
+  // listarProfessor(){
+  //   this.provider.retornarProfessor().then(
+  //     data => {
+  //       this.professores = data;
+  //       console.log(data);
+  //     }
+  //   )
+  //   .catch(error => alert(error));
+  // }
+>>>>>>> caee65e9e696aa0b39cad8cfede0335e460337d9
 
   listarDiaSemana(){
     this.provider.listarDiaSemana().then(

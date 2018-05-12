@@ -51,6 +51,7 @@ import { AgendaProvider } from '../providers/agenda/agenda';
 import { AgendarAtendimentoPage } from '../pages/agendar-atendimento/agendar-atendimento';
 import { ImprimirCronogramaEstagiariosPage } from '../pages/imprimir-cronograma-estagiarios/imprimir-cronograma-estagiarios';
 import { SideMenuContentComponent } from '../shared/side-menu-content/side-menu-content.component';
+import { FilaEsperaProvider } from '../providers/fila-espera/fila-espera';
 import { CadastrarHorarioProfessorPage } from '../pages/cadastrar-horario-professor/cadastrar-horario-professor';
 import { AgendaProfessorProvider } from '../providers/agenda-professor/agenda-professor';
 
@@ -93,9 +94,17 @@ import { AgendaProfessorProvider } from '../providers/agenda-professor/agenda-pr
         BrMaskerModule,
         FilaDeEsperaPageModule,
         CadastroSemestrePageModule,
+<<<<<<< HEAD
         ListarSemestrePageModule,
         //CadastrarHorarioProfessorPageModule
         //ListarReservasPageModule
+=======
+        ListarSemestrePageModule
+        //,
+        //ListarReservasPageModule
+        //CadastrarHorarioProfessorPageModule,
+        //CadastrarHorarioProfessorPage
+>>>>>>> caee65e9e696aa0b39cad8cfede0335e460337d9
     ],
     bootstrap: [IonicApp],
     entryComponents: [
@@ -139,6 +148,7 @@ import { AgendaProfessorProvider } from '../providers/agenda-professor/agenda-pr
         SemestreProvider,
         ReservaSalaProvider,
         AgendaProvider,
+        FilaEsperaProvider,
         AgendaProfessorProvider
     ]
 })

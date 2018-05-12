@@ -41,9 +41,5 @@ export class PreCadastroProvider {
         resolve(response);
       });
     });
-  }
-
-  retornarPacientesFila(){
-    return this.http.get('http://localhost:3000/preCadastro/listarPacientesFila').toPromise();
-  }
+  }  
 }
