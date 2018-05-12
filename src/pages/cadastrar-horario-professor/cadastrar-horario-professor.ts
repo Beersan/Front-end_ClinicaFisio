@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the CadastrarHorarioProfessorPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { AgendaProfessorProvider } from '../../providers/agenda-professor/agenda-professor';
+import { AgendaProfessor } from '../../models/model.agenda-professor';
+import { NgForm, FormsModule } from '@angular/forms';
+import { AlertController } from 'ionic-angular';
+import { HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
+import { provideModuleLoader } from 'ionic-angular/util/module-loader';
 
 @IonicPage()
 @Component({
@@ -15,12 +16,38 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class CadastrarHorarioProfessorPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  professores: any;
+  diaSemanas: any;
+  horaInicioA: any;
+  horaFimA: any;
+  horarios: any = [];
+  diaSemana: any;
+  horaInicio: any;
+  horaFim: any;
+  professor: any;
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CadastrarHorarioProfessorPage');
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public provider: AgendaProfessorProvider
+  ) {
+    this.listarProfessor();
+    this.listarDiaSemana();
+    this.listarHoraInicio();
+    this.listarHoraFim();
   }
+  ionViewDidLoad() {
+  }
+<<<<<<< HEAD
+  listarProfessor(){
+    this.provider.listarProfessor().then(
+      data => {
+        this.professores = data;
+      }
+    )
+    .catch(error => alert(error));
+  }
+=======
  
   // listarProfessor(){
   //   this.provider.retornarProfessor().then(
@@ -31,6 +58,36 @@ export class CadastrarHorarioProfessorPage {
   //   )
   //   .catch(error => alert(error));
   // }
+>>>>>>> caee65e9e696aa0b39cad8cfede0335e460337d9
 
+  listarDiaSemana(){
+    this.provider.listarDiaSemana().then(
+      data => {
+        this.diaSemanas = data;
+      }
+    )
+    .catch(error => alert(error));
+  }
+
+  listarHoraInicio(){
+    this.provider.listarHoraInicio().then(
+      data => {
+        this.horaInicioA = data;
+      }
+    )
+  }
+
+  listarHoraFim(){
+    this.provider.listarHoraFim().then(
+      data => {
+        this.horaFimA = data;
+      }
+    )
+  }
+//this.navParams.data.grupo.descricaogrupo
+  adicionarHorario(){
+    this.horarios.push([this.professores, this.diaSemana, this.horaInicio, this.horaFim]);
+    console.log(this.horarios);
+  }
 
 }

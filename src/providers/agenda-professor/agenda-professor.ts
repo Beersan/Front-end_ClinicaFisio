@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Professor } from '../../models/model.cadastrar-professor';
+import { AgendaProfessor } from '../../models/model.agenda-professor';
 
 @Injectable()
 export class AgendaProfessorProvider {
 
   constructor(public http: HttpClient) {}
   
-  gravarProfessor(professor) {
+  /*gravarProfessor(professor) {
     var rota = "cadastrar";
     if (professor.idProfessor != ""){
       rota = "editar";
@@ -17,7 +17,7 @@ export class AgendaProfessorProvider {
         resolve(response);
       });
     });
-  }
+  
 
   retornarProfessor(){  
     return this.http.get('http://localhost:3000/professor/listar').toPromise();
@@ -29,9 +29,18 @@ export class AgendaProfessorProvider {
         resolve(response);
       });
     });
-  }
+  }*/
 
   listarProfessor(){    
     return this.http.get('http://localhost:3000/agendaProfessor/listarProfessor').toPromise();
+  }
+  listarDiaSemana(){
+    return this.http.get('http://localhost:3000/agendaProfessor/listarDiaSemana').toPromise();
+  }
+  listarHoraInicio(){
+    return this.http.get('http://localhost:3000/agendaProfessor/listarHoraInicio').toPromise();
+  }
+  listarHoraFim(){
+    return this.http.get('http://localhost:3000/agendaProfessor/listarHoraFim').toPromise();
   }
 }

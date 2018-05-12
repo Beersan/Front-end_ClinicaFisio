@@ -80,8 +80,9 @@ import { AgendaProfessorProvider } from '../providers/agenda-professor/agenda-pr
         VincularPacienteEstagiarioPage,
         AgendarAtendimentoPage,
         ImprimirCronogramaEstagiariosPage,
-        ListarPacientesAgendadosPage,
-        CadastrarHorarioProfessorPage,        
+        ListarPacientesAgendadosPage,    
+        CadastrarHorarioProfessorPage, 
+
     ],
     imports: [
         BrowserModule,
@@ -93,11 +94,17 @@ import { AgendaProfessorProvider } from '../providers/agenda-professor/agenda-pr
         BrMaskerModule,
         FilaDeEsperaPageModule,
         CadastroSemestrePageModule,
+<<<<<<< HEAD
+        ListarSemestrePageModule,
+        //CadastrarHorarioProfessorPageModule
+        //ListarReservasPageModule
+=======
         ListarSemestrePageModule
         //,
         //ListarReservasPageModule
         //CadastrarHorarioProfessorPageModule,
         //CadastrarHorarioProfessorPage
+>>>>>>> caee65e9e696aa0b39cad8cfede0335e460337d9
     ],
     bootstrap: [IonicApp],
     entryComponents: [
@@ -124,7 +131,7 @@ import { AgendaProfessorProvider } from '../providers/agenda-professor/agenda-pr
         AgendarAtendimentoPage, 
         ImprimirCronogramaEstagiariosPage,
         ListarPacientesAgendadosPage,
-        CadastrarHorarioProfessorPage
+        CadastrarHorarioProfessorPage,
     ],
     providers: [
         StatusBar,
