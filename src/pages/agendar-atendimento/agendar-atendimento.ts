@@ -77,7 +77,7 @@ export class AgendarAtendimentoPage {
 
   listarHorario(){
     if(this.horarios == null){
-      this.provider.retornarHorario({paciente: this.paciente}).then(
+      this.provider.retornarHorario({paciente: this.paciente, dia: this.diaDaSemana}).then(
         data => {
             this.horarios = data;
           }
