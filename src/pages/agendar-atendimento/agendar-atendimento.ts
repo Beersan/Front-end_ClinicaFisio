@@ -89,17 +89,15 @@ export class AgendarAtendimentoPage {
   }
 
   listarHorario(){
-    
     if(this.horarios == null){
       this.provider.retornarHorario({paciente: this.paciente, dia: this.diaDaSemana, professor: this.professor}).then(
         data => {
-            console.log(data);
             this.horarios = data;
           }
         )
         .catch(error => alert(error));
     } 
-    //console.log({paciente: this.paciente, dia: this.diaDaSemana, professor: this.professor});
+    console.log({paciente: this.paciente, dia: this.diaDaSemana, professor: this.professor});
   }
 
   cadastrarAgendaPaciente(){ 
