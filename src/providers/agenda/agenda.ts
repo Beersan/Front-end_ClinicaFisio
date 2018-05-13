@@ -17,6 +17,15 @@ export class AgendaProvider {
     console.log('Hello AgendaProvider Provider');
   }
 
+  retornarprofessor(paciente){
+    return new Promise((resolve, reject) => {
+      this.http.post('http://localhost:3000/agenda/listarprofessor', paciente).subscribe(response => {
+        console.log(response)
+        resolve(response);
+      });
+    });
+  }
+  
   retornarPaciente(){
     return this.http.get('http://localhost:3000/agenda/listarpaciente').toPromise();
   }
@@ -32,7 +41,6 @@ export class AgendaProvider {
   retornarHorario(paciente){
     return new Promise((resolve, reject) => {
       this.http.post('http://localhost:3000/agenda/listarhorario', paciente).subscribe(response => {
-        console.log(response);
         resolve(response);
       });
     });

@@ -25,6 +25,7 @@ export class AgendarAtendimentoPage {
   horarios: any;
   numeroSessoes: any;
   dataInicioAtendimento: any;
+  professor: any;
 
   validarAgendarAtendimento: any = {};
   constructor(
@@ -47,10 +48,21 @@ export class AgendarAtendimentoPage {
     this.listarPaciente();
     //this.listarDia();
     //this.listarHorario();
+   
+    
   }
 
   cancelar(){
     this.navCtrl.pop();
+  }
+
+  listarProfessor(){
+      this.provider.retornarprofessor({paciente: this.paciente}).then(
+        data => {
+            this.professor = data;
+          }
+        )
+        .catch(error => alert(error));
   }
 
   listarPaciente(){
@@ -58,6 +70,7 @@ export class AgendarAtendimentoPage {
       this.provider.retornarPaciente().then(
         data => {
             this.pacientes = data;
+            
           }
         )
         .catch(error => alert(error));
@@ -76,14 +89,16 @@ export class AgendarAtendimentoPage {
   }
 
   listarHorario(){
+    
     if(this.horarios == null){
-      this.provider.retornarHorario({paciente: this.paciente, dia: this.diaDaSemana}).then(
+      this.provider.retornarHorario({paciente: this.paciente, dia: this.diaDaSemana, professor: this.professor}).then(
         data => {
             this.horarios = data;
           }
         )
         .catch(error => alert(error));
     } 
+    console.log({paciente: this.paciente, dia: this.diaDaSemana, professor: this.professor});
   }
 
   cadastrarAgendaPaciente(){ 
