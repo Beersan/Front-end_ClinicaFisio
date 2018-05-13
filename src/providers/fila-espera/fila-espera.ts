@@ -25,6 +25,7 @@ export class FilaEsperaProvider {
   }
 
   vincularPacienteEstagiario(valores){
+    console.log(valores);
     return new Promise((resolve, reject) => {
       this.http.post('http://localhost:3000/filaEspera/vincularPacienteEstagiario', valores).subscribe(response => {
         resolve(response);

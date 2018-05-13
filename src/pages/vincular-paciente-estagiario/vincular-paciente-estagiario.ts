@@ -25,7 +25,6 @@ export class VincularPacienteEstagiarioPage {
   }
 
   gravar(){
-    console.log(this.estagiario)
     this.provider.vincularPacienteEstagiario({
       idpaciente: this.paciente,    
       idestagiario: this.estagiario
