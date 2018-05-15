@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Imprimir cronograma</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <ion-searchbar (ionInput)="filtrarItens($event)"></ion-searchbar>
+  <ion-grid>
+      <ion-row>
+        <ion-col><h6>Semestre</h6></ion-col>
+        <ion-col><h6>Grupo</h6></ion-col>
+        <ion-col><h6>Etapa</h6></ion-col>
+        <ion-col><h6>Estagiarios</h6></ion-col>
+        <ion-col><h6>Especialidade</h6></ion-col>
+        <ion-col><h6>Professor</h6></ion-col>
+        <ion-col><h6>Horario</h6></ion-col>
+        <ion-col></ion-col>
+      </ion-row>
+      <ion-row *ngFor="let cronograma of cronogramas">
+          <ion-col>{{cronograma.descricaosemestre}}</ion-col>
+          <ion-col>{{cronograma.descricaogrupo}}</ion-col>
+          <ion-col>{{cronograma.descricaoetapa}}</ion-col>
+          <ion-col>{{cronograma.nomeestagiario}}</ion-col>
+          <ion-col>{{cronograma.descricaoespecialidade}}</ion-col>
+          <ion-col>{{cronograma.nomeprofessor}}</ion-col>
+          <ion-col>{{cronograma.descricaohorario}}</ion-col>
+      </ion-row>
+  </ion-grid>
+</ion-content>

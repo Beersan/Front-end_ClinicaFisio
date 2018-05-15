@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, Component, ViewChild } from '@angular/core';
-import { ImprimirCronogramaEstagiarios } from '../../models/model.imprimir-cronograma-estagiarios';
+import { ImprimirCronograma } from '../../models/model.imprimir-cronograma';
 import { Http } from '@angular/http';
 import { AlertController } from 'ionic-angular';
 import { Nav, Platform } from 'ionic-angular';
@@ -9,11 +9,15 @@ import 'rxjs/add/operator/toPromise';
 import { HomePage } from '../../pages/home/home';
 
 @Injectable()
-export class ImprimirCronogramaEstagiariosProvider {
+export class ImprimirCronogramaProvider {
   
-  solicitante: any;
-  salareserva: any;
-  datareserva: any;
+  /*semestres: any;
+  grupos: any;
+  horarios: any;
+  estagiarios: any;
+  especialidades: any;
+  professores: any;
+  //etapas: any;*/
   
   push(arg0: any): any {
     throw new Error("Method not implemented.");
@@ -37,13 +41,13 @@ export class ImprimirCronogramaEstagiariosProvider {
     });
   }*/
 
-  retornarReservaSala(){    
-    return this.http.get('http://localhost:3000/reservaSala/listar').toPromise();
+  retornarCronograma(){    
+    return this.http.get('http://localhost:3000/cronograma/listar').toPromise();
   }
 
-  listarDatasReservadas(sala){
+  /*listarCronogramas(sala){
     return new Promise((resolve, reject) => {
-    this.http.post('http://localhost:3000/reservaSala/listarDataReserva', sala).subscribe(response => {
+    this.http.post('http://localhost:3000/cronograma/listarDataReserva', sala).subscribe(response => {
         resolve(response);
       });
     });
@@ -55,5 +59,5 @@ export class ImprimirCronogramaEstagiariosProvider {
         resolve(response);
       });
     });
-  }
+  }*/
 }
