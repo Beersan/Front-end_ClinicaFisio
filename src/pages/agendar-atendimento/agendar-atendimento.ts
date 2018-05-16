@@ -25,8 +25,8 @@ export class AgendarAtendimentoPage {
   horarios: any;
   numeroSessoes: any;
   dataInicioAtendimento: any;
-
   validarAgendarAtendimento: any = {};
+  
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams, 

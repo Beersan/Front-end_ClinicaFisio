@@ -41,6 +41,9 @@ import { ArrayObservable } from "rxjs/observable/ArrayObservable";
 import { SideMenuSettings } from './../shared/side-menu-content/models/side-menu-settings';
 import { SideMenuOption } from './../shared/side-menu-content/models/side-menu-option';
 import { SideMenuContentComponent } from './../shared/side-menu-content/side-menu-content.component';
+import { GerenciamentoPage } from '../pages/gerenciamento/gerenciamento';
+import { EvolucaoDiariaPage } from '../pages/evolucao-diaria/evolucao-diaria';
+import { IncluirAssinaturaPage } from '../pages/incluir-assinatura/incluir-assinatura';
 
 @Component({
   templateUrl: 'app.html'
@@ -188,7 +191,24 @@ export class MyApp {
 					iconName: 'clipboard',
 					displayText: 'Pacientes Agendados',
 					component: ListarPacientesAgendadosPage
+				},
+				{
+					iconName: 'clipboard',
+					displayText: 'Gerenciamento de Atendimentos',
+					component: GerenciamentoPage
+				},
+				{
+					iconName: 'clipboard',
+					displayText: 'Evolução Diária',
+					component: EvolucaoDiariaPage
+				},
+				{
+					iconName: 'clipboard',
+					displayText: 'Incluir Assinatura',
+					component: IncluirAssinaturaPage
 				}
+				
+				
 			]
 			});
 

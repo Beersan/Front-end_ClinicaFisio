@@ -1,18 +1,39 @@
 <!--
   Generated template for the GerenciamentoPage page.
-
+  
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
 <ion-header>
-
+  
   <ion-navbar>
-    <ion-title>gerenciamento</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Gerenciamento de Atendimentos</ion-title>
   </ion-navbar>
-
+  
 </ion-header>
 
-
 <ion-content padding>
-
+  <!-- <ion-searchbar (ionInput)="filtrarItens($event)"></ion-searchbar> -->
+  <!-- <button ion-button float-right (click)="incluir()">Adicionar</button> -->
+  <ion-grid>
+    <ion-row>
+      <ion-col width-25><h6>Data</h6>
+        <ion-datetime displayFormat="DD/MM/YYYY" name="dataAtendimento" [(ngModel)]="dataAtendimento"></ion-datetime>
+      </ion-col>
+      <ion-col width-25><h6>Nº Sessão</h6>
+        <ion-input name="numeroSessao" [(ngModel)]="numeroSessao" type="text"></ion-input>
+      </ion-col>
+      <ion-col width-25><h6>Presença</h6>
+        <ion-checkbox color="secondary" [(ngModel)]="presenca" checked="true"></ion-checkbox>
+      </ion-col>
+      <ion-col width-25><h6>&nbsp;</h6>
+        <ion-icon md="md-trending-up" title="Evolução Diária" (click)="evolucaoDiaria()"></ion-icon>          
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <button type="button" ion-button color="danger" (click)="cancelar()">Cancelar</button>
+  <button type="button" ion-button color="danger">Encerrar Atendimento</button>
 </ion-content>

@@ -54,6 +54,11 @@ import { SideMenuContentComponent } from '../shared/side-menu-content/side-menu-
 import { FilaEsperaProvider } from '../providers/fila-espera/fila-espera';
 import { CadastrarHorarioProfessorPage } from '../pages/cadastrar-horario-professor/cadastrar-horario-professor';
 import { AgendaProfessorProvider } from '../providers/agenda-professor/agenda-professor';
+import { GerenciamentoPage } from '../pages/gerenciamento/gerenciamento';
+import { EvolucaoDiariaPage } from '../pages/evolucao-diaria/evolucao-diaria';
+import { IncluirAssinaturaPage } from '../pages/incluir-assinatura/incluir-assinatura';
+
+
 
 
 @NgModule({
@@ -81,7 +86,10 @@ import { AgendaProfessorProvider } from '../providers/agenda-professor/agenda-pr
         AgendarAtendimentoPage,
         ImprimirCronogramaEstagiariosPage,
         ListarPacientesAgendadosPage,
-        CadastrarHorarioProfessorPage,        
+        CadastrarHorarioProfessorPage,  
+        GerenciamentoPage, 
+        EvolucaoDiariaPage,
+        IncluirAssinaturaPage  
     ],
     imports: [
         BrowserModule,
@@ -93,7 +101,7 @@ import { AgendaProfessorProvider } from '../providers/agenda-professor/agenda-pr
         BrMaskerModule,
         FilaDeEsperaPageModule,
         CadastroSemestrePageModule,
-        ListarSemestrePageModule
+        ListarSemestrePageModule,
         //,
         //ListarReservasPageModule
         //CadastrarHorarioProfessorPageModule,
@@ -124,7 +132,10 @@ import { AgendaProfessorProvider } from '../providers/agenda-professor/agenda-pr
         AgendarAtendimentoPage, 
         ImprimirCronogramaEstagiariosPage,
         ListarPacientesAgendadosPage,
-        CadastrarHorarioProfessorPage
+        CadastrarHorarioProfessorPage,
+        GerenciamentoPage,
+        EvolucaoDiariaPage,
+        IncluirAssinaturaPage
     ],
     providers: [
         StatusBar,
