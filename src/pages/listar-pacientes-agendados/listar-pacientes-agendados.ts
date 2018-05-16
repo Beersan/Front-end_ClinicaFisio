@@ -18,7 +18,7 @@ import { AgendaProvider } from '../../providers/agenda/agenda';
 export class ListarPacientesAgendadosPage {
 
   listaAgenda: any;
-
+  emespera: any = 'assets/imgs/emespera.png';
   constructor(public navCtrl: NavController, 
               private provider: AgendaProvider,
               public navParams: NavParams) {

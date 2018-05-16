@@ -31,7 +31,8 @@ import { IncluirExamesTermosPage } from '../pages/incluir-exames-termos/incluir-
 import { VincularPacienteEstagiarioPage } from '../pages/vincular-paciente-estagiario/vincular-paciente-estagiario';
 import { ListarPacientesAgendadosPage } from '../pages/listar-pacientes-agendados/listar-pacientes-agendados';
 import { AgendarAtendimentoPage } from '../pages/agendar-atendimento/agendar-atendimento';
-import { ImprimirCronogramaEstagiariosPage } from '../pages/imprimir-cronograma-estagiarios/imprimir-cronograma-estagiarios';
+import { ImprimirCronogramaPage } from '../pages/imprimir-cronograma/imprimir-cronograma';
+
 
 // RxJS
 import { ReplaySubject } from "rxjs/ReplaySubject";
@@ -249,9 +250,9 @@ export class MyApp {
 
 		//MENU IMPRESSÃO
 		this.options.push({
-			displayText: 'Imprimir Cronograma Estagiários',
+			displayText: 'Imprimir Cronograma',
 			iconName:'archive',
-			component: ImprimirCronogramaEstagiariosPage
+			component: ImprimirCronogramaPage
 		});
 	}
 

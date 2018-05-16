@@ -49,16 +49,12 @@ import { ListarPacientesAgendadosPageModule } from '../pages/listar-pacientes-ag
 import { AgendarAtendimentoPageModule } from '../pages/agendar-atendimento/agendar-atendimento.module';
 import { AgendaProvider } from '../providers/agenda/agenda';
 import { AgendarAtendimentoPage } from '../pages/agendar-atendimento/agendar-atendimento';
-import { ImprimirCronogramaEstagiariosPage } from '../pages/imprimir-cronograma-estagiarios/imprimir-cronograma-estagiarios';
+import { ImprimirCronogramaPage } from '../pages/imprimir-cronograma/imprimir-cronograma';
 import { SideMenuContentComponent } from '../shared/side-menu-content/side-menu-content.component';
 import { FilaEsperaProvider } from '../providers/fila-espera/fila-espera';
 import { CadastrarHorarioProfessorPage } from '../pages/cadastrar-horario-professor/cadastrar-horario-professor';
 import { AgendaProfessorProvider } from '../providers/agenda-professor/agenda-professor';
-import { GerenciamentoPage } from '../pages/gerenciamento/gerenciamento';
-import { EvolucaoDiariaPage } from '../pages/evolucao-diaria/evolucao-diaria';
-import { IncluirAssinaturaPage } from '../pages/incluir-assinatura/incluir-assinatura';
-
-
+import { ImprimirCronogramaProvider } from '../providers/imprimir-cronograma/imprimir-cronograma';
 
 
 @NgModule({
@@ -84,12 +80,10 @@ import { IncluirAssinaturaPage } from '../pages/incluir-assinatura/incluir-assin
         IncluirExamesTermosPage,
         VincularPacienteEstagiarioPage,
         AgendarAtendimentoPage,
-        ImprimirCronogramaEstagiariosPage,
-        ListarPacientesAgendadosPage,
-        CadastrarHorarioProfessorPage,  
-        GerenciamentoPage, 
-        EvolucaoDiariaPage,
-        IncluirAssinaturaPage  
+        ImprimirCronogramaPage,
+        ListarPacientesAgendadosPage,    
+        CadastrarHorarioProfessorPage, 
+
     ],
     imports: [
         BrowserModule,
@@ -102,6 +96,9 @@ import { IncluirAssinaturaPage } from '../pages/incluir-assinatura/incluir-assin
         FilaDeEsperaPageModule,
         CadastroSemestrePageModule,
         ListarSemestrePageModule,
+        //CadastrarHorarioProfessorPageModule
+        //ListarReservasPageModule
+        ListarSemestrePageModule
         //,
         //ListarReservasPageModule
         //CadastrarHorarioProfessorPageModule,
@@ -130,12 +127,9 @@ import { IncluirAssinaturaPage } from '../pages/incluir-assinatura/incluir-assin
         IncluirExamesTermosPage,
         VincularPacienteEstagiarioPage,
         AgendarAtendimentoPage, 
-        ImprimirCronogramaEstagiariosPage,
+        ImprimirCronogramaPage,
         ListarPacientesAgendadosPage,
         CadastrarHorarioProfessorPage,
-        GerenciamentoPage,
-        EvolucaoDiariaPage,
-        IncluirAssinaturaPage
     ],
     providers: [
         StatusBar,
@@ -153,7 +147,8 @@ import { IncluirAssinaturaPage } from '../pages/incluir-assinatura/incluir-assin
         ReservaSalaProvider,
         AgendaProvider,
         FilaEsperaProvider,
-        AgendaProfessorProvider
+        AgendaProfessorProvider,
+        ImprimirCronogramaProvider
     ]
 })
 export class AppModule {

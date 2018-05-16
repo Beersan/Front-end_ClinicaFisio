@@ -17,6 +17,7 @@
   <button ion-button float-right (click)="incluir()">Novo Atendimento</button>
   <ion-grid>
       <ion-row>
+        <ion-col><h6>Status</h6></ion-col>
         <ion-col><h6>Nome</h6></ion-col>
         <ion-col><h6>Dia da Semana</h6></ion-col>
         <ion-col><h6>Horário</h6></ion-col>
@@ -26,6 +27,7 @@
       </ion-row>
 
       <ion-row *ngFor="let agenda of listaAgenda">
+        <ion-col><img [src]="agenda.status" title="Em Espera"/></ion-col>
         <ion-col>{{ agenda.nomepaciente }}</ion-col>
         <ion-col>{{ agenda.descricaosemana }}</ion-col>
         <ion-col>{{ agenda.descricaohorainicio }}</ion-col>
