@@ -12,7 +12,7 @@
       <ion-item>
         <ion-label floating>Professor(a)</ion-label>
         <ion-select name="professor" [(ngModel)]="professor">
-          <ion-option *ngFor="let professor of professores" value="{{ professor.idprofessor }}">{{ professor.nomeprofessor }}</ion-option>
+          <ion-option *ngFor="let professor of professores" value="{{ professor.nomeprofessor }}">{{ professor.nomeprofessor }}</ion-option>
           <!-- time Button-->
         </ion-select>
       </ion-item>
@@ -23,7 +23,7 @@
       <ion-item>
         <ion-label floating>Dia da Semana</ion-label>
         <ion-select name="diaSemana" [(ngModel)]="diaSemana">
-          <ion-option *ngFor="let diaSemana of diaSemanas" value="{{ diaSemana.iddiasemana }}">{{ diaSemana.descricaosemana }}</ion-option>
+          <ion-option *ngFor="let diaSemana of diaSemanas" value="{{ diaSemana.descricaosemana }}">{{ diaSemana.descricaosemana }}</ion-option>
         </ion-select>
       </ion-item>
     </ion-col>
@@ -31,7 +31,7 @@
       <ion-item>
         <ion-label floating>Hora Inicio</ion-label>
         <ion-select name="horaInicio" [(ngModel)]="horaInicio">
-          <ion-option *ngFor="let horaInicio of horaInicioA" value="{{ horaInicio.idhorainicio }}">{{ horaInicio.descricaohorainicio }}</ion-option>
+          <ion-option *ngFor="let horaInicio of horaInicioA" value="{{ horaInicio.descricaohorainicio }}">{{ horaInicio.descricaohorainicio }}</ion-option>
         </ion-select>
       </ion-item>
     </ion-col>
@@ -39,8 +39,7 @@
       <ion-item>
         <ion-label floating>Hora Fim</ion-label>
         <ion-select name="horaFim" [(ngModel)]="horaFim">
-          <ion-option *ngFor="let horaFim of horaFimA" value="{{ horaFim.idhorafim }}">{{ horaFim.descricaohorafim }}</ion-option>
-
+          <ion-option *ngFor="let horaFim of horaFimA" value="{{ horaFim.descricaohorafim }}">{{ horaFim.descricaohorafim }}</ion-option>
         </ion-select>
       </ion-item>
     </ion-col>
@@ -57,12 +56,12 @@
     <ion-col><h6>Hora Fim</h6></ion-col>
     <ion-col></ion-col>
     <ion-item *ngFor="let horario of horarios">
-        <ion-label>{{horario[0].nomeprofessor}}</ion-label>
+        <ion-label>{{horario[0]}}</ion-label>
         <ion-label>{{horario[1]}}</ion-label>
         <ion-label>{{horario[2]}}</ion-label>
         <ion-label>{{horario[3]}}</ion-label>
     </ion-item>
   </ion-row>
   <button ion-button color="danger" menuToggle="left">Cancelar</button>
-  <button ion-button color="secondary" (click)="incluir()">Confirmar</button>
+  <button ion-button color="secondary" (click)="incluirHorario()">Confirmar</button>
 </ion-content>
