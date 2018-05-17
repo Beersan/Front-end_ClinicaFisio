@@ -15,14 +15,26 @@ export class GrupoEstagiarioProvider {
     return this.http.get('http://localhost:3000/grupoestagiario/listarestagiario').toPromise();
   }
 
-  retornarProfessor(professor: any){
+  retornarEstagio(){
+    return this.http.get('http://localhost:3000/grupoestagiario/listarestagio').toPromise();
+  }
 
+  alterarEstagio(idgrupo) {
+    console.log(idgrupo);
+    return new Promise((resolve, reject) => {
+      this.http.post('http://localhost:3000/grupoestagiario/alterarestagio', idgrupo).subscribe(response => {
+        resolve(response);
+      });
+    });
+  }
+
+  /*retornarProfessor(professor: any){
     return new Promise((resolve, reject) => {
       this.http.post('http://localhost:3000/grupoestagiario/listarprofessor', professor).subscribe(response => {
         resolve(response);
       });
     });
-  }
+  }*/
 
   retornarGrupoEstagiario(){
     return this.http.get('http://localhost:3000/grupoestagiario/listargrupoestagiario').toPromise();
