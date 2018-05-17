@@ -24,10 +24,10 @@
           <ion-col>{{paciente.descricaoespecialidade}}</ion-col>
           <ion-col>{{paciente.nomeestagiario}}</ion-col>
           <ion-col class="iconeDireita">
+            <ion-icon *ngIf="paciente.nomeestagiario != 'Não vinculado'" md="md-alarm" title="Agendar Atendimento" (click)="agendar(paciente)"></ion-icon>
+            <ion-icon *ngIf="paciente.nomeestagiario == 'Não vinculado'" md="md-contacts" title="Vincular estagiário" (click)="vincularEstagiario(paciente.idpaciente)"></ion-icon>
+            <ion-icon  md="md-document" title="Incluir exames e termos" (click)="adicionarAnexos(paciente.idpaciente)"></ion-icon>          
             <ion-icon md="md-eye" title="visualizar" (click)="visualizar(paciente)"></ion-icon>
-            <ion-icon md="md-document" title="Incluir exames e termos" (click)="adicionarAnexos(paciente.idpaciente)"></ion-icon>          
-            <ion-icon md="md-contacts" title="Vincular estagiário" (click)="vincularEstagiario(paciente.idpaciente)"></ion-icon>
-            <!-- <ion-icon md="md-trash" title="Excluir" (click)="excluir(especialidade.codigoespecialidade)"></ion-icon> -->
           </ion-col>
       </ion-row>
   </ion-grid>

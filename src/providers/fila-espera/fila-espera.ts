@@ -16,12 +16,21 @@ export class FilaEsperaProvider {
     return this.http.get('http://localhost:3000/filaEspera/listarEstagiariosFila').toPromise();
   }
 
+  
+  retornarAnexosPaciente(paciente){
+    return new Promise((resolve, reject) => {
+      this.http.post('http://localhost:3000/filaEspera/retornarArquivosPacientes', paciente).subscribe(response => {        
+        resolve(response);
+      });
+    });
+  }
+
   gravarAnexos(valores){
-  //   return new Promise((resolve, reject) => {
-  //     this.http.post('http://localhost:3000/filaEspera/gravarAnexos', valores).subscribe(response => {
-  //       resolve(response);
-  //     });
-  //   });
+    return new Promise((resolve, reject) => {
+      this.http.post('http://localhost:3000/filaEspera/gravarAnexosPaciente', valores).subscribe(response => {
+        resolve(response);
+      });
+    });
   }
 
   vincularPacienteEstagiario(valores){

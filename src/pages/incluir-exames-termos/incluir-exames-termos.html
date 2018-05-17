@@ -1,28 +1,13 @@
-<!--
-  Generated template for the IncluirExamesTermosPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
   <ion-navbar>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Incluir Exames e Termos</ion-title>
   </ion-navbar>
-
 </ion-header> 
 <ion-content>
   <ion-grid>
-    <ion-row>
-      <h6>Exames</h6>
-    </ion-row>
-    <ion-row>
-      <input type="file" id="file" (change)="detectarArquivos($event)"/>
-      <ion-icon md="md-eye" title="visualizar" (click)="visualizar()" [ngClass]="classeIcone"></ion-icon>            
-    </ion-row>
     <ion-row>
       <h6>Termo de Direito de Imagem</h6>
     </ion-row>
@@ -31,12 +16,26 @@
       <ion-icon md="md-eye" title="visualizar"></ion-icon>
     </ion-row>
     <ion-row>
-        <h6>Termo de Concordância</h6>
-      </ion-row>
-      <ion-row>
-        <input type="file" id="file_concordancia"/>
-        <ion-icon md="md-eye" title="visualizar"></ion-icon>
-      </ion-row>
+      <h6>Termo de Concordância</h6>
+    </ion-row>
+    <ion-row>
+      <input type="file" id="file_concordancia"/>
+      <ion-icon md="md-eye" title="visualizar"></ion-icon>
+    </ion-row>
+    <ion-row>
+      <h6>Exames e anexos</h6>
+    </ion-row>
+    <ion-row>
+      <input type="file" id="file" (change)="detectarArquivos($event)"/>
+    </ion-row>
+    <br />
+    <ion-row *ngFor="let anexo of linkAnexos; let i=index" >
+      <ion-col col-auto>
+        <ion-icon md="ios-trash" title="Remover" (click)="removerAnexo(i)"></ion-icon>                    
+        <ion-icon md="md-eye" title="visualizar" (click)="visualizar(anexo)"></ion-icon>            
+      </ion-col>        
+      <ion-col>Anexo {{i + 1}}</ion-col>
+    </ion-row>
   </ion-grid>
   <button type="button" ion-button color="danger" (click)="cancelar()">Cancelar</button>
   <button type="submit" ion-button color="secondary" (click)="gravarAnexos()">Confirmar</button>
