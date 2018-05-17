@@ -4,6 +4,7 @@ import { ToastController } from 'ionic-angular';
 import { FilaEsperaProvider } from '../../providers/fila-espera/fila-espera';
 import { IncluirExamesTermosPage } from '../incluir-exames-termos/incluir-exames-termos';
 import { VincularPacienteEstagiarioPage } from '../vincular-paciente-estagiario/vincular-paciente-estagiario';
+import { AgendarAtendimentoPage } from '../agendar-atendimento/agendar-atendimento';
 
 @IonicPage()
 @Component({
@@ -14,6 +15,8 @@ import { VincularPacienteEstagiarioPage } from '../vincular-paciente-estagiario/
 export class FilaDeEsperaPage {
   pacientes: any;
   listarPacientesF: any;
+  // classeAgendar = "ocultar";  
+  //classeVincular: string = 'ocultar';
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
@@ -64,6 +67,13 @@ export class FilaDeEsperaPage {
     this.navCtrl.push(VincularPacienteEstagiarioPage, {
       rootNavCtrl: this.navCtrl,
       idPaciente: idPaciente
+    });
+  }
+
+  agendar(paciente){
+    this.navCtrl.push(AgendarAtendimentoPage, {
+      rootNavCtrl: this.navCtrl,
+      paciente: paciente
     });
   }
 

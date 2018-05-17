@@ -9,21 +9,41 @@ import { ArquivosProvider } from '../../providers/arquivos/arquivos';
   templateUrl: 'incluir-exames-termos.html',
 })
 export class IncluirExamesTermosPage {
-  files:Array<any>;
-  linkAnexo:any = "";
+  files: Array<any>;
+  linkAnexos: any = [];
   classeIcone: string = 'ocultar';
+  paciente: any;
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
     private provider: FilaEsperaProvider,
     private alertCtrl: AlertController,
     private arquivos: ArquivosProvider
-  ) {}
+  ) {
+    if (this.navParams.data.idPaciente) {      
+      this.paciente = this.navParams.data.idPaciente;
+    }
+    this.listarAnexos();
+  }
+
+  listarAnexos(){
+    console.log(this.paciente);    
+    this.provider.retornarAnexosPaciente({
+        idpaciente: this.paciente
+      }).then(
+      data => {
+        console.log(data);
+        
+        //this.linkAnexos.push(data);           
+      }
+    )
+    .catch(error => alert(error));
+  }
   
   showAlert(){
     let alert = this.alertCtrl.create({
       title: 'Sucesso!',
-      subTitle: 'Pré cadastro realizado.',
+      subTitle: 'Exames e anexos vinculados.',
       buttons: ['Ok']
     });
     alert.present();
@@ -31,11 +51,12 @@ export class IncluirExamesTermosPage {
   }
 
   gravarAnexos(){    
-    // this.provider.gravarAnexos({
-    //   linkAnexo: this.linkAnexo
-    // }).then((result) => {
-    //   this.showAlert();    
-    // });  
+    this.provider.gravarAnexos({
+      anexos: this.linkAnexos,
+      idpaciente: this.paciente
+    }).then((result) => {
+      this.showAlert();    
+    });  
   }
 
   cancelar(){
@@ -45,7 +66,7 @@ export class IncluirExamesTermosPage {
   detectarArquivos(event) {
     let fileList: FileList = event.target.files;
     let reader = new FileReader();
-    reader.onloadend= (e) => {
+    reader.onloadend = (e) => {
       this.files = Array.from(event.target.files);
       this.upload();
     }
@@ -54,18 +75,19 @@ export class IncluirExamesTermosPage {
 
   upload() {
     let file = this.files[0];
-      this.arquivos.upload(
-        file
-    ).then(
+    this.arquivos.upload(file)
+    .then(
       data => {
-        this.linkAnexo = data;                
-        this.classeIcone = 'mostrar';
+        this.linkAnexos.push(data);   
       }
     );
   }
 
-  visualizar() {
-    this.linkAnexo;
-    window.open(this.linkAnexo,'blank');
+  visualizar(valor) {
+    window.open(valor,'blank');
+  }
+
+  removerAnexo(index){
+    this.linkAnexos.splice(index,1);
   }
 }
