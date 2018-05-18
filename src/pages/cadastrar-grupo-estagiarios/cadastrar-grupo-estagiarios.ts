@@ -16,9 +16,11 @@ export class CadastrarGrupoEstagiariosPage {
   checkItems = { };
   codigos = []; 
   idGrupoEditar: any;
-  idProfessorEditar: any;
+  //idProfessorEditar: any;
+  idEstagioEditar: any;
   professores: any;
-  professor: any;
+  estagio: any;
+  estagios: any;
   cadastroGrupoEstagiario: any;
 
   constructor(
@@ -29,27 +31,27 @@ export class CadastrarGrupoEstagiariosPage {
     public navParams: NavParams
   ){    
     if (this.navParams.data.grupo) {    
-      this.grupos = [{idgrupo: this.navParams.data.grupo.idgrupo, descricaogrupo: this.navParams.data.grupo.descricaogrupo, idprofessor: this.navParams.data.grupo.idprofessor, nomeProfessor: this.navParams.data.grupo.nomeprofessor}];
-      //this.professores = [{idprofessor: this.navParams.data.grupo.idprofessor, nomeProfessor: this.navParams.data.grupo.nomeprofessor}]
+      this.grupos = [{idgrupo: this.navParams.data.grupo.idgrupo, descricaogrupo: this.navParams.data.grupo.descricaogrupo, idestagio: this.navParams.data.grupo.idestagio, descricaoestagio: this.navParams.data.grupo.descricaoestagio}];
+      this.estagios = [{idgrupo: this.navParams.data.grupo.idgrupo, descricaogrupo: this.navParams.data.grupo.descricaogrupo, idestagio: this.navParams.data.grupo.idestagio, descricaoestagio: this.navParams.data.grupo.descricaoestagio}];
       this.grupo = this.grupos[0].idgrupo;
+      this.estagio = this.estagios[0].idestagio;
       this.idGrupoEditar = this.navParams.data.grupo.idgrupo;
-      this.idProfessorEditar = this.grupos[0].idprofessor;  
+      this.idEstagioEditar = this.navParams.data.grupo.idestagio;  
       
-      //var text = JSON.stringify(this.grupos[0]);
-      //var obj = JSON.parse(text);
-      //this.idProfessorEditar = obj.idprofessor;    
+         
       this.listarEstagiarioEditar(this.idGrupoEditar);
       
     } this.cadastroGrupoEstagiario = formBuilder.group ({
       grupo:['', Validators.required],
-      professor:['', Validators.required]
+      estagio:['', Validators.required]
     })
   }
 
   ionViewDidLoad() {
     this.listarGrupo();
     this.listarEstagiario();
-    this.listarProfessor();
+    this.listarEstagio();
+    //this.listarProfessor();
   }
 
   cadastrarGrupoEstagiario(){ 
@@ -61,7 +63,7 @@ export class CadastrarGrupoEstagiariosPage {
     this.provider.create({
       grupo: this.grupo,
       codigos: this.codigos,
-      professor: this.professor
+      estagio: this.estagio
     }).then((result) =>{
       this.showAlert();
     });
@@ -78,7 +80,21 @@ export class CadastrarGrupoEstagiariosPage {
     } 
   }
 
-  listarProfessor(){
+  listarEstagio(){
+    if(this.estagios == null){
+      this.provider.retornarEstagio().then(
+        data => {
+            this.estagios = data;
+            //if(this.idEstagioEditar != null){
+              //this.estagio = this.idEstagioEditar;
+           // }
+          }
+        )
+        .catch(error => alert(error));
+    } 
+  }
+
+  /*listarProfessor(){
     this.provider.retornarProfessor({professor: this.idProfessorEditar}).then(
       data => {
         this.professores = data;
@@ -88,7 +104,7 @@ export class CadastrarGrupoEstagiariosPage {
       }
     )
     .catch(error => alert(error));
-  }
+  }*/
 
   listarEstagiario(){
     if(this.idGrupoEditar == null){

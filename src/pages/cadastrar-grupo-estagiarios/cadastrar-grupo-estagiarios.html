@@ -12,11 +12,17 @@
           <ion-option *ngFor="let grupo of grupos" value="{{ grupo.idgrupo }}">{{ grupo.descricaogrupo }}</ion-option>
         </ion-select>
       </ion-item>
-      <br />
-      <ion-item>
+      <!--ion-item>
         <ion-label floating>Selecione o Professor:</ion-label>
         <ion-select name="professor" [(ngModel)]="professor" formControlName="professor"> 
           <ion-option *ngFor="let professor of professores" value="{{ professor.idprofessor }}">{{ professor.nomeprofessor }}</ion-option>
+        </ion-select>
+      </ion-item-->
+      <br />
+      <ion-item>
+        <ion-label floating>Selecione o tipo de Estágio:</ion-label>
+        <ion-select name="estagio" [(ngModel)]="estagio" formControlName="estagio"> 
+          <ion-option *ngFor="let estagio of estagios" value="{{ estagio.idestagio }}">{{ estagio.descricaoestagio }}</ion-option>
         </ion-select>
       </ion-item>
     </ion-row>

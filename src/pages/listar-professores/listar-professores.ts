@@ -67,7 +67,7 @@ export class ListarProfessoresPage {
     this.provider.retornarProfessor().then(
       data => {
         this.professores = data;
-        console.log(data);
+        //console.log(data);
       }
     )
     .catch(error => alert(error));

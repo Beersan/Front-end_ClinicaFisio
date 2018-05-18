@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { NgForm, FormsModule } from '@angular/forms';
+import { NgForm, FormsModule, FormBuilder, Validators} from '@angular/forms';
 import { AlertController } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
-//import { ListarProfessorPage } from '../listar-professor/listar-professor';
 import { Professor } from '../../models/model.cadastrar-professor';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
@@ -17,6 +16,7 @@ import { ProfessorProvider } from '../../providers/professor/professor';
 })
 
 export class CadastrarProfessorPage {
+  cadastroProfessor: any= {};
   professores: any[];
   dadoprofessores: any;
   especialidades: any;
@@ -35,7 +35,8 @@ export class CadastrarProfessorPage {
     public navParams: NavParams,
     public provider: ProfessorProvider,
     private http: HttpClient,
-    public alertCtrl: AlertController
+    public alertCtrl: AlertController,
+    private formBuilder:FormBuilder
   ){
     this.listarEspecialidade(this.dadoprofessores);
     console.log(this.especialidade);
@@ -53,6 +54,14 @@ export class CadastrarProfessorPage {
       this.especialidade = obj.idespecialidade;
       console.log(this.especialidade);
     }
+    this.cadastroProfessor = formBuilder.group ({
+      nomeProfessor:['', Validators.required],
+      matriculaProfessor:['', Validators.required],
+      crefitoProfessor:['', Validators.required],
+      emailProfessor:['', Validators.required],
+      telefone:['', Validators.required],
+      especialidade:['', Validators.required]
+    })
   }
 
   cadastrarProfessor(){

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { CadastrarGrupoEstagiariosPage } from '../cadastrar-grupo-estagiarios/cadastrar-grupo-estagiarios';
 import { GrupoEstagiarioProvider } from '../../providers/grupo-estagiario/grupo-estagiario';
+import { CadastrarGrupoEstagiario } from '../../models/model.cadastrar-grupo-estagiario';
 
 /**
  * Generated class for the ListarGrupoEstagiariosPage page.
@@ -17,6 +18,11 @@ import { GrupoEstagiarioProvider } from '../../providers/grupo-estagiario/grupo-
 })
 export class ListarGrupoEstagiariosPage {
   estagiarios: any;
+  estagios: any;
+  estagio: any;
+  codigo: any;
+  grupo: any;
+  insereDados: any;
   gruposEstagiarios: any;
   gruposEstagiariosSemFiltro: any;
   constructor(public navCtrl: NavController, 
@@ -55,7 +61,71 @@ export class ListarGrupoEstagiariosPage {
     this.navCtrl.push(CadastrarGrupoEstagiariosPage, {
       rootNavCtrl: this.navCtrl
     });
-  }  
+  } 
+  
+  alterarestagio(idgrupo){
+    if(this.estagios == null){
+      this.provider.alterarEstagio({idgrupo: idgrupo}).then(
+        data => {
+          this.estagios = data;
+          this.listarEstagioEditar();
+          console.log(this.estagios);
+        }
+      )
+      .catch(error => alert(error));
+    }
+    
+  }
+
+  listarEstagioEditar(){
+    
+    let itensSelect = []; 
+    for (let valor of this.estagios) {
+      itensSelect.push({type: 'radio', label: valor.descricaoestagio, value: valor.descricaoestagio});
+    }
+
+
+    let prompt = this.alertCtrl.create({
+      title: 'Alterar estágio',
+      message: 'Selecione o próximo estágio ',
+      
+      inputs : itensSelect,
+      buttons : [
+      {
+          text: "Cancel", 
+          handler: data => {
+          console.log("cancel clicked");
+          }
+      },
+      {
+          text: "Confirma",
+          handler: data => {
+            console.log(data);
+            this.provider.createAlterarEstagio({
+              grupo: this.grupo,
+              codigo: this.codigo,
+              estagio: this.estagio
+            }).then((result) =>{
+              console.log(result);
+              this.showAlertSucesso();
+            })
+            .catch(error => alert(error));
+          }
+      }]});
+      prompt.present();
+  }
+
+ /* cadastrarGrupo(){
+    //campos
+    this.provider.create({
+        descricao: this.descricao,
+        semestre: this.semestre,
+        idGrupo: this.idGrupo
+    }).then((result) =>{
+      console.log(result);
+      this.showAlert();
+    });
+  }*/
 
   listarGrupoEstagiario(){
     this.provider.retornarGrupoEstagiario().then(
@@ -75,6 +145,8 @@ export class ListarGrupoEstagiariosPage {
       grupo: grupo
     });
   }
+
+  
 
   excluir(idgrupo){
     let alert = this.alertCtrl.create({
@@ -105,6 +177,15 @@ export class ListarGrupoEstagiariosPage {
     let alert = this.alertCtrl.create({
       title: 'Sucesso!',
       subTitle: 'Grupo de estagiário excluído.',
+      buttons: ['Ok']
+    });
+    alert.present();
+  }
+
+  showAlertSucesso() {
+    let alert = this.alertCtrl.create({
+      title: 'Sucesso!',
+      subTitle: 'Estágio alterado com sucesso.',
       buttons: ['Ok']
     });
     alert.present();
