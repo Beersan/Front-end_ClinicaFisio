@@ -25,8 +25,9 @@ export class AgendaProfessorProvider {
     return this.http.get('http://localhost:3000/agendaProfessor/listarHoraFim').toPromise();
   }
   inserirAgenda(agenda){
+    console.log(agenda);
     return new Promise((resolve, reject) => {
-      return this.http.get('http://localhost:3000/agendaProfessor/inserirAgenda', agenda).subscribe(response => {
+      this.http.post('http://localhost:3000/agendaProfessor/inserirAgenda', agenda).subscribe(response => {
         resolve(response);
       });
     });
