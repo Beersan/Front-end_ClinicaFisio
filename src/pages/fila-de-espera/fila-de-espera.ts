@@ -15,8 +15,6 @@ import { AgendarAtendimentoPage } from '../agendar-atendimento/agendar-atendimen
 export class FilaDeEsperaPage {
   pacientes: any;
   listarPacientesF: any;
-  // classeAgendar = "ocultar";  
-  //classeVincular: string = 'ocultar';
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
@@ -48,7 +46,7 @@ export class FilaDeEsperaPage {
   listarPacientes(){
     this.provider.retornarPacientesFila().then(
       data => {
-        console.log(data);
+        //console.log(data);
         this.pacientes = data;
         this.listarPacientesF = data;
       }

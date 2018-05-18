@@ -11,8 +11,13 @@ import { ArquivosProvider } from '../../providers/arquivos/arquivos';
 export class IncluirExamesTermosPage {
   files: Array<any>;
   linkAnexos: any = [];
-  classeIcone: string = 'ocultar';
+  arquivoSalvo: any = [];
+  classeImagem: string = 'ocultar';
+  classeConc: string = 'ocultar';
   paciente: any;
+  fileDireitoImagem: any;
+  linkAnexoImagem:any;
+  linkAnexoConc:any;
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
@@ -32,9 +37,10 @@ export class IncluirExamesTermosPage {
         idpaciente: this.paciente
       }).then(
       data => {
-        console.log(data);
-        
-        //this.linkAnexos.push(data);           
+        this.arquivoSalvo = data;
+        for(let line of this.arquivoSalvo){
+          this.linkAnexos.push(line.arquivo);
+        }        
       }
     )
     .catch(error => alert(error));
@@ -63,22 +69,34 @@ export class IncluirExamesTermosPage {
     this.navCtrl.pop();
   }
 
-  detectarArquivos(event) {
+  detectarArquivos(event,tipo) {
     let fileList: FileList = event.target.files;
     let reader = new FileReader();
     reader.onloadend = (e) => {
       this.files = Array.from(event.target.files);
-      this.upload();
+      this.upload(tipo);
     }
     reader.readAsDataURL(fileList.item(0));   
   }
 
-  upload() {
+  upload(tipo) {
     let file = this.files[0];
     this.arquivos.upload(file)
     .then(
       data => {
-        this.linkAnexos.push(data);   
+        switch(tipo){
+          case 1: // Anexos
+            this.linkAnexos.push(data);   
+            break;
+          case 2: // Imagem
+            this.linkAnexoImagem = data;                
+            this.classeImagem = 'mostrar';
+            break;
+          case 3:
+            this.linkAnexoConc = data;                
+            this.classeConc = 'mostrar';
+            break;            
+        }
       }
     );
   }

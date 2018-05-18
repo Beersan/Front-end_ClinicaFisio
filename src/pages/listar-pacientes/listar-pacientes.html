@@ -15,7 +15,7 @@
         <ion-col><h6>Data de nascimento</h6></ion-col>
         <ion-col><h6>Telefone</h6></ion-col>
         <ion-col><h6>Especialidade</h6></ion-col>
-        <ion-col><h6>Renda</h6></ion-col>
+        <ion-col><h6>Renda mensal</h6></ion-col>
         <ion-col></ion-col>
       </ion-row>
       <ion-row *ngFor="let paciente of pacientes">
@@ -23,9 +23,9 @@
           <ion-col>{{paciente.datanascpaciente | date: 'dd/MM/yyyy'}}</ion-col>
           <ion-col>{{paciente.contato1paciente}}</ion-col>          
           <ion-col>{{paciente.descricaoespecialidade}}</ion-col>
-          <ion-col>{{paciente.rendapaciente}}</ion-col>          
+          <ion-col>R${{paciente.rendapaciente}}</ion-col>          
           <ion-col class="iconeDireita">                            
-            <ion-icon md="md-document" title="Encaminhamento Médico" [ngStyle]="{'display': paciente.classeenc}" (click)="visualizarEnc(paciente.encmedpaciente)"></ion-icon>          
+            <ion-icon md="md-document" title="Encaminhamento Médico" *ngIf="paciente.encmedpaciente != null && paciente.encmedpaciente != ''" (click)="visualizarEnc(paciente.encmedpaciente)"></ion-icon>          
             <ion-icon md="md-eye" title="visualizar" (click)="visualizar(paciente)"></ion-icon>          
             <ion-icon md="md-checkmark" title="Aprovar paciente" (click)="finalizar(paciente)"></ion-icon>          
             <ion-icon md="md-close" title="Reprovar paciente" (click)="excluir(paciente.idpaciente)"></ion-icon>          

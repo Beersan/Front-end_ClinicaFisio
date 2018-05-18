@@ -12,7 +12,7 @@
       <h6>Termo de Direito de Imagem</h6>
     </ion-row>
     <ion-row>
-      <input type="file" id="file_direito_imagem"/>
+      <input type="file" [(ngModel)]="fileDireitoImagem" name="fileDireitoImagem" id="fileDireitoImagem" (change)="detectarArquivos($event,2)"/>
       <ion-icon md="md-eye" title="visualizar"></ion-icon>
     </ion-row>
     <ion-row>
@@ -26,7 +26,7 @@
       <h6>Exames e anexos</h6>
     </ion-row>
     <ion-row>
-      <input type="file" id="file" (change)="detectarArquivos($event)"/>
+      <input type="file" id="file" (change)="detectarArquivos($event,1)"/>
     </ion-row>
     <br />
     <ion-row *ngFor="let anexo of linkAnexos; let i=index" >

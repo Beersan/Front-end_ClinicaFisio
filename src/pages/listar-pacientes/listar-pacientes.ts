@@ -70,6 +70,7 @@ export class ListarPacientesPage {
   listarPacientes(){
     this.provider.retornarPacientes().then(
       data => {
+        console.log(data);
         this.pacientes = data;
         this.listarPacientesF = data;
       }

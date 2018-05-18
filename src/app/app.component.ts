@@ -99,13 +99,6 @@ export class MyApp {
 
   private initializeOptions(): void {
 		this.options = new Array<SideMenuOption>();
-
-		//HOME
-		this.options.push({
-			displayText: 'Home',
-			iconName:'home',
-			component: HomePage
-		});
 		
 		// CADASTROS
 		this.options.push({
@@ -113,9 +106,9 @@ export class MyApp {
 			iconName:'add-circle',
 			suboptions: [
 				{
-					iconName: 'contact',
-					displayText: 'Estagiário',
-					component: ListarEstagiarioPage
+					iconName: 'calendar',
+					displayText: 'Semestre',
+					component: ListarSemestrePage
 				},
 				{
 					iconName: 'ribbon',
@@ -123,30 +116,30 @@ export class MyApp {
 					component: ListarEspecialidadePage
 				},
 				{
+					iconName: 'school',
+					displayText: 'Professor',
+					component: ListarProfessoresPage
+				},	
+				{
+					iconName: 'time',
+					displayText: 'Horário professor',
+					component: CadastrarHorarioProfessorPage
+				},	
+				{
+					iconName: 'contact',
+					displayText: 'Estagiário',
+					component: ListarEstagiarioPage
+				},				
+				{
 					iconName: 'people',
 					displayText: 'Grupo',
 					component: ListarGrupoPage
 				},
 				{
-					iconName: 'people',
-					displayText: 'Grupos de Estagiários',
+					iconName: 'ios-people',
+					displayText: 'Grupos de estagiários',
 					component: ListarGrupoEstagiariosPage
-				},
-				{
-					iconName: 'time',
-					displayText: 'Horário Professor',
-					component: CadastrarHorarioProfessorPage
-				},
-				{
-					iconName: 'school',
-					displayText: 'Professor',
-					component: ListarProfessoresPage
-				},
-				{
-					iconName: 'calendar',
-					displayText: 'Semestre',
-					component: ListarSemestrePage
-				}				
+				}						
 			]
 		});
 
@@ -156,89 +149,66 @@ export class MyApp {
 			iconName:'ios-list-box',
 			suboptions: [
 				{
-					iconName: 'list-box',
-					displayText: 'Lista de Pré Cadastros',
-					component: ListarPacientesPage
+					iconName: 'document',
+					displayText: 'Realizar Pré-cadastro',
+					component: PreCadastroPage
 				},
 				{
-					iconName: 'document',
-					displayText: 'Realizar Pré Cadastro',
-					component: PreCadastroPage
+					iconName: 'list-box',
+					displayText: 'Lista de pré-cadastros',
+					component: ListarPacientesPage
 				}
 			]
 		});
 
 		//MENU E SUB MENU PACIENTES
 		this.options.push({
-			displayText: 'Pacientes',
+			displayText: 'Agenda',
 			iconName:'pulse',
 			suboptions: [
 				{
+					iconName: 'contacts',
+					displayText: 'Fila de espera',
+					component: FilaDeEsperaPage
+				},
+				{
+					displayText: 'Agendar atendimentos',
+					iconName:'clipboard',
+					component: AgendarAtendimentoPage
+				},
+				{
 					iconName: 'list-box',
-					displayText: 'Lista de Pacientes',
-					component: ListarPacientesPage
-				},
-				{
-					iconName: 'repeat',
-					displayText: 'Sortear Paciente Grupo',
-					component: SortearPacienteGrupoPage
-				},
-				{
-					iconName: 'shuffle',
-					displayText: 'Vincular Paciente a Estagiário',
-					component: VincularPacienteEstagiarioPage
-				},
-				{
-					iconName: 'clipboard',
-					displayText: 'Pacientes Agendados',
+					displayText: 'Pacientes agendados',
 					component: ListarPacientesAgendadosPage
 				},
 				{
+					displayText: 'Imprimir cronograma',
+					iconName:'archive',
+					component: ImprimirCronogramaPage
+				},
+				{
 					iconName: 'clipboard',
-					displayText: 'Gerenciamento de Atendimentos',
+					displayText: 'Gerenciamento de atendimentos (Temporário)',
 					component: GerenciamentoPage
 				},
 				{
 					iconName: 'clipboard',
-					displayText: 'Evolução Diária',
+					displayText: 'Evolução diária (Temporário)',
 					component: EvolucaoDiariaPage
 				},
 				{
 					iconName: 'clipboard',
-					displayText: 'Incluir Assinatura',
+					displayText: 'Incluir assinatura (Temporário)',
 					component: IncluirAssinaturaPage
-				}
-				
-				
+				}				
 			]
-			});
-
-		//MENU FILA DE ESPERA
-		this.options.push({
-			iconName: 'contacts',
-			displayText: 'Fila de Espera',
-			component: FilaDeEsperaPage
-		});
-
-		//MENU AGENDAR ATENDIMENTOS
-		this.options.push({
-			displayText: 'Agendar Atendimentos',
-			iconName:'clipboard',
-			component: AgendarAtendimentoPage
 		});
 
 		//MENU RESERVA DE SALAS
 		this.options.push({
-				iconName: 'book',
-				displayText: 'Reserva de Salas',
-				component: ListarReservasPage
-		});
-
-		//INCLUIR EXAMES E TERMOS - está no menu temporariamente
-		this.options.push({
-			iconName: 'attach',
-			displayText: 'Incluir Exames e Termos',
-			component: IncluirExamesTermosPage
+			iconName: 'book',
+			displayText: 'Reserva de salas',
+			component: ListarReservasPage
 		});
 
 		//MENU OUVIDORIA
@@ -246,14 +216,7 @@ export class MyApp {
 			displayText: 'Ouvidoria',
 			iconName:'alert',
 			component: RelatarProblemaPage
-		});
-
-		//MENU IMPRESSÃO
-		this.options.push({
-			displayText: 'Imprimir Cronograma',
-			iconName:'archive',
-			component: ImprimirCronogramaPage
-		});
+		});		
 	}
 
 	public onOptionSelected(option: SideMenuOption): void {
@@ -270,7 +233,7 @@ export class MyApp {
 				const params = option.custom && option.custom.param;
 
 				// Redirect to the selected page
-				this.navCtrl.setRoot(option.component, params);
+				this.navCtrl.push(option.component, params);
 			}
 		});
 	}
