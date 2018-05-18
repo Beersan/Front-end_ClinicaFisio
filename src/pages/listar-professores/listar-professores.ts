@@ -19,8 +19,9 @@ export class ListarProfessoresPage {
     private alertCtrl: AlertController, 
     public navCtrl: NavController, 
     public navParams: NavParams,   
-    private provider: ProfessorProvider
+    private provider: ProfessorProvider,
   ) {
+    //this.listarProfessor();
   }
   
   ionViewWillEnter(){
@@ -28,25 +29,31 @@ export class ListarProfessoresPage {
   }
 
   filtrarItens(searchbar) {
+    this.listarProfessor();
+    let val = searchbar.target.value;
+    if (val && val.trim != ''){
+      this.professores = this.professores.filter((job) =>{
+        return (job.nomeprofessor.toLowerCase().indexOf(val.toLowerCase()) > -1);
+      })
+    }
+  }
+
+  /*filtrarItens(searchbar) {
     this.professores = this.professoresSemFiltro;
-    //var q = searchbar.srcElement.value;
-    var q = searchbar.srcElement.value;
+    var q = searchbar.target.value;
     if (!q) {
       return;
     }
+  console.log(this.professores);
     this.professores = this.professores.filter((v) => {
-      if(v.nomeprofessor && v.matriculaprofessor && q) {
-        if (
-          v.nomeprofessor.toLowerCase().indexOf(q.toLowerCase()) > -1
-          ||
-          v.matriculaprofessor.toLowerCase().indexOf(q.toLowerCase()) > -1
-        ) {
+      if(v.matriculaprofessor && q) {
+        if (v.nomeprofessor.toLowerCase().indexOf(q.toLowerCase()) > -1) {
           return true;
         }
           return false;
       }
-    });  
-  }
+    });*/
+
 
   incluir(){
     this.navCtrl.push(CadastrarProfessorPage, {
