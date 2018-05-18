@@ -19,7 +19,10 @@ import { CadastrarGrupoEstagiario } from '../../models/model.cadastrar-grupo-est
 export class ListarGrupoEstagiariosPage {
   estagiarios: any;
   estagios: any;
-  //estagio: any;
+  estagio: any;
+  codigo: any;
+  grupo: any;
+  insereDados: any;
   gruposEstagiarios: any;
   gruposEstagiariosSemFiltro: any;
   constructor(public navCtrl: NavController, 
@@ -76,20 +79,17 @@ export class ListarGrupoEstagiariosPage {
 
   listarEstagioEditar(){
     
-    //let itensSelect = [];
-  //for (let valor: this.estagios) {
-    //itensSelect.push({type: 'radio', label: valor.descricaoestagio, value: valor.descricaoestagio});}
+    let itensSelect = []; 
+    for (let valor of this.estagios) {
+      itensSelect.push({type: 'radio', label: valor.descricaoestagio, value: valor.descricaoestagio});
+    }
 
 
     let prompt = this.alertCtrl.create({
-      title: 'Alterar Estagio',
-      message: 'Selecione o estágio ',
+      title: 'Alterar estágio',
+      message: 'Selecione o próximo estágio ',
       
-      inputs : [{
-          type:'radio',
-          label: this.estagios[0].descricaoestagio,
-          value: this.estagios[0].descricaoestagio
-      }],
+      inputs : itensSelect,
       buttons : [
       {
           text: "Cancel", 
@@ -100,47 +100,32 @@ export class ListarGrupoEstagiariosPage {
       {
           text: "Confirma",
           handler: data => {
-          console.log("search clicked");
+            console.log(data);
+            this.provider.createAlterarEstagio({
+              grupo: this.grupo,
+              codigo: this.codigo,
+              estagio: this.estagio
+            }).then((result) =>{
+              console.log(result);
+              this.showAlertSucesso();
+            })
+            .catch(error => alert(error));
           }
       }]});
       prompt.present();
   }
 
-  /*doCheckbox() {
-    let alert = this.alertCtrl.create();
-    alert.setTitle('Which planets have you visited?');
-  
-  alert.addInput({
-    type: 'checkbox',
-    label: 'Alderaan',
-    value: 'value1',
-    checked: true
-  });
-  
-   
-  alert.addButton('Cancel');
-  alert.addButton({
-    text: 'Okay',
-    handler: data => {
-      console.log('Checkbox data:', data);
-      this.testCheckboxOpen = false;
-      this.testCheckboxResult = data;
-    }
-  });
-  alert.present().then(() => {
-    this.testCheckboxOpen = true;
-  });*/
-
-
-
-
-
-
-
-
-
-
-
+ /* cadastrarGrupo(){
+    //campos
+    this.provider.create({
+        descricao: this.descricao,
+        semestre: this.semestre,
+        idGrupo: this.idGrupo
+    }).then((result) =>{
+      console.log(result);
+      this.showAlert();
+    });
+  }*/
 
   listarGrupoEstagiario(){
     this.provider.retornarGrupoEstagiario().then(
@@ -192,6 +177,15 @@ export class ListarGrupoEstagiariosPage {
     let alert = this.alertCtrl.create({
       title: 'Sucesso!',
       subTitle: 'Grupo de estagiário excluído.',
+      buttons: ['Ok']
+    });
+    alert.present();
+  }
+
+  showAlertSucesso() {
+    let alert = this.alertCtrl.create({
+      title: 'Sucesso!',
+      subTitle: 'Estágio alterado com sucesso.',
       buttons: ['Ok']
     });
     alert.present();
