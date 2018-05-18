@@ -28,18 +28,12 @@ export class ListarProfessoresPage {
   }
 
   filtrarItens(searchbar) {
-  
     this.professores = this.professoresSemFiltro;
-
-    // set q to the value of the searchbar
+    //var q = searchbar.srcElement.value;
     var q = searchbar.srcElement.value;
-  
-  
-    // if the value is an empty string don't filter the items
     if (!q) {
       return;
     }
-  
     this.professores = this.professores.filter((v) => {
       if(v.nomeprofessor && v.matriculaprofessor && q) {
         if (
@@ -51,10 +45,7 @@ export class ListarProfessoresPage {
         }
           return false;
       }
-    });
-  
-    console.log(q, this.professores.length);
-  
+    });  
   }
 
   incluir(){
