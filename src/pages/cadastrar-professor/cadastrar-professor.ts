@@ -51,7 +51,7 @@ export class CadastrarProfessorPage {
       this.crefitoProfessor = obj.crefitoprofessor;
       this.emailProfessor = obj.emailprofessor;
       this.telefone = obj.telefoneprofessor;
-      this.especialidade = obj.especialidades.idespecialidade;
+      this.especialidade = obj.codigoespecialidade;
       console.log(this.especialidade);
     }
     this.cadastroProfessor = formBuilder.group ({
