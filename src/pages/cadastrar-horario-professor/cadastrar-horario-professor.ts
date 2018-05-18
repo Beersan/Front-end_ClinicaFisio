@@ -30,7 +30,8 @@ export class CadastrarHorarioProfessorPage {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    public provider: AgendaProfessorProvider
+    public provider: AgendaProfessorProvider,
+    public alertCtrl: AlertController,
   ) {
     this.listarProfessor();
     this.listarDiaSemana();
@@ -91,10 +92,26 @@ export class CadastrarHorarioProfessorPage {
       diaSemana: dia,
       horaInicio: hInicio,
       horaFim: hFim,
-    })
+    }).then((result) => {
+      this.showAlert();    
+    });  
   }
 
   remover(index){
     this.horarios.splice(index,1);
+  }
+
+  showAlert() {
+    let alert = this.alertCtrl.create({
+      title: 'Sucesso!',
+      subTitle: 'Horário gravado.',
+      buttons: ['Ok']
+    });
+    alert.present();
+    this.navCtrl.pop();
+  }
+
+  cancelar(){
+    this.navCtrl.pop();
   }
 }
