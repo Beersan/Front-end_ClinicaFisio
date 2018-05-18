@@ -26,7 +26,7 @@ export class CadastrarHorarioProfessorPage {
   horaFim: any;
   professor: any;
   nomeProfessor: any;
-
+  codigoDia: any;
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
@@ -43,7 +43,7 @@ export class CadastrarHorarioProfessorPage {
   listarProfessor(){
     this.provider.listarProfessor().then(
       data => {
-        this.professores = data;
+        this.professores = data;        
      }
     )
     .catch(error => alert(error));
@@ -74,14 +74,27 @@ export class CadastrarHorarioProfessorPage {
     )
   }
   adicionarHorario(){
-    this.horarios.push([this.professor, this.diaSemana, this.horaInicio, this.horaFim]);
+    this.horarios.push([this.diaSemana, this.horaInicio, this.horaFim]);
   }
+
   incluirHorario(){
+    var dia: any = [];
+    var hInicio: any = [];
+    var hFim: any = [];
+    for (let line of this.horarios){
+      dia.push(line[0]);
+      hInicio.push(line[1]);
+      hFim.push(line[2]);
+    }
     this.provider.inserirAgenda({
-      professor : this.professor,
-      diaSemana : this.diaSemana,
-      horaInicio : this.horaInicio,
-      horaFim : this.horaFim,
+      idprofessor : this.professor,
+      diaSemana: dia,
+      horaInicio: hInicio,
+      horaFim: hFim,
     })
+  }
+
+  remover(index){
+    this.horarios.splice(index,1);
   }
 }
