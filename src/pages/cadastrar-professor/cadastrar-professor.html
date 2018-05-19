@@ -58,7 +58,7 @@
           <ion-row>
             <ion-col width-50>
               <ion-item>
-                <ion-label floating>Área de Especialidade</ion-label>
+                <ion-label floating>Subárea</ion-label>
                 <ion-select name= "especialidade" [(ngModel)]="especialidade" formControlName="especialidade">
                   <ion-option *ngFor="let especialidade of especialidades" value="{{ especialidade.codigoespecialidade }}">{{ especialidade.descricaoespecialidade }}</ion-option>
                 </ion-select>
