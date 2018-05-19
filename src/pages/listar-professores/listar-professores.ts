@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { CadastrarProfessorPage } from '../cadastrar-professor/cadastrar-professor';
 import { AlertController } from 'ionic-angular';
 import { Professor } from '../../models/model.cadastrar-professor';
@@ -20,6 +20,7 @@ export class ListarProfessoresPage {
     public navCtrl: NavController, 
     public navParams: NavParams,   
     private provider: ProfessorProvider,
+    private toastCtrl: ToastController
   ) {
     //this.listarProfessor();
   }
@@ -38,21 +39,6 @@ export class ListarProfessoresPage {
     }
   }
 
-  /*filtrarItens(searchbar) {
-    this.professores = this.professoresSemFiltro;
-    var q = searchbar.target.value;
-    if (!q) {
-      return;
-    }
-  console.log(this.professores);
-    this.professores = this.professores.filter((v) => {
-      if(v.matriculaprofessor && q) {
-        if (v.nomeprofessor.toLowerCase().indexOf(q.toLowerCase()) > -1) {
-          return true;
-        }
-          return false;
-      }
-    });*/
 
 
   incluir(){
@@ -111,5 +97,19 @@ export class ListarProfessoresPage {
       buttons: ['Ok']
     });
     alert.present();
+  }
+
+  visualizar(job) {
+    var valor = JSON.parse(JSON.stringify(job));
+    var mensagem = "Telefone: " + valor.telefoneprofessor + "\n"
+    + "Crefito: " + valor.crefitoprofessor + "\n"
+    + "E-mail: " + valor.emailprofessor
+
+    let toast = this.toastCtrl.create({
+      message: mensagem,
+      duration: 3000,
+      position: 'botton'
+    }); 
+    toast.present();
   }
 }

@@ -32,6 +32,7 @@ export class CadastrarProfessorPage {
   idProfessor = "";
   idEstagio: any;
   estagios: any;
+  estagio: any;
 
   constructor(
   	public navCtrl: NavController,
@@ -42,10 +43,11 @@ export class CadastrarProfessorPage {
     private formBuilder:FormBuilder
   ){
     this.listarEspecialidade(this.dadoprofessores);
-    console.log(this.especialidade);
+    this.listarEstagio(this.dadoprofessores);
+    //console.log(this.especialidade);
     if (this.navParams.data.professor) {      
       this.professores = this.navParams.data.professor;
-      console.log(this.professor);
+      //console.log(this.professor);
       var text = JSON.stringify(this.professores);
       var obj = JSON.parse(text);
       this.idProfessor = obj.idprofessor;
@@ -55,7 +57,8 @@ export class CadastrarProfessorPage {
       this.emailProfessor = obj.emailprofessor;
       this.telefone = obj.telefoneprofessor;
       this.especialidade = obj.codigoespecialidade;
-      console.log(this.especialidade);
+      this.estagio = obj.idestagio;
+      //console.log(this.especialidade);
     }
     this.cadastroProfessor = formBuilder.group ({
       nomeProfessor:['', Validators.required],
@@ -76,8 +79,9 @@ export class CadastrarProfessorPage {
   		emailProfessor: this.emailProfessor,
   		telefone: this.telefone,
       especialidade: this.especialidade,
-      tipoDeEstagio: this.tipoEstagio,
-  		idProfessor: this.idProfessor
+      //tipoDeEstagio: this.tipoEstagio,
+      idProfessor: this.idProfessor,
+      estagio: this.estagio,
     })
     .then((result) => {
       this.showAlert();    
@@ -100,6 +104,7 @@ listarEstagio(idEstagio){
       this.provider.listarEstagio().then(
         data => {
           this.estagios = data;
+          console.log(this.estagios);
         }
       )
       .catch(error => alert(error));

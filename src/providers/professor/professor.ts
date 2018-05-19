@@ -11,6 +11,7 @@ export class ProfessorProvider {
   emailprofessor: any;
   telefoneprofessor: any;
   especialidadeprofessor: any;
+  estagio: any;
 
   constructor(public http: HttpClient) {}
   
