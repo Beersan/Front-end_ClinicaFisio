@@ -29,7 +29,7 @@ export class ListarProfessoresPage {
   }
 
   filtrarItens(searchbar) {
-    this.listarProfessor();
+    //this.listarProfessor();
     let val = searchbar.target.value;
     if (val && val.trim != ''){
       this.professores = this.professores.filter((job) =>{

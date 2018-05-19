@@ -29,6 +29,8 @@ export class CadastrarProfessorPage {
   especialidade: string;
   idEspecialidade: any;
   idProfessor = "";
+  idEstagio: any;
+  estagios: any;
 
   constructor(
   	public navCtrl: NavController,
@@ -81,15 +83,24 @@ export class CadastrarProfessorPage {
 
   listarEspecialidade(idEspecialidade){
     if(this.especialidades == null){
-    this.provider.listar().then(
+    this.provider.listarEspecialidade().then(
       data => {
         this.especialidades = data;
-        //this.idEspecialidade = idEspecialidade;
       }
-      
     )
     .catch(error => alert(error));
   }
+}
+
+listarEstagio(idEstagio){
+    if(this.estagios == null){
+      this.provider.listarEstagio().then(
+        data => {
+          this.estagios = data;
+        }
+      )
+      .catch(error => alert(error));
+    }
 }
 
   showAlert() {
