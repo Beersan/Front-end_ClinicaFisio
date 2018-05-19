@@ -11,6 +11,7 @@ export class ProfessorProvider {
   emailprofessor: any;
   telefoneprofessor: any;
   especialidadeprofessor: any;
+  estagio: any;
 
   constructor(public http: HttpClient) {}
   
@@ -38,7 +39,11 @@ export class ProfessorProvider {
     });
   }
 
-  listar(){    
+  listarEspecialidade(){    
     return this.http.get('http://localhost:3000/professor/listarEspecialidade').toPromise();
+  }
+
+  listarEstagio(){
+    return this.http.get('http://localhost:3000/professor/listarEstagio').toPromise();
   }
 }

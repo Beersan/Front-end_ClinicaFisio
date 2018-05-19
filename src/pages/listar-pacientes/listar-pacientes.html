@@ -7,14 +7,14 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-  <ion-searchbar (ionInput)="filtrarItens($event)"></ion-searchbar>
+  <ion-searchbar placeholder="Buscar..." (ionInput)="filtrarItens($event)"></ion-searchbar>
   <button ion-button float-right (click)="incluir()">Pré Cadastro</button>
   <ion-grid>
       <ion-row>
         <ion-col><h6>Paciente</h6></ion-col>
         <ion-col><h6>Data de nascimento</h6></ion-col>
         <ion-col><h6>Telefone</h6></ion-col>
-        <ion-col><h6>Especialidade</h6></ion-col>
+        <ion-col><h6>Subárea</h6></ion-col>
         <ion-col><h6>Renda mensal</h6></ion-col>
         <ion-col></ion-col>
       </ion-row>
