@@ -16,6 +16,7 @@ import { ProfessorProvider } from '../../providers/professor/professor';
 })
 
 export class CadastrarProfessorPage {
+  tipoEstagio: any;
   cadastroProfessor: any= {};
   professores: any[];
   dadoprofessores: any;
@@ -60,7 +61,8 @@ export class CadastrarProfessorPage {
       crefitoProfessor:['', Validators.required],
       emailProfessor:['', Validators.required],
       telefone:['', Validators.required],
-      especialidade:['', Validators.required]
+      especialidade:['', Validators.required],
+      tipoEstagio:['', Validators.required]
     })
   }
 
@@ -71,7 +73,8 @@ export class CadastrarProfessorPage {
   		crefitoProfessor: this.crefitoProfessor,
   		emailProfessor: this.emailProfessor,
   		telefone: this.telefone,
-  		especialidade: this.especialidade,
+      especialidade: this.especialidade,
+      tipoDeEstagio: this.tipoEstagio,
   		idProfessor: this.idProfessor
     })
     .then((result) => {
