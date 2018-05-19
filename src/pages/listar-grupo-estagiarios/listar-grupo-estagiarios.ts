@@ -22,6 +22,7 @@ export class ListarGrupoEstagiariosPage {
   estagio: any;
   codigo: any;
   grupo: any;
+  gruposEstagiariosComId: any;
   insereDados: any;
   gruposEstagiarios: any;
   gruposEstagiariosSemFiltro: any;
@@ -63,27 +64,33 @@ export class ListarGrupoEstagiariosPage {
     });
   } 
   
-  alterarestagio(idgrupo){
+  alterarestagio(grupo){
+    this.provider.retornarGrupoEstagiarioComId().then(
+      data => {
+        this.gruposEstagiariosComId = data;
+        console.log(this.gruposEstagiariosComId);
+      }
+    )
+    .catch(error => alert(error));
     if(this.estagios == null){
-      this.provider.alterarEstagio({idgrupo: idgrupo}).then(
+      this.provider.alterarEstagio({grupo: grupo.idgrupo}).then(
         data => {
           this.estagios = data;
-          this.listarEstagioEditar();
-          console.log(this.estagios);
+          this.listarEstagioEditar(grupo.idgrupo, this.gruposEstagiariosComId);
+          console.log(this.gruposEstagiariosComId);
         }
       )
+      
       .catch(error => alert(error));
     }
-    
   }
 
-  listarEstagioEditar(){
-    
+  listarEstagioEditar(idgrupo, retornoid){
+
     let itensSelect = []; 
     for (let valor of this.estagios) {
-      itensSelect.push({type: 'radio', label: valor.descricaoestagio, value: valor.descricaoestagio});
+      itensSelect.push({type: 'radio', label: valor.descricaoestagio, value: valor.idestagio});
     }
-
 
     let prompt = this.alertCtrl.create({
       title: 'Alterar estágio',
@@ -100,11 +107,11 @@ export class ListarGrupoEstagiariosPage {
       {
           text: "Confirma",
           handler: data => {
-            console.log(data);
+            console.log(retornoid);
             this.provider.createAlterarEstagio({
-              grupo: this.grupo,
-              codigo: this.codigo,
-              estagio: this.estagio
+              grupo: retornoid.idgrupo,
+              estagio: data,
+              estagiarios: retornoid.idestagiario
             }).then((result) =>{
               console.log(result);
               this.showAlertSucesso();
@@ -115,17 +122,17 @@ export class ListarGrupoEstagiariosPage {
       prompt.present();
   }
 
- /* cadastrarGrupo(){
-    //campos
-    this.provider.create({
-        descricao: this.descricao,
-        semestre: this.semestre,
-        idGrupo: this.idGrupo
-    }).then((result) =>{
-      console.log(result);
-      this.showAlert();
-    });
-  }*/
+  listarGrupoEstagiarioComId(){
+    this.provider.retornarGrupoEstagiarioComId().then(
+      data => {
+        this.gruposEstagiarios = data;
+        this.estagiarios = data;
+        this.gruposEstagiariosSemFiltro = data;
+        console.log(data);
+      }
+    )
+    .catch(error => alert(error));
+  }
 
   listarGrupoEstagiario(){
     this.provider.retornarGrupoEstagiario().then(
