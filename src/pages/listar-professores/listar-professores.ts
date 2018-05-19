@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { CadastrarProfessorPage } from '../cadastrar-professor/cadastrar-professor';
 import { AlertController } from 'ionic-angular';
 import { Professor } from '../../models/model.cadastrar-professor';
@@ -19,8 +19,10 @@ export class ListarProfessoresPage {
     private alertCtrl: AlertController, 
     public navCtrl: NavController, 
     public navParams: NavParams,   
-    private provider: ProfessorProvider
+    private provider: ProfessorProvider,
+    private toastCtrl: ToastController
   ) {
+    //this.listarProfessor();
   }
   
   ionViewWillEnter(){
@@ -28,25 +30,16 @@ export class ListarProfessoresPage {
   }
 
   filtrarItens(searchbar) {
-    this.professores = this.professoresSemFiltro;
-    //var q = searchbar.srcElement.value;
-    var q = searchbar.srcElement.value;
-    if (!q) {
-      return;
+    //this.listarProfessor();
+    let val = searchbar.target.value;
+    if (val && val.trim != ''){
+      this.professores = this.professores.filter((job) =>{
+        return (job.nomeprofessor.toLowerCase().indexOf(val.toLowerCase()) > -1);
+      })
     }
-    this.professores = this.professores.filter((v) => {
-      if(v.nomeprofessor && v.matriculaprofessor && q) {
-        if (
-          v.nomeprofessor.toLowerCase().indexOf(q.toLowerCase()) > -1
-          ||
-          v.matriculaprofessor.toLowerCase().indexOf(q.toLowerCase()) > -1
-        ) {
-          return true;
-        }
-          return false;
-      }
-    });  
   }
+
+
 
   incluir(){
     this.navCtrl.push(CadastrarProfessorPage, {
@@ -104,5 +97,19 @@ export class ListarProfessoresPage {
       buttons: ['Ok']
     });
     alert.present();
+  }
+
+  visualizar(job) {
+    var valor = JSON.parse(JSON.stringify(job));
+    var mensagem = "Telefone: " + valor.telefoneprofessor + "\n"
+    + "Crefito: " + valor.crefitoprofessor + "\n"
+    + "E-mail: " + valor.emailprofessor
+
+    let toast = this.toastCtrl.create({
+      message: mensagem,
+      duration: 3000,
+      position: 'botton'
+    }); 
+    toast.present();
   }
 }

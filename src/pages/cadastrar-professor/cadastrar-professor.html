@@ -67,8 +67,8 @@
             <ion-col width-50>
               <ion-item>
                 <ion-label floating>Tipo de Estágio</ion-label>
-                <ion-select name= "tipoEstagio" [(ngModel)]="tipoEstagio" formControlName="tipoEstagio">
-                  <!-- <ion-option *ngFor=" " value="{{  }}">{{  }}</ion-option> -->
+                <ion-select name= "estagio" [(ngModel)]="estagio" formControlName="tipoEstagio">
+                  <ion-option *ngFor="let estagio of estagios" value="{{ estagio.idestagio }}">{{ estagio.descricaoestagio }}</ion-option>
                 </ion-select>
               </ion-item>
             </ion-col>

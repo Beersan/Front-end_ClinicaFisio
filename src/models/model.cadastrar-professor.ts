@@ -6,5 +6,6 @@ export interface Professor{
     emailProfessor: string,
     telefoneProfessor: string,
     especialidadeProfessor: any,
-    codigoEspecialidade: any
+    codigoEspecialidade: any,
+    codigoEstagio: any;
 }
