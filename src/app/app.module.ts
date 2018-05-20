@@ -55,7 +55,14 @@ import { FilaEsperaProvider } from '../providers/fila-espera/fila-espera';
 import { CadastrarHorarioProfessorPage } from '../pages/cadastrar-horario-professor/cadastrar-horario-professor';
 import { AgendaProfessorProvider } from '../providers/agenda-professor/agenda-professor';
 import { ImprimirCronogramaProvider } from '../providers/imprimir-cronograma/imprimir-cronograma';
-
+import { FIREBASE_CONFIG } from './app.firebase.config';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireModule } from 'angularfire2';
+import { AuthProvider } from '../providers/auth/auth';
+import { LoginPage } from '../pages/login/login';
+import { IncluirAssinaturaPage } from '../pages/incluir-assinatura/incluir-assinatura';
+import { EvolucaoDiariaPage } from '../pages/evolucao-diaria/evolucao-diaria';
+import { GerenciamentoPage } from '../pages/gerenciamento/gerenciamento';
 
 @NgModule({
     declarations: [
@@ -82,12 +89,17 @@ import { ImprimirCronogramaProvider } from '../providers/imprimir-cronograma/imp
         AgendarAtendimentoPage,
         ImprimirCronogramaPage,
         ListarPacientesAgendadosPage,    
-        CadastrarHorarioProfessorPage, 
+        CadastrarHorarioProfessorPage,
+        LoginPage,
+        GerenciamentoPage,
+        EvolucaoDiariaPage,
+        IncluirAssinaturaPage 
 
     ],
     imports: [
         BrowserModule,
         IonicModule.forRoot(MyApp),
+        AngularFireModule.initializeApp(FIREBASE_CONFIG),
         PreCadastroPageModule,
         ReservarSalaPageModule,
         FinalizarPreCadastroPageModule,
@@ -95,14 +107,7 @@ import { ImprimirCronogramaProvider } from '../providers/imprimir-cronograma/imp
         BrMaskerModule,
         FilaDeEsperaPageModule,
         CadastroSemestrePageModule,
-        ListarSemestrePageModule,
-        //CadastrarHorarioProfessorPageModule
-        //ListarReservasPageModule
         ListarSemestrePageModule
-        //,
-        //ListarReservasPageModule
-        //CadastrarHorarioProfessorPageModule,
-        //CadastrarHorarioProfessorPage
     ],
     bootstrap: [IonicApp],
     entryComponents: [
@@ -130,6 +135,10 @@ import { ImprimirCronogramaProvider } from '../providers/imprimir-cronograma/imp
         ImprimirCronogramaPage,
         ListarPacientesAgendadosPage,
         CadastrarHorarioProfessorPage,
+        LoginPage,
+        GerenciamentoPage,
+        EvolucaoDiariaPage,
+        IncluirAssinaturaPage 
     ],
     providers: [
         StatusBar,
@@ -148,7 +157,9 @@ import { ImprimirCronogramaProvider } from '../providers/imprimir-cronograma/imp
         AgendaProvider,
         FilaEsperaProvider,
         AgendaProfessorProvider,
-        ImprimirCronogramaProvider
+        ImprimirCronogramaProvider,
+        AuthProvider,
+        AngularFireAuth
     ]
 })
 export class AppModule {

@@ -45,6 +45,8 @@ import { SideMenuContentComponent } from './../shared/side-menu-content/side-men
 import { GerenciamentoPage } from '../pages/gerenciamento/gerenciamento';
 import { EvolucaoDiariaPage } from '../pages/evolucao-diaria/evolucao-diaria';
 import { IncluirAssinaturaPage } from '../pages/incluir-assinatura/incluir-assinatura';
+import { LoginPage } from '../pages/login/login';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
   templateUrl: 'app.html'
@@ -53,7 +55,7 @@ export class MyApp {
   //@ViewChild(Nav) nav: Nav;
   @ViewChild(Nav) navCtrl: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any;
 
   pages: Array<{title: string, component: any}>;
 
@@ -72,13 +74,24 @@ export class MyApp {
   
   private unreadCountObservable: any = new ReplaySubject<number>(0);
 
-  constructor(public platform: Platform,
+  constructor(
+	  public platform: Platform,
       public statusBar: StatusBar,
       public splashScreen: SplashScreen,
-      private alertCtrl: AlertController,
-      private menuCtrl: MenuController) {
-    this.initializeApp();
-    firebase.initializeApp(FIREBASE_CONFIG);
+	  private alertCtrl: AlertController,
+	  private menuCtrl: MenuController,
+	  public afAuth: AngularFireAuth
+	) {
+	this.initializeApp();	
+	const authObserver = afAuth.authState.subscribe( user => {	
+	 	if (user) {
+	 	  this.rootPage = HomePage;
+	 	  authObserver.unsubscribe();
+		} else {
+		  this.rootPage = LoginPage;
+		  authObserver.unsubscribe();
+		}
+	});
   }
 
   initializeApp() {
@@ -216,7 +229,7 @@ export class MyApp {
 			displayText: 'Ouvidoria',
 			iconName:'alert',
 			component: RelatarProblemaPage
-		});		
+		});	
 	}
 
 	public onOptionSelected(option: SideMenuOption): void {

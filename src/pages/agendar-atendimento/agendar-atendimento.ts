@@ -26,7 +26,7 @@ export class AgendarAtendimentoPage {
   numeroSessoes: any;
   dataInicioAtendimento: any;
   professor: any;
-
+  dadosPaciente : any;
   validarAgendarAtendimento: any = {};
   
   constructor(
@@ -36,6 +36,13 @@ export class AgendarAtendimentoPage {
     public alertCtrl: AlertController,
     private formBuilder: FormBuilder) 
   {
+    if (this.navParams.data.paciente) {       
+      this.dadosPaciente = JSON.parse(JSON.stringify(this.navParams.data.paciente));
+      this.pacientes = [{idpaciente: this.dadosPaciente.idpaciente, nomepaciente: this.dadosPaciente.nomepaciente}];
+      this.paciente = this.dadosPaciente.idpaciente;
+      this.listarDia();
+      this.listarProfessor();
+    }
     this.validarAgendarAtendimento = formBuilder.group ({
       paciente:['', Validators.required],
       diaDaSemana:['', Validators.required],      
@@ -47,10 +54,6 @@ export class AgendarAtendimentoPage {
 
   ionViewDidLoad() {
     this.listarPaciente();
-    //this.listarDia();
-    //this.listarHorario();
-   
-    
   }
 
   cancelar(){
@@ -70,6 +73,7 @@ export class AgendarAtendimentoPage {
     if(this.pacientes == null){
       this.provider.retornarPaciente().then(
         data => {
+            console.log(data);
             this.pacientes = data;
             
           }
@@ -98,7 +102,6 @@ export class AgendarAtendimentoPage {
         )
         .catch(error => alert(error));
     } 
-    console.log({paciente: this.paciente, dia: this.diaDaSemana, professor: this.professor});
   }
 
   cadastrarAgendaPaciente(){ 
