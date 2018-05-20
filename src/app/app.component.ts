@@ -125,7 +125,7 @@ export class MyApp {
 				},
 				{
 					iconName: 'ribbon',
-					displayText: 'Especialidade',
+					displayText: 'Subárea',
 					component: ListarEspecialidadePage
 				},
 				{
@@ -135,7 +135,7 @@ export class MyApp {
 				},	
 				{
 					iconName: 'time',
-					displayText: 'Horário professor',
+					displayText: 'Horário Professores',
 					component: CadastrarHorarioProfessorPage
 				},	
 				{
@@ -150,7 +150,7 @@ export class MyApp {
 				},
 				{
 					iconName: 'ios-people',
-					displayText: 'Grupos de estagiários',
+					displayText: 'Grupos de Estagiários',
 					component: ListarGrupoEstagiariosPage
 				}						
 			]
@@ -168,7 +168,7 @@ export class MyApp {
 				},
 				{
 					iconName: 'list-box',
-					displayText: 'Lista de pré-cadastros',
+					displayText: 'Lista de Pré-cadastros',
 					component: ListarPacientesPage
 				}
 			]
@@ -181,37 +181,37 @@ export class MyApp {
 			suboptions: [
 				{
 					iconName: 'contacts',
-					displayText: 'Fila de espera',
+					displayText: 'Fila de Espera',
 					component: FilaDeEsperaPage
 				},
 				{
-					displayText: 'Agendar atendimentos',
+					displayText: 'Agendar Atendimentos',
 					iconName:'clipboard',
 					component: AgendarAtendimentoPage
 				},
 				{
 					iconName: 'list-box',
-					displayText: 'Pacientes agendados',
+					displayText: 'Pacientes Agendados',
 					component: ListarPacientesAgendadosPage
 				},
 				{
-					displayText: 'Imprimir cronograma',
+					displayText: 'Imprimir Cronograma',
 					iconName:'archive',
 					component: ImprimirCronogramaPage
 				},
 				{
 					iconName: 'clipboard',
-					displayText: 'Gerenciamento de atendimentos (Temporário)',
+					displayText: 'Gerenciamento de Atendimentos (Temporário)',
 					component: GerenciamentoPage
 				},
 				{
 					iconName: 'clipboard',
-					displayText: 'Evolução diária (Temporário)',
+					displayText: 'Evolução Diária (Temporário)',
 					component: EvolucaoDiariaPage
 				},
 				{
 					iconName: 'clipboard',
-					displayText: 'Incluir assinatura (Temporário)',
+					displayText: 'Incluir Assinatura (Temporário)',
 					component: IncluirAssinaturaPage
 				}				
 			]
@@ -220,7 +220,7 @@ export class MyApp {
 		//MENU RESERVA DE SALAS
 		this.options.push({
 			iconName: 'book',
-			displayText: 'Reserva de salas',
+			displayText: 'Reserva de Salas',
 			component: ListarReservasPage
 		});
 
