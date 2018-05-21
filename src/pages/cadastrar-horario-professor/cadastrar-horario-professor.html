@@ -10,14 +10,10 @@
   <ion-row>
     <ion-col width-50>
       <ion-item>
-        <ion-label floating>Professor(a)</ion-label>
-        <ion-select name="professor" [(ngModel)]="professor">
-          <ion-option *ngFor="let professor of professores" value="{{ professor.nomeprofessor}}">{{ professor.nomeprofessor }}</ion-option>
-          <!-- time Button-->
-        </ion-select>
+        <ion-label fixed>Professor(a)</ion-label>
       </ion-item>
     </ion-col>
-  </ion-row>
+  </ion-row> 
   <ion-row>
     <ion-col width-25>
       <ion-item>
@@ -55,14 +51,14 @@
     <ion-col><h6>Hora Inicio</h6></ion-col>
     <ion-col><h6>Hora Fim</h6></ion-col>
   </ion-row>
-  <ion-row *ngFor="let horario of horarios; let i=index">
-    <ion-col col-auto>
-        <ion-icon md="ios-trash" title="Remover" (click)="remover(i)"></ion-icon> 
-    </ion-col>
+  <ion-row *ngFor="let horario of horarios; let i=index" >
     <ion-col>{{horario[0]}}</ion-col>
     <ion-col>{{horario[1]}}</ion-col>
     <ion-col>{{horario[2]}}</ion-col>  
+    <ion-col col-auto>
+      <ion-icon md="ios-trash" title="Remover" (click)="remover(i)"></ion-icon> 
+    </ion-col>
   </ion-row>
-  <button ion-button color="danger" menuToggle="left">Cancelar</button>
+  <button ion-button color="danger" (click)="cancelar()" menuToggle="left">Cancelar</button>
   <button ion-button color="secondary" (click)="incluirHorario()">Confirmar</button>
 </ion-content>
