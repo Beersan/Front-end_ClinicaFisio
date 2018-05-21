@@ -1,0 +1,75 @@
+page-login {
+    .background {
+        background-image: url('https://firebasestorage.googleapis.com/v0/b/anexar-arquivos.appspot.com/o/anexos%2Fb080b06f-a11b-41ce-1fee-10b0070ed68d?alt=media&token=23a4efad-81c1-49b9-b293-982e5e19a9b4');
+    }
+    .scroll-content {
+        align-content: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+    ion-card.card {
+        box-shadow: none;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 5px;
+    }
+    a, p,
+    ion-card-header.card-header {
+        color: #fff!important;
+    }
+    
+    .list > .item-block:first-child {
+        border: medium none;
+    }
+    
+    .item {
+        margin-bottom: 10px;
+        background: rgba(255, 255, 255, 0.5);
+        border: medium none;
+    
+        .text-input, {
+            color: #fff;
+        }
+    
+        
+        input::-moz-placeholder{
+            color: #fff!important;
+        }
+        input:-moz-placeholder {
+            color: #fff!important;
+        }
+        *:-moz-placeholder{
+            color: #fff!important;
+        }
+        *:-ms-input-placeholder{
+            color: #fff!important;
+        }
+        *::-webkit-input-placeholder{
+            color: #fff!important;
+        }
+    
+    }
+    
+    .icon {
+        padding-right: 10px;
+    }
+    
+    .bottom {
+        bottom: 0;
+    }
+    
+    .input-cover {
+    position: static;
+    }
+    
+    .cardLogin{
+        width: 30%;
+        margin: 0 auto;
+    }
+
+    .botaoLogin{
+        width: 50%;
+        margin: 0 auto;
+    }
+}

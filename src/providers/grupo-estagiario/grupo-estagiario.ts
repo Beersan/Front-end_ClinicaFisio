@@ -29,10 +29,8 @@ export class GrupoEstagiarioProvider {
   }
 
   createAlterarEstagio(grupo) {
-    console.log(grupo)
     return new Promise((resolve, reject) => {
       this.http.post('http://localhost:3000/grupoestagiario/cadastrarnovoestagio', grupo).subscribe(response => {
-        console.log(response)
         resolve(response);
       });
     });
@@ -42,8 +40,12 @@ export class GrupoEstagiarioProvider {
     return this.http.get('http://localhost:3000/grupoestagiario/listargrupoestagiario').toPromise();
   }
 
-  retornarGrupoEstagiarioComId(){
-    return this.http.get('http://localhost:3000/grupoestagiario/listargrupoestagiariocomid').toPromise();
+  retornarGrupoEstagiarioComId(idgrupo){
+    return new Promise((resolve, reject) => {
+      this.http.post('http://localhost:3000/grupoestagiario/listargrupoestagiariocomid', idgrupo).subscribe(response => {
+        resolve(response);
+      });
+    });
   }
 
   create(codigo) {

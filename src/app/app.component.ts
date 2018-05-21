@@ -45,6 +45,8 @@ import { SideMenuContentComponent } from './../shared/side-menu-content/side-men
 import { GerenciamentoPage } from '../pages/gerenciamento/gerenciamento';
 import { EvolucaoDiariaPage } from '../pages/evolucao-diaria/evolucao-diaria';
 import { IncluirAssinaturaPage } from '../pages/incluir-assinatura/incluir-assinatura';
+import { LoginPage } from '../pages/login/login';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
   templateUrl: 'app.html'
@@ -72,13 +74,24 @@ export class MyApp {
   
   private unreadCountObservable: any = new ReplaySubject<number>(0);
 
-  constructor(public platform: Platform,
+  constructor(
+	  public platform: Platform,
       public statusBar: StatusBar,
       public splashScreen: SplashScreen,
-      private alertCtrl: AlertController,
-      private menuCtrl: MenuController) {
-    this.initializeApp();
-    firebase.initializeApp(FIREBASE_CONFIG);
+	  private alertCtrl: AlertController,
+	  private menuCtrl: MenuController,
+	  public afAuth: AngularFireAuth
+	) {
+	this.initializeApp();	
+	// const authObserver = afAuth.authState.subscribe( user => {	
+	//  	if (user) {
+	//  	  this.rootPage = HomePage;
+	//  	  authObserver.unsubscribe();
+	// 	} else {
+	// 	  this.rootPage = LoginPage;
+	// 	  authObserver.unsubscribe();
+	// 	}
+	// });
   }
 
   initializeApp() {
@@ -112,7 +125,7 @@ export class MyApp {
 				},
 				{
 					iconName: 'ribbon',
-					displayText: 'Especialidade',
+					displayText: 'Subárea',
 					component: ListarEspecialidadePage
 				},
 				{
@@ -122,7 +135,7 @@ export class MyApp {
 				},	
 				{
 					iconName: 'time',
-					displayText: 'Horário professor',
+					displayText: 'Horário Professores',
 					component: CadastrarHorarioProfessorPage
 				},	
 				{
@@ -137,7 +150,7 @@ export class MyApp {
 				},
 				{
 					iconName: 'ios-people',
-					displayText: 'Grupos de estagiários',
+					displayText: 'Grupos de Estagiários',
 					component: ListarGrupoEstagiariosPage
 				}						
 			]
@@ -155,7 +168,7 @@ export class MyApp {
 				},
 				{
 					iconName: 'list-box',
-					displayText: 'Lista de pré-cadastros',
+					displayText: 'Lista de Pré-cadastros',
 					component: ListarPacientesPage
 				}
 			]
@@ -168,37 +181,37 @@ export class MyApp {
 			suboptions: [
 				{
 					iconName: 'contacts',
-					displayText: 'Fila de espera',
+					displayText: 'Fila de Espera',
 					component: FilaDeEsperaPage
 				},
 				{
-					displayText: 'Agendar atendimentos',
+					displayText: 'Agendar Atendimentos',
 					iconName:'clipboard',
 					component: AgendarAtendimentoPage
 				},
 				{
 					iconName: 'list-box',
-					displayText: 'Pacientes agendados',
+					displayText: 'Pacientes Agendados',
 					component: ListarPacientesAgendadosPage
 				},
 				{
-					displayText: 'Imprimir cronograma',
+					displayText: 'Imprimir Cronograma',
 					iconName:'archive',
 					component: ImprimirCronogramaPage
 				},
 				{
 					iconName: 'clipboard',
-					displayText: 'Gerenciamento de atendimentos (Temporário)',
+					displayText: 'Gerenciamento de Atendimentos (Temporário)',
 					component: GerenciamentoPage
 				},
 				{
 					iconName: 'clipboard',
-					displayText: 'Evolução diária (Temporário)',
+					displayText: 'Evolução Diária (Temporário)',
 					component: EvolucaoDiariaPage
 				},
 				{
 					iconName: 'clipboard',
-					displayText: 'Incluir assinatura (Temporário)',
+					displayText: 'Incluir Assinatura (Temporário)',
 					component: IncluirAssinaturaPage
 				}				
 			]
@@ -207,7 +220,7 @@ export class MyApp {
 		//MENU RESERVA DE SALAS
 		this.options.push({
 			iconName: 'book',
-			displayText: 'Reserva de salas',
+			displayText: 'Reserva de Salas',
 			component: ListarReservasPage
 		});
 
@@ -216,7 +229,7 @@ export class MyApp {
 			displayText: 'Ouvidoria',
 			iconName:'alert',
 			component: RelatarProblemaPage
-		});		
+		});	
 	}
 
 	public onOptionSelected(option: SideMenuOption): void {
