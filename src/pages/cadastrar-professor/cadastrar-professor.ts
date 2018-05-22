@@ -44,10 +44,8 @@ export class CadastrarProfessorPage {
   ){
     this.listarEspecialidade(this.dadoprofessores);
     this.listarEstagio(this.dadoprofessores);
-    //console.log(this.especialidade);
     if (this.navParams.data.professor) {      
       this.professores = this.navParams.data.professor;
-      //console.log(this.professor);
       var text = JSON.stringify(this.professores);
       var obj = JSON.parse(text);
       this.idProfessor = obj.idprofessor;
@@ -58,7 +56,6 @@ export class CadastrarProfessorPage {
       this.telefone = obj.telefoneprofessor;
       this.especialidade = obj.codigoespecialidade;
       this.estagio = obj.idestagio;
-      //console.log(this.especialidade);
     }
     this.cadastroProfessor = formBuilder.group ({
       nomeProfessor:['', Validators.required],
@@ -79,7 +76,6 @@ export class CadastrarProfessorPage {
   		emailProfessor: this.emailProfessor,
   		telefone: this.telefone,
       especialidade: this.especialidade,
-      //tipoDeEstagio: this.tipoEstagio,
       idProfessor: this.idProfessor,
       estagio: this.estagio,
     })

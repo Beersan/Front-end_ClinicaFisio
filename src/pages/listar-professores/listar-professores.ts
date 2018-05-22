@@ -4,6 +4,7 @@ import { CadastrarProfessorPage } from '../cadastrar-professor/cadastrar-profess
 import { AlertController } from 'ionic-angular';
 import { Professor } from '../../models/model.cadastrar-professor';
 import { ProfessorProvider } from '../../providers/professor/professor';
+import { CadastrarHorarioProfessorPage } from '../cadastrar-horario-professor/cadastrar-horario-professor';
 
 @IonicPage()
 @Component({
@@ -112,4 +113,12 @@ export class ListarProfessoresPage {
     }); 
     toast.present();
   }
+
+  horarios(idprofessor){
+    this.navCtrl.push(CadastrarHorarioProfessorPage, {
+      rootNavCtrl: this.navCtrl,
+      professor: idprofessor
+    });
+  }
+
 }

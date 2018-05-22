@@ -65,24 +65,20 @@ export class ListarGrupoEstagiariosPage {
   } 
   
   alterarestagio(grupo){
-    this.provider.retornarGrupoEstagiarioComId().then(
+    this.provider.retornarGrupoEstagiarioComId({idgrupo: grupo.idgrupo}).then(
       data => {
         this.gruposEstagiariosComId = data;
-        console.log(this.gruposEstagiariosComId);
       }
     )
     .catch(error => alert(error));
-    if(this.estagios == null){
       this.provider.alterarEstagio({grupo: grupo.idgrupo}).then(
         data => {
           this.estagios = data;
           this.listarEstagioEditar(grupo.idgrupo, this.gruposEstagiariosComId);
-          console.log(this.gruposEstagiariosComId);
         }
       )
       
       .catch(error => alert(error));
-    }
   }
 
   listarEstagioEditar(idgrupo, retornoid){
@@ -91,7 +87,6 @@ export class ListarGrupoEstagiariosPage {
     for (let valor of this.estagios) {
       itensSelect.push({type: 'radio', label: valor.descricaoestagio, value: valor.idestagio});
     }
-
     let prompt = this.alertCtrl.create({
       title: 'Alterar estágio',
       message: 'Selecione o próximo estágio ',
@@ -101,29 +96,26 @@ export class ListarGrupoEstagiariosPage {
       {
           text: "Cancel", 
           handler: data => {
-          console.log("cancel clicked");
           }
       },
       {
           text: "Confirma",
           handler: data => {
-            console.log(retornoid);
             this.provider.createAlterarEstagio({
-              grupo: retornoid.idgrupo,
+              grupo: retornoid,
               estagio: data,
-              estagiarios: retornoid.idestagiario
             }).then((result) =>{
-              console.log(result);
               this.showAlertSucesso();
+              this.listarGrupoEstagiario();
             })
             .catch(error => alert(error));
           }
-      }]});
+        }]});
       prompt.present();
   }
 
-  listarGrupoEstagiarioComId(){
-    this.provider.retornarGrupoEstagiarioComId().then(
+  /*listarGrupoEstagiarioComId(){
+    this.provider.retornarGrupoEstagiarioComId({idgrupo: this.idgrupo}).then(
       data => {
         this.gruposEstagiarios = data;
         this.estagiarios = data;
@@ -132,7 +124,7 @@ export class ListarGrupoEstagiariosPage {
       }
     )
     .catch(error => alert(error));
-  }
+  }*/
 
   listarGrupoEstagiario(){
     this.provider.retornarGrupoEstagiario().then(
@@ -140,7 +132,6 @@ export class ListarGrupoEstagiariosPage {
         this.gruposEstagiarios = data;
         this.estagiarios = data;
         this.gruposEstagiariosSemFiltro = data;
-        console.log(data);
       }
     )
     .catch(error => alert(error));
@@ -152,8 +143,6 @@ export class ListarGrupoEstagiariosPage {
       grupo: grupo
     });
   }
-
-  
 
   excluir(idgrupo){
     let alert = this.alertCtrl.create({

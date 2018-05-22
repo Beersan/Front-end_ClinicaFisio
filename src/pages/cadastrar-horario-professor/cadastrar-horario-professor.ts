@@ -8,6 +8,8 @@ import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { provideModuleLoader } from 'ionic-angular/util/module-loader';
+import { Professor } from '../../models/model.cadastrar-professor';
+import { ListarProfessoresPage } from '../listar-professores/listar-professores';
 
 @IonicPage()
 @Component({
@@ -25,7 +27,9 @@ export class CadastrarHorarioProfessorPage {
   horaInicio: any;
   horaFim: any;
   professor: any;
-  nomeProfessor: any;
+  idprofessor: any;
+  professoresA: Professor;
+  idprofessorA: any;
   codigoDia: any;
   constructor(
     public navCtrl: NavController, 
@@ -33,22 +37,26 @@ export class CadastrarHorarioProfessorPage {
     public provider: AgendaProfessorProvider,
     public alertCtrl: AlertController,
   ) {
-    this.listarProfessor();
+    //var text = JSON.stringify(this.professor);
+    //var obj = JSON.parse(text);
+    this.professoresA = this.navParams.data.professor;
+    /*this.listarProfessor();*/
     this.listarDiaSemana();
     this.listarHoraInicio();
     this.listarHoraFim();
+
   }
   ionViewDidLoad() {
   }
   
-  listarProfessor(){
+  /*listarProfessor(){
     this.provider.listarProfessor().then(
       data => {
         this.professores = data;        
      }
     )
     .catch(error => alert(error));
-  }
+  }*/
 
   listarDiaSemana(){
     this.provider.listarDiaSemana().then(
@@ -88,7 +96,7 @@ export class CadastrarHorarioProfessorPage {
       hFim.push(line[2]);
     }
     this.provider.inserirAgenda({
-      idprofessor : this.professor,
+      idprofessor : this.professoresA,
       diaSemana: dia,
       horaInicio: hInicio,
       horaFim: hFim,
@@ -108,10 +116,12 @@ export class CadastrarHorarioProfessorPage {
       buttons: ['Ok']
     });
     alert.present();
-    this.navCtrl.pop();
+    this.navCtrl.push(ListarProfessoresPage, {
+    });
   }
 
   cancelar(){
-    this.navCtrl.pop();
+    this.navCtrl.push(ListarProfessoresPage, {
+    });
   }
 }

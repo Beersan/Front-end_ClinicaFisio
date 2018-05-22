@@ -1,0 +1,25 @@
+<ion-content class="background">
+  <ion-card class="cardLogin">
+    <ion-card-header>
+      Clínica escola de fisioterapia
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list no-lines>
+        <form [formGroup]= "validaLogin">        
+          <div class="spacer" style="height: 10px;"></div>
+          <ion-item>
+            <ion-input type="email" placeholder="Email" [(ngModel)]="credentials.email" name="email" formControlName="email"></ion-input>
+          </ion-item>
+          <div class="spacer" style="height: 5px;"></div>
+          <ion-item>
+            <ion-input type="password" placeholder="Senha" [(ngModel)]="credentials.password" name="password" formControlName="password"></ion-input>
+          </ion-item>
+          <div class="spacer" style="height: 10px;"></div>
+          <div class="spacer" style="height: 10px;"></div>
+          <button [disabled]="!validaLogin.valid"  ion-button block round outline color="light" class="botaoLogin" (click)="signin()" >Entrar</button>
+          <div class="spacer" style="height: 10px;"></div>
+        </form>
+      </ion-list>
+    </ion-card-content>
+  </ion-card> 
+</ion-content>
