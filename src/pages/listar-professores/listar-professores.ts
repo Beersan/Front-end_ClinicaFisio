@@ -15,7 +15,7 @@ export class ListarProfessoresPage {
   professores: any;
   professoresSemFiltro: any;
   especialidades: any;
-
+  agenda: any;
   constructor(
     private alertCtrl: AlertController, 
     public navCtrl: NavController, 
@@ -23,15 +23,12 @@ export class ListarProfessoresPage {
     private provider: ProfessorProvider,
     private toastCtrl: ToastController
   ) {
-    //this.listarProfessor();
   }
-  
+
   ionViewWillEnter(){
     this.listarProfessor();
   }
-
   filtrarItens(searchbar) {
-    //this.listarProfessor();
     let val = searchbar.target.value;
     if (val && val.trim != ''){
       this.professores = this.professores.filter((job) =>{
@@ -39,25 +36,19 @@ export class ListarProfessoresPage {
       })
     }
   }
-
-
-
   incluir(){
     this.navCtrl.push(CadastrarProfessorPage, {
       rootNavCtrl: this.navCtrl
     });
   }
-
   listarProfessor(){
     this.provider.retornarProfessor().then(
       data => {
         this.professores = data;
-        //console.log(data);
       }
     )
     .catch(error => alert(error));
   }
-
   excluirProfessor(idprofessor){
     let alert = this.alertCtrl.create({
       title: 'Excluir!',
@@ -82,15 +73,12 @@ export class ListarProfessoresPage {
     });
     alert.present();
   }
-
   editar(professor: Professor){
     this.navCtrl.push(CadastrarProfessorPage, {
       rootNavCtrl: this.navCtrl,
       professor: professor
     });
   }
-
-
   showAlert() {
     let alert = this.alertCtrl.create({
       title: 'Sucesso!',
@@ -99,7 +87,6 @@ export class ListarProfessoresPage {
     });
     alert.present();
   }
-
   visualizar(job) {
     var valor = JSON.parse(JSON.stringify(job));
     var mensagem = "Telefone: " + valor.telefoneprofessor + "\n"
@@ -113,12 +100,34 @@ export class ListarProfessoresPage {
     }); 
     toast.present();
   }
-
   horarios(idprofessor){
     this.navCtrl.push(CadastrarHorarioProfessorPage, {
       rootNavCtrl: this.navCtrl,
       professor: idprofessor
     });
   }
-
+  listarAgenda(idprofessor){
+    this.provider.listarAgenda({idProfessor : idprofessor}).then(
+      data => {
+        this.agenda = data;
+        console.log(data);
+        this.presentConfirm(this.agenda);
+      }
+    )
+    .catch(error => alert(error));
+  }  
+  presentConfirm(agenda) {
+    var valor = JSON.parse(JSON.stringify(agenda));
+    let alert = this.alertCtrl.create({
+      title: 'Horários',
+      message: valor.descricaohorainicio,
+      buttons: [
+        {
+          text: 'Ok',
+          role: 'cancel',
+        },
+      ]
+    });
+    alert.present();
+  }
 }

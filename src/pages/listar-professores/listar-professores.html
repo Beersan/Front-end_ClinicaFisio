@@ -28,8 +28,9 @@
           <ion-col>{{job.descricaoestagio}}</ion-col>
           
           <ion-col class="iconeDireita">
-            <ion-icon ios="ios-time" md="md-time" (click)="horarios(job.idprofessor)"></ion-icon>
-            <ion-icon md="md-eye" title="visualizar" (click)="visualizar(job)"></ion-icon>
+            <ion-icon ios="ios-time" md="md-time" title="Cadastrar Horário" (click)="horarios(job.idprofessor)"></ion-icon>
+            <ion-icon ios="md-calendar" md="md-calendar" title="Horários" (click)="listarAgenda(job.idprofessor)"></ion-icon>
+            <ion-icon md="md-eye" title="visualizar" title="Informações Adicionais" (click)="visualizar(job)"></ion-icon>
             <ion-icon ios="ios-create" md="md-create" title="Editar" (click)="editar(job)"></ion-icon>
             <ion-icon ios="ios-trash" md="md-trash" title="Excluir" (click)="excluirProfessor(job.idprofessor)"></ion-icon>
           </ion-col>
