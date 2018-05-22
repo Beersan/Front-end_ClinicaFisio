@@ -34,6 +34,7 @@
         <ion-col>{{ agenda.numerosessoes }}</ion-col>
         <ion-col>{{ agenda.datainicio | date: 'dd/MM/yyyy'}}</ion-col>
         <ion-col class="iconeDireita">
+            <ion-icon ios="md-settings" md="md-settings" title="Gerenciar" (click)="gerenciar(agenda)"></ion-icon>
             <ion-icon ios="ios-create" md="md-create" title="Editar" (click)="editar(grupo)"></ion-icon>
             <ion-icon ios="ios-trash" md="md-trash" title="Excluir" (click)="excluir(grupo.idgrupo)"></ion-icon>
         </ion-col>

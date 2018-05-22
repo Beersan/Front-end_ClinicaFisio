@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { NgForm, FormsModule, Validators, FormBuilder } from '@angular/forms';
 import { EvolucaoDiariaPage } from '../evolucao-diaria/evolucao-diaria';
+import { IncluirAssinaturaPage } from '../incluir-assinatura/incluir-assinatura';
 
 /**
  * Generated class for the GerenciamentoPage page.
@@ -36,7 +37,13 @@ export class GerenciamentoPage {
     this.navCtrl.pop();
   }
 
-  evolucaoDiarias(){
+  inserirAssinatura(){
+    this.navCtrl.push(IncluirAssinaturaPage, {
+      rootNavCtrl: this.navCtrl
+    });
+  }
+
+  evolucaoDiaria(){
     this.navCtrl.push(EvolucaoDiariaPage, {
       rootNavCtrl: this.navCtrl
     });
