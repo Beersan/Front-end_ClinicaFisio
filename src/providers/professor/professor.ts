@@ -12,6 +12,9 @@ export class ProfessorProvider {
   telefoneprofessor: any;
   especialidadeprofessor: any;
   estagio: any;
+  descricaohorainicio: any;
+  descricaohorafim: any;
+  descricaosemana: any;
 
   constructor(public http: HttpClient) {}
   
@@ -45,5 +48,13 @@ export class ProfessorProvider {
 
   listarEstagio(){
     return this.http.get('http://localhost:3000/professor/listarEstagio').toPromise();
+  }
+
+  listarAgenda(idProfessor){
+    return new Promise((resolve, reject) => {
+      this.http.post('http://localhost:3000/professor/agenda', idProfessor).subscribe(response => {
+        resolve(response);
+      });
+    });
   }
 }
