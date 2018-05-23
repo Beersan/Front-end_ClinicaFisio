@@ -39,6 +39,14 @@
         </ion-select>
       </ion-item>
     </ion-col>
+    <ion-col width-25>
+      <ion-item>
+        <ion-label floating>Periodo</ion-label>
+        <ion-select name="Periodo" [(ngModel)]="Periodo">
+          <ion-option *ngFor="let Periodo of periodo" value="{{ Periodo.descricaoperiodo }}">{{ Periodo.descricaoperiodo }}</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-col>
   </ion-row>
   <ion-row>
     <ion-col width-25>
@@ -50,11 +58,13 @@
     <ion-col><h6>Dia da Semana</h6></ion-col>
     <ion-col><h6>Hora Inicio</h6></ion-col>
     <ion-col><h6>Hora Fim</h6></ion-col>
+    <ion-col><h6>Periodo</h6></ion-col>
   </ion-row>
   <ion-row *ngFor="let horario of horarios; let i=index" >
     <ion-col>{{horario[0]}}</ion-col>
     <ion-col>{{horario[1]}}</ion-col>
-    <ion-col>{{horario[2]}}</ion-col>  
+    <ion-col>{{horario[2]}}</ion-col>
+    <ion-col>{{horario[3]}}</ion-col>   
     <ion-col col-auto>
       <ion-icon md="ios-trash" title="Remover" (click)="remover(i)"></ion-icon> 
     </ion-col>

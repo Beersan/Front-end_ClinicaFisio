@@ -9,6 +9,7 @@ export class AgendaProfessorProvider {
   diaSemana: any;
   horaInicio : any;
   horaFim: any;
+  periodo: any;
 
   constructor(public http: HttpClient) {}
   
@@ -24,6 +25,10 @@ export class AgendaProfessorProvider {
   listarHoraFim(){
     return this.http.get('https://backfisio.herokuapp.com/agendaProfessor/listarHoraFim').toPromise();
   }
+  listarPeriodo(){
+    return this.http.get('http://localhost:3000/agendaProfessor/listarPeriodo').toPromise();
+  }
+
   inserirAgenda(agenda){
     return new Promise((resolve, reject) => {
       this.http.post('https://backfisio.herokuapp.com/agendaProfessor/inserirAgenda', agenda).subscribe(response => {
