@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AgendaProfessorProvider } from '../../providers/agenda-professor/agenda-professor';
 import { AgendaProfessor } from '../../models/model.agenda-professor';
-import { NgForm, FormsModule } from '@angular/forms';
+import { NgForm, FormsModule, Validators, FormBuilder } from '@angular/forms';
 import { AlertController } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
@@ -33,32 +33,35 @@ export class CadastrarHorarioProfessorPage {
   professoresA: Professor;
   idprofessorA: any;
   codigoDia: any;
+  cadastroHorario: any={};
+  nomeProfessor: any;
+
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
     public provider: AgendaProfessorProvider,
     public alertCtrl: AlertController,
+    public formBuilder: FormBuilder
   ) {
     //var text = JSON.stringify(this.professor);
     //var obj = JSON.parse(text);
-    this.professoresA = this.navParams.data.professor;
+    this.professoresA = this.navParams.data.professor.idprofessor;
+    this.nomeProfessor = this.navParams.data.professor.nomeprofessor;
     /*this.listarProfessor();*/
     this.listarDiaSemana();
     this.listarHoraInicio();
     this.listarHoraFim();
     this.listarPeriodo();
+    this.cadastroHorario = formBuilder.group({
+      diaSemana:['', Validators.required],
+      horaInicio:['', Validators.required],
+      horaFim:['', Validators.required],
+      Periodo:['', Validators.required],
+    })
+
   }
   ionViewDidLoad() {
   }
-  
-  /*listarProfessor(){
-    this.provider.listarProfessor().then(
-      data => {
-        this.professores = data;        
-     }
-    )
-    .catch(error => alert(error));
-  }*/
 
   listarDiaSemana(){
     this.provider.listarDiaSemana().then(

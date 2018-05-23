@@ -100,10 +100,10 @@ export class ListarProfessoresPage {
     }); 
     toast.present();
   }
-  horarios(idprofessor){
+  horarios(Professor){
     this.navCtrl.push(CadastrarHorarioProfessorPage, {
       rootNavCtrl: this.navCtrl,
-      professor: idprofessor
+      professor: Professor
     });
   }
   listarAgenda(idprofessor){

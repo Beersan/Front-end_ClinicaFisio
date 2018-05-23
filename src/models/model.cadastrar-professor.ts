@@ -8,4 +8,5 @@ export interface Professor{
     especialidadeProfessor: any,
     codigoEspecialidade: any,
     codigoEstagio: any;
+    
 }

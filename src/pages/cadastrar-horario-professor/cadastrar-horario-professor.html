@@ -10,15 +10,16 @@
   <ion-row>
     <ion-col width-50>
       <ion-item>
-        <ion-label fixed>Professor(a)</ion-label>
+        <ion-label>Horários do(a) professor(a) {{nomeProfessor}}</ion-label>
       </ion-item>
     </ion-col>
   </ion-row> 
+  <form #f="ngForm" [formGroup]="cadastroHorario">
   <ion-row>
     <ion-col width-25>
       <ion-item>
         <ion-label floating>Dia da Semana</ion-label>
-        <ion-select name="diaSemana" [(ngModel)]="diaSemana">
+        <ion-select name="diaSemana" [(ngModel)]="diaSemana" formControlName="diaSemana">
           <ion-option *ngFor="let diaSemana of diaSemanas" value="{{ diaSemana.descricaosemana }}">{{ diaSemana.descricaosemana }}</ion-option>
         </ion-select>
       </ion-item>
@@ -26,7 +27,7 @@
     <ion-col width-25>
       <ion-item>
         <ion-label floating>Hora Inicio</ion-label>
-        <ion-select name="horaInicio" [(ngModel)]="horaInicio">
+        <ion-select name="horaInicio" [(ngModel)]="horaInicio" formControlName="horaInicio">
           <ion-option *ngFor="let horaInicio of horaInicioA" value="{{ horaInicio.descricaohorainicio }}">{{ horaInicio.descricaohorainicio }}</ion-option>
         </ion-select>
       </ion-item>
@@ -34,7 +35,7 @@
     <ion-col width-25>
       <ion-item>
         <ion-label floating>Hora Fim</ion-label>
-        <ion-select name="horaFim" [(ngModel)]="horaFim">
+        <ion-select name="horaFim" [(ngModel)]="horaFim" formControlName="horaFim">
           <ion-option *ngFor="let horaFim of horaFimA" value="{{ horaFim.descricaohorafim }}">{{ horaFim.descricaohorafim }}</ion-option>
         </ion-select>
       </ion-item>
@@ -42,7 +43,7 @@
     <ion-col width-25>
       <ion-item>
         <ion-label floating>Periodo</ion-label>
-        <ion-select name="Periodo" [(ngModel)]="Periodo">
+        <ion-select name="Periodo" [(ngModel)]="Periodo" formControlName="Periodo">
           <ion-option *ngFor="let Periodo of periodo" value="{{ Periodo.descricaoperiodo }}">{{ Periodo.descricaoperiodo }}</ion-option>
         </ion-select>
       </ion-item>
@@ -50,9 +51,10 @@
   </ion-row>
   <ion-row>
     <ion-col width-25>
-      <button ion-button float-right (click)="adicionarHorario()">Adicionar</button>
+      <button ion-button float-right (click)="adicionarHorario()" [disabled]="!cadastroHorario.valid">Adicionar</button>
     </ion-col>
   </ion-row>
+  </form>
   <ion-row *ngIf="horarios != ''">
     <ion-col col-auto></ion-col>
     <ion-col><h6>Dia da Semana</h6></ion-col>
@@ -69,6 +71,8 @@
       <ion-icon md="ios-trash" title="Remover" (click)="remover(i)"></ion-icon> 
     </ion-col>
   </ion-row>
+  <ion-row *ngIf="horarios != ''">
   <button ion-button color="danger" (click)="cancelar()" menuToggle="left">Cancelar</button>
   <button ion-button color="secondary" (click)="incluirHorario()">Confirmar</button>
+  </ion-row>
 </ion-content>
