@@ -31,19 +31,19 @@ export class ReservaSalaProvider {
       rota = "editar";
     }
     return new Promise((resolve, reject) => {
-      this.http.post('http://localhost:3000/reservaSala/' + rota, reserva).subscribe(response => {
+      this.http.post('https://backfisio.herokuapp.com/reservaSala/' + rota, reserva).subscribe(response => {
         resolve(response);
       });
     });
   }
 
   retornarReservaSala(){    
-    return this.http.get('http://localhost:3000/reservaSala/listar').toPromise();
+    return this.http.get('https://backfisio.herokuapp.com/reservaSala/listar').toPromise();
   }
 
   listarDatasReservadas(sala){
     return new Promise((resolve, reject) => {
-    this.http.post('http://localhost:3000/reservaSala/listarDataReserva', sala).subscribe(response => {
+    this.http.post('https://backfisio.herokuapp.com/reservaSala/listarDataReserva', sala).subscribe(response => {
         resolve(response);
       });
     });
@@ -51,7 +51,7 @@ export class ReservaSalaProvider {
 
   excluirReservaSala(idReserva){
     return new Promise((resolve, reject) => {
-      this.http.post('http://localhost:3000/reservaSala/excluir', idReserva).subscribe(response => {
+      this.http.post('https://backfisio.herokuapp.com/reservaSala/excluir', idReserva).subscribe(response => {
         resolve(response);
       });
     });

@@ -8,21 +8,21 @@ export class GrupoEstagiarioProvider {
   constructor(public http: HttpClient) {}
 
   retornarGrupo(){
-    return this.http.get('http://localhost:3000/grupoestagiario/listargrupo').toPromise();
+    return this.http.get('https://backfisio.herokuapp.com/grupoestagiario/listargrupo').toPromise();
   }
 
   retornarEstagiario(){
-    return this.http.get('http://localhost:3000/grupoestagiario/listarestagiario').toPromise();
+    return this.http.get('https://backfisio.herokuapp.com/grupoestagiario/listarestagiario').toPromise();
   }
 
   retornarEstagio(){
-    return this.http.get('http://localhost:3000/grupoestagiario/listarestagio').toPromise();
+    return this.http.get('https://backfisio.herokuapp.com/grupoestagiario/listarestagio').toPromise();
   }
 
   alterarEstagio(idgrupo) {
     console.log(idgrupo);
     return new Promise((resolve, reject) => {
-      this.http.post('http://localhost:3000/grupoestagiario/alterarestagio', idgrupo).subscribe(response => {
+      this.http.post('https://backfisio.herokuapp.com/grupoestagiario/alterarestagio', idgrupo).subscribe(response => {
         resolve(response);
       });
     });
@@ -30,19 +30,19 @@ export class GrupoEstagiarioProvider {
 
   createAlterarEstagio(grupo) {
     return new Promise((resolve, reject) => {
-      this.http.post('http://localhost:3000/grupoestagiario/cadastrarnovoestagio', grupo).subscribe(response => {
+      this.http.post('https://backfisio.herokuapp.com/grupoestagiario/cadastrarnovoestagio', grupo).subscribe(response => {
         resolve(response);
       });
     });
   }
 
   retornarGrupoEstagiario(){
-    return this.http.get('http://localhost:3000/grupoestagiario/listargrupoestagiario').toPromise();
+    return this.http.get('https://backfisio.herokuapp.com/grupoestagiario/listargrupoestagiario').toPromise();
   }
 
   retornarGrupoEstagiarioComId(idgrupo){
     return new Promise((resolve, reject) => {
-      this.http.post('http://localhost:3000/grupoestagiario/listargrupoestagiariocomid', idgrupo).subscribe(response => {
+      this.http.post('https://backfisio.herokuapp.com/grupoestagiario/listargrupoestagiariocomid', idgrupo).subscribe(response => {
         resolve(response);
       });
     });
@@ -50,7 +50,7 @@ export class GrupoEstagiarioProvider {
 
   create(codigo) {
     return new Promise((resolve, reject) => {
-      this.http.post('http://localhost:3000/grupoestagiario/cadastrar', codigo).subscribe(response => {
+      this.http.post('https://backfisio.herokuapp.com/grupoestagiario/cadastrar', codigo).subscribe(response => {
         resolve(response);
       });
     });
@@ -58,7 +58,7 @@ export class GrupoEstagiarioProvider {
 
   excluirGrupoEstagiario(idgrupo){
     return new Promise((resolve, reject) => {
-      this.http.post('http://localhost:3000/grupoestagiario/excluir', idgrupo).subscribe(response => {
+      this.http.post('https://backfisio.herokuapp.com/grupoestagiario/excluir', idgrupo).subscribe(response => {
         resolve(response);
       });
     });
@@ -66,7 +66,7 @@ export class GrupoEstagiarioProvider {
 
   retornarEstagiarioEditar(idGrupo){
     return new Promise((resolve, reject) => {
-      this.http.post('http://localhost:3000/grupoestagiario/listarestagiarioseditar', idGrupo).subscribe(response => {
+      this.http.post('https://backfisio.herokuapp.com/grupoestagiario/listarestagiarioseditar', idGrupo).subscribe(response => {
         resolve(response);
       });
     });
@@ -74,7 +74,7 @@ export class GrupoEstagiarioProvider {
 
    /*retornarProfessor(professor: any){
     return new Promise((resolve, reject) => {
-      this.http.post('http://localhost:3000/grupoestagiario/listarprofessor', professor).subscribe(response => {
+      this.http.post('https://backfisio.herokuapp.com/grupoestagiario/listarprofessor', professor).subscribe(response => {
         resolve(response);
       });
     });

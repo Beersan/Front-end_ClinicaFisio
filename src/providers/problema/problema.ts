@@ -26,7 +26,7 @@ export class RelatarProblemaProvider {
 
   create(problema: RelatarProblema) {
     return new Promise((resolve, reject) => {
-      this.http.post('http://localhost:3000/problema/relatarProblema', problema).subscribe(response => {
+      this.http.post('https://backfisio.herokuapp.com/problema/relatarProblema', problema).subscribe(response => {
         resolve(response);
       });
     });

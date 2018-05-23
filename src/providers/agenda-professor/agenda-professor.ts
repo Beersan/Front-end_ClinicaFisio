@@ -14,16 +14,16 @@ export class AgendaProfessorProvider {
   constructor(public http: HttpClient) {}
   
   listarProfessor(){    
-    return this.http.get('http://localhost:3000/agendaProfessor/listarProfessor').toPromise();
+    return this.http.get('https://backfisio.herokuapp.com/agendaProfessor/listarProfessor').toPromise();
   }
   listarDiaSemana(){
-    return this.http.get('http://localhost:3000/agendaProfessor/listarDiaSemana').toPromise();
+    return this.http.get('https://backfisio.herokuapp.com/agendaProfessor/listarDiaSemana').toPromise();
   }
   listarHoraInicio(){
-    return this.http.get('http://localhost:3000/agendaProfessor/listarHoraInicio').toPromise();
+    return this.http.get('https://backfisio.herokuapp.com/agendaProfessor/listarHoraInicio').toPromise();
   }
   listarHoraFim(){
-    return this.http.get('http://localhost:3000/agendaProfessor/listarHoraFim').toPromise();
+    return this.http.get('https://backfisio.herokuapp.com/agendaProfessor/listarHoraFim').toPromise();
   }
   listarPeriodo(){
     return this.http.get('http://localhost:3000/agendaProfessor/listarPeriodo').toPromise();
@@ -31,7 +31,7 @@ export class AgendaProfessorProvider {
 
   inserirAgenda(agenda){
     return new Promise((resolve, reject) => {
-      this.http.post('http://localhost:3000/agendaProfessor/inserirAgenda', agenda).subscribe(response => {
+      this.http.post('https://backfisio.herokuapp.com/agendaProfessor/inserirAgenda', agenda).subscribe(response => {
         resolve(response);
       });
     });

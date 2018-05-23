@@ -32,19 +32,19 @@ export class CadastrarEstagiarioProvider {
       rota = "editar";
     }
     return new Promise((resolve, reject) => {
-      this.http.post('http://localhost:3000/estagiario/' + rota, estagiario).subscribe(response => {
+      this.http.post('https://backfisio.herokuapp.com/estagiario/' + rota, estagiario).subscribe(response => {
         resolve(response);
       });
     });
   }
 
   retornarEstagiario(){    
-    return this.http.get('http://localhost:3000/estagiario/listar').toPromise();
+    return this.http.get('https://backfisio.herokuapp.com/estagiario/listar').toPromise();
   }
 
   excluirEstagiario(idEstagiario){
     return new Promise((resolve, reject) => {
-      this.http.post('http://localhost:3000/estagiario/excluir', idEstagiario).subscribe(response => {
+      this.http.post('https://backfisio.herokuapp.com/estagiario/excluir', idEstagiario).subscribe(response => {
         resolve(response);
       });
     });

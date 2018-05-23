@@ -13,23 +13,23 @@ export class PreCadastroProvider {
 
   gravar(preCadastro: PreCadastro){
     return new Promise((resolve, reject) => {
-      this.http.post('http://localhost:3000/preCadastro/gravar', preCadastro).subscribe(response => {
+      this.http.post('https://backfisio.herokuapp.com/preCadastro/gravar', preCadastro).subscribe(response => {
         resolve(response);
       });
     });
   }
 
   retornarEspecialidade(){    
-    return this.http.get('http://localhost:3000/preCadastro/listarEspecialidade').toPromise();
+    return this.http.get('https://backfisio.herokuapp.com/preCadastro/listarEspecialidade').toPromise();
   }
 
   retornarPacientes(){
-    return this.http.get('http://localhost:3000/preCadastro/listarPacientes').toPromise();
+    return this.http.get('https://backfisio.herokuapp.com/preCadastro/listarPacientes').toPromise();
   }
 
   excluirPaciente(idPaciente){
     return new Promise((resolve, reject) => {
-      this.http.post('http://localhost:3000/preCadastro/excluir', idPaciente).subscribe(response => {
+      this.http.post('https://backfisio.herokuapp.com/preCadastro/excluir', idPaciente).subscribe(response => {
         resolve(response);
       });      
     });
@@ -37,7 +37,7 @@ export class PreCadastroProvider {
 
   aprovarCadastro(dadosPaciente){    
     return new Promise((resolve, reject) => {
-      this.http.post('http://localhost:3000/preCadastro/aprovarCadastro', dadosPaciente).subscribe(response => {
+      this.http.post('https://backfisio.herokuapp.com/preCadastro/aprovarCadastro', dadosPaciente).subscribe(response => {
         resolve(response);
       });
     });
