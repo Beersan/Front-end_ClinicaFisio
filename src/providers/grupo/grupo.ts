@@ -26,26 +26,26 @@ export class GrupoProvider {
     }
     console.log(grupo);
     return new Promise((resolve, reject) => {
-      this.http.post('http://localhost:3000/grupo/' + rota, grupo).subscribe(response => {
+      this.http.post('https://backfisio.herokuapp.com/grupo/' + rota, grupo).subscribe(response => {
         resolve(response);
       });
     });
   }
 
   retornarGrupo(){    
-    return this.http.get('http://localhost:3000/grupo/listar').toPromise();
+    return this.http.get('https://backfisio.herokuapp.com/grupo/listar').toPromise();
   }
 
   excluirEstagiario(idGrupo){
     return new Promise((resolve, reject) => {
-      this.http.post('http://localhost:3000/grupo/excluir', idGrupo).subscribe(response => {
+      this.http.post('https://backfisio.herokuapp.com/grupo/excluir', idGrupo).subscribe(response => {
         resolve(response);
       });
     });
   }
 
   retornarSemestre(){
-    return this.http.get('http://localhost:3000/grupo/listarsemestre').toPromise();
+    return this.http.get('https://backfisio.herokuapp.com/grupo/listarsemestre').toPromise();
   }
 
 }

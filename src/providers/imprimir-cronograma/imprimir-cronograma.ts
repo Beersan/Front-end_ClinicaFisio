@@ -35,19 +35,19 @@ export class ImprimirCronogramaProvider {
       rota = "editar";
     }
     return new Promise((resolve, reject) => {
-      this.http.post('http://localhost:3000/reservaSala/' + rota, reserva).subscribe(response => {
+      this.http.post('https://backfisio.herokuapp.com/reservaSala/' + rota, reserva).subscribe(response => {
         resolve(response);
       });
     });
   }*/
 
   retornarCronograma(){    
-    return this.http.get('http://localhost:3000/cronograma/listar').toPromise();
+    return this.http.get('https://backfisio.herokuapp.com/cronograma/listar').toPromise();
   }
 
   /*listarCronogramas(sala){
     return new Promise((resolve, reject) => {
-    this.http.post('http://localhost:3000/cronograma/listarDataReserva', sala).subscribe(response => {
+    this.http.post('https://backfisio.herokuapp.com/cronograma/listarDataReserva', sala).subscribe(response => {
         resolve(response);
       });
     });
@@ -55,7 +55,7 @@ export class ImprimirCronogramaProvider {
 
   excluirReservaSala(idReserva){
     return new Promise((resolve, reject) => {
-      this.http.post('http://localhost:3000/reservaSala/excluir', idReserva).subscribe(response => {
+      this.http.post('https://backfisio.herokuapp.com/reservaSala/excluir', idReserva).subscribe(response => {
         resolve(response);
       });
     });

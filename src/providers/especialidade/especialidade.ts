@@ -29,19 +29,19 @@ export class CadastrarEspecialidadeProvider {
       rota = "editar";
     }
     return new Promise((resolve, reject) => {
-      this.http.post('http://localhost:3000/especialidade/' + rota, especialidade).subscribe(response => {
+      this.http.post('https://backfisio.herokuapp.com/especialidade/' + rota, especialidade).subscribe(response => {
         resolve(response);
       });
     });
   }
 
   retornarEspecialidade(){
-    return this.http.get('http://localhost:3000/especialidade/listar').toPromise();
+    return this.http.get('https://backfisio.herokuapp.com/especialidade/listar').toPromise();
   }
 
   excluirEspecialidade(codigoEspecialidade){
     return new Promise((resolve, reject) => {
-      this.http.post('http://localhost:3000/especialidade/excluir', codigoEspecialidade).subscribe(response => {
+      this.http.post('https://backfisio.herokuapp.com/especialidade/excluir', codigoEspecialidade).subscribe(response => {
         resolve(response);
       });
     });
