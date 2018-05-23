@@ -3,4 +3,5 @@ export interface AgendaProfessor {
     diaSemana: any,
     horainicio: any,
     horafim: any,
+    periodo: any
   }

@@ -26,6 +26,8 @@ export class CadastrarHorarioProfessorPage {
   diaSemana: any;
   horaInicio: any;
   horaFim: any;
+  periodo: any;
+  Periodo: any;
   professor: any;
   idprofessor: any;
   professoresA: Professor;
@@ -44,7 +46,7 @@ export class CadastrarHorarioProfessorPage {
     this.listarDiaSemana();
     this.listarHoraInicio();
     this.listarHoraFim();
-
+    this.listarPeriodo();
   }
   ionViewDidLoad() {
   }
@@ -82,24 +84,37 @@ export class CadastrarHorarioProfessorPage {
       }
     )
   }
+
+  listarPeriodo(){
+    this.provider.listarPeriodo().then(
+      data => {
+        this.periodo = data;
+        console.log(this.periodo)
+      }
+    )
+  }
+
   adicionarHorario(){
-    this.horarios.push([this.diaSemana, this.horaInicio, this.horaFim]);
+    this.horarios.push([this.diaSemana, this.horaInicio, this.horaFim, this.Periodo]);
   }
 
   incluirHorario(){
     var dia: any = [];
     var hInicio: any = [];
     var hFim: any = [];
+    var periodos: any = [];
     for (let line of this.horarios){
       dia.push(line[0]);
       hInicio.push(line[1]);
       hFim.push(line[2]);
+      periodos.push(line[3]);
     }
     this.provider.inserirAgenda({
       idprofessor : this.professoresA,
       diaSemana: dia,
       horaInicio: hInicio,
       horaFim: hFim,
+      periodo: periodos,
     }).then((result) => {
       this.showAlert();    
     });  
