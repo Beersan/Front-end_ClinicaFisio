@@ -55,7 +55,7 @@ export class MyApp {
   //@ViewChild(Nav) nav: Nav;
   @ViewChild(Nav) navCtrl: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any;
 
   pages: Array<{title: string, component: any}>;
 
@@ -83,15 +83,15 @@ export class MyApp {
 	  public afAuth: AngularFireAuth
 	) {
 	this.initializeApp();	
-	// const authObserver = afAuth.authState.subscribe( user => {	
-	//  	if (user) {
-	//  	  this.rootPage = HomePage;
-	//  	  authObserver.unsubscribe();
-	// 	} else {
-	// 	  this.rootPage = LoginPage;
-	// 	  authObserver.unsubscribe();
-	// 	}
-	// });
+	const authObserver = afAuth.authState.subscribe( user => {	
+	 	if (user) {
+	 	  this.rootPage = HomePage;
+	 	  authObserver.unsubscribe();
+		} else {
+		  this.rootPage = LoginPage;
+		  authObserver.unsubscribe();
+		}
+	});
   }
 
   initializeApp() {
