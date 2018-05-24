@@ -35,6 +35,9 @@ export class CadastrarHorarioProfessorPage {
   codigoDia: any;
   cadastroHorario: any={};
   nomeProfessor: any;
+  retornaProfessores: any = {};
+  idsagendaprofessor: any = [];
+
 
   constructor(
     public navCtrl: NavController, 
@@ -52,6 +55,7 @@ export class CadastrarHorarioProfessorPage {
     this.listarHoraInicio();
     this.listarHoraFim();
     this.listarPeriodo();
+    this.listarAgenda();
     this.cadastroHorario = formBuilder.group({
       diaSemana:['', Validators.required],
       horaInicio:['', Validators.required],
@@ -92,13 +96,36 @@ export class CadastrarHorarioProfessorPage {
     this.provider.listarPeriodo().then(
       data => {
         this.periodo = data;
-        console.log(this.periodo)
       }
     )
   }
 
   adicionarHorario(){
     this.horarios.push([this.diaSemana, this.horaInicio, this.horaFim, this.Periodo]);
+  }
+
+  listarAgenda(){
+    var dia: any = [];
+    var hInicio: any = [];
+    var hFim: any = [];
+    var periodos: any = [];
+    var i: any = 0;
+    this.provider.listarAgenda({
+      idprofessor : this.professoresA,
+    }).then(
+      data => {
+        this.retornaProfessores = data;
+        for(let line of this.retornaProfessores){
+          this.idsagendaprofessor = this.retornaProfessores[i].idagendaprofessor;
+          dia = this.retornaProfessores[i].descricaosemana;
+          hInicio = this.retornaProfessores[i].descricaohorainicio;
+          hFim = this.retornaProfessores[i].descricaohorafim;
+          periodos = this.retornaProfessores[i].descricaoperiodo;
+          this.horarios.push([dia, hInicio, hFim, periodos]);
+          i ++;
+        }     
+      }
+    )
   }
 
   incluirHorario(){
@@ -112,7 +139,8 @@ export class CadastrarHorarioProfessorPage {
       hFim.push(line[2]);
       periodos.push(line[3]);
     }
-    this.provider.inserirAgenda({
+    this.provider.gravarAgenda({
+      idagendaprofessor : this.idsagendaprofessor,
       idprofessor : this.professoresA,
       diaSemana: dia,
       horaInicio: hInicio,
