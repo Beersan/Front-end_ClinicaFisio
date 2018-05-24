@@ -134,11 +134,6 @@ export class MyApp {
 					component: ListarProfessoresPage
 				},	
 				{
-					iconName: 'time',
-					displayText: 'Horário Professores',
-					component: CadastrarHorarioProfessorPage
-				},	
-				{
 					iconName: 'contact',
 					displayText: 'Estagiário',
 					component: ListarEstagiarioPage

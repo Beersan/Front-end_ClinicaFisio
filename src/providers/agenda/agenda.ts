@@ -19,19 +19,19 @@ export class AgendaProvider {
 
   retornarprofessor(paciente){
     return new Promise((resolve, reject) => {
-      this.http.post('https://backfisio.herokuapp.com/agenda/listarprofessor', paciente).subscribe(response => {
+      this.http.post('http://localhost:3000/agenda/listarprofessor', paciente).subscribe(response => {
         resolve(response);
       });
     });
   }
   
   retornarPaciente(){
-    return this.http.get('https://backfisio.herokuapp.com/agenda/listarpaciente').toPromise();
+    return this.http.get('http://localhost:3000/agenda/listarpaciente').toPromise();
   }
   
   retornarDia(paciente){
     return new Promise((resolve, reject) => {
-      this.http.post('https://backfisio.herokuapp.com/agenda/listardia', paciente).subscribe(response => {
+      this.http.post('http://localhost:3000/agenda/listardia', paciente).subscribe(response => {
         resolve(response);
       });
     });
@@ -39,7 +39,7 @@ export class AgendaProvider {
   
   retornarHorario(paciente){
     return new Promise((resolve, reject) => {
-      this.http.post('https://backfisio.herokuapp.com/agenda/listarhorario', paciente).subscribe(response => {
+      this.http.post('http://localhost:3000/agenda/listarhorario', paciente).subscribe(response => {
         
         resolve(response);
       });
@@ -49,14 +49,15 @@ export class AgendaProvider {
   create(agenda: Agenda) {
     console.log(agenda);
     return new Promise((resolve, reject) => {
-      this.http.post('https://backfisio.herokuapp.com/agenda/cadastrar', agenda).subscribe(response => {
+      this.http.post('http://localhost:3000/agenda/cadastrar', agenda).subscribe(response => {
         resolve(response);
       });
     });
   }
 
   retornarAgenda(){
-    return this.http.get('https://backfisio.herokuapp.com/agenda/listar').toPromise();
+    return this.http.get('http://localhost:3000/agenda/listar').toPromise();
   }
 
 }
+//https://backfisio.herokuapp.com rota heroku

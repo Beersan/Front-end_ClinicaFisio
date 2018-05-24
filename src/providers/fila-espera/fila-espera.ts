@@ -16,7 +16,6 @@ export class FilaEsperaProvider {
     return this.http.get('http://localhost:3000/filaEspera/listarEstagiariosFila').toPromise();
   }
 
-  
   retornarAnexosPaciente(paciente){
     return new Promise((resolve, reject) => {
       this.http.post('http://localhost:3000/filaEspera/retornarArquivosPacientes', paciente).subscribe(response => {        
@@ -34,7 +33,6 @@ export class FilaEsperaProvider {
   }
 
   vincularPacienteEstagiario(valores){
-    //console.log(valores);
     return new Promise((resolve, reject) => {
       this.http.post('http://localhost:3000/filaEspera/vincularPacienteEstagiario', valores).subscribe(response => {
         resolve(response);
