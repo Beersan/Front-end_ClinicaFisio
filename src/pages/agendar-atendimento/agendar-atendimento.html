@@ -10,15 +10,27 @@
   <form [formGroup]="validarAgendarAtendimento" (ngSubmit)="cadastrarAgendaPaciente()">
   <ion-grid>
     <ion-row>
-      <ion-col width-100>
+      <ion-col width-50>
         <ion-item>
           <ion-label floating>Paciente</ion-label>
-          <ion-select name="paciente" [(ngModel)]="paciente" formControlName="paciente" type="text" (ionChange)="listarDia();listarProfessor();">
+          <ion-select name="paciente" [(ngModel)]="paciente" formControlName="paciente" type="text" (ionChange)="listarProfessor();">
             <ion-option *ngFor="let paciente of pacientes" value="{{ paciente.idpaciente }}">{{ paciente.nomepaciente }}</ion-option>
           </ion-select>
         </ion-item>
       </ion-col>
+      <ion-col width-50></ion-col>
     </ion-row>
+    <ion-row>
+        <ion-col width-50>
+          <ion-item>
+            <ion-label floating>Professor responsável</ion-label>
+            <ion-select name="professor" [(ngModel)]="professor" formControlName="professor" type="text" (ionChange)="listarDia();">                
+              <ion-option *ngFor="let professor of professores" value="{{ professor.idprofessor }}">{{ professor.nomeprofessor }}</ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+        <ion-col width-50></ion-col>
+      </ion-row>
     <ion-row>
       <ion-col width-25>
         <ion-item>
@@ -30,12 +42,16 @@
       </ion-col>
       <ion-col width-25>
         <ion-item>
-          <ion-label floating>Horário</ion-label>
+          <ion-label floating>Horário de início</ion-label>
           <ion-select name="horario" formControlName="horario" [(ngModel)]="horario">
             <ion-option *ngFor="let horario of horarios" value="{{ horario.idhorainicio }}">{{ horario.descricaohorainicio }}</ion-option>
           </ion-select>
         </ion-item>
       </ion-col>
+      <ion-col width-25></ion-col>
+      <ion-col width-25></ion-col>
+    </ion-row>
+    <ion-row>
       <ion-col width-25>
         <ion-item>
           <ion-label floating>Nº de Sessões</ion-label>
@@ -48,6 +64,8 @@
           <ion-datetime displayFormat="DD/MM/YYYY" name="dataInicioAtendimento" formControlName="dataInicioAtendimento" [(ngModel)]="dataInicioAtendimento"></ion-datetime>
         </ion-item>
       </ion-col>
+      <ion-col width-25></ion-col>
+      <ion-col width-25></ion-col>
     </ion-row>
   </ion-grid>
   <button type="button" ion-button color="danger" (click)="cancelar()">Cancelar</button>

@@ -16,7 +16,7 @@
   <ion-searchbar placeholder="Buscar..." (ionInput)="filtrarItens($event)"></ion-searchbar>
   <button ion-button float-right (click)="incluir()">Novo Atendimento</button>
   <ion-grid>
-      <ion-row>
+      <ion-row *ngIf="listaAgenda != '' && listaAgenda != null">
         <ion-col><h6>Status</h6></ion-col>
         <ion-col><h6>Nome</h6></ion-col>
         <ion-col><h6>Dia da Semana</h6></ion-col>

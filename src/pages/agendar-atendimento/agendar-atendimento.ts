@@ -3,20 +3,12 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 import { NgForm, FormsModule, Validators, FormBuilder } from '@angular/forms';
 import { AgendaProvider } from '../../providers/agenda/agenda';
 
-/**
- * Generated class for the AgendarAtendimentoPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-agendar-atendimento',
   templateUrl: 'agendar-atendimento.html',
 })
 export class AgendarAtendimentoPage {
-
   paciente: any;
   pacientes: any;
   diaDaSemana: any;
@@ -26,6 +18,7 @@ export class AgendarAtendimentoPage {
   numeroSessoes: any;
   dataInicioAtendimento: any;
   professor: any;
+  professores: any;
   dadosPaciente : any;
   validarAgendarAtendimento: any = {};
   
@@ -34,13 +27,12 @@ export class AgendarAtendimentoPage {
     public navParams: NavParams, 
     private provider: AgendaProvider,
     public alertCtrl: AlertController,
-    private formBuilder: FormBuilder) 
-  {
+    private formBuilder: FormBuilder
+  ){
     if (this.navParams.data.paciente) {       
       this.dadosPaciente = JSON.parse(JSON.stringify(this.navParams.data.paciente));
       this.pacientes = [{idpaciente: this.dadosPaciente.idpaciente, nomepaciente: this.dadosPaciente.nomepaciente}];
       this.paciente = this.dadosPaciente.idpaciente;
-      this.listarDia();
       this.listarProfessor();
     }
     this.validarAgendarAtendimento = formBuilder.group ({
@@ -49,6 +41,7 @@ export class AgendarAtendimentoPage {
       horario:['', Validators.required],
       numeroSessoes:['', Validators.required],
       dataInicioAtendimento:['', Validators.required],
+      professor:['', Validators.required],
     })
   }
 
@@ -61,47 +54,33 @@ export class AgendarAtendimentoPage {
   }
 
   listarProfessor(){
-      this.provider.retornarprofessor({paciente: this.paciente}).then(
-        data => {
-            this.professor = data;
-          }
-        )
-        .catch(error => alert(error));
+    this.provider.retornarprofessor({paciente: this.paciente}).then(
+      data => {
+        this.professores = data;
+    }).catch(error => alert(error));
   }
 
   listarPaciente(){
     if(this.pacientes == null){
       this.provider.retornarPaciente().then(
         data => {
-            console.log(data);
-            this.pacientes = data;
-            
-          }
-        )
-        .catch(error => alert(error));
+          this.pacientes = data;
+      }).catch(error => alert(error));
     } 
   }
 
-  listarDia(){
-    if(this.dias == null){
-      this.provider.retornarDia({paciente: this.paciente}).then(
-        data => {
-            this.dias = data;
-          }
-        )
-        .catch(error => alert(error));
-    } 
+  listarDia(){    
+    this.provider.retornarDia({idprofessor: this.professor}).then(
+      data => {
+        this.dias = data;
+    }).catch(error => alert(error));
   }
 
   listarHorario(){
-    if(this.horarios == null){
-      this.provider.retornarHorario({paciente: this.paciente, dia: this.diaDaSemana, professor: this.professor}).then(
-        data => {
-            this.horarios = data;
-          }
-        )
-        .catch(error => alert(error));
-    } 
+    this.provider.retornarHorario({dia: this.diaDaSemana, professor: this.professor}).then(
+      data => {
+        this.horarios = data;
+    }).catch(error => alert(error));
   }
 
   cadastrarAgendaPaciente(){ 
@@ -119,7 +98,7 @@ export class AgendarAtendimentoPage {
   showAlert() {
     let alert = this.alertCtrl.create({
       title: 'Sucesso!',
-      subTitle: 'Agenda gravada.',
+      subTitle: 'Atendimento gravado.',
       buttons: ['Ok']
     });
     alert.present();

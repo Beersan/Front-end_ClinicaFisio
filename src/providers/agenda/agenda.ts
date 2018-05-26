@@ -29,18 +29,17 @@ export class AgendaProvider {
     return this.http.get('http://localhost:3000/agenda/listarpaciente').toPromise();
   }
   
-  retornarDia(paciente){
+  retornarDia(idprofessor){
     return new Promise((resolve, reject) => {
-      this.http.post('http://localhost:3000/agenda/listardia', paciente).subscribe(response => {
+      this.http.post('http://localhost:3000/agenda/listardia', idprofessor).subscribe(response => {
         resolve(response);
       });
     });
   }
   
-  retornarHorario(paciente){
+  retornarHorario(dados){
     return new Promise((resolve, reject) => {
-      this.http.post('http://localhost:3000/agenda/listarhorario', paciente).subscribe(response => {
-        
+      this.http.post('http://localhost:3000/agenda/listarhorario', dados).subscribe(response => {        
         resolve(response);
       });
     });
