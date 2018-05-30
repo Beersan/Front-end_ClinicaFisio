@@ -86,12 +86,13 @@ export class AgendarAtendimentoPage {
   cadastrarAgendaPaciente(){ 
     this.provider.create({
       paciente: this.paciente,
+      professor: this.professor,
       dia: this.diaDaSemana,
       horario: this.horario,
       numeroSessoes: this.numeroSessoes,
       dataInicioAtendimento: this.dataInicioAtendimento
     }).then((result) =>{
-      this.showAlert();
+      //this.showAlert();
     });
   }
 
