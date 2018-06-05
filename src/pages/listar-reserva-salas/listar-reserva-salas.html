@@ -9,7 +9,7 @@
 <ion-content padding>
     <ion-searchbar placeholder="Buscar..." (ionInput)="filtrarItens($event)"></ion-searchbar>
   <button ion-button float-right (click)="incluir()">Adicionar</button>
-  <ion-grid>
+  <ion-grid *ngIf="reservas !=''">
       <ion-row>
         <ion-col><h6>Solicitante</h6></ion-col>
         <ion-col><h6>Sala reserva</h6></ion-col>

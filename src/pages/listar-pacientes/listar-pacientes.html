@@ -9,7 +9,7 @@
 <ion-content padding>
   <ion-searchbar placeholder="Buscar..." (ionInput)="filtrarItens($event)"></ion-searchbar>
   <button ion-button float-right (click)="incluir()">Pré Cadastro</button>
-  <ion-grid>
+  <ion-grid *ngIf="pacientes !=''">
       <ion-row>
         <ion-col><h6>Paciente</h6></ion-col>
         <ion-col><h6>Data de nascimento</h6></ion-col>
