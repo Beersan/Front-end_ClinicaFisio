@@ -1,14 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { RelatarProblemaProvider } from '../../providers/problema/problema';
-
-/**
- * Generated class for the EvolucaoDiariaPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { AgendaProvider } from '../../providers/agenda/agenda';
 
 @IonicPage()
 @Component({
@@ -17,21 +11,46 @@ import { RelatarProblemaProvider } from '../../providers/problema/problema';
 })
 export class EvolucaoDiariaPage {
   evolucaoDiaria: any;
-  
+  dadosSessao:any;
+  idgerenciaratendimento: any
+  descricaoEvolucao: any;
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
     public formBuilder: FormBuilder,
-    public provider: RelatarProblemaProvider
-  ) {
-  {
-  this.evolucaoDiaria = formBuilder.group ({
-    descricaoEvolucao:['', Validators.required]
-  })
-}
-}
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad EvolucaoDiariaPage');
+    private alertCtrl: AlertController,
+    public provider: AgendaProvider
+  ){
+    if (this.navParams.data.sessao) {      
+      this.dadosSessao = JSON.parse(JSON.stringify(this.navParams.data.sessao));            
+      this.idgerenciaratendimento = this.dadosSessao.idgerenciaratendimento;
+      if(this.dadosSessao.evolucaodiaria != null && this.dadosSessao.evolucaodiaria != ""){
+        this.descricaoEvolucao = this.dadosSessao.evolucaodiaria;
+      }
+    }
+
+    this.evolucaoDiaria = formBuilder.group ({
+      descricaoEvolucao:['', Validators.required]
+    })
+  }
+
+  gravar(){    
+    this.provider.gravarEvolucao({
+      evolucaodiaria: this.descricaoEvolucao,
+      idgerenciaratendimento: this.idgerenciaratendimento
+    }).then((result) => {
+      this.showAlert();    
+    });  
+  }
+
+  showAlert(){
+    let alert = this.alertCtrl.create({
+      title: 'Sucesso!',
+      subTitle: 'Evolução diária gravada.',
+      buttons: ['Ok']
+    });
+    alert.present();
+    this.navCtrl.pop();
   }
   
   cancelar(){

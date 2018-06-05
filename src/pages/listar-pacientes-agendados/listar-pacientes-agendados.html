@@ -1,9 +1,3 @@
-<!--
-  Generated template for the ListarPacientesAgendadosPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
   <ion-navbar>
     <button ion-button menuToggle>
@@ -17,26 +11,25 @@
   <button ion-button float-right (click)="incluir()">Novo Atendimento</button>
   <ion-grid>
       <ion-row *ngIf="listaAgenda != '' && listaAgenda != null">
-        <ion-col><h6>Status</h6></ion-col>
-        <ion-col><h6>Nome</h6></ion-col>
-        <ion-col><h6>Dia da Semana</h6></ion-col>
-        <ion-col><h6>Horário</h6></ion-col>
-        <ion-col><h6>Número de Sessões</h6></ion-col>
-        <ion-col><h6>Início Atendimento</h6></ion-col>
-        <ion-col></ion-col>
+        <ion-col width-10><h6>Status</h6></ion-col>
+        <ion-col width-10><h6>Nome</h6></ion-col>
+        <ion-col width-10><h6>Dia da Semana</h6></ion-col>
+        <ion-col width-10><h6>Horário</h6></ion-col>
+        <ion-col width-10><h6>Número de Sessões</h6></ion-col>
+        <ion-col width-10><h6>Início Atendimento</h6></ion-col>
+        <ion-col width-10></ion-col>
       </ion-row>
-
       <ion-row *ngFor="let agenda of listaAgenda">
-        <ion-col><img [src]="agenda.status" title="Em Espera"/></ion-col>
+        <ion-col><img [src]="agenda.status" title="{{agenda.titulostatus}}"/></ion-col>
         <ion-col>{{ agenda.nomepaciente }}</ion-col>
         <ion-col>{{ agenda.descricaosemana }}</ion-col>
         <ion-col>{{ agenda.descricaohorainicio }}</ion-col>
         <ion-col>{{ agenda.numerosessoes }}</ion-col>
         <ion-col>{{ agenda.datainicio | date: 'dd/MM/yyyy'}}</ion-col>
         <ion-col class="iconeDireita">
-            <ion-icon ios="md-settings" md="md-settings" title="Gerenciar" (click)="gerenciar(agenda)"></ion-icon>
-            <ion-icon ios="ios-create" md="md-create" title="Editar" (click)="editar(grupo)"></ion-icon>
-            <ion-icon ios="ios-trash" md="md-trash" title="Excluir" (click)="excluir(grupo.idgrupo)"></ion-icon>
+            <ion-icon md="md-mail" title="Enviar exames" (click)="enviarExames(agenda.idpaciente, agenda.nomeestagiario)" *ngIf="agenda.exames == 1"></ion-icon>
+            <ion-icon md="md-trash" title="Excluir" (click)="excluir(agenda.idagenda)" *ngIf="agenda.idstatus == 1"></ion-icon>
+            <ion-icon ios="md-settings" md="md-settings" title="Gerenciar" (click)="gerenciar(agenda)" *ngIf="agenda.idstatus != 4"></ion-icon>
         </ion-col>
       </ion-row>
   </ion-grid>

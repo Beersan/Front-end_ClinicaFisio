@@ -145,7 +145,7 @@ export class MyApp {
 				},
 				{
 					iconName: 'ios-people',
-					displayText: 'Grupos de Estagiários',
+					displayText: 'Grupos de estagiários',
 					component: ListarGrupoEstagiariosPage
 				}						
 			]
@@ -176,46 +176,26 @@ export class MyApp {
 			suboptions: [
 				{
 					iconName: 'contacts',
-					displayText: 'Fila de Espera',
+					displayText: 'Fila de espera',
 					component: FilaDeEsperaPage
 				},
 				{
-					displayText: 'Agendar Atendimentos',
-					iconName:'clipboard',
-					component: AgendarAtendimentoPage
-				},
-				{
-					iconName: 'list-box',
-					displayText: 'Pacientes Agendados',
+					iconName: 'clipboard',
+					displayText: 'Agenda',
 					component: ListarPacientesAgendadosPage
 				},
 				{
-					displayText: 'Imprimir Cronograma',
+					displayText: 'Imprimir cronograma',
 					iconName:'archive',
 					component: ImprimirCronogramaPage
-				},
-				{
-					iconName: 'clipboard',
-					displayText: 'Gerenciamento de Atendimentos (Temporário)',
-					component: GerenciamentoPage
-				},
-				{
-					iconName: 'clipboard',
-					displayText: 'Evolução Diária (Temporário)',
-					component: EvolucaoDiariaPage
-				},
-				{
-					iconName: 'clipboard',
-					displayText: 'Incluir Assinatura (Temporário)',
-					component: IncluirAssinaturaPage
-				}				
+				}			
 			]
 		});
 
 		//MENU RESERVA DE SALAS
 		this.options.push({
 			iconName: 'book',
-			displayText: 'Reserva de Salas',
+			displayText: 'Reserva de salas',
 			component: ListarReservasPage
 		});
 

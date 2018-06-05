@@ -1,28 +1,22 @@
-<!--
-  Generated template for the EvolucaoDiariaPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
   <ion-navbar>
       <button ion-button menuToggle>
           <ion-icon name="menu"></ion-icon>
         </button>
-    <ion-title>Evolução Diária</ion-title>
+    <ion-title>Evolução diária</ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-  <!-- <form [formGroup]= "evolucaoDiaria" (ngSubmit)="evolucaoDiaria()" #f="ngForm" ></form> -->
-  <ion-row>
-    <ion-col>
-      <ion-item>
-        <ion-label floating>Descrição da Evolução</ion-label>
-        <ion-textarea type="text" name="descricaoEvolucao" rows="5" [(ngModel)]="descricaoEvolucao" ></ion-textarea>
-      </ion-item>
-    </ion-col>
-  </ion-row>
+  <form [formGroup]="evolucaoDiaria">
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label floating>Descrição da evolução</ion-label>
+          <ion-textarea type="text" name="descricaoEvolucao" rows="5" [(ngModel)]="descricaoEvolucao" formControlName="descricaoEvolucao"></ion-textarea>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </form>
   <button type="button" (click)="cancelar()" ion-button color="danger">Cancelar</button>
-  <button type="submit" ion-button color="secondary">Confirmar</button>
+  <button type="submit" (click)="gravar()" [disabled]="!evolucaoDiaria.valid" ion-button color="secondary">Confirmar</button>
 </ion-content>

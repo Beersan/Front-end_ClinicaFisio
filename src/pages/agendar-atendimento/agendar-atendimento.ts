@@ -92,7 +92,7 @@ export class AgendarAtendimentoPage {
       numeroSessoes: this.numeroSessoes,
       dataInicioAtendimento: this.dataInicioAtendimento
     }).then((result) =>{
-      //this.showAlert();
+      this.showAlert();
     });
   }
 
@@ -105,9 +105,4 @@ export class AgendarAtendimentoPage {
     alert.present();
     this.navCtrl.pop();
   }
-
-
-
- 
-
 }
