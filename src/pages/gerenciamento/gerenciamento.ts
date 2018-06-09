@@ -1,9 +1,15 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { NgForm, FormsModule, Validators, FormBuilder } from '@angular/forms';
 import { EvolucaoDiariaPage } from '../evolucao-diaria/evolucao-diaria';
 import { IncluirAssinaturaPage } from '../incluir-assinatura/incluir-assinatura';
-import { AgendaProvider } from '../../providers/agenda/agenda';
+
+/**
+ * Generated class for the GerenciamentoPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
 
 @IonicPage()
 @Component({
@@ -13,107 +19,33 @@ import { AgendaProvider } from '../../providers/agenda/agenda';
 export class GerenciamentoPage {
   gerenciamentoAtendimento: any;
   presenca: any;
-  dadosAgenda: any;
-  listaSessoes: any;
-  status: any;
-  idagenda: any;
+
   constructor(
     public navCtrl: NavController, 
-    private alertCtrl: AlertController,
-    private provider: AgendaProvider,
-    public navParams: NavParams
-  ){
-    if (this.navParams.data.agenda) {      
-      this.dadosAgenda = JSON.parse(JSON.stringify(this.navParams.data.agenda));
-      this.status = this.dadosAgenda.idstatus;
-      this.idagenda = this.dadosAgenda.idagenda;
-    }
-  }
+    public navParams: NavParams) 
+    {
+    // this.gerenciamentoAtendimento();  ({
+    //     paciente:['', Validators.required],
+    // })
+  };
 
-  ionViewWillEnter(){
-    if (this.dadosAgenda.idagenda != '' && this.dadosAgenda.idagenda != null){
-      this.retornarSessoes(this.dadosAgenda.idagenda);
-    }
-  }
-
-  retornarSessoes(idagenda){
-    this.provider.buscarSessoes({idagenda: idagenda}).then(
-      data => {
-        this.listaSessoes = data;
-      }
-    )
-    .catch(error => alert(error));
-  }
-
-  gravar(){    
-    this.provider.gravarStatus({
-      status: this.status,
-      idagenda: this.idagenda
-    }).then((result) => {
-      this.showAlert();    
-    });  
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad GerenciamentoPage');
   }
 
   cancelar(){
     this.navCtrl.pop();
   }
 
-  cancelarAtendimento(){
-    let alert = this.alertCtrl.create({
-      title: 'Encerrar!',
-      message: 'Deseja encerrar esse atendimento? O atendimento não poderá mais ser gerenciado.',
-      buttons: [
-        {
-          text: 'Não',
-          role: 'cancel'
-        },
-        {
-          text: 'Encerrar',
-          handler: () => {
-            this.provider.gravarStatus({
-              status: "4",
-              idagenda: this.idagenda
-            }).then((result) => {
-              this.showAlertEncerrado();
-            });
-          }
-        }
-      ]
-    });
-    alert.present();
-  }
-
-  inserirAssinatura(sessao){
+  inserirAssinatura(){
     this.navCtrl.push(IncluirAssinaturaPage, {
-      rootNavCtrl: this.navCtrl,
-      sessao: sessao
+      rootNavCtrl: this.navCtrl
     });
   }
 
-  evolucaoDiaria(sessao){
+  evolucaoDiaria(){
     this.navCtrl.push(EvolucaoDiariaPage, {
-      rootNavCtrl: this.navCtrl,
-      sessao: sessao
+      rootNavCtrl: this.navCtrl
     });
-  }
-
-  showAlertEncerrado(){
-    let alert = this.alertCtrl.create({
-      title: 'Sucesso!',
-      subTitle: 'Atendimento encerrado.',
-      buttons: ['Ok']
-    });
-    alert.present();
-    this.navCtrl.pop();
-  }
-
-  showAlert(){
-    let alert = this.alertCtrl.create({
-      title: 'Sucesso!',
-      subTitle: 'Atendimento alterado.',
-      buttons: ['Ok']
-    });
-    alert.present();
-    this.navCtrl.pop();
   }
 }

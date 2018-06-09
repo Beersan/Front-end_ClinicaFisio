@@ -25,6 +25,37 @@ export class ListarSemestrePage {
     this.listarSemestre();
   }
 
+  alterarStatus(idSemestre, tipo){
+    var descricao;
+    if(tipo == 0){
+      descricao = 'Desbloquear';
+    } else {
+      descricao = 'Bloquear';
+    }
+    let alert = this.alertCtrl.create({
+      title: 'Alteração!',
+      message: 'Deseja ' + descricao + ' esse semestre?',
+      buttons: [
+        {
+          text: 'Não',
+          role: 'cancel'
+        },
+        {
+          text: descricao,
+          handler: () => {
+            this.provider.alterarStatus({
+              idSemestre: idSemestre
+            }).then((result) => {
+              this.showAlertStatus();    
+              this.listarSemestre();
+            });    
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
+
   incluir(){
     this.navCtrl.push(CadastroSemestrePage, {
       rootNavCtrl: this.navCtrl
@@ -77,6 +108,15 @@ export class ListarSemestrePage {
     let alert = this.alertCtrl.create({
       title: 'Sucesso!',
       subTitle: 'Semestre excluído.',
+      buttons: ['Ok']
+    });
+    alert.present();
+  }
+
+  showAlertStatus() {
+    let alert = this.alertCtrl.create({
+      title: 'Sucesso!',
+      subTitle: 'Semestre alterado.',
       buttons: ['Ok']
     });
     alert.present();
