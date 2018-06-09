@@ -11,19 +11,19 @@ export class AgendaProvider {
 
   retornarprofessor(paciente){
     return new Promise((resolve, reject) => {
-      this.http.post('http://localhost:3000/agenda/listarprofessor', paciente).subscribe(response => {
+      this.http.post('https://backfisio.herokuapp.com/agenda/listarprofessor', paciente).subscribe(response => {
         resolve(response);
       });
     });
   }
   
   retornarPaciente(){
-    return this.http.get('http://localhost:3000/agenda/listarpaciente').toPromise();
+    return this.http.get('https://backfisio.herokuapp.com/agenda/listarpaciente').toPromise();
   }
   
   retornarDia(idprofessor){
     return new Promise((resolve, reject) => {
-      this.http.post('http://localhost:3000/agenda/listardia', idprofessor).subscribe(response => {
+      this.http.post('https://backfisio.herokuapp.com/agenda/listardia', idprofessor).subscribe(response => {
         resolve(response);
       });
     });
@@ -31,7 +31,7 @@ export class AgendaProvider {
   
   retornarHorario(dados){
     return new Promise((resolve, reject) => {
-      this.http.post('http://localhost:3000/agenda/listarhorario', dados).subscribe(response => {        
+      this.http.post('https://backfisio.herokuapp.com/agenda/listarhorario', dados).subscribe(response => {        
         resolve(response);
       });
     });
@@ -40,19 +40,19 @@ export class AgendaProvider {
   create(agenda: Agenda) {
     console.log(agenda);
     return new Promise((resolve, reject) => {
-      this.http.post('http://localhost:3000/agenda/cadastrar', agenda).subscribe(response => {
+      this.http.post('https://backfisio.herokuapp.com/agenda/cadastrar', agenda).subscribe(response => {
         resolve(response);
       });
     });
   }
 
   retornarAgenda(){
-    return this.http.get('http://localhost:3000/agenda/listar').toPromise();
+    return this.http.get('https://backfisio.herokuapp.com/agenda/listar').toPromise();
   }
 
   buscarSessoes(idagenda){
     return new Promise((resolve, reject) => {
-      this.http.post('http://localhost:3000/agenda/buscarsessoes', idagenda).subscribe(response => {        
+      this.http.post('https://backfisio.herokuapp.com/agenda/buscarsessoes', idagenda).subscribe(response => {        
         resolve(response);
       });
     });
@@ -60,7 +60,7 @@ export class AgendaProvider {
 
   gravarAssinatura(dados) {
     return new Promise((resolve, reject) => {
-      this.http.post('http://localhost:3000/agenda/gravarAssinatura', dados).subscribe(response => {
+      this.http.post('https://backfisio.herokuapp.com/agenda/gravarAssinatura', dados).subscribe(response => {
         resolve(response);
       });
     });
@@ -68,7 +68,7 @@ export class AgendaProvider {
 
   gravarEvolucao(dados) {
     return new Promise((resolve, reject) => {
-      this.http.post('http://localhost:3000/agenda/gravarEvolucao', dados).subscribe(response => {
+      this.http.post('https://backfisio.herokuapp.com/agenda/gravarEvolucao', dados).subscribe(response => {
         resolve(response);
       });
     });
@@ -76,7 +76,7 @@ export class AgendaProvider {
 
   excluirAtendimento(dados) {
     return new Promise((resolve, reject) => {
-      this.http.post('http://localhost:3000/agenda/excluir', dados).subscribe(response => {
+      this.http.post('https://backfisio.herokuapp.com/agenda/excluir', dados).subscribe(response => {
         resolve(response);
       });
     });
@@ -84,7 +84,7 @@ export class AgendaProvider {
 
   gravarStatus(dados) {
     return new Promise((resolve, reject) => {
-      this.http.post('http://localhost:3000/agenda/gravarStatus', dados).subscribe(response => {
+      this.http.post('https://backfisio.herokuapp.com/agenda/gravarStatus', dados).subscribe(response => {
         resolve(response);
       });
     });
@@ -92,7 +92,7 @@ export class AgendaProvider {
 
   enviarExames(idpaciente) {
     return new Promise((resolve, reject) => {
-      this.http.post('http://localhost:3000/agenda/enviarExamesPaciente', idpaciente).subscribe(response => {
+      this.http.post('https://backfisio.herokuapp.com/agenda/enviarExamesPaciente', idpaciente).subscribe(response => {
         resolve(response);
       });
     });
