@@ -30,4 +30,13 @@ export class AuthProvider {
     })
     return promise;    
   }
+
+  logout(){
+    var promise = new Promise((resolve, reject) => {          
+      this.afireauth.auth.signOut().then(res => {
+        resolve(true);
+      });
+    });
+    return promise;
+  }
 }

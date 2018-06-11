@@ -21,7 +21,7 @@ export class SemestreProvider {
       rota = "editar";
     }
     return new Promise((resolve, reject) => {
-      this.http.post('http://localhost:3000/semestre/' + rota, semestre).subscribe(response => {
+      this.http.post('https://backfisio.herokuapp.com/semestre/' + rota, semestre).subscribe(response => {
         resolve(response);
       });
     });
@@ -29,19 +29,19 @@ export class SemestreProvider {
 
   alterarStatus(idSemestre){
     return new Promise((resolve, reject) => {
-      this.http.post('http://localhost:3000/semestre/alterarstatus', idSemestre).subscribe(response => {
+      this.http.post('https://backfisio.herokuapp.com/semestre/alterarstatus', idSemestre).subscribe(response => {
         resolve(response);
       });
     });
   }
 
   retornarEstagiario(){    
-    return this.http.get('http://localhost:3000/semestre/listar').toPromise();
+    return this.http.get('https://backfisio.herokuapp.com/semestre/listar').toPromise();
   }
 
   excluirEstagiario(idSemestre){
     return new Promise((resolve, reject) => {
-      this.http.post('http://localhost:3000/semestre/excluir', idSemestre).subscribe(response => {
+      this.http.post('https://backfisio.herokuapp.com/semestre/excluir', idSemestre).subscribe(response => {
         resolve(response);
       });
     });

@@ -4,13 +4,6 @@ import { GrupoProvider } from '../../providers/grupo/grupo';
 import { CadastrarGrupoPage } from '../cadastrar-grupo/cadastrar-grupo';
 import { CadastrarGrupo } from '../../models/model.cadastrar-grupo';
 
-/**
- * Generated class for the ListarGrupoPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-listar-grupo',
@@ -37,7 +30,6 @@ export class ListarGrupoPage {
     if (!q) {
       return;
     }
-  console.log(this.grupos);
     this.grupos = this.grupos.filter((v) => {
       if(v.descricaogrupo && q) {
         if (v.descricaogrupo.toLowerCase().indexOf(q.toLowerCase()) > -1) {
@@ -45,11 +37,10 @@ export class ListarGrupoPage {
         }
           return false;
       }
-    });
-  
-    console.log(q, this.grupos.length);
-  
+    });  
+    console.log(q, this.grupos.length);  
   }
+  
   incluir(){
     this.navCtrl.push(CadastrarGrupoPage, {
       rootNavCtrl: this.navCtrl
@@ -61,7 +52,6 @@ export class ListarGrupoPage {
       data => {
         this.grupos = data;
         this.gruposSemFiltro = data;
-        console.log(this.grupos);
       }
     )
     .catch(error => alert(error));

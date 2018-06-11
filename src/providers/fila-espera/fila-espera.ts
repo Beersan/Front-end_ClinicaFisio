@@ -9,16 +9,16 @@ export class FilaEsperaProvider {
   ) {}
 
   retornarPacientesFila(){
-    return this.http.get('http://localhost:3000/filaEspera/listarPacientesFila').toPromise();
+    return this.http.get('https://backfisio.herokuapp.com/filaEspera/listarPacientesFila').toPromise();
   }
 
   retornarEstagiariosFila(){
-    return this.http.get('http://localhost:3000/filaEspera/listarEstagiariosFila').toPromise();
+    return this.http.get('https://backfisio.herokuapp.com/filaEspera/listarEstagiariosFila').toPromise();
   }
 
   retornarAnexosPaciente(paciente){
     return new Promise((resolve, reject) => {
-      this.http.post('http://localhost:3000/filaEspera/retornarArquivosPacientes', paciente).subscribe(response => {        
+      this.http.post('https://backfisio.herokuapp.com/filaEspera/retornarArquivosPacientes', paciente).subscribe(response => {        
         resolve(response);
       });
     });
@@ -26,7 +26,7 @@ export class FilaEsperaProvider {
 
   gravarAnexos(valores){
     return new Promise((resolve, reject) => {
-      this.http.post('http://localhost:3000/filaEspera/gravarAnexosPaciente', valores).subscribe(response => {
+      this.http.post('https://backfisio.herokuapp.com/filaEspera/gravarAnexosPaciente', valores).subscribe(response => {
         resolve(response);
       });
     });
@@ -34,7 +34,7 @@ export class FilaEsperaProvider {
 
   vincularPacienteEstagiario(valores){
     return new Promise((resolve, reject) => {
-      this.http.post('http://localhost:3000/filaEspera/vincularPacienteEstagiario', valores).subscribe(response => {
+      this.http.post('https://backfisio.herokuapp.com/filaEspera/vincularPacienteEstagiario', valores).subscribe(response => {
         resolve(response);
       });
     });

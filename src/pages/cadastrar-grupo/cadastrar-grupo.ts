@@ -13,61 +13,40 @@ import { HomePage } from '../home/home';
   templateUrl: 'cadastrar-grupo.html',
 })
 export class CadastrarGrupoPage {
-
-  cadastroGrupo: any= {};
+  cadastroGrupo: any = {};
   grupo: CadastrarGrupo;
   descricao: string;
   idGrupo = "";
-  semestre: any;
-  semestres: any;
 
-  constructor(public navCtrl: NavController, 
-              public navParams: NavParams,
-              private http: HttpClient,
-              public alertCtrl: AlertController,
-              private provider: GrupoProvider, 
-              private formBuilder:FormBuilder
-            ) {
-              if (this.navParams.data.grupo) {      
-                this.grupo = this.navParams.data.grupo;
-                console.log(this.grupo);
-                var text = JSON.stringify(this.grupo);
-                var obj = JSON.parse(text);
-                this.descricao = obj.descricaogrupo;
-                this.idGrupo = obj.idgrupo;
-                this.semestre = obj.idsemestre;
-              }
-              this.cadastroGrupo = formBuilder.group ({
-                descricao:['', Validators.required],
-                descSemestre:['', Validators.required]
-              })
-            } 
-
-  ionViewDidLoad() {
-    this.listarSemestre();
-  }
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    private http: HttpClient,
+    public alertCtrl: AlertController,
+    private provider: GrupoProvider, 
+    private formBuilder:FormBuilder
+  ) {
+    if (this.navParams.data.grupo) {      
+      this.grupo = this.navParams.data.grupo;
+      console.log(this.grupo);
+      var text = JSON.stringify(this.grupo);
+      var obj = JSON.parse(text);
+      this.descricao = obj.descricaogrupo;
+      this.idGrupo = obj.idgrupo;
+    }
+    this.cadastroGrupo = formBuilder.group ({
+      descricao:['', Validators.required]
+    })
+  } 
 
   cadastrarGrupo(){
-    //campos
     this.provider.create({
         descricao: this.descricao,
-        semestre: this.semestre,
         idGrupo: this.idGrupo
     }).then((result) =>{
       console.log(result);
       this.showAlert();
     });
-  }
-
-  listarSemestre(){
-    if(this.semestres == null){
-      this.provider.retornarSemestre().then(
-        data => {
-            this.semestres = data;
-          }
-        )
-        .catch(error => alert(error));
-    } 
   }
 
   showAlert() {

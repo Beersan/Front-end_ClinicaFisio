@@ -4,19 +4,12 @@ import { CadastrarGrupo } from '../../models/model.cadastrar-grupo';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
-/*
-  Generated class for the GrupoProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class GrupoProvider {
 
   descricaogrupo: any;
   
   constructor(public http: HttpClient) {
-    console.log('Hello GrupoProvider Provider');
   }
 
   create(grupo) {
@@ -24,10 +17,9 @@ export class GrupoProvider {
     if (grupo.idGrupo != ""){
       rota = "editar";
     }
-    console.log(grupo);
     return new Promise((resolve, reject) => {
       this.http.post('https://backfisio.herokuapp.com/grupo/' + rota, grupo).subscribe(response => {
-        resolve(response);
+        resolve(response); 
       });
     });
   }
@@ -43,9 +35,4 @@ export class GrupoProvider {
       });
     });
   }
-
-  retornarSemestre(){
-    return this.http.get('https://backfisio.herokuapp.com/grupo/listarsemestre').toPromise();
-  }
-
 }
