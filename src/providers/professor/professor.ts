@@ -24,35 +24,35 @@ export class ProfessorProvider {
       rota = "editar";
     } 
     return new Promise((resolve, reject) => {
-      this.http.post('https://backfisio.herokuapp.com/professor/' + rota, professor).subscribe(response => {
+      this.http.post('http://localhost:3000/professor/' + rota, professor).subscribe(response => {
         resolve(response);
       });
     });
   }
 
   retornarProfessor(){  
-    return this.http.get('https://backfisio.herokuapp.com/professor/listar').toPromise();
+    return this.http.get('http://localhost:3000/professor/listar').toPromise();
   }
 
   excluirProfessor(idProfessor){
     return new Promise((resolve, reject) => {
-      this.http.post('https://backfisio.herokuapp.com/professor/excluir', idProfessor).subscribe(response => {
+      this.http.post('http://localhost:3000/professor/excluir', idProfessor).subscribe(response => {
         resolve(response);
       });
     });
   }
 
   listarEspecialidade(){    
-    return this.http.get('https://backfisio.herokuapp.com/professor/listarEspecialidade').toPromise();
+    return this.http.get('http://localhost:3000/professor/listarEspecialidade').toPromise();
   }
 
   listarEstagio(){
-    return this.http.get('https://backfisio.herokuapp.com/professor/listarEstagio').toPromise();
+    return this.http.get('http://localhost:3000/professor/listarEstagio').toPromise();
   }
 
   listarAgenda(idProfessor){
     return new Promise((resolve, reject) => {
-      this.http.post('https://backfisio.herokuapp.com/professor/agenda', idProfessor).subscribe(response => {
+      this.http.post('http://localhost:3000/professor/agenda', idProfessor).subscribe(response => {
         resolve(response);
       });
     });
