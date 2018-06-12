@@ -35,14 +35,14 @@ export class AgendaProfessorProvider {
         rota = "editarAgenda";
       }
       return new Promise((resolve, reject) => {
-        this.http.post('https://localhost:3000/agendaProfessor/' + rota, agenda).subscribe(response => {
+        this.http.post('http://backfisio.herokuapp.com/agendaProfessor/' + rota, agenda).subscribe(response => {
           resolve(response);
         });
       });
     }
   listarAgenda(idprofessor){
     return new Promise((resolve, reject) => {
-      this.http.post('http://localhost:3000/agendaProfessor/listarAgenda', idprofessor).subscribe(response => {
+      this.http.post('http://backfisio.herokuapp.com/agendaProfessor/listarAgenda', idprofessor).subscribe(response => {
         resolve(response);
       });
     });

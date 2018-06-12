@@ -14,7 +14,7 @@ export class IncluirExamesTermosPage {
   arquivoSalvo: any = [];
   classeImagem: string = 'ocultar';
   classeConc: string = 'ocultar';
-  paciente: any;
+  dadosPaciente: any;
   fileDireitoImagem: any;
   linkAnexoImagem:any;
   linkAnexoConc:any;
@@ -25,16 +25,23 @@ export class IncluirExamesTermosPage {
     private alertCtrl: AlertController,
     private arquivos: ArquivosProvider
   ) {
-    if (this.navParams.data.idPaciente) {      
-      this.paciente = this.navParams.data.idPaciente;
+    if (this.navParams.data.paciente) {      
+      this.dadosPaciente = JSON.parse(JSON.stringify(this.navParams.data.paciente)); 
+      if (this.dadosPaciente.termoimagem != null && this.dadosPaciente.termoimagem != ""){
+        this.linkAnexoImagem = this.dadosPaciente.termoimagem;     
+        this.classeImagem = 'mostrar';            
+      }
+      if (this.dadosPaciente.termoconcordancia != null && this.dadosPaciente.termoconcordancia != ""){
+        this.linkAnexoConc = this.dadosPaciente.termoconcordancia;     
+        this.classeConc = 'mostrar';
+      }
     }
     this.listarAnexos();
   }
 
-  listarAnexos(){
-    console.log(this.paciente);    
+  listarAnexos(){    
     this.provider.retornarAnexosPaciente({
-        idpaciente: this.paciente
+        idpaciente: this.dadosPaciente.idpaciente
       }).then(
       data => {
         this.arquivoSalvo = data;
@@ -58,10 +65,12 @@ export class IncluirExamesTermosPage {
 
   gravarAnexos(){    
     this.provider.gravarAnexos({
+      anexoImagem: this.linkAnexoImagem,
+      anexoConc: this.linkAnexoConc,
       anexos: this.linkAnexos,
-      idpaciente: this.paciente
+      idpaciente: this.dadosPaciente.idpaciente
     }).then((result) => {
-      this.showAlert();    
+      this.showAlert();
     });  
   }
 
@@ -102,6 +111,11 @@ export class IncluirExamesTermosPage {
   }
 
   visualizar(valor) {
+    if (valor == 2){
+      valor = this.linkAnexoImagem;
+    } else if(valor == 3){
+      valor = this.linkAnexoConc;
+    }
     window.open(valor,'blank');
   }
 

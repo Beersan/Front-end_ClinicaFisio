@@ -19,8 +19,8 @@
     </ion-row>
     <ion-row *ngFor="let semestre of semestres">
         <ion-col>{{semestre.nomesemestre}}</ion-col>
-        <ion-col>{{semestre.datainiciosemestre | date: 'dd/MM/yyyy'}}</ion-col>
-        <ion-col>{{semestre.datafimsemestre | date: 'dd/MM/yyyy'}}</ion-col>
+        <ion-col>{{semestre.datainiciosemestre | date: 'dd/MM/yyyy':'+0300'}}</ion-col>
+        <ion-col>{{semestre.datafimsemestre | date: 'dd/MM/yyyy':'+0300'}}</ion-col>
         <ion-col class="iconeDireita">
             <ion-icon name="lock" title="Desbloquear" (click)="alterarStatus(semestre.idsemestre, 0)" *ngIf="semestre.ativo == 0"></ion-icon>
             <ion-icon name="unlock" title="Bloquear" (click)="alterarStatus(semestre.idsemestre, 1)" *ngIf="semestre.ativo == 1"></ion-icon>

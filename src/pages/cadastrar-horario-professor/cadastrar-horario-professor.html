@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Cadastrar Horário de Professores</ion-title>
+    <ion-title>Cadastrar horário de professor</ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content padding>
@@ -56,23 +56,29 @@
   </ion-row>
   </form>
   <ion-row *ngIf="horarios != ''">
-    <ion-col col-auto></ion-col>
     <ion-col><h6>Dia da Semana</h6></ion-col>
     <ion-col><h6>Hora Inicio</h6></ion-col>
     <ion-col><h6>Hora Fim</h6></ion-col>
     <ion-col><h6>Periodo</h6></ion-col>
+    <ion-col><h6></h6></ion-col>
   </ion-row>
   <ion-row *ngFor="let horario of horarios; let i=index" >
     <ion-col>{{horario[0]}}</ion-col>
     <ion-col>{{horario[1]}}</ion-col>
     <ion-col>{{horario[2]}}</ion-col>
     <ion-col>{{horario[3]}}</ion-col>   
-    <ion-col col-auto>
+    <ion-col>
       <ion-icon md="ios-trash" title="Remover" (click)="remover(i)"></ion-icon> 
     </ion-col>
   </ion-row>
-  <ion-row *ngIf="horarios != ''">
-  <button ion-button color="danger" (click)="cancelar()" menuToggle="left">Cancelar</button>
-  <button ion-button color="secondary" (click)="incluirHorario()">Confirmar</button>
-  </ion-row>
+  <ion-grid>
+    <ion-row *ngIf="horarios != ''">
+      <ion-col col-auto>
+        <button ion-button color="danger" (click)="cancelar()">Cancelar</button>        
+      </ion-col>
+      <ion-col col-auto>
+        <button ion-button color="secondary" (click)="incluirHorario()">Confirmar</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

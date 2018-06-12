@@ -94,12 +94,12 @@ export class ListarGrupoEstagiariosPage {
       inputs : itensSelect,
       buttons : [
       {
-          text: "Cancel", 
+          text: "Cancelar", 
           handler: data => {
           }
       },
       {
-          text: "Confirma",
+          text: "Alterar",
           handler: data => {
             this.provider.createAlterarEstagio({
               grupo: retornoid,

@@ -3,24 +3,24 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Incluir Exames e Termos</ion-title>
+    <ion-title>Incluir exames e termos</ion-title>
   </ion-navbar>
 </ion-header> 
 <ion-content>
   <ion-grid>
     <ion-row>
-      <h6>Termo de Direito de Imagem</h6>
+      <h6>Assinatura termo de direito de imagem</h6>
     </ion-row>
     <ion-row>
       <input type="file" [(ngModel)]="fileDireitoImagem" name="fileDireitoImagem" id="fileDireitoImagem" (change)="detectarArquivos($event,2)"/>
-      <ion-icon md="md-eye" title="visualizar"></ion-icon>
+      <ion-icon md="md-eye" [ngClass]="classeImagem" title="visualizar" (click)="visualizar(2)"></ion-icon>
     </ion-row>
     <ion-row>
-      <h6>Termo de Concordância</h6>
+      <h6>Assinatura termo de concordância</h6>
     </ion-row>
     <ion-row>
-      <input type="file" id="file_concordancia"/>
-      <ion-icon md="md-eye" title="visualizar"></ion-icon>
+      <input type="file" [(ngModel)]="fileConcordancia" name="fileConcordancia" id="fileConcordancia" (change)="detectarArquivos($event,3)" />
+      <ion-icon md="md-eye" [ngClass]="classeConc" title="visualizar" (click)="visualizar(3)"></ion-icon>
     </ion-row>
     <ion-row>
       <h6>Exames e anexos</h6>
@@ -29,7 +29,7 @@
       <input type="file" id="file" (change)="detectarArquivos($event,1)"/>
     </ion-row>
     <br />
-    <ion-row *ngFor="let anexo of linkAnexos; let i=index" >
+    <ion-row *ngFor="let anexo of linkAnexos; let i=index">
       <ion-col col-auto>
         <ion-icon md="ios-trash" title="Remover" (click)="removerAnexo(i)"></ion-icon>                    
         <ion-icon md="md-eye" title="visualizar" (click)="visualizar(anexo)"></ion-icon>            

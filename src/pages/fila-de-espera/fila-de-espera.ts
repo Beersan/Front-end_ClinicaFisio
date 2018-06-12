@@ -53,10 +53,10 @@ export class FilaDeEsperaPage {
     .catch(error => alert(error));
   }
 
-  adicionarAnexos(idPaciente){
+  adicionarAnexos(paciente){
     this.navCtrl.push(IncluirExamesTermosPage, {
       rootNavCtrl: this.navCtrl,
-      idPaciente: idPaciente
+      paciente: paciente
     });
   }
 

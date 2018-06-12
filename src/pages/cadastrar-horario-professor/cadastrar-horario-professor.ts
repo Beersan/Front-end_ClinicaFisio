@@ -162,12 +162,10 @@ export class CadastrarHorarioProfessorPage {
       buttons: ['Ok']
     });
     alert.present();
-    this.navCtrl.push(ListarProfessoresPage, {
-    });
+    this.navCtrl.pop();
   }
 
   cancelar(){
-    this.navCtrl.push(ListarProfessoresPage, {
-    });
+    this.navCtrl.pop();
   }
 }

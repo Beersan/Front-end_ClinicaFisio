@@ -25,7 +25,7 @@
         <ion-col>{{ agenda.descricaosemana }}</ion-col>
         <ion-col>{{ agenda.descricaohorainicio }}</ion-col>
         <ion-col>{{ agenda.numerosessoes }}</ion-col>
-        <ion-col>{{ agenda.datainicio | date: 'dd/MM/yyyy'}}</ion-col>
+        <ion-col>{{ agenda.datainicio | date: 'dd/MM/yyyy':'+0300'}}</ion-col>
         <ion-col class="iconeDireita">
             <ion-icon md="md-mail" title="Enviar exames" (click)="enviarExames(agenda.idpaciente, agenda.nomeestagiario)" *ngIf="agenda.exames == 1"></ion-icon>
             <ion-icon md="md-trash" title="Excluir" (click)="excluir(agenda.idagenda)" *ngIf="agenda.idstatus == 1"></ion-icon>

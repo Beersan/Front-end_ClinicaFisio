@@ -46,7 +46,7 @@ export class VincularPacienteEstagiarioPage {
   showAlert(){
     let alert = this.alertCtrl.create({
       title: 'Sucesso!',
-      subTitle: 'Paciente vinculado à estagiàrio.',
+      subTitle: 'Paciente vinculado à estagiário.',
       buttons: ['Ok']
     });
     alert.present();

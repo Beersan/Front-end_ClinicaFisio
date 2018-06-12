@@ -1,0 +1,14 @@
+{
+  "hosting": {
+    "public": "www",
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  },
+  "functions": {
+	  "source": "firebase/functions"
+	}
+}

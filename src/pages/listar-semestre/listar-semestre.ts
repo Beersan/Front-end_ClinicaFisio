@@ -130,8 +130,8 @@ export class ListarSemestrePage {
     }
   
     this.semestres = this.semestres.filter((v) => {
-      if(v.nomeestagiario && q) {
-        if (v.nomeestagiario.toLowerCase().indexOf(q.toLowerCase()) > -1) {
+      if(v.nomesemestre && q) {
+        if (v.nomesemestre.toLowerCase().indexOf(q.toLowerCase()) > -1) {
           return true;
         }
           return false;

@@ -19,7 +19,7 @@
       <ion-row *ngFor="let reserva of reservas">
           <ion-col>{{reserva.solicitante}}</ion-col>
           <ion-col>{{reserva.salareserva}}</ion-col>
-          <ion-col>{{reserva.datareserva | date: 'dd/MM/yyyy'}}</ion-col>
+          <ion-col>{{reserva.datareserva | date: 'dd/MM/yyyy':'+0300'}}</ion-col>
           <ion-col class="iconeDireita">
             <ion-icon ios="ios-create" md="md-create" title="Editar" (click)="editar(reserva)"></ion-icon>          
             <ion-icon ios="ios-trash" md="md-trash" title="Excluir" (click)="excluir(reserva.idreserva)"></ion-icon>

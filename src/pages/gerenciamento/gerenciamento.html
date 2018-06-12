@@ -31,10 +31,10 @@
     </ion-row>
     <ion-row *ngFor="let sessao of listaSessoes; let i=index">
       <ion-col width-25>{{i + 1}}</ion-col>
-      <ion-col width-25>{{sessao.datasessao | date: 'dd/MM/yyyy'}}</ion-col>
+      <ion-col width-25>{{sessao.datasessao | date: 'dd/MM/yyyy':'+0300'}}</ion-col>
       <ion-col width-25>
         <ion-icon ios="ios-create" md="ios-create" title="Inserir assinatura" (click)="inserirAssinatura(sessao)"></ion-icon>
-        <ion-icon md="md-eye" title="visualizar assinatura" (click)="visualizar()" *ngIf="sessao.presente == 'true'"></ion-icon>
+        <ion-icon md="md-eye" title="visualizar assinatura" (click)="visualizar(sessao.assinatura)" *ngIf="sessao.presente == 'true'"></ion-icon>
       </ion-col>
       <ion-col width-25>
         <ion-icon md="md-trending-up" title="Evolução Diária" (click)="evolucaoDiaria(sessao)"></ion-icon>          
@@ -42,6 +42,6 @@
     </ion-row>
   </ion-grid>
   <button type="button" ion-button color="danger" (click)="cancelar()">Voltar</button>
-  <button type="button" ion-button color="danger">Encerrar Atendimento</button>
+  <button type="button" ion-button color="danger" (click)="cancelarAtendimento()">Encerrar Atendimento</button>
   <button type="button" ion-button color="secondary" (click)="gravar()">Confirmar</button>
 </ion-content>

@@ -69,7 +69,7 @@ export class ListarEspecialidadePage {
   excluir(codigoEspecialidade){
     let alert = this.alertCtrl.create({
       title: 'Excluir!',
-      message: 'Deseja excluir esta especialidade?',
+      message: 'Deseja excluir esta subárea?',
       buttons: [
         {
           text: 'Não',
@@ -105,7 +105,7 @@ export class ListarEspecialidadePage {
   showAlert() {
     let alert = this.alertCtrl.create({
       title: 'Sucesso!',
-      subTitle: 'Especialidade excluída.',
+      subTitle: 'Subárea excluída.',
       buttons: ['Ok']
     });
     alert.present();
