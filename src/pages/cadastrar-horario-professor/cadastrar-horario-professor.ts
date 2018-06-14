@@ -51,7 +51,11 @@ export class CadastrarHorarioProfessorPage {
     this.professoresA = this.navParams.data.professor.idprofessor;
     this.nomeProfessor = this.navParams.data.professor.nomeprofessor;
     /*this.listarProfessor();*/
-    this.listarDiaSemana();    
+    this.listarDiaSemana();
+    this.listarHoraInicio();
+    this.listarHoraFim();
+    this.listarPeriodo();
+    this.listarAgenda();
     this.cadastroHorario = formBuilder.group({
       diaSemana:['', Validators.required],
       horaInicio:['', Validators.required],
@@ -67,7 +71,6 @@ export class CadastrarHorarioProfessorPage {
     this.provider.listarDiaSemana().then(
       data => {
         this.diaSemanas = data;
-        this.listarPeriodo();
       }
     )
     .catch(error => alert(error));
@@ -77,7 +80,6 @@ export class CadastrarHorarioProfessorPage {
     this.provider.listarHoraInicio().then(
       data => {
         this.horaInicioA = data;
-        this.listarHoraFim();        
       }
     )
   }
@@ -86,7 +88,6 @@ export class CadastrarHorarioProfessorPage {
     this.provider.listarHoraFim().then(
       data => {
         this.horaFimA = data;
-        this.listarAgenda();
       }
     )
   }
@@ -94,7 +95,6 @@ export class CadastrarHorarioProfessorPage {
   listarPeriodo(){
     this.provider.listarPeriodo().then(
       data => {
-        this.listarHoraInicio();        
         this.periodo = data;
       }
     )

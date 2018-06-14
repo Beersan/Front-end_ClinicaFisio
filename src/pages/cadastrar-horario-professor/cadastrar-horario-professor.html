@@ -19,7 +19,7 @@
     <ion-col width-25>
       <ion-item>
         <ion-label floating>Dia da Semana</ion-label>
-        <ion-select name="diaSemana" [(ngModel)]="diaSemana" formControlName="diaSemana">
+        <ion-select name="diaSemana" [(ngModel)]="diaSemana" formControlName="diaSemana" (ionChange)="listarHoraInicio()">
           <ion-option *ngFor="let diaSemana of diaSemanas" value="{{ diaSemana.descricaosemana }}">{{ diaSemana.descricaosemana }}</ion-option>
         </ion-select>
       </ion-item>
@@ -27,7 +27,7 @@
     <ion-col width-25>
       <ion-item>
         <ion-label floating>Hora Inicio</ion-label>
-        <ion-select name="horaInicio" [(ngModel)]="horaInicio" formControlName="horaInicio">
+        <ion-select name="horaInicio" [(ngModel)]="horaInicio" formControlName="horaInicio" (ionChange)="listarHoraFim()">
           <ion-option *ngFor="let horaInicio of horaInicioA" value="{{ horaInicio.descricaohorainicio }}">{{ horaInicio.descricaohorainicio }}</ion-option>
         </ion-select>
       </ion-item>
@@ -35,7 +35,7 @@
     <ion-col width-25>
       <ion-item>
         <ion-label floating>Hora Fim</ion-label>
-        <ion-select name="horaFim" [(ngModel)]="horaFim" formControlName="horaFim">
+        <ion-select name="horaFim" [(ngModel)]="horaFim" formControlName="horaFim" (ionChange)="listarPeriodo()"> 
           <ion-option *ngFor="let horaFim of horaFimA" value="{{ horaFim.descricaohorafim }}">{{ horaFim.descricaohorafim }}</ion-option>
         </ion-select>
       </ion-item>
