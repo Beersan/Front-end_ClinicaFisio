@@ -29,6 +29,12 @@ export class AgendaProfessorProvider {
     return this.http.get('https://backfisio.herokuapp.com/agendaProfessor/listarPeriodo').toPromise();
   }
 
+  // asdnaisdashdashdsiaudhaisudhaiusdasd
+  // asdasoidjoasidjasiodjsaiodjoisdaoisjdiao
+  // asdnaisdashdashdsiaudhaisudhaiusdasd
+  // asdasoidjoasidjasiodjsaiodjoisdaoisjdiao// asdnaisdashdashdsiaudhaisudhaiusdasd
+  // asdasoidjoasidjasiodjsaiodjoisdaoisjdiao// asdnaisdashdashdsiaudhaisudhaiusdasd
+  // asdasoidjoasidjasiodjsaiodjoisdaoisjdiao
   gravarAgenda(agenda){
     var rota = "inserirAgenda";
       if(agenda.idagendaprofessor != ""){

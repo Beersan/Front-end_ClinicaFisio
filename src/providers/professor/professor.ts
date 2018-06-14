@@ -49,10 +49,11 @@ export class ProfessorProvider {
   listarEstagio(){
     return this.http.get('https://backfisio.herokuapp.com/professor/listarEstagio').toPromise();
   }
-
+  // asdnaisdashdashdsiaudhaisudhaiusdasd
+  // asdasoidjoasidjasiodjsaiodjoisdaoisjdiao
   listarAgenda(idProfessor){
     return new Promise((resolve, reject) => {
-      this.http.post('http://backfisio.herokuapp.com/professor/agenda', idProfessor).subscribe(response => {
+      this.http.post('https://backfisio.herokuapp.com/professor/agenda', idProfessor).subscribe(response => {
         resolve(response);
       });
     });
