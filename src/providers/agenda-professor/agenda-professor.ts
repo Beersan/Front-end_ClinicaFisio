@@ -30,16 +30,12 @@ export class AgendaProfessorProvider {
   }
 
   gravarAgenda(agenda){
-    var rota = "inserirAgenda";
-      if(agenda.idagendaprofessor != ""){
-        rota = "editarAgenda";
-      }
-      return new Promise((resolve, reject) => {
-        this.http.post('https://backfisio.herokuapp.com/agendaProfessor/' + rota, agenda).subscribe(response => {
-          resolve(response);
-        });
-      });
-    }
+    return new Promise((resolve, reject) => {
+      this.http.post('https://backfisio.herokuapp.com/agendaProfessor/inserirAgenda', agenda).subscribe(response => {
+        resolve(response);
+       });
+    });
+  }
   listarAgenda(idprofessor){
     return new Promise((resolve, reject) => {
       this.http.post('https://backfisio.herokuapp.com/agendaProfessor/listarAgenda', idprofessor).subscribe(response => {
@@ -47,9 +43,4 @@ export class AgendaProfessorProvider {
       });
     });
   }
-
-  /*    var rota = "cadastrar";
-    if (professor.idProfessor != ""){
-      rota = "editar";
-    } */
 }
