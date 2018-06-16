@@ -86,14 +86,16 @@ export class GerenciamentoPage {
   inserirAssinatura(sessao){
     this.navCtrl.push(IncluirAssinaturaPage, {
       rootNavCtrl: this.navCtrl,
-      sessao: sessao
+      sessao: sessao,
+      status: this.status 
     });
   }
 
   evolucaoDiaria(sessao){
     this.navCtrl.push(EvolucaoDiariaPage, {
       rootNavCtrl: this.navCtrl,
-      sessao: sessao
+      sessao: sessao,
+      status: this.status 
     });
   }
 

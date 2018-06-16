@@ -17,5 +17,5 @@
     </ion-row>
   </ion-grid>
   <button type="button" (click)="cancelar()" ion-button color="danger">Cancelar</button>
-  <button type="submit" (click)="gravar()" ion-button color="secondary">Confirmar presença</button>
+  <button type="submit" (click)="gravar()" ion-button color="secondary"  *ngIf="this.status != 4">Confirmar presença</button>
 </ion-content>

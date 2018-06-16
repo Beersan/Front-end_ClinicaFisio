@@ -14,6 +14,7 @@ export class EvolucaoDiariaPage {
   dadosSessao:any;
   idgerenciaratendimento: any
   descricaoEvolucao: any;
+  status: any;
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
@@ -24,6 +25,7 @@ export class EvolucaoDiariaPage {
     if (this.navParams.data.sessao) {      
       this.dadosSessao = JSON.parse(JSON.stringify(this.navParams.data.sessao));            
       this.idgerenciaratendimento = this.dadosSessao.idgerenciaratendimento;
+      this.status = this.navParams.data.status;
       if(this.dadosSessao.evolucaodiaria != null && this.dadosSessao.evolucaodiaria != ""){
         this.descricaoEvolucao = this.dadosSessao.evolucaodiaria;
       }

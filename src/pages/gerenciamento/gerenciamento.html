@@ -10,7 +10,7 @@
   <ion-grid>
     <ion-row>
       <ion-col width-50>
-        <ion-item>
+        <ion-item *ngIf="this.status != 4">
           <ion-label floating>Status do atendimento</ion-label>
           <ion-select name="status" [(ngModel)]="status" type="text">
             <ion-option value="1">Em espera</ion-option>
@@ -42,6 +42,6 @@
     </ion-row>
   </ion-grid>
   <button type="button" ion-button color="danger" (click)="cancelar()">Voltar</button>
-  <button type="button" ion-button color="danger" (click)="cancelarAtendimento()">Encerrar Atendimento</button>
-  <button type="button" ion-button color="secondary" (click)="gravar()">Confirmar</button>
+  <button type="button" ion-button color="danger" (click)="cancelarAtendimento()" *ngIf="this.status != 4">Encerrar Atendimento</button>
+  <button type="button" ion-button color="secondary" (click)="gravar()" *ngIf="this.status != 4">Confirmar</button>
 </ion-content>
