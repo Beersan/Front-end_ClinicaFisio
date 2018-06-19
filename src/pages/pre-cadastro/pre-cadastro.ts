@@ -5,12 +5,15 @@ import { PreCadastro } from '../../models/model.pre-cadastro';
 import { PreCadastroProvider } from '../../providers/pre-cadastro/pre-cadastro';
 import { ArquivosProvider } from '../../providers/arquivos/arquivos';
 
-@IonicPage()
+@IonicPage({
+  segment: "preCadastro"  
+})
 @Component({
   selector: 'page-pre-cadastro',
   templateUrl: 'pre-cadastro.html',
 })
 export class PreCadastroPage {
+
   validarPreCadastro: any = {};
   nomePaciente: String;
   registroGeral: String;

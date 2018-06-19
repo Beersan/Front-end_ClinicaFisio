@@ -6,7 +6,9 @@ import { AlertController } from 'ionic-angular';
 import { RelatarProblema } from './../../models/model.relatar-problemas';
 import { HttpClient } from '@angular/common/http';
 
-@IonicPage()
+@IonicPage({
+  segment: "ouvidoria"
+})
 @Component({
   selector: 'page-relatar-problema',
   templateUrl: 'relatar-problema.html',

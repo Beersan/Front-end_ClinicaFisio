@@ -1,8 +1,5 @@
 <ion-header>
   <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
     <ion-title>Vincular paciente a estagiário</ion-title>
   </ion-navbar>
 </ion-header>
@@ -13,16 +10,12 @@
         <ion-col col-auto>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</ion-col>
         <ion-col><h6>Nome</h6></ion-col>
         <ion-col><h6>Grupo</h6></ion-col>
-        <ion-col><h6>Professor</h6></ion-col>
-        <ion-col><h6>Subárea</h6></ion-col>
       </ion-row>
       <ion-list radio-group [(ngModel)]="estagiario" name="estagiario">
         <ion-row *ngFor="let estagiario of estagiarios">
           <ion-col col-auto><ion-radio value="{{estagiario.idestagiario}}"></ion-radio></ion-col>
           <ion-col>{{estagiario.nomeestagiario}}</ion-col>
           <ion-col>{{estagiario.descricaogrupo}}</ion-col>
-          <ion-col>{{estagiario.nomeprofessor}}</ion-col>          
-          <ion-col>{{estagiario.descricaoespecialidade}}</ion-col>
         </ion-row>
       </ion-list>
     </ion-grid>

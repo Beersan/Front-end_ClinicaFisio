@@ -1,13 +1,8 @@
 <ion-header>
-
     <ion-navbar>
-      <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
-      </button>
       <ion-title>Ouvidoria</ion-title>
     </ion-navbar>
   </ion-header>
-  
   <ion-content padding>
     <form [formGroup]= "relatoProblema" (ngSubmit)="relatarProblema()" #f="ngForm" >
       <ion-grid>

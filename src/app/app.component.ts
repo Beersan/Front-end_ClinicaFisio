@@ -56,7 +56,7 @@ export class MyApp {
   @ViewChild(Nav) navCtrl: Nav;
 
   rootPage: any;
-
+	url: any;
   pages: Array<{title: string, component: any}>;
 
   // Get the instance to call the public methods
@@ -82,16 +82,26 @@ export class MyApp {
 	  private menuCtrl: MenuController,
 	  public afAuth: AngularFireAuth
 	) {
-	this.initializeApp();	
-	const authObserver = afAuth.authState.subscribe( user => {	
-	 	if (user) {
-	 	  this.rootPage = HomePage;
-	 	  authObserver.unsubscribe();
-		} else {
-		  this.rootPage = LoginPage;
-		  authObserver.unsubscribe();
+		this.initializeApp();	
+		this.url = window.location.href;
+		this.url = this.url.split("/#/")[1];
+		console.log(this.url);
+		if (this.url == 'preCadastro'){
+			this.rootPage = PreCadastroPage;			
+		}else if(this.url == 'ouvidoria'){
+			this.rootPage = RelatarProblemaPage;			
+		}else {
+			const authObserver = afAuth.authState.subscribe( user => {	
+				if (user) {
+					this.rootPage = HomePage;
+					authObserver.unsubscribe();
+				} else {
+					this.rootPage = LoginPage;
+					authObserver.unsubscribe();
+				}
+			});
+
 		}
-	});
   }
 
   initializeApp() {
