@@ -13,6 +13,7 @@ export class IncluirAssinaturaPage {
   idgerenciaratendimento: any;
   files: Array<any>;
   linkAnexo: any;
+  status: any;
   classeIcone: string = 'ocultar';
   constructor(
     public navCtrl: NavController, 
@@ -24,6 +25,7 @@ export class IncluirAssinaturaPage {
     if (this.navParams.data.sessao) {      
       this.dadosSessao = JSON.parse(JSON.stringify(this.navParams.data.sessao));            
       this.idgerenciaratendimento = this.dadosSessao.idgerenciaratendimento;
+      this.status = this.navParams.data.status;
       if(this.dadosSessao.assinatura != null && this.dadosSessao.assinatura != ""){
         this.linkAnexo = this.dadosSessao.assinatura;                
         this.classeIcone = 'mostrar';

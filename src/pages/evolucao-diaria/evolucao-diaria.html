@@ -15,5 +15,5 @@
     </ion-row>
   </form>
   <button type="button" (click)="cancelar()" ion-button color="danger">Cancelar</button>
-  <button type="submit" (click)="gravar()" [disabled]="!evolucaoDiaria.valid" ion-button color="secondary">Confirmar</button>
+  <button type="submit" (click)="gravar()" [disabled]="!evolucaoDiaria.valid" ion-button color="secondary" *ngIf="this.status != 4">Confirmar</button>
 </ion-content>

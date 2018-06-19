@@ -26,7 +26,7 @@
         <ion-col class="iconeDireita">
             <ion-icon md="md-mail" title="Enviar exames" (click)="enviarExames(agenda.idpaciente, agenda.nomeestagiario)" *ngIf="agenda.exames == 1"></ion-icon>
             <ion-icon md="md-trash" title="Excluir" (click)="excluir(agenda.idagenda)" *ngIf="agenda.idstatus == 1"></ion-icon>
-            <ion-icon ios="md-settings" md="md-settings" title="Gerenciar" (click)="gerenciar(agenda)" *ngIf="agenda.idstatus != 4"></ion-icon>
+            <ion-icon ios="md-settings" md="md-settings" title="Gerenciar" (click)="gerenciar(agenda)" ></ion-icon>
         </ion-col>
       </ion-row>
   </ion-grid>
