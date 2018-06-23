@@ -84,11 +84,10 @@ export class MyApp {
 	) {
 		this.initializeApp();	
 		this.url = window.location.href;
-		this.url = this.url.split("/#/")[1];
-		console.log(this.url);
+		this.url = this.url.split("/#/")[1];		
 		if (this.url == 'preCadastro'){
 			this.rootPage = PreCadastroPage;			
-		}else if(this.url == 'ouvidoria'){
+		}else if(this.url == 'ouvidoria'){			
 			this.rootPage = RelatarProblemaPage;			
 		}else {
 			const authObserver = afAuth.authState.subscribe( user => {	

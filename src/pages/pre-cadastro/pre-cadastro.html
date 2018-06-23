@@ -108,7 +108,7 @@
         </ion-col>
       </ion-row>
     </ion-grid>
-    <button type="button" ion-button color="danger" (click)="cancelar()">Cancelar</button>
+    <button type="button" *ngIf="acessoFora != 'S'" ion-button color="danger" (click)="cancelar()">Cancelar</button>
     <button type="submit" [disabled]="!validarPreCadastro.valid" ion-button color="secondary">Confirmar</button>
   </form>  
 </ion-content>

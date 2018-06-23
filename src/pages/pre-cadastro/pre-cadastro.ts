@@ -33,7 +33,8 @@ export class PreCadastroPage {
   linkAnexo:any = "";
   classeFile: string = 'ocultar';
   classeIcone: string = 'ocultar';
-
+  acessoFora: any = "N";
+  url: any;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -42,6 +43,11 @@ export class PreCadastroPage {
     private arquivos: ArquivosProvider,
     private formBuilder: FormBuilder
   ) {
+    this.url = window.location.href;
+		this.url = this.url.split("/#/")[1];
+    if (this.url != null && this.url != ""){
+      this.acessoFora = "S";
+    }
     this.listarEspecialidade();
     this.validarPreCadastro = formBuilder.group ({
       nomePaciente:['', Validators.required],
@@ -91,13 +97,21 @@ export class PreCadastroPage {
   }
   
   showAlert(){
+    var texto;
+    if (this.acessoFora != "S"){
+      texto = 'Pré cadastro realizado.';
+    } else {
+      texto = 'Pré cadastro realizado. Avaliaremos seu cadastro e lhe daremos um retorno em breve!';
+    }
     let alert = this.alertCtrl.create({
       title: 'Sucesso!',
-      subTitle: 'Pré cadastro realizado.',
+      subTitle: texto,
       buttons: ['Ok']
     });
     alert.present();
-    this.navCtrl.pop();
+    if (this.acessoFora != "S"){
+      this.navCtrl.pop();
+    } 
   }
 
   cancelar(){

@@ -20,7 +20,8 @@ export class RelatarProblemaPage {
   assuntoProblema: string;
   descricaoProblema: string;
   idProblema = "";
-
+  acessoFora: any = "N";
+  url: any;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -29,6 +30,11 @@ export class RelatarProblemaPage {
     public formBuilder: FormBuilder,
     public provider: RelatarProblemaProvider
   ) {
+    this.url = window.location.href;
+		this.url = this.url.split("/#/")[1];
+    if (this.url != null && this.url != ""){
+      this.acessoFora = "S";
+    }
     if (this.navParams.data.problema) {      
       this.problemas = this.navParams.data.problema;
       console.log(this.problemas);
@@ -57,7 +63,7 @@ export class RelatarProblemaPage {
   showAlert() {
     let alert = this.alertCtrl.create({
       title: 'Sucesso!',
-      subTitle: 'Reclamação enviada.',
+      subTitle: 'Dúvida/Reclamação enviada.',
       buttons: ['Ok']
     });
     alert.present();

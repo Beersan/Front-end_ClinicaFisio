@@ -23,7 +23,7 @@
           </ion-col>
         </ion-row>
       </ion-grid>
-      <button type="button" (click)="cancelar()" ion-button color="danger">Cancelar</button>
+      <button type="button" *ngIf="acessoFora != 'S'" (click)="cancelar()" ion-button color="danger">Cancelar</button>
       <button type="submit" [disabled]="!relatoProblema.valid" ion-button color="secondary">Confirmar</button>
     </form>
   </ion-content>
