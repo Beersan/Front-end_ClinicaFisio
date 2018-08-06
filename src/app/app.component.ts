@@ -192,12 +192,7 @@ export class MyApp {
 					iconName: 'clipboard',
 					displayText: 'Agenda',
 					component: ListarPacientesAgendadosPage
-				},
-				{
-					displayText: 'Imprimir cronograma',
-					iconName:'archive',
-					component: ImprimirCronogramaPage
-				}			
+				}
 			]
 		});
 
