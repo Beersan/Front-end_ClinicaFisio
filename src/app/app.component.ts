@@ -202,13 +202,6 @@ export class MyApp {
 			displayText: 'Reserva de salas',
 			component: ListarReservasPage
 		});
-
-		//MENU OUVIDORIA
-		this.options.push({
-			displayText: 'Ouvidoria',
-			iconName:'alert',
-			component: RelatarProblemaPage
-		});	
 	}
 
 	public onOptionSelected(option: SideMenuOption): void {
